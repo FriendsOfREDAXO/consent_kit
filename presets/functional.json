@@ -1,0 +1,423 @@
+{
+  "services": [
+    {
+      "key": "google_recaptcha",
+      "name": "Google reCAPTCHA",
+      "group": "functional",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Schutz von Formularen vor automatisierten Zugriffen durch eine Risikoanalyse. Beim Laden wird die IP-Adresse an Google übertragen, und es wird ein Cookie gesetzt.",
+        "en": "Protects forms against automated access by means of a risk analysis. Loading the service transfers the IP address to Google and a cookie is set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_GRECAPTCHA",
+          "host": "www.google.com",
+          "duration": {
+            "value": 179,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Wird bei der Ausführung von reCAPTCHA für die Risikoanalyse gesetzt.",
+            "en": "Set when reCAPTCHA is executed for the purpose of providing its risk analysis."
+          }
+        }
+      ],
+      "sources": [
+        "https://developers.google.com/recaptcha/docs/faq",
+        "https://docs.cloud.google.com/recaptcha/docs/faq",
+        "https://github.com/jkwakman/Open-Cookie-Database"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Google dokumentiert das Cookie _GRECAPTCHA, aber keine Laufzeit. Die 179 Tage stammen aus der Open Cookie Database.",
+        "en": "Google documents the _GRECAPTCHA cookie but no duration. The 179 days come from the Open Cookie Database."
+      }
+    },
+    {
+      "key": "hcaptcha",
+      "name": "hCaptcha",
+      "group": "functional",
+      "provider": "Intuition Machines, Inc., 1065 SW 8th St #704, Miami FL 33130, USA",
+      "privacy_url": "https://www.hcaptcha.com/privacy",
+      "description": {
+        "de": "Schutz von Formularen vor automatisierten Zugriffen. Beim Laden wird die IP-Adresse an den Anbieter übertragen, und es werden Cookies gesetzt.",
+        "en": "Protects forms against automated access. Loading the service transfers the IP address to the provider and cookies are set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "hmt_id",
+          "host": ".hcaptcha.com",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient anonymen, dienstbezogenen Statistiken und technischen Zwecken wie der Unterstützung der Barrierefreiheit.",
+            "en": "Used for anonymous service-related statistics and technical purposes such as accessibility support."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "hc_accessibility",
+          "host": ".hcaptcha.com",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Ermöglicht die Nutzung des Barrierefreiheitszugangs (Dauer variiert, höchstens 30 Tage).",
+            "en": "Enables accessibility user access (duration varies, up to 30 days)."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__cf_bm",
+          "host": ".hcaptcha.com",
+          "duration": {
+            "value": 1,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient Sicherheitsfunktionen (Dauer variiert, höchstens 1 Tag).",
+            "en": "Used for security features (duration varies, up to 1 day)."
+          }
+        }
+      ],
+      "sources": [
+        "https://www.hcaptcha.com/privacy"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "cloudflare_turnstile",
+      "name": "Cloudflare Turnstile",
+      "group": "functional",
+      "provider": "Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA",
+      "privacy_url": "https://www.cloudflare.com/privacypolicy/",
+      "description": {
+        "de": "Schutz von Formularen vor automatisierten Zugriffen. Beim Laden werden die IP-Adresse und weitere Browsersignale an Cloudflare übertragen; nur bei aktivierter Pre-Clearance wird zusätzlich das Cookie cf_clearance mit einer vom Betreiber konfigurierten Dauer gesetzt.",
+        "en": "Protects forms against automated access. Loading the service transfers the IP address and further browser signals to Cloudflare; only with pre-clearance enabled the cookie cf_clearance is additionally set with a duration configured by the site operator."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [],
+      "sources": [
+        "https://www.cloudflare.com/turnstile-privacy-policy/",
+        "https://developers.cloudflare.com/cloudflare-challenges/concepts/clearance/",
+        "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "friendly_captcha",
+      "name": "Friendly Captcha",
+      "group": "functional",
+      "provider": "Friendly Captcha GmbH, Am Anger 3-5, 82237 Wörthsee, Germany",
+      "privacy_url": "https://friendlycaptcha.com/legal/privacy-end-users/",
+      "description": {
+        "de": "Schutz von Formularen vor automatisierten Zugriffen durch eine im Browser gelöste Rechenaufgabe. Beim Laden wird die IP-Adresse an den Anbieter übertragen und dort laut Anbieter nur gehasht verarbeitet; es werden keine Cookies gesetzt.",
+        "en": "Protects forms against automated access by means of a puzzle solved in the browser. Loading the service transfers the IP address to the provider, which according to the provider is only processed in hashed form; no cookies are set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [],
+      "sources": [
+        "https://friendlycaptcha.com/legal/privacy-end-users/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "google_fonts",
+      "name": "Google Fonts",
+      "group": "functional",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Laden von Schriftarten von Servern von Google. Dabei werden die IP-Adresse, die angeforderte URL und Browserangaben an Google übertragen; Cookies werden laut Google nicht gesetzt.",
+        "en": "Loads fonts from Google servers. This transfers the IP address, the requested URL and browser details to Google; according to Google no cookies are set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [],
+      "sources": [
+        "https://fonts.google.com/faq"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "adobe_fonts",
+      "name": "Adobe Fonts",
+      "group": "functional",
+      "provider": "Adobe Systems Software Ireland Limited, 4-6 Riverwalk, Citywest Business Park, Dublin 24, Ireland",
+      "privacy_url": "https://www.adobe.com/privacy/policy.html",
+      "description": {
+        "de": "Laden von Schriftarten von Servern von Adobe. Dabei wird die IP-Adresse an Adobe übertragen; Cookies werden laut Adobe zur Bereitstellung der Schriften nicht gesetzt.",
+        "en": "Loads fonts from Adobe servers. This transfers the IP address to Adobe; according to Adobe no cookies are set in order to serve the fonts."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [],
+      "sources": [
+        "https://www.adobe.com/privacy/policies/adobe-fonts.html",
+        "https://www.adobe.com/privacy/policy.html"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "calendly",
+      "name": "Calendly",
+      "group": "functional",
+      "provider": "Calendly, LLC, 115 E Main St., Ste A1B, Buford, GA 30518, USA",
+      "privacy_url": "https://calendly.com/legal/privacy-notice",
+      "description": {
+        "de": "Einbettung der Terminbuchung von Calendly. Beim Laden wird die IP-Adresse an Calendly übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds Calendly appointment scheduling. Loading the content transfers the IP address to Calendly and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "calendly.com"
+      ],
+      "items": [],
+      "sources": [
+        "https://calendly.com/legal/privacy-notice",
+        "https://calendly.com/help/cookies-and-your-calendly-experience"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "userlike",
+      "name": "Userlike (Lime Connect)",
+      "group": "functional",
+      "provider": "Lime Connect (Userlike) GmbH, Kölnturm, Im Mediapark 8, 50670 Köln, Germany",
+      "privacy_url": "https://connect.lime-technologies.com/en/legal/privacy-policy/",
+      "description": {
+        "de": "Live-Chat auf der Website. Beim Laden des Chats wird die IP-Adresse an den Anbieter übertragen, und es werden ein Cookie sowie Einträge im lokalen Speicher angelegt.",
+        "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and a cookie as well as local storage entries are created."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "uslk_umm_*_s",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Speichert den Status des Messengers und Kennungen zur Wiedererkennung von Kontakten (Standarddauer, vom Betreiber anpassbar).",
+            "en": "Stores the messenger state and identifiers to recognise returning contacts (default duration, adjustable by the operator)."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "uslk_umm_*",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "persistent"
+          },
+          "purpose": {
+            "de": "Speichert den Status des Messengers sowie die Anzahl der Seitenaufrufe und Besuche.",
+            "en": "Stores the messenger state and the number of page impressions and visits."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "loglevel:userlike",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "persistent"
+          },
+          "purpose": {
+            "de": "Speichert das Log-Level der Anwendung.",
+            "en": "Stores the log level of the application."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "chakra-ui-color-mode",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "persistent"
+          },
+          "purpose": {
+            "de": "Speichert das gewählte Farbschema (hell oder dunkel).",
+            "en": "Stores the selected colour scheme (light or dark)."
+          }
+        }
+      ],
+      "sources": [
+        "https://faq.lime-connect.com/de/alle-dokumente/verwendet-lime-connect-cookies-und-falls-ja-wofur",
+        "https://connect.lime-technologies.com/en/blog/cookies-live-chat-gdpr/",
+        "https://docs.lime-connect.com/setup/widget-setup/widget-editor"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "tawk_to",
+      "name": "tawk.to",
+      "group": "functional",
+      "provider": "tawk.to inc.",
+      "privacy_url": "https://www.tawk.to/privacy-policy/",
+      "description": {
+        "de": "Live-Chat auf der Website. Beim Laden des Chats wird die IP-Adresse an den Anbieter übertragen, und es werden Cookies sowie Einträge im lokalen Speicher angelegt.",
+        "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and cookies as well as local storage entries are created."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "tawk_uuid_*",
+          "host": "",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Erkennt wiederkehrende Besucher anhand einer zufälligen Kennung.",
+            "en": "Recognises returning visitors by means of a random identifier."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "twk_idm_key",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Verwaltet die Verbindung des Besuchers und verhindert mehrfache Verbindungsanfragen.",
+            "en": "Manages the visitor connection and prevents multiple connection requests."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "TawkConnectionTime",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Synchronisiert das Widget über mehrere Browser-Tabs.",
+            "en": "Keeps the widget synchronised across several browser tabs."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "twk_token_*",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "persistent"
+          },
+          "purpose": {
+            "de": "Speichert ein Sitzungstoken, damit der Chat beim Seitenwechsel erhalten bleibt.",
+            "en": "Stores a session token so that the chat persists across page changes."
+          }
+        }
+      ],
+      "sources": [
+        "https://help.tawk.to/article/what-are-tawkto-cookies-and-what-do-they-do",
+        "https://www.tawk.to/privacy-policy/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "paypal",
+      "name": "PayPal Checkout",
+      "group": "functional",
+      "provider": "PayPal (Europe) S.à r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg",
+      "privacy_url": "https://www.paypal.com/de/legalhub/paypal/privacy-full",
+      "description": {
+        "de": "Bezahlfunktion über das JavaScript-SDK von PayPal. Beim Laden wird die IP-Adresse an PayPal übertragen, und es können Cookies gesetzt werden.",
+        "en": "Payment function via the PayPal JavaScript SDK. Loading the SDK transfers the IP address to PayPal and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "paypal.com"
+      ],
+      "items": [],
+      "sources": [
+        "https://developer.paypal.com/sdk/js/configuration/",
+        "https://www.paypal.com/de/legalhub/paypal/cookie-full",
+        "https://www.paypal.com/de/legalhub/paypal/privacy-full"
+      ],
+      "verified": "2026-09-21"
+    }
+  ]
+}

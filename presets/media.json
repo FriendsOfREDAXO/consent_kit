@@ -1,0 +1,661 @@
+{
+  "services": [
+    {
+      "key": "youtube",
+      "name": "YouTube",
+      "group": "media",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Einbettung von Videos der Plattform YouTube. Beim Laden des Videos wird die IP-Adresse an Google übertragen, und es können Cookies gesetzt werden; der erweiterte Datenschutzmodus (youtube-nocookie.com) verhindert laut Google lediglich die Personalisierung anhand der Wiedergabe.",
+        "en": "Embeds videos from the YouTube platform. Loading a video transfers the IP address to Google and cookies may be set; according to Google, privacy-enhanced mode (youtube-nocookie.com) only prevents personalisation based on the view."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "youtube.com",
+        "youtube-nocookie.com",
+        "youtu.be"
+      ],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "YSC",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Stellt sicher, dass Anfragen innerhalb einer Sitzung vom Nutzer und nicht von anderen Websites stammen.",
+            "en": "Ensures that requests within a browsing session are made by the user and not by other sites."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "VISITOR_INFO1_LIVE",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Ermöglicht personalisierte Empfehlungen und wird für Analysen und Werbung verwendet.",
+            "en": "Enables personalised recommendations and is used for analytics and advertising."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__Secure-YNID",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Nachfolger von VISITOR_INFO1_LIVE; speichert Einstellungen, dient der Fehlererkennung sowie Analysen und Werbung.",
+            "en": "Successor of VISITOR_INFO1_LIVE; stores preferences and is used to detect problems, for analytics and advertising."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__Secure-YEC",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Erkennt Spam, Betrug und Missbrauch.",
+            "en": "Detects spam, fraud and abuse."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__Secure-YENID",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Nachfolger von __Secure-YEC; erkennt Spam, Betrug und Missbrauch und wird für Analysen verwendet.",
+            "en": "Successor of __Secure-YEC; detects spam, fraud and abuse and is used for analytics."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "PREF",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 8,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Speichert Seitenkonfiguration und Wiedergabeeinstellungen wie Autoplay und Playergröße.",
+            "en": "Stores page configuration and playback preferences such as autoplay and player size."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__Secure-ROLLOUT_TOKEN",
+          "host": ".youtube.com",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Dient der Einführung neuer Funktionen und der Messung ihrer Auswirkungen.",
+            "en": "Used to launch new features and measure their impact."
+          }
+        }
+      ],
+      "sources": [
+        "https://policies.google.com/technologies/cookies",
+        "https://support.google.com/youtube/answer/171780"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "vimeo",
+      "name": "Vimeo",
+      "group": "media",
+      "provider": "Vimeo.com, Inc., 330 West 34th Street, 10th Floor, New York, New York 10001, USA",
+      "privacy_url": "https://vimeo.com/privacy",
+      "description": {
+        "de": "Einbettung von Videos der Plattform Vimeo. Beim Laden des Players wird die IP-Adresse an Vimeo übertragen, und es werden Cookies gesetzt.",
+        "en": "Embeds videos from the Vimeo platform. Loading the player transfers the IP address to Vimeo and cookies are set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "player.vimeo.com",
+        "vimeo.com"
+      ],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "vuid",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 2,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Von Vimeo erzeugte ID zur Erstellung von Statistiken für den Videoinhaber.",
+            "en": "Vimeo-generated ID used for generating analytics information for the video owner."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "player",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Speichert Einstellungen der Playersteuerung (Lautstärke, Qualität, Untertitel).",
+            "en": "Stores preferences for player controls (volume, stream quality, captions)."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "flags",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Legt vom Videoinhaber aktivierte Feature-Flags fest.",
+            "en": "Specifies feature flags enabled by the video owner."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "player_clearance",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 7,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der Abwehr von Bots.",
+            "en": "Used for bot prevention."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__cf_bm",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Cloudflare-Bot-Management: erkennt automatisierten Datenverkehr.",
+            "en": "Cloudflare bot management: identifies automated traffic."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_cfuvid",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Cloudflare-Cookie zur Durchsetzung von Rate-Limiting-Regeln.",
+            "en": "Cloudflare cookie used to enforce rate-limiting rules."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "cf_clearance",
+          "host": ".vimeo.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Cloudflare-Cookie zur Abwehr von Bots.",
+            "en": "Cloudflare cookie used for bot prevention."
+          }
+        }
+      ],
+      "sources": [
+        "https://help.vimeo.com/hc/en-us/articles/26080940921361-Vimeo-Player-Cookies",
+        "https://vimeo.com/cookie_policy",
+        "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "google_maps",
+      "name": "Google Maps",
+      "group": "media",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Einbettung interaktiver Karten von Google Maps. Beim Laden der Karte wird die IP-Adresse an Google übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds interactive maps from Google Maps. Loading the map transfers the IP address to Google and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "www.google.com",
+        "maps.google.com"
+      ],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "NID",
+          "host": ".google.com",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Speichert Einstellungen wie die Sprache und kann für Werbung bei nicht angemeldeten Nutzern verwendet werden.",
+            "en": "Stores preferences such as language and can be used to show ads to signed-out users."
+          }
+        }
+      ],
+      "sources": [
+        "https://policies.google.com/technologies/cookies",
+        "https://developers.google.com/maps/documentation/embed/get-started"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "openstreetmap",
+      "name": "OpenStreetMap",
+      "group": "media",
+      "provider": "OpenStreetMap Foundation, St John's Innovation Centre, Cowley Road, Cambridge CB4 0WS, United Kingdom",
+      "privacy_url": "https://osmfoundation.org/wiki/Privacy_Policy",
+      "description": {
+        "de": "Einbettung von Karten des Projekts OpenStreetMap. Beim Laden der Karte wird die IP-Adresse an die Server der OpenStreetMap Foundation übertragen.",
+        "en": "Embeds maps from the OpenStreetMap project. Loading the map transfers the IP address to the servers of the OpenStreetMap Foundation."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "openstreetmap.org"
+      ],
+      "items": [],
+      "sources": [
+        "https://osmfoundation.org/wiki/Privacy_Policy",
+        "https://osmfoundation.org/wiki/Contact"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "spotify",
+      "name": "Spotify",
+      "group": "media",
+      "provider": "Spotify AB, Regeringsgatan 19, 111 53 Stockholm, Sweden",
+      "privacy_url": "https://www.spotify.com/de-en/legal/privacy-policy/",
+      "description": {
+        "de": "Einbettung des Spotify-Players für Musik und Podcasts. Beim Laden des Players wird die IP-Adresse an Spotify übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds the Spotify player for music and podcasts. Loading the player transfers the IP address to Spotify and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "open.spotify.com"
+      ],
+      "items": [],
+      "sources": [
+        "https://www.spotify.com/us/legal/cookies-policy/",
+        "https://www.spotify.com/de-en/legal/privacy-policy/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "soundcloud",
+      "name": "SoundCloud",
+      "group": "media",
+      "provider": "SoundCloud Global Limited & Co. KG, Karl-Marx-Strasse 101, 12043 Berlin, Germany",
+      "privacy_url": "https://soundcloud.com/pages/privacy",
+      "description": {
+        "de": "Einbettung des SoundCloud-Players für Audioinhalte. Beim Laden des Players wird die IP-Adresse an SoundCloud übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds the SoundCloud player for audio content. Loading the player transfers the IP address to SoundCloud and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "w.soundcloud.com"
+      ],
+      "items": [],
+      "sources": [
+        "https://soundcloud.com/pages/cookies",
+        "https://soundcloud.com/pages/privacy",
+        "https://soundcloud.com/imprint"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "instagram",
+      "name": "Instagram",
+      "group": "media",
+      "provider": "Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland",
+      "privacy_url": "https://privacycenter.instagram.com/policy",
+      "description": {
+        "de": "Einbettung von Beiträgen der Plattform Instagram. Beim Laden der Inhalte wird die IP-Adresse an Meta übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds posts from the Instagram platform. Loading the content transfers the IP address to Meta and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "<script async src=\"https://www.instagram.com/embed.js\"></script>",
+      "js_default": "",
+      "js_accept": "if (window.instgrm && window.instgrm.Embeds) { window.instgrm.Embeds.process(); }",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "instagram.com"
+      ],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "datr",
+          "host": ".instagram.com",
+          "duration": {
+            "value": 400,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Eindeutige Browserkennung zum Schutz vor Betrug und zur Erkennung missbräuchlich genutzter Browser.",
+            "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors."
+          }
+        }
+      ],
+      "sources": [
+        "https://www.facebook.com/privacy/policies/cookies/",
+        "https://developers.facebook.com/docs/instagram-platform/oembed/"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Meta nennt für das Cookie datr 400 Tage für seine Produkte allgemein; für Einbettungen ist es nicht gesondert dokumentiert.",
+        "en": "Meta states 400 days for the datr cookie across its products in general; it is not documented separately for embeds."
+      }
+    },
+    {
+      "key": "facebook",
+      "name": "Facebook",
+      "group": "media",
+      "provider": "Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland",
+      "privacy_url": "https://www.facebook.com/privacy/policy/",
+      "description": {
+        "de": "Einbettung von Beiträgen, Videos und sozialen Plugins der Plattform Facebook. Beim Laden der Inhalte wird die IP-Adresse an Meta übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds posts, videos and social plugins from the Facebook platform. Loading the content transfers the IP address to Meta and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "facebook.com"
+      ],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "datr",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 400,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Eindeutige Browserkennung zum Schutz vor Betrug und zur Erkennung missbräuchlich genutzter Browser.",
+            "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "sb",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 400,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der sicheren Identifizierung des Browsers.",
+            "en": "Helps to identify the browser securely."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "fr",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der Auslieferung von Werbeanzeigen sowie der Messung und Verbesserung ihrer Relevanz.",
+            "en": "Used to deliver ads and to measure and improve their relevance."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "oo",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 400,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert die Entscheidung gegen Werbung auf Basis von Aktivitäten auf Websites Dritter.",
+            "en": "Stores the opt-out from ads based on activity on third-party websites."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "c_user",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Authentifiziert angemeldete Nutzer.",
+            "en": "Authenticates logged-in users."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "xs",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Authentifiziert angemeldete Nutzer.",
+            "en": "Authenticates logged-in users."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "wd",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 7,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der optimalen Darstellung für den Bildschirm des Geräts.",
+            "en": "Helps to provide an optimal experience for the device screen."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "dpr",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 7,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der optimalen Darstellung für den Bildschirm des Geräts.",
+            "en": "Helps to provide an optimal experience for the device screen."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "csrf",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Schützt vor Cross-Site-Request-Forgery-Angriffen.",
+            "en": "Protects against cross-site request forgery attacks."
+          }
+        }
+      ],
+      "sources": [
+        "https://www.facebook.com/privacy/policies/cookies/",
+        "https://www.facebook.com/privacy/policy/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "x_twitter",
+      "name": "X (Twitter)",
+      "group": "media",
+      "provider": "X Internet Unlimited Company, One Cumberland Place, Fenian Street, Dublin 2, D02 AX07, Ireland",
+      "privacy_url": "https://x.com/en/privacy",
+      "description": {
+        "de": "Einbettung von Beiträgen und Timelines der Plattform X (ehemals Twitter). Beim Laden der Inhalte werden die IP-Adresse, die besuchte Seite, Browserdaten und Cookie-Informationen an X übertragen.",
+        "en": "Embeds posts and timelines from the X platform (formerly Twitter). Loading the content transfers the IP address, the visited page, browser data and cookie information to X."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "<script>window.twttr = (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {}; if (d.getElementById(id)) return t; js = d.createElement(s); js.id = id; js.src = \"https://platform.x.com/widgets.js\"; fjs.parentNode.insertBefore(js, fjs); t._e = []; t.ready = function(f) { t._e.push(f); }; return t; }(document, \"script\", \"twitter-wjs\"));</script>",
+      "js_default": "",
+      "js_accept": "if (window.twttr && window.twttr.widgets) { window.twttr.widgets.load(); }",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "platform.twitter.com",
+        "twitter.com",
+        "x.com"
+      ],
+      "items": [],
+      "sources": [
+        "https://docs.x.com/x-for-websites/javascript-api/guides/set-up-x-for-websites",
+        "https://docs.x.com/x-for-websites/javascript-api/guides/scripting-loading-and-initialization",
+        "https://docs.x.com/x-for-websites/privacy",
+        "https://help.x.com/en/rules-and-policies/x-cookies"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "tiktok",
+      "name": "TikTok",
+      "group": "media",
+      "provider": "TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Ireland",
+      "privacy_url": "https://www.tiktok.com/legal/page/eea/privacy-policy/en",
+      "description": {
+        "de": "Einbettung von Videos der Plattform TikTok. Beim Laden der Inhalte wird die IP-Adresse an TikTok übertragen, und es können Cookies gesetzt werden.",
+        "en": "Embeds videos from the TikTok platform. Loading the content transfers the IP address to TikTok and cookies may be set."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "<script async src=\"https://www.tiktok.com/embed.js\"></script>",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "tiktok.com"
+      ],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "ttwid",
+          "host": ".tiktok.com",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Dient der Sicherheit sowie der Analyse und Optimierung der Website (laut TikTok 1 Jahr bzw. höchstens 13 Monate).",
+            "en": "Used for security as well as analytics and web optimisation (according to TikTok 1 year or a maximum of 13 months)."
+          }
+        }
+      ],
+      "sources": [
+        "https://www.tiktok.com/legal/page/global/tiktok-website-cookies-policy/en",
+        "https://developers.tiktok.com/doc/embed-videos/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "podigee",
+      "name": "Podigee Podcast Player",
+      "group": "media",
+      "provider": "Podigee GmbH, Revaler Str. 28, 10245 Berlin, Germany",
+      "privacy_url": "https://www.podigee.com/de/ueber-uns/datenschutz/",
+      "description": {
+        "de": "Einbettung des Podcast-Players von Podigee. Beim Laden des Players wird die IP-Adresse an Podigee übertragen.",
+        "en": "Embeds the Podigee podcast player. Loading the player transfers the IP address to Podigee."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "podigee.io",
+        "podigee-cdn.net"
+      ],
+      "items": [],
+      "sources": [
+        "https://hilfe.podigee.com/article/59-der-podigee-podcast-player",
+        "https://hilfe.podigee.com/article/204-web-player-simple-embed-code",
+        "https://github.com/podigee/podigee-podcast-player"
+      ],
+      "verified": "2026-09-21"
+    }
+  ]
+}

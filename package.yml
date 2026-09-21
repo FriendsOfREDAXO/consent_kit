@@ -1,0 +1,65 @@
+package: consent_kit
+version: '1.0.0-dev'
+author: 'KLXM Crossmedia GmbH'
+supportpage: https://github.com/KLXM/consent_kit/issues
+
+requires:
+    redaxo: ^5.18.0
+    php:
+        version: '>=8.2'
+
+page:
+    title: 'translate:consent_kit_title'
+    icon: rex-icon fa-shield
+    perm: consent_kit[]
+    subpages:
+        services:
+            title: 'translate:consent_kit_services'
+            icon: rex-icon fa-cubes
+        settings:
+            title: 'translate:consent_kit_settings'
+            icon: rex-icon fa-sliders
+            perm: consent_kit[settings]
+        design:
+            title: 'translate:consent_kit_design'
+            icon: rex-icon fa-paint-brush
+            perm: consent_kit[settings]
+        texts:
+            title: 'translate:consent_kit_texts'
+            icon: rex-icon fa-font
+        log:
+            title: 'translate:consent_kit_log'
+            icon: rex-icon fa-list-alt
+            perm: consent_kit[log]
+        tools:
+            title: 'translate:consent_kit_tools'
+            icon: rex-icon fa-wrench
+            perm: admin
+        help:
+            title: 'translate:consent_kit_help'
+            icon: rex-icon fa-book
+            itemClass: pull-right
+
+default_config:
+    auto_inject: true
+    layout: box
+    position: bottom-left
+    theme: light
+    trigger: true
+    trigger_position: bottom-left
+    consent_days: 365
+    log_days: 1095
+    gpc: reject
+    gcm: auto
+    gcm_ads_data_redaction: true
+    gcm_url_passthrough: false
+    gcm_wait_for_update: 500
+    reload_on_revoke: true
+    dismissible: true
+    block_embeds: false
+    revision_bump: 0
+    css_vars: []
+    texts: []
+
+console_commands:
+    consent_kit:log-purge: KLXM\ConsentKit\Command\LogPurge

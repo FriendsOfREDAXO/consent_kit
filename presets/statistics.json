@@ -1,0 +1,696 @@
+{
+  "services": [
+    {
+      "key": "google_analytics",
+      "name": "Google Analytics 4",
+      "group": "statistics",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Webanalysedienst von Google, der die Nutzung der Website misst und statistisch auswertet. Dabei werden Cookies gesetzt und Nutzungsdaten an Google übertragen.",
+        "en": "Web analytics service by Google that measures and statistically evaluates the use of the website. Cookies are set and usage data is transferred to Google."
+      },
+      "params": [
+        {
+          "key": "measurement_id",
+          "label": {
+            "de": "Mess-ID",
+            "en": "Measurement ID"
+          },
+          "placeholder": "G-XXXXXXXXXX",
+          "pattern": "^G-[A-Z0-9]+$"
+        }
+      ],
+      "html_head": "<script async src=\"https://www.googletagmanager.com/gtag/js?id={{measurement_id}}\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', '{{measurement_id}}');\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [
+        "analytics_storage"
+      ],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_ga",
+          "host": "",
+          "duration": {
+            "value": 2,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Dient der Unterscheidung von Nutzern.",
+            "en": "Used to distinguish users."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_ga_*",
+          "host": "",
+          "duration": {
+            "value": 2,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Dient der Beibehaltung des Sitzungsstatus.",
+            "en": "Used to persist session state."
+          }
+        }
+      ],
+      "sources": [
+        "https://support.google.com/analytics/answer/11397207",
+        "https://developers.google.com/tag-platform/gtagjs/install",
+        "https://business.safety.google/adscookies/",
+        "https://policies.google.com/privacy"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "matomo",
+      "name": "Matomo (selbst gehostet)",
+      "group": "statistics",
+      "provider": "",
+      "privacy_url": "",
+      "description": {
+        "de": "Webanalyse-Software, die vom Betreiber der Website selbst gehostet wird. Die Nutzungsdaten werden auf dem eigenen Server verarbeitet und nicht an den Hersteller übertragen.",
+        "en": "Web analytics software hosted by the website operator. Usage data is processed on the operator's own server and is not transferred to the vendor."
+      },
+      "params": [
+        {
+          "key": "matomo_url",
+          "label": {
+            "de": "Matomo-URL (mit abschließendem /)",
+            "en": "Matomo URL (with trailing slash)"
+          },
+          "placeholder": "https://matomo.example.com/",
+          "pattern": "^https?://.+/$"
+        },
+        {
+          "key": "site_id",
+          "label": {
+            "de": "Website-ID",
+            "en": "Site ID"
+          },
+          "placeholder": "1",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<!-- Matomo -->\n<script>\n  var _paq = window._paq = window._paq || [];\n  _paq.push(['trackPageView']);\n  _paq.push(['enableLinkTracking']);\n  (function() {\n    var u=\"{{matomo_url}}\";\n    _paq.push(['setTrackerUrl', u+'matomo.php']);\n    _paq.push(['setSiteId', '{{site_id}}']);\n    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);\n  })();\n</script>\n<!-- End Matomo Code -->",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_pk_id*",
+          "host": "",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Speichert eine eindeutige Besucher-ID.",
+            "en": "Stores a unique visitor ID."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_pk_ses*",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Speichert vorübergehend Daten zum aktuellen Besuch.",
+            "en": "Temporarily stores data for the visit."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_pk_ref*",
+          "host": "",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Speichert die Herkunft (Referrer), über die der Besucher auf die Website gelangt ist.",
+            "en": "Stores attribution information (the referrer that brought the visitor to the website)."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_pk_cvar*",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Speichert vorübergehend benutzerdefinierte Variablen zum Besuch.",
+            "en": "Temporarily stores custom variables for the visit."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_pk_hsr*",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Speichert vorübergehend Sitzungsdaten für Heatmaps und Sitzungsaufzeichnungen (nur bei aktivem Plugin).",
+            "en": "Temporarily stores heatmap and session recording data (only if the plugin is active)."
+          }
+        }
+      ],
+      "sources": [
+        "https://matomo.org/faq/general/faq_146/",
+        "https://developer.matomo.org/guides/tracking-javascript-guide"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "microsoft_clarity",
+      "name": "Microsoft Clarity",
+      "group": "statistics",
+      "provider": "Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ireland",
+      "privacy_url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+      "description": {
+        "de": "Analysedienst von Microsoft, der das Nutzungsverhalten mit Heatmaps und Sitzungsaufzeichnungen auswertet. Dabei werden Cookies gesetzt und Interaktionsdaten an Microsoft übertragen.",
+        "en": "Analytics service by Microsoft that evaluates user behaviour using heatmaps and session recordings. Cookies are set and interaction data is transferred to Microsoft."
+      },
+      "params": [
+        {
+          "key": "project_id",
+          "label": {
+            "de": "Projekt-ID",
+            "en": "Project ID"
+          },
+          "placeholder": "abcdefghij",
+          "pattern": "^[a-z0-9]+$"
+        }
+      ],
+      "html_head": "<script type=\"text/javascript\">\n    (function(c,l,a,r,i,t,y){\n        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};\n        t=l.createElement(r);t.async=1;t.src=\"https://www.clarity.ms/tag/\"+i;\n        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);\n    })(window, document, \"clarity\", \"script\", \"{{project_id}}\");\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "window.clarity('consentv2', { ad_Storage: \"denied\", analytics_Storage: \"granted\" });",
+      "js_revoke": "if (window.clarity) { window.clarity('consentv2', { ad_Storage: \"denied\", analytics_Storage: \"denied\" }); window.clarity('consent', false); }",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_clck",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Speichert die Clarity-Nutzer-ID und Einstellungen für diese Website.",
+            "en": "Persists the Clarity user ID and preferences, unique to that site."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_clsk",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Verbindet mehrere Seitenaufrufe eines Nutzers zu einer Sitzungsaufzeichnung.",
+            "en": "Connects multiple page views by a user into a single Clarity session recording."
+          }
+        },
+        {
+          "type": "session_storage",
+          "name": "_cltk",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Kennung des Browser-Tabs innerhalb einer Clarity-Sitzung.",
+            "en": "Identifier of the browser tab within a Clarity session."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "CLID",
+          "host": ".clarity.ms",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Kennzeichnet, wann Clarity diesen Nutzer erstmals auf einer Website mit Clarity gesehen hat.",
+            "en": "Identifies the first time Clarity saw this user on any site using Clarity."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "MUID",
+          "host": ".bing.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Identifiziert eindeutige Browser, die Microsoft-Websites besuchen; wird für Werbung, Website-Analyse und betriebliche Zwecke verwendet.",
+            "en": "Identifies unique web browsers visiting Microsoft sites; used for advertising, site analytics and other operational purposes."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "ANONCHK",
+          "host": ".microsoft.com",
+          "duration": {
+            "value": 10,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Zeigt an, ob die MUID an die Werbe-ID ANID übertragen wird; Clarity nutzt ANID nicht, der Wert ist daher immer 0.",
+            "en": "Indicates whether MUID is transferred to ANID, a cookie used for advertising; Clarity does not use ANID, so this is always 0."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "SM",
+          "host": ".clarity.ms",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Dient der Synchronisierung der MUID zwischen Microsoft-Domains.",
+            "en": "Used in synchronizing the MUID across Microsoft domains."
+          }
+        }
+      ],
+      "sources": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-consent-api-v2",
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/consent-management",
+        "https://github.com/microsoft/clarity/blob/master/packages/clarity-js/types/data.d.ts",
+        "https://github.com/microsoft/clarity/blob/master/packages/clarity-js/src/data/metadata.ts",
+        "https://clarity.microsoft.com/blog/microsoft-clarity-adds-support-for-custom-trusted-types-policies/",
+        "https://github.com/jkwakman/Open-Cookie-Database",
+        "https://www.microsoft.com/en-us/privacy/privacystatement"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Microsoft veröffentlicht keine Laufzeiten; sie stammen aus dem Quellcode von clarity-js bzw. aus der Open Cookie Database. Das Script bitte mit dem Code aus dem eigenen Clarity-Projekt vergleichen.",
+        "en": "Microsoft does not publish durations; they come from the clarity-js source code and the Open Cookie Database. Please compare the script with the code from your own Clarity project."
+      }
+    },
+    {
+      "key": "hotjar",
+      "name": "Hotjar",
+      "group": "statistics",
+      "provider": "Content Square SAS, 7 rue de Madrid, 75008 Paris, France",
+      "privacy_url": "https://contentsquare.com/privacy-center/services-privacy-policy/",
+      "description": {
+        "de": "Analysedienst (Contentsquare-Gruppe), der das Nutzungsverhalten mit Heatmaps, Sitzungsaufzeichnungen und Umfragen auswertet. Dabei werden Cookies sowie Einträge im Local und Session Storage gesetzt.",
+        "en": "Analytics service (Contentsquare group) that evaluates user behaviour using heatmaps, session recordings and surveys. Cookies as well as local and session storage entries are set."
+      },
+      "params": [
+        {
+          "key": "site_id",
+          "label": {
+            "de": "Hotjar-Site-ID",
+            "en": "Hotjar site ID"
+          },
+          "placeholder": "1234567",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:{{site_id}},hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_hjSessionUser_*",
+          "host": "",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert die Hotjar-Nutzer-ID, die nur für diese Website gilt, damit spätere Besuche demselben Nutzer zugeordnet werden.",
+            "en": "Persists the Hotjar user ID, unique to this site, so that subsequent visits are attributed to the same user."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjSession_*",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Enthält die Daten der aktuellen Sitzung; wird bei Aktivität verlängert.",
+            "en": "Holds current session data; extended on user activity."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjHasCachedUserAttributes",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Zeigt an, ob die im Local Storage abgelegten Nutzerattribute aktuell sind.",
+            "en": "Indicates whether the data in the _hjUserAttributes local storage item is up to date."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjUserAttributesHash",
+          "host": "",
+          "duration": {
+            "value": 2,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Erkennt, ob sich ein Nutzerattribut geändert hat und aktualisiert werden muss; wird alle 30 Sekunden verlängert.",
+            "en": "Detects when a user attribute has changed and needs to be updated; extended every 30 seconds."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "_hjUserAttributes",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "persistent"
+          },
+          "purpose": {
+            "de": "Speichert Nutzerattribute, die über die Hotjar Identify API gesendet wurden.",
+            "en": "Stores user attributes sent through the Hotjar Identify API."
+          }
+        },
+        {
+          "type": "session_storage",
+          "name": "hjViewportId",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Speichert Angaben zum Viewport wie Größe und Abmessungen.",
+            "en": "Stores user viewport details such as size and dimensions."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "hjActiveViewportIds",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Speichert die IDs aktiver Viewports; wird beim Schließen der Seite entfernt.",
+            "en": "Stores active viewport IDs; removed when the browser page is closed."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjCookieTest",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Prüft, ob Cookies verwendet werden können; wird sofort wieder gelöscht.",
+            "en": "Checks whether cookies can be used; deleted almost immediately."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjTLDTest",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Ermittelt den allgemeinsten Cookie-Pfad (Domain); wird nach der Prüfung entfernt.",
+            "en": "Determines the most generic cookie path (domain); removed after the check."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjClosedSurveyInvites",
+          "host": "",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Verhindert, dass eine bereits angezeigte Umfrage-Einladung erneut erscheint.",
+            "en": "Ensures the same survey invite does not reappear once it has been shown."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjDonePolls",
+          "host": "",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Verhindert, dass eine bereits ausgefüllte Umfrage erneut erscheint.",
+            "en": "Ensures a completed survey does not reappear."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_hjMinimizedPolls",
+          "host": "",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Sorgt dafür, dass eine minimierte Umfrage beim Seitenwechsel minimiert bleibt.",
+            "en": "Ensures a minimized survey stays minimized while navigating the site."
+          }
+        }
+      ],
+      "sources": [
+        "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+        "https://help.hotjar.com/hc/en-us/articles/36820044421393-What-is-the-Hotjar-Tracking-Code",
+        "https://contentsquare.com/contentsquare-group-list/",
+        "https://contentsquare.com/privacy-center/services-privacy-policy/"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen.",
+        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account."
+      }
+    },
+    {
+      "key": "etracker",
+      "name": "etracker analytics",
+      "group": "statistics",
+      "provider": "JustRelate Deutschland GmbH, Kitzingstraße 15, 12277 Berlin, Germany",
+      "privacy_url": "https://www.etracker.com/datenschutzerklaerung/",
+      "description": {
+        "de": "Webanalysedienst mit Datenverarbeitung in Deutschland. Der Tracking-Code wird mit blockierten Cookies eingebunden; erst nach Einwilligung werden die etracker-Cookies zur Wiedererkennung aktiviert.",
+        "en": "Web analytics service with data processing in Germany. The tracking code is embedded with cookies blocked; etracker cookies for visitor recognition are only activated after consent."
+      },
+      "params": [
+        {
+          "key": "secure_code",
+          "label": {
+            "de": "Account-Schlüssel (Secure Code)",
+            "en": "Account key (secure code)"
+          },
+          "placeholder": "XXXXXX",
+          "pattern": "^[A-Za-z0-9]+$"
+        }
+      ],
+      "html_head": "<!-- etracker code 6.0 -->\n<script type=\"text/javascript\">\n// var et_pagename = \"\";\n// var et_areas = \"\";\n</script>\n<script id=\"_etLoader\" type=\"text/javascript\" charset=\"UTF-8\" data-block-cookies=\"true\" data-secure-code=\"{{secure_code}}\" src=\"//code.etracker.com/code/e.js\" async></script>\n<!-- etracker code 6.0 end -->",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "var _etrackerOnReady = typeof _etrackerOnReady === 'undefined' ? [] : _etrackerOnReady;\n_etrackerOnReady.push(function(){ _etracker.enableCookies() });",
+      "js_revoke": "var _etrackerOnReady = typeof _etrackerOnReady === 'undefined' ? [] : _etrackerOnReady;\n_etrackerOnReady.push(function() { if(_etracker.areCookiesEnabled()) { _etracker.disableCookies(); } });",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_et_coid",
+          "host": "",
+          "duration": {
+            "value": 720,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Wiedererkennung des Nutzers (nur nach Einwilligung; Laufzeit konfigurierbar).",
+            "en": "User recognition (only after consent; lifetime configurable)."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "et_allow_cookies",
+          "host": "",
+          "duration": {
+            "value": 480,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Zeigt an, ob etracker Cookies setzen darf (gesetzt durch _etracker.enableCookies()).",
+            "en": "Indicates whether etracker is allowed to set cookies (set by _etracker.enableCookies())."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "et_oi_v2",
+          "host": "",
+          "duration": {
+            "value": 480,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert Widerspruch (Opt-out) bzw. Einwilligung (Opt-in); bei Widerspruch beträgt die Laufzeit 50 Jahre.",
+            "en": "Stores objection (opt-out) or consent (opt-in); in case of opt-out the lifetime is 50 years."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "isSdEnabled",
+          "host": "",
+          "duration": {
+            "value": 24,
+            "unit": "hours"
+          },
+          "purpose": {
+            "de": "Erkennt, ob die Scrolltiefe des Besuchers gemessen wird.",
+            "en": "Detects whether the visitor's scroll depth is measured."
+          }
+        },
+        {
+          "type": "session_storage",
+          "name": "et_scroll_depth",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Zwischenspeicher für die Messung der Scrolltiefe.",
+            "en": "Cache for scroll depth measurement."
+          }
+        },
+        {
+          "type": "session_storage",
+          "name": "et_cssSelectors",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Zwischenspeicher für konfigurierte CSS-Selektor-Ereignisse.",
+            "en": "Cache for the configured CSS selector events."
+          }
+        },
+        {
+          "type": "session_storage",
+          "name": "et_tagManagerEntries",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Zwischenspeicher für konfigurierte Tag-Manager-Einträge.",
+            "en": "Cache for the configured Tag Manager entries."
+          }
+        },
+        {
+          "type": "session_storage",
+          "name": "et_tagManagerVars",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Zwischenspeicher für konfigurierte Tag-Manager-Variablen.",
+            "en": "Cache for the configured Tag Manager variables."
+          }
+        }
+      ],
+      "sources": [
+        "https://help.etracker.com/en/article/cookies-used/",
+        "https://help.etracker.com/en/article/basic-integration/",
+        "https://help.etracker.com/en/article/consent-management-tools/",
+        "https://www.etracker.com/datenschutzerklaerung/",
+        "https://www.etracker.com/impressum/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "plausible",
+      "name": "Plausible Analytics",
+      "group": "statistics",
+      "provider": "Plausible Insights OÜ, Västriku tn 2, 50403 Tartu, Estonia",
+      "privacy_url": "https://plausible.io/privacy",
+      "description": {
+        "de": "Webanalysedienst mit Sitz in der EU, der Seitenaufrufe statistisch auswertet. Nach Angaben des Anbieters werden keine Cookies, kein Browser-Cache und kein Local Storage verwendet und keine dauerhaften Kennungen erzeugt.",
+        "en": "EU-based web analytics service that statistically evaluates page views. According to the provider it uses no cookies, browser cache or local storage and generates no persistent identifiers."
+      },
+      "params": [
+        {
+          "key": "script_id",
+          "label": {
+            "de": "Skript-ID aus dem Plausible-Snippet (pa-…)",
+            "en": "Script ID from the Plausible snippet (pa-…)"
+          },
+          "placeholder": "pa-XXXXX",
+          "pattern": "^pa-[A-Za-z0-9_-]+$"
+        }
+      ],
+      "html_head": "<script async src=\"https://plausible.io/js/{{script_id}}.js\"></script>\n<script>\n  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};\n  plausible.init()\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [],
+      "sources": [
+        "https://plausible.io/data-policy",
+        "https://plausible.io/docs/script-update-guide",
+        "https://plausible.io/docs/proxy/guides/cloudflare",
+        "https://plausible.io/privacy",
+        "https://plausible.io/imprint"
+      ],
+      "verified": "2026-09-21"
+    }
+  ]
+}

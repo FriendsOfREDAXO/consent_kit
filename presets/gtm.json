@@ -1,0 +1,204 @@
+{
+  "services": [
+    {
+      "key": "google_analytics_gtm",
+      "name": "Google Analytics 4 (über Tag Manager)",
+      "group": "statistics",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Webanalysedienst von Google, der die Nutzung der Website misst und statistisch auswertet. Dabei werden Cookies gesetzt und Nutzungsdaten an Google übertragen. Das Tag wird über den Google Tag Manager ausgespielt; die Einwilligung wird per Consent Mode an das Tag übermittelt.",
+        "en": "Web analytics service by Google that measures and statistically evaluates the use of the website. Cookies are set and usage data is transferred to Google. The tag is delivered via Google Tag Manager; consent is passed to the tag via Consent Mode."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [
+        "analytics_storage"
+      ],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_ga",
+          "host": "",
+          "duration": {
+            "value": 2,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Dient der Unterscheidung von Nutzern.",
+            "en": "Used to distinguish users."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_ga_*",
+          "host": "",
+          "duration": {
+            "value": 2,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Dient der Beibehaltung des Sitzungsstatus.",
+            "en": "Used to persist session state."
+          }
+        }
+      ],
+      "sources": [
+        "https://support.google.com/analytics/answer/11397207",
+        "https://developers.google.com/tag-platform/gtagjs/install",
+        "https://business.safety.google/adscookies/",
+        "https://policies.google.com/privacy"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Diese Vorlage lädt selbst nichts. Sie setzt voraus, dass das Tag im Google Tag Manager mit aktivierter Einwilligungsprüfung (Consent Mode) eingerichtet ist.",
+        "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled."
+      }
+    },
+    {
+      "key": "google_ads_gtm",
+      "name": "Google Ads (über Tag Manager)",
+      "group": "marketing",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Werbedienst von Google zur Messung von Conversions nach Anzeigenklicks und zur Bildung von Remarketing-Zielgruppen. Dabei werden Cookies gesetzt und Daten an Google übertragen. Das Tag wird über den Google Tag Manager ausgespielt; die Einwilligung wird per Consent Mode an das Tag übermittelt.",
+        "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google. The tag is delivered via Google Tag Manager; consent is passed to the tag via Consent Mode."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [
+        "ad_storage",
+        "ad_user_data",
+        "ad_personalization"
+      ],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_gcl_au",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_aw",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_gb",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_gs",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_ag",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gac_gb_*",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Von Google den Kategorien Analyse, Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
+            "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "Conversion",
+          "host": ".googleadservices.com",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Von Google den Kategorien Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
+            "en": "Cookie for Google Ads assigned by Google to the categories advertising and security."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "IDE",
+          "host": ".doubleclick.net",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Dient der Anzeige von Google-Werbung auf Websites außerhalb von Google; bei aktivierter Personalisierung auch zur Personalisierung von Anzeigen.",
+            "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads."
+          }
+        }
+      ],
+      "sources": [
+        "https://business.safety.google/adscookies/",
+        "https://policies.google.com/technologies/cookies",
+        "https://developers.google.com/tag-platform/gtagjs/install",
+        "https://policies.google.com/privacy"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Diese Vorlage lädt selbst nichts. Sie setzt voraus, dass das Tag im Google Tag Manager mit aktivierter Einwilligungsprüfung (Consent Mode) eingerichtet ist.",
+        "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled."
+      }
+    }
+  ]
+}

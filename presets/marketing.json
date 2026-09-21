@@ -1,0 +1,856 @@
+{
+  "services": [
+    {
+      "key": "google_tag_manager",
+      "name": "Google Tag Manager",
+      "group": "marketing",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Tag-Management-System von Google, über das weitere Skripte (Tags) geladen werden. Laut Google erfasst der Tag Manager selbst keine Informationen über Besucher; die darüber ausgelösten Tags benötigen jeweils eine eigene Einwilligungssteuerung.",
+        "en": "Tag management system by Google used to load further scripts (tags). According to Google, Tag Manager itself does not collect information about visitors; tags fired through it each need their own consent handling."
+      },
+      "params": [
+        {
+          "key": "container_id",
+          "label": {
+            "de": "Container-ID",
+            "en": "Container ID"
+          },
+          "placeholder": "GTM-XXXXXXX",
+          "pattern": "^GTM-[A-Z0-9]+$"
+        }
+      ],
+      "html_head": "<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','{{container_id}}');</script>\n<!-- End Google Tag Manager -->",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [],
+      "sources": [
+        "https://support.google.com/tagmanager/answer/14847097",
+        "https://support.google.com/tagmanager/answer/9323295",
+        "https://business.safety.google/adscookies/",
+        "https://policies.google.com/privacy"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "google_ads",
+      "name": "Google Ads (Conversion-Tracking und Remarketing)",
+      "group": "marketing",
+      "provider": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+      "privacy_url": "https://policies.google.com/privacy",
+      "description": {
+        "de": "Werbedienst von Google zur Messung von Conversions nach Anzeigenklicks und zur Bildung von Remarketing-Zielgruppen. Dabei werden Cookies gesetzt und Daten an Google übertragen.",
+        "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google."
+      },
+      "params": [
+        {
+          "key": "conversion_id",
+          "label": {
+            "de": "Conversion-ID",
+            "en": "Conversion ID"
+          },
+          "placeholder": "AW-XXXXXXXXXX",
+          "pattern": "^AW-[0-9]+$"
+        }
+      ],
+      "html_head": "<script async src=\"https://www.googletagmanager.com/gtag/js?id={{conversion_id}}\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', '{{conversion_id}}');\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [
+        "ad_storage",
+        "ad_user_data",
+        "ad_personalization"
+      ],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_gcl_au",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_aw",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_gb",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_gs",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gcl_ag",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_gac_gb_*",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Von Google den Kategorien Analyse, Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
+            "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "Conversion",
+          "host": ".googleadservices.com",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Von Google den Kategorien Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
+            "en": "Cookie for Google Ads assigned by Google to the categories advertising and security."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "IDE",
+          "host": ".doubleclick.net",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Dient der Anzeige von Google-Werbung auf Websites außerhalb von Google; bei aktivierter Personalisierung auch zur Personalisierung von Anzeigen.",
+            "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads."
+          }
+        }
+      ],
+      "sources": [
+        "https://business.safety.google/adscookies/",
+        "https://policies.google.com/technologies/cookies",
+        "https://developers.google.com/tag-platform/gtagjs/install",
+        "https://policies.google.com/privacy"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "meta_pixel",
+      "name": "Meta Pixel",
+      "group": "marketing",
+      "provider": "Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland",
+      "privacy_url": "https://www.facebook.com/privacy/policy/",
+      "description": {
+        "de": "Tracking-Pixel von Meta (Facebook, Instagram) zur Messung von Werbekampagnen und zur Bildung von Zielgruppen. Dabei werden Cookies gesetzt und Nutzungsdaten an Meta übertragen.",
+        "en": "Tracking pixel by Meta (Facebook, Instagram) for measuring advertising campaigns and building audiences. Cookies are set and usage data is transferred to Meta."
+      },
+      "params": [
+        {
+          "key": "pixel_id",
+          "label": {
+            "de": "Pixel-ID",
+            "en": "Pixel ID"
+          },
+          "placeholder": "123456789012345",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<!-- Meta Pixel Code -->\n<script>\n  !function(f,b,e,v,n,t,s)\n  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n  n.callMethod.apply(n,arguments):n.queue.push(arguments)};\n  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\n  n.queue=[];t=b.createElement(e);t.async=!0;\n  t.src=v;s=b.getElementsByTagName(e)[0];\n  s.parentNode.insertBefore(t,s)}(window, document,'script',\n  'https://connect.facebook.net/en_US/fbevents.js');\n  fbq('init', '{{pixel_id}}');\n  fbq('track', 'PageView');\n</script>\n<!-- End Meta Pixel Code -->",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "if (window.fbq) { fbq('consent', 'grant'); }",
+      "js_revoke": "if (window.fbq) { fbq('consent', 'revoke'); }",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_fbp",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Identifiziert Browser, um Analysedienste für Werbung und Websites bereitzustellen.",
+            "en": "Identifies browsers for the purposes of providing advertising and site analytics services."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_fbc",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert die Klick-ID (fbclid), wenn die Website über eine Meta-Anzeige aufgerufen wurde.",
+            "en": "Stores the click ID (fbclid) when the website was reached via a Meta ad."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "fr",
+          "host": ".facebook.com",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der Auslieferung von Werbeanzeigen sowie der Messung und Verbesserung ihrer Relevanz.",
+            "en": "Used to deliver ads and to measure and improve their relevance."
+          }
+        }
+      ],
+      "sources": [
+        "https://developers.facebook.com/docs/meta-pixel/get-started",
+        "https://developers.facebook.com/docs/meta-pixel/implementation/gdpr",
+        "https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc",
+        "https://www.facebook.com/privacy/policies/cookies/",
+        "https://www.facebook.com/privacy/policy/"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "linkedin_insight",
+      "name": "LinkedIn Insight Tag",
+      "group": "marketing",
+      "provider": "LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Ireland",
+      "privacy_url": "https://www.linkedin.com/legal/privacy-policy",
+      "description": {
+        "de": "Tracking-Tag von LinkedIn für Conversion-Messung, Retargeting und Website-Analysen zu LinkedIn-Kampagnen. Dabei werden Cookies gesetzt und Daten an LinkedIn übertragen.",
+        "en": "Tracking tag by LinkedIn for conversion tracking, retargeting and website analytics for LinkedIn campaigns. Cookies are set and data is transferred to LinkedIn."
+      },
+      "params": [
+        {
+          "key": "partner_id",
+          "label": {
+            "de": "Partner-ID",
+            "en": "Partner ID"
+          },
+          "placeholder": "1234567",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<script type=\"text/javascript\">\n_linkedin_partner_id = \"{{partner_id}}\";\nwindow._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];\nwindow._linkedin_data_partner_ids.push(_linkedin_partner_id);\n</script><script type=\"text/javascript\">\n(function(l) {\nif (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};\nwindow.lintrk.q=[]}\nvar s = document.getElementsByTagName(\"script\")[0];\nvar b = document.createElement(\"script\");\nb.type = \"text/javascript\";b.async = true;\nb.src = \"https://snap.licdn.com/li.lms-analytics/insight.min.js\";\ns.parentNode.insertBefore(b, s);})(window.lintrk);\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "li_fat_id",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Indirekte Mitgliederkennung für Conversion-Tracking, Retargeting und Analysen.",
+            "en": "Member indirect identifier for conversion tracking, retargeting and analytics."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "li_giant",
+          "host": "",
+          "duration": {
+            "value": 7,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Indirekte Kennung für Gruppen von LinkedIn-Mitgliedern für das Conversion-Tracking.",
+            "en": "Indirect identifier for groups of LinkedIn members used for conversion tracking."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "ln_or",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Ermittelt, ob Oribi-Analysen auf dieser Domain durchgeführt werden können.",
+            "en": "Used to determine if Oribi analytics can be carried out on a specific domain."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "bcookie",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Browser-Kennung zur eindeutigen Identifizierung von Geräten, zur Missbrauchserkennung und zu Diagnosezwecken.",
+            "en": "Browser identifier cookie to uniquely identify devices accessing LinkedIn, to detect abuse and for diagnostic purposes."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "lidc",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 24,
+            "unit": "hours"
+          },
+          "purpose": {
+            "de": "Erleichtert die Auswahl des Rechenzentrums.",
+            "en": "To facilitate data center selection."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "li_gc",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Speichert die Einwilligung von Gästen zur Verwendung nicht notwendiger Cookies.",
+            "en": "Used to store consent of guests regarding the use of cookies for non-essential purposes."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "UserMatchHistory",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Synchronisierung der LinkedIn-Ads-ID.",
+            "en": "LinkedIn Ads ID syncing."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "AnalyticsSyncHistory",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert den Zeitpunkt der letzten Synchronisierung mit dem Cookie lms_analytics.",
+            "en": "Used to store information about the time a sync took place with the lms_analytics cookie."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "lms_ads",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Identifiziert LinkedIn-Mitglieder außerhalb von LinkedIn für Werbezwecke.",
+            "en": "Used to identify LinkedIn members off LinkedIn for advertising."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "lms_analytics",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Identifiziert LinkedIn-Mitglieder außerhalb von LinkedIn für Analysezwecke.",
+            "en": "Used to identify LinkedIn members off LinkedIn for analytics."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "li_sugr",
+          "host": ".linkedin.com",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Dient der wahrscheinlichkeitsbasierten Zuordnung der Identität eines Nutzers.",
+            "en": "Used to make a probabilistic match of a user's identity."
+          }
+        }
+      ],
+      "sources": [
+        "https://www.linkedin.com/legal/l/cookie-table",
+        "https://learn.microsoft.com/en-us/linkedin/marketing/conversions/deduplication",
+        "https://www.linkedin.com/legal/privacy-policy",
+        "https://www.linkedin.com/legal/impressum"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "tiktok_pixel",
+      "name": "TikTok Pixel",
+      "group": "marketing",
+      "provider": "TikTok Technology Limited, 10 Earlsfort Terrace, Dublin, D02 T380, Ireland",
+      "privacy_url": "https://www.tiktok.com/legal/page/eea/privacy-policy/en",
+      "description": {
+        "de": "Tracking-Pixel von TikTok zur Messung und Optimierung von Werbekampagnen. Dabei werden Cookies gesetzt und Nutzungsdaten an TikTok übertragen.",
+        "en": "Tracking pixel by TikTok for measuring and optimizing advertising campaigns. Cookies are set and usage data is transferred to TikTok."
+      },
+      "params": [
+        {
+          "key": "pixel_id",
+          "label": {
+            "de": "Pixel-ID",
+            "en": "Pixel ID"
+          },
+          "placeholder": "CXXXXXXXXXXXXXXXXXXX",
+          "pattern": "^[A-Z0-9]+$"
+        }
+      ],
+      "html_head": "<script>\n!function (w, d, t) {\n  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\",\"holdConsent\",\"revokeConsent\",\"grantConsent\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r=\"https://analytics.tiktok.com/i18n/pixel/events.js\",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement(\"script\");n.type=\"text/javascript\",n.async=!0,n.src=r+\"?sdkid=\"+e+\"&lib=\"+t;e=document.getElementsByTagName(\"script\")[0];e.parentNode.insertBefore(n,e)};\n  ttq.load('{{pixel_id}}');\n  ttq.page();\n}(window, document, 'ttq');\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_ttp",
+          "host": "",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_ttp",
+          "host": ".tiktok.com",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "ttcsid*",
+          "host": "",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "ttclid",
+          "host": "",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_pangle",
+          "host": "analytics.pangle-ads.com",
+          "duration": {
+            "value": 13,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert Anzeigen im Werbenetzwerk TikTok Pangle.",
+            "en": "Measures and improves the performance of advertising campaigns and personalizes ad experiences delivered by the TikTok Pangle ad network."
+          }
+        }
+      ],
+      "sources": [
+        "https://ads.tiktok.com/help/article/using-cookies-with-tiktok-pixel",
+        "https://ads.tiktok.com/help/article/how-to-use-cookies-with-tiktok-pixel",
+        "https://www.tiktok.com/legal/page/eea/privacy-policy/en"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen.",
+        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account."
+      }
+    },
+    {
+      "key": "pinterest_tag",
+      "name": "Pinterest Tag",
+      "group": "marketing",
+      "provider": "Pinterest Europe Ltd., Waterloo Exchange, 3rd Floor, Waterloo Road, Dublin 4, Ireland",
+      "privacy_url": "https://policy.pinterest.com/en/privacy-policy",
+      "description": {
+        "de": "Tracking-Tag von Pinterest zur Messung von Conversions und zur Bildung von Zielgruppen für Pinterest-Anzeigen. Dabei werden Cookies gesetzt und Daten an Pinterest übertragen.",
+        "en": "Tracking tag by Pinterest for measuring conversions and building audiences for Pinterest ads. Cookies are set and data is transferred to Pinterest."
+      },
+      "params": [
+        {
+          "key": "tag_id",
+          "label": {
+            "de": "Tag-ID",
+            "en": "Tag ID"
+          },
+          "placeholder": "2612345678901",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<script type=\"text/javascript\">\n  !function(e){\n      if(!window.pintrk){\n          window.pintrk=function(){\n              window.pintrk.queue.push(Array.prototype.slice.call(arguments))\n          };\n          var n=window.pintrk;\n          n.queue=[],n.version=\"3.0\";\n          var t=document.createElement(\"script\");\n          t.async=!0,t.src=e;\n          var r=document.getElementsByTagName(\"script\")[0];\n          r.parentNode.insertBefore(t,r)\n      }\n  }(\"https://s.pinimg.com/ct/core.js\");\n  pintrk('load', '{{tag_id}}');\n  pintrk('page');\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_epik",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Wird beim Aufruf einer Seite über eine Pinterest-Anzeige gesetzt, um den Nutzer zuzuordnen.",
+            "en": "Placed by the JavaScript tag based on information sent from Pinterest with promoted traffic to help identify the user."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_derived_epik",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Wird vom Pinterest Tag gesetzt, wenn ohne vorhandene Cookies eine Zuordnung gelingt (z. B. Enhanced Match).",
+            "en": "Placed by the Pinterest tag when a match is identified when no cookies are present, such as enhanced match."
+          }
+        }
+      ],
+      "sources": [
+        "https://developers.pinterest.com/docs/track-conversions/pinterest-tag/",
+        "https://help.pinterest.com/en/business/article/pinterest-tag-parameters-and-cookies",
+        "https://github.com/jkwakman/Open-Cookie-Database",
+        "https://policy.pinterest.com/en/privacy-policy"
+      ],
+      "verified": "2026-09-21"
+    },
+    {
+      "key": "microsoft_uet",
+      "name": "Microsoft Advertising (UET)",
+      "group": "marketing",
+      "provider": "Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ireland",
+      "privacy_url": "https://www.microsoft.com/en-us/privacy/privacystatement",
+      "description": {
+        "de": "Universal Event Tracking von Microsoft Advertising zur Conversion-Messung und für Remarketing. Dabei werden Cookies gesetzt und Daten an Microsoft übertragen.",
+        "en": "Universal Event Tracking by Microsoft Advertising for conversion measurement and remarketing. Cookies are set and data is transferred to Microsoft."
+      },
+      "params": [
+        {
+          "key": "tag_id",
+          "label": {
+            "de": "UET-Tag-ID",
+            "en": "UET tag ID"
+          },
+          "placeholder": "12345678",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:\"{{tag_id}}\"};o.q=w[u],w[u]=new UET(o),w[u].push(\"pageLoad\")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!==\"loaded\"&&s!==\"complete\"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,\"script\",\"//bat.bing.com/bat.js\",\"uetq\");</script>",
+      "html_body": "",
+      "js_default": "window.uetq = window.uetq || [];\nwindow.uetq.push('consent', 'default', {\n    'ad_storage': 'denied'\n    });",
+      "js_accept": "window.uetq = window.uetq || [];\nwindow.uetq.push('consent', 'update', {\n    'ad_storage': 'granted'\n    });",
+      "js_revoke": "window.uetq = window.uetq || [];\nwindow.uetq.push('consent', 'update', {\n    'ad_storage': 'denied'\n    });",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_uetsid",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Enthält die Sitzungs-ID einer eindeutigen Sitzung auf der Website.",
+            "en": "Contains the session ID for a unique session on the site."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_uetvid",
+          "host": "",
+          "duration": {
+            "value": 390,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Eindeutige, pseudonymisierte Besucher-ID, die UET einem Besucher zuweist.",
+            "en": "Unique, pseudonymized visitor ID that UET assigns to a visitor."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_uetmsclkid",
+          "host": "",
+          "duration": {
+            "value": 90,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Microsoft-Klick-ID zur Verbesserung der Genauigkeit des Conversion-Trackings.",
+            "en": "Microsoft Click ID, used to improve the accuracy of conversion tracking."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "MUID",
+          "host": ".bing.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Microsoft-Cookie mit einer dem Browser zugewiesenen GUID; wird bei der Interaktion mit Microsoft-Diensten gesetzt, auch durch UET-Aufrufe.",
+            "en": "Microsoft cookie containing a GUID assigned to the browser; set when interacting with a Microsoft property, including a UET beacon call."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "MSPTC",
+          "host": ".bing.com",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Eindeutige, pseudonymisierte Besucher-ID als partitioniertes Cookie.",
+            "en": "Unique, pseudonymized visitor ID stored as a partitioned cookie."
+          }
+        }
+      ],
+      "sources": [
+        "https://help.ads.microsoft.com/#apex/ads/en/53056/2",
+        "https://help.ads.microsoft.com/#apex/ads/en/60119/1-500",
+        "https://bat.bing.com/bat.js",
+        "https://github.com/jkwakman/Open-Cookie-Database",
+        "https://www.microsoft.com/en-us/privacy/privacystatement"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Microsoft veröffentlicht keine Laufzeiten; sie stammen aus dem Quellcode von bat.js bzw. aus der Open Cookie Database.",
+        "en": "Microsoft does not publish durations; they come from the bat.js source code and the Open Cookie Database."
+      }
+    },
+    {
+      "key": "hubspot",
+      "name": "HubSpot Tracking-Code",
+      "group": "marketing",
+      "provider": "HubSpot Ireland Limited (postal contact: HubSpot, Inc., Attn: Privacy and Data Protection Officer, Two Canal Park, Cambridge, MA 02141, USA)",
+      "privacy_url": "https://legal.hubspot.com/privacy-policy",
+      "description": {
+        "de": "Tracking-Code der Marketing- und CRM-Plattform HubSpot, der Besuche auswertet und Besucher mit Kontakten (z. B. nach Formularübermittlung) verknüpft. Dabei werden Cookies gesetzt und Daten an HubSpot übertragen.",
+        "en": "Tracking code of the HubSpot marketing and CRM platform that analyses visits and links visitors to contacts (e.g. after a form submission). Cookies are set and data is transferred to HubSpot."
+      },
+      "params": [
+        {
+          "key": "hub_id",
+          "label": {
+            "de": "Hub-ID",
+            "en": "Hub ID"
+          },
+          "placeholder": "1234567",
+          "pattern": "^[0-9]+$"
+        }
+      ],
+      "html_head": "<script type=\"text/javascript\" id=\"hs-script-loader\" async defer src=\"//js.hs-scripts.com/{{hub_id}}.js\"></script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "var _hsp = window._hsp = window._hsp || [];\n_hsp.push(['revokeCookieConsent']);",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "__hstc",
+          "host": "",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Haupt-Cookie zur Besucherverfolgung; enthält Domain, hubspotutk, Zeitstempel und Sitzungsnummer.",
+            "en": "The main cookie for tracking visitors; contains the domain, hubspotutk, timestamps and session number."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "hubspotutk",
+          "host": "",
+          "duration": {
+            "value": 6,
+            "unit": "months"
+          },
+          "purpose": {
+            "de": "Speichert die Identität des Besuchers; wird bei Formularübermittlung an HubSpot übergeben und zur Deduplizierung von Kontakten genutzt.",
+            "en": "Keeps track of a visitor's identity; passed to HubSpot on form submission and used when deduplicating contacts."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__hssc",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Verfolgt Sitzungen und bestimmt, ob Sitzungsnummer und Zeitstempel im Cookie __hstc erhöht werden.",
+            "en": "Keeps track of sessions and determines whether the session number and timestamps in __hstc are incremented."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__hssrc",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Ermittelt, ob der Besucher den Browser neu gestartet hat.",
+            "en": "Determines if the visitor has restarted their browser."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__cf_bm",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Notwendiges Cookie des CDN-Anbieters von HubSpot zum Schutz vor Bots.",
+            "en": "Necessary cookie set by HubSpot's CDN provider for bot protection."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__cfruid",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Cookie des CDN-Anbieters von HubSpot zur Durchsetzung von Rate-Limiting-Regeln.",
+            "en": "Set by HubSpot's CDN provider because of their rate limiting policies."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__cfuvid",
+          "host": "",
+          "duration": {
+            "value": 0,
+            "unit": "session"
+          },
+          "purpose": {
+            "de": "Cookie des CDN-Anbieters von HubSpot zur Durchsetzung von Rate-Limiting-Regeln.",
+            "en": "Set by HubSpot's CDN provider because of their rate limiting policies."
+          }
+        }
+      ],
+      "sources": [
+        "https://knowledge.hubspot.com/privacy-and-consent/what-cookies-does-hubspot-set-in-a-visitor-s-browser",
+        "https://developers.hubspot.com/docs/api-reference/latest/account/settings/consent-banner/consent-banner-api",
+        "https://legal.hubspot.com/privacy-policy"
+      ],
+      "verified": "2026-09-21",
+      "note": {
+        "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen. EU-Konten nutzen ggf. einen anderen Script-Host (js-eu1).",
+        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account. EU accounts may use a different script host (js-eu1)."
+      }
+    }
+  ]
+}
