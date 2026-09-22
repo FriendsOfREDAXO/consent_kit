@@ -58,6 +58,7 @@ Für alles, was über Variablen hinausgeht:
 | `dialog` | Hinweis bzw. Einstellungen |
 | `button` | **jede** Schaltfläche |
 | `close` | das × zum Schließen ohne Entscheidung |
+| `withdraw` | Link „Einwilligung widerrufen“ im Einstellungen-Dialog |
 | `group` | Gruppe im Einstellungen-Dialog |
 | `service` | Dienst innerhalb einer Gruppe |
 | `trigger` | schwebende Schaltfläche |

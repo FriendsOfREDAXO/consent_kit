@@ -10,7 +10,7 @@ Wer sich auf eine Einwilligung beruft, muss sie nachweisen können (Art. 7 Abs. 
 | Zeitpunkt | Serverzeit |
 | Domain | Domain-Eintrag, unter dem entschieden wurde |
 | Stand | Verweis auf den Schnappschuss der Konfiguration |
-| Entscheidung | Alle akzeptiert · Alle abgelehnt · Auswahl · Abgelehnt per GPC · Über Platzhalter erlaubt |
+| Entscheidung | Alle akzeptiert · Alle abgelehnt · Auswahl · Abgelehnt per GPC · Über Platzhalter erlaubt · Widerrufen |
 | Dienste | akzeptierte und abgelehnte Schlüssel |
 | Signal | ob der Browser GPC gesendet hat |
 | Sprache | Sprache des Hinweises |
@@ -20,6 +20,10 @@ Wer sich auf eine Einwilligung beruft, muss sie nachweisen können (Art. 7 Abs. 
 ## Der Stand
 
 Jede einwilligungsrelevante Änderung (Dienst neu, entfernt, anderer Anbieter, andere Cookies) erzeugt einen neuen **Stand**. Ein Klick auf `#12` im Protokoll zeigt, was damals zur Auswahl stand: Gruppen, Dienste, Anbieter, Cookies mit Laufzeiten. Damit lässt sich belegen, *worin* jemand eingewilligt hat, auch wenn die Konfiguration längst anders aussieht.
+
+## Widerruf
+
+Im Einstellungen-Dialog steht unter der Einwilligungs-ID „Einwilligung widerrufen“. Das ist mehr als „Alle ablehnen“: Alle Dienste werden gestoppt, ihre Cookies gelöscht, der Consent-Cookie entfernt und ein Eintrag „Widerrufen“ mit der bisherigen ID protokolliert. Danach gilt „keine Entscheidung“ – die Seite lädt neu und der Hinweis erscheint wieder. Per JavaScript: `ConsentKit.withdraw()`.
 
 ## Auskunft und Nachweis im Einzelfall
 

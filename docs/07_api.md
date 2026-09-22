@@ -99,7 +99,8 @@ Cronjob-Typ: „Consent Kit: Protokoll bereinigen“.
 | `ConsentKit.accepted()` | `string[]` | Schlüssel aller akzeptierten optionalen Dienste |
 | `ConsentKit.open()` | – | Einstellungen öffnen |
 | `ConsentKit.onChange(fn)` | – | `fn({ accepted, rejected, action })` bei jeder Entscheidung |
-| `ConsentKit.reset()` | – | Cookie löschen und neu laden – praktisch beim Testen |
+| `ConsentKit.withdraw()` | – | Einwilligung widerrufen: Dienste stoppen, Cookie löschen, protokollieren, neu laden |
+| `ConsentKit.reset()` | – | Cookie löschen und neu laden, ohne Protokoll – praktisch beim Testen |
 
 Die Komponente ist ein ES-Modul und startet nach dem Parsen des Dokuments. Code, der früher läuft, wartet auf `consentkit:ready`:
 
@@ -117,7 +118,7 @@ document.addEventListener('consentkit:change', (event) => {
 | Ereignis (auf `document`) | `event.detail` |
 | --- | --- |
 | `consentkit:ready` | `{ accepted: [], rejected: [], action: null }` |
-| `consentkit:change` | wie oben, `action` ist `accept_all`, `reject_all`, `custom`, `gpc` oder `embed` |
+| `consentkit:change` | wie oben, `action` ist `accept_all`, `reject_all`, `custom`, `gpc`, `embed` oder `withdraw` |
 
 ### Elemente
 

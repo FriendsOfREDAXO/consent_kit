@@ -22,7 +22,7 @@ final class Save extends rex_api_function
 {
     protected $published = true;
 
-    private const ACTIONS = ['accept_all', 'reject_all', 'custom', 'gpc', 'embed'];
+    private const ACTIONS = ['accept_all', 'reject_all', 'custom', 'gpc', 'embed', 'withdraw'];
 
     public function execute(): rex_api_result
     {
@@ -63,6 +63,13 @@ final class Save extends rex_api_function
         }
 
         $previous = Consent::parseState(['id' => $payload['id'] ?? null]);
+        if ('withdraw' === $action) {
+            if (null === $previous) {
+                $this->fail(rex_response::HTTP_BAD_REQUEST, 'Nothing to withdraw');
+            }
+            $accepted = [];
+            $rejected = $optional;
+        }
         $state = [
             'id' => $previous['id'] ?? self::uuid(),
             'e' => (int) $config['epoch'],
@@ -93,6 +100,15 @@ final class Save extends rex_api_function
             'gpc' => !empty($payload['gpc']),
             'host' => Consent::domain()['host'],
         ]));
+
+        if ('withdraw' === $action) {
+            // Widerruf: keine Entscheidung mehr gespeichert, naechster Aufruf fragt neu.
+            rex_response::sendCookie(Consent::COOKIE, '', ['path' => '/', 'secure' => rex_request::isHttps(), 'httponly' => false, 'samesite' => 'Lax']);
+            rex_response::setStatus(rex_response::HTTP_OK);
+            rex_response::setHeader('Cache-Control', 'no-store');
+            rex_response::sendJson(['ok' => true, 'state' => null]);
+            exit;
+        }
 
         rex_response::sendCookie(Consent::COOKIE, (string) json_encode($state), [
             'expires' => time() + 86400 * (int) $config['days'],

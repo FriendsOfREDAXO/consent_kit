@@ -108,6 +108,33 @@ const core = {
         }
     },
 
+    /**
+     * Widerruf: alle Dienste stoppen, Cookie loeschen, protokollieren. Danach gilt
+     * "keine Entscheidung" – der Hinweis erscheint beim naechsten Aufruf erneut.
+     */
+    withdraw() {
+        const accepted = this.accepted();
+        const id = this.state?.id;
+        for (const key of accepted) {
+            const service = this.services.get(key);
+            run(service.jsRevoke, key + ' js_revoke');
+            clearItems(service);
+        }
+        this.state = null;
+        document.cookie = cfg.cookie + '=; Max-Age=0; Path=/';
+        try { sessionStorage.removeItem('consent_kit_dismissed'); } catch (e) { /* Storage gesperrt */ }
+        const request = cfg.preview || !id ? Promise.resolve() : fetch(cfg.endpoint, {
+            method: 'POST',
+            credentials: 'same-origin',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, action: 'withdraw', accepted: [], gpc: this.gpc, lang: cfg.lang }),
+        }).catch(() => null);
+        this.emit('change', 'withdraw');
+        if (cfg.preview) return;
+        Promise.race([request, new Promise((resolve) => setTimeout(resolve, 1500))]).then(() => location.reload());
+    },
+
     /** Laedt alles, wofuer eine Einwilligung vorliegt. Mehrfach aufrufbar. */
     apply() {
         // Ohne Entscheidung gelten die Defaults aus dem <head>; ein verfruehtes update wuerde wait_for_update beenden.
@@ -578,7 +605,8 @@ class ConsentKitElement extends HTMLElement {
         }).join('');
 
         const meta = core.state
-            ? `<p class="meta">${esc(fill(t.consent_info, { id: core.state.id, date: new Date(core.state.ts * 1000).toLocaleString(cfg.lang.replace('_', '-')) }))}</p>`
+            ? `<p class="meta">${esc(fill(t.consent_info, { id: core.state.id, date: new Date(core.state.ts * 1000).toLocaleString(cfg.lang.replace('_', '-')) }))}</p>
+               <p class="meta"><button type="button" class="more" part="withdraw" data-action="withdraw">${esc(t.withdraw)}</button></p>`
             : '';
         return `<div class="inner">
             <div class="head"><h2 id="ck-title" tabindex="-1">${esc(t.settings_title)}</h2>${this.closeHtml()}</div>
@@ -646,6 +674,7 @@ class ConsentKitElement extends HTMLElement {
         switch (button.dataset.action) {
             case 'settings': this.open('settings'); break;
             case 'close': this.dismiss(); break;
+            case 'withdraw': core.withdraw(); this.close(); break;
             case 'accept': this.finish(core.optional.map((s) => s.key), 'accept_all'); break;
             case 'reject': this.finish([], 'reject_all'); break;
             case 'save': this.finish([...this.selection], 'custom'); break;
@@ -721,6 +750,8 @@ const api = {
     accepted: () => core.accepted(),
     open: () => kit()?.open('settings'),
     /** Verwirft die Entscheidung und zeigt den Hinweis erneut. */
+    /** Einwilligung widerrufen (wie die Schaltflaeche im Dialog). */
+    withdraw: () => core.withdraw(),
     reset() {
         document.cookie = cfg.cookie + '=; Max-Age=0; Path=/';
         try { sessionStorage.removeItem('consent_kit_dismissed'); } catch (e) { /* Storage gesperrt */ }

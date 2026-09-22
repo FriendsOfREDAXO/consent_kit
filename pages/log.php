@@ -89,7 +89,7 @@ $cards = '';
 foreach ([
     [rex_i18n::msg('consent_kit_stat_total'), (string) $stats['total'], rex_i18n::msg('consent_kit_stat_total_hint')],
     [rex_i18n::msg('consent_kit_action_accept_all'), $percent($stats['actions']['accept_all']), (string) $stats['actions']['accept_all']],
-    [rex_i18n::msg('consent_kit_action_reject_all'), $percent($stats['actions']['reject_all'] + $stats['actions']['gpc']), (string) ($stats['actions']['reject_all'] + $stats['actions']['gpc'])],
+    [rex_i18n::msg('consent_kit_action_reject_all'), $percent($stats['actions']['reject_all'] + $stats['actions']['gpc'] + $stats['actions']['withdraw']), (string) ($stats['actions']['reject_all'] + $stats['actions']['gpc'] + $stats['actions']['withdraw'])],
     [rex_i18n::msg('consent_kit_action_custom'), $percent($stats['actions']['custom'] + $stats['actions']['embed']), (string) ($stats['actions']['custom'] + $stats['actions']['embed'])],
     [rex_i18n::msg('consent_kit_stat_gpc'), $percent($stats['gpc']), (string) $stats['gpc']],
 ] as [$label, $value, $hint]) {

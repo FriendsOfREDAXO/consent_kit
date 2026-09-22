@@ -407,3 +407,5 @@ consent_kit_translate_from = Translate from {0} (WriteAssist)
 consent_kit_translate_empty = The default-language field is empty.
 consent_kit_translate_overwrite = Replace the existing text with the translation?
 consent_kit_translate_done = Translated
+consent_kit_action_withdraw = Withdrawn
+consent_kit_text_withdraw = Button “Withdraw consent”

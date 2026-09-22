@@ -407,3 +407,5 @@ consent_kit_translate_from = Aus {0} übersetzen (WriteAssist)
 consent_kit_translate_empty = Das Feld der Standardsprache ist leer.
 consent_kit_translate_overwrite = Vorhandenen Text durch die Übersetzung ersetzen?
 consent_kit_translate_done = Übersetzt
+consent_kit_action_withdraw = Widerrufen
+consent_kit_text_withdraw = Schaltfläche „Einwilligung widerrufen“

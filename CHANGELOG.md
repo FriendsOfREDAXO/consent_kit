@@ -2,6 +2,7 @@
 
 ## 1.0.0-dev
 
+- „Einwilligung widerrufen“ im Einstellungen-Dialog (Cookie löschen, Dienste stoppen, Protokoll „Widerrufen“), `ConsentKit.withdraw()`.
 - Sprachfelder per WriteAssist aus der Standardsprache übersetzen (wenn installiert und konfiguriert).
 - `<oembed>`-Tags von CKEditor 5 und TinyMCE (YouTube, Vimeo, Hosts der Dienste) werden automatisch in gesperrte Platzhalter umgewandelt; `Consent::oembed()`, `Consent::head()`.
 - Schließen-Schaltfläche (×) und Escape: schließen ohne Entscheidung, für die Browser-Sitzung gemerkt; abschaltbar. Warnung, wenn eine Startseite als Datenschutzerklärung/Impressum gewählt ist. Einstellungen bleiben unangetastet, wenn ein veraltetes Formular gespeichert wird.

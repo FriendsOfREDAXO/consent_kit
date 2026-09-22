@@ -8,7 +8,7 @@ use rex_sql;
 
 final class Log
 {
-    public const ACTIONS = ['accept_all', 'reject_all', 'custom', 'gpc', 'embed'];
+    public const ACTIONS = ['accept_all', 'reject_all', 'custom', 'gpc', 'embed', 'withdraw'];
 
     /** Loescht Eintraege, die aelter als die Aufbewahrungsfrist sind. */
     public static function purge(?int $days = null): int
