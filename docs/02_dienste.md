@@ -25,7 +25,7 @@ Für alles ohne Vorlage. Die Reiter:
 | Cookies & Speicher | Was der Dienst im Browser ablegt: Art (Cookie, Local/Session Storage, IndexedDB), Name mit `*` als Platzhalter, Domain, Laufzeit, Zweck je Sprache |
 | Scripts | Code, der erst nach Einwilligung läuft (siehe unten) |
 | Varianten | Abweichungen je Domain oder Sprache |
-| Erweitert | Consent-Mode-Signale, Hosts für eingebettete Inhalte |
+| Erweitert | Consent-Mode-Signale; Domains, von denen der Dienst Inhalte einbettet (siehe unten) |
 
 Der **Schlüssel** ist der Name, unter dem Templates und Module den Dienst ansprechen (`Consent::has('…')`, `data-consent="…"`). Er sollte nach dem Livegang nicht mehr geändert werden.
 
@@ -42,6 +42,12 @@ Der **Schlüssel** ist der Name, unter dem Templates und Module den Dienst anspr
 Externe Scripts behalten ihre Reihenfolge, solange sie kein `async` tragen. Ein vorhandener CSP-Nonce wird übernommen.
 
 Beim Widerruf werden außerdem alle unter „Cookies & Speicher“ eingetragenen Cookies und Storage-Einträge gelöscht, soweit der Browser das zulässt (eigene Domain und deren Überdomains; Cookies fremder Domains sind für die Website nicht erreichbar).
+
+### Domains eingebetteter Inhalte
+
+Manche Dienste laufen nicht als Script, sondern als eingebetteter Inhalt: ein YouTube-Video, eine Google-Karte, ein Facebook-Post. Damit Consent Kit solche iframes und Editor-Einbettungen erkennt und diesem Dienst zuordnet, stehen unter **Erweitert** die Domains, von denen der Dienst einbettet – bei YouTube etwa `youtube.com` und `youtube-nocookie.com`, bei Facebook `facebook.com`. Subdomains zählen automatisch mit.
+
+Genutzt wird die Liste an drei Stellen: von der automatischen Umwandlung der `<oembed>`-Tags aus den Editoren, von „iframes bekannter Dienste automatisch sperren“ und bei `Consent::embed()` nur zur Anzeige des Namens. Die Vorlagen bringen die passenden Domains mit. Dienste, die nichts einbetten (Statistik, Pixel), lassen das Feld leer.
 
 ## Varianten je Domain oder Sprache
 

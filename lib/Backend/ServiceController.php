@@ -633,7 +633,7 @@ final class ServiceController
             $advanced .= Form::checkbox('service[gcm_signals][]', $signal, in_array($signal, $service['gcm_signals'], true), '', $signal);
         }
         $advanced .= '</div><p class="help-block">' . rex_i18n::msg('consent_kit_gcm_signals_help') . '</p></fieldset>'
-            . Form::textarea('service[embed_hosts]', rex_i18n::msg('consent_kit_embed_hosts'), implode("\n", $service['embed_hosts']), rex_i18n::rawMsg('consent_kit_embed_hosts_help'), ['rows' => 3, 'class' => 'ck-code', 'spellcheck' => 'false']);
+            . Form::textarea('service[embed_hosts]', rex_i18n::msg('consent_kit_embed_hosts'), implode("\n", $service['embed_hosts']), rex_i18n::rawMsg('consent_kit_embed_hosts_help'), ['rows' => 3, 'class' => 'ck-code', 'spellcheck' => 'false', 'placeholder' => "youtube.com\nyoutube-nocookie.com"]);
 
         $tabs = [
             'general' => [rex_i18n::msg('consent_kit_tab_general'), $general],
