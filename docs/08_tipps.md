@@ -4,7 +4,7 @@
 
 - **Von vorn beginnen:** in der Browser-Konsole `ConsentKit.reset()`. Alternativ ein privates Fenster.
 - **Was ist gerade erlaubt?** `ConsentKit.accepted()` – und `ConsentKit.has('matomo')` für einen einzelnen Dienst.
-- **Wurde wirklich nichts geladen?** Entwicklerwerkzeuge → Netzwerk, Seite ohne Entscheidung laden: Es dürfen nur Anfragen an die eigene Domain erscheinen. Danach **Werkzeuge → Cookie-Scanner**: Er zeigt Cookies und Storage-Einträge, die bei keinem Dienst dokumentiert sind.
+- **Wurde wirklich nichts geladen?** Entwicklerwerkzeuge → Netzwerk, Seite ohne Entscheidung laden: Es dürfen nur Anfragen an die eigene Domain erscheinen. Danach **Werkzeuge → Cookie-Scanner**: Er zeigt Cookies und Storage-Einträge, die bei keinem Dienst dokumentiert sind, dazu die tatsächliche Laufzeit aus dem Browser (Cookie Store API – Chrome, Edge, Safari ≥ 18.4, Firefox ≥ 132) neben der dokumentierten. Weicht beides um mehr als ein Viertel voneinander ab, wird die Zeile markiert.
 - **GPC ausprobieren:** Firefox → Einstellungen → Datenschutz → „Websites anweisen, meine Daten nicht zu verkaufen oder weiterzugeben“. In Chrome per Konsole vor dem Laden nicht simulierbar – Firefox oder Brave nehmen.
 - **Erneute Abfrage testen:** Bei einem Dienst einen Cookie-Eintrag ergänzen und speichern. Beim nächsten Seitenaufruf erscheint der Hinweis erneut; unter „Einstellungen“ sind die bisherigen Entscheidungen vorausgewählt, bereits erlaubte Dienste laufen bis zur neuen Entscheidung weiter.
 

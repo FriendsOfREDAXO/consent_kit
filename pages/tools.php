@@ -4,6 +4,7 @@ use KLXM\ConsentKit\Backend\BulkTranslator;
 use KLXM\ConsentKit\Backend\WriteAssist;
 use KLXM\ConsentKit\Catalog;
 use KLXM\ConsentKit\I18n;
+use KLXM\ConsentKit\Texts;
 use KLXM\ConsentKit\LegacyImporter;
 
 $csrf = rex_csrf_token::factory('consent_kit');
@@ -54,9 +55,15 @@ $section = static function (string $title, string $body): string {
 // Scanner
 $frontendUrl = rtrim(rex::getServer(), '/') . '/';
 $labels = [];
-foreach (['scan_known', 'scan_inactive', 'scan_unknown', 'scan_catalog', 'scan_none', 'scan_cross_origin', 'scan_failed', 'type_cookie', 'type_local_storage', 'type_session_storage', 'scan_col_name', 'scan_col_type', 'scan_col_result'] as $key) {
+foreach (['scan_known', 'scan_inactive', 'scan_unknown', 'scan_catalog', 'scan_none', 'scan_cross_origin', 'scan_failed', 'type_cookie', 'type_local_storage', 'type_session_storage', 'scan_col_name', 'scan_col_type', 'scan_col_duration', 'scan_col_result', 'scan_documented', 'scan_deviates', 'scan_no_duration'] as $key) {
     // Das Script escaped selbst, deshalb hier die rohen Texte.
     $labels[$key] = rex_i18n::rawMsg('consent_kit_' . $key);
+}
+// Laufzeiten mit Ein-/Mehrzahl aus den Frontend-Texten.
+foreach (Texts::all(rex_i18n::getLanguage()) as $key => $text) {
+    if (str_starts_with($key, 'duration_')) {
+        $labels[$key] = $text;
+    }
 }
 $scanner = '<p class="ck-panel-intro">' . rex_i18n::msg('consent_kit_scan_intro') . '</p>'
     . '<div class="ck-scan" data-ck-scan data-lookup="' . rex_url::backendController(['rex-api-call' => 'consent_kit_lookup']) . '" data-labels="' . rex_escape((string) json_encode($labels)) . '">'

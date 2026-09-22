@@ -421,3 +421,7 @@ consent_kit_bulk_help = Läuft serverseitig in einem Durchgang; bei vielen Diens
 consent_kit_bulk_done = Fertig: {0} Felder übersetzt, {1} bereits vorhanden, {2} fehlgeschlagen.
 consent_kit_key_unlock = Schlüssel ändern
 consent_kit_key_unlock_confirm = Den Schlüssel wirklich ändern? Templates und Module, die ihn verwenden, müssen angepasst werden, und alle Besucher werden zu diesem Dienst erneut gefragt. Im Protokoll bleibt der alte Schlüssel stehen.
+consent_kit_scan_col_duration = Laufzeit (Browser)
+consent_kit_scan_documented = Dokumentiert: {0}
+consent_kit_scan_deviates = Laufzeit weicht von der Dokumentation ab – bitte prüfen
+consent_kit_scan_no_duration = unbekannt (Browser ohne Cookie Store API)

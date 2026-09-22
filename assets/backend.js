@@ -307,7 +307,13 @@
             await new Promise((resolve) => setTimeout(resolve, 3000));
             const win = frame.contentWindow;
             const entries = [];
-            for (const name of win.document.cookie.split('; ').map((c) => c.split('=')[0]).filter(Boolean)) entries.push({ name: decodeURIComponent(name), type: 'cookie' });
+            // Die Cookie Store API kennt Ablaufdatum und Domain; document.cookie nur die Namen.
+            const store = win.cookieStore ? await win.cookieStore.getAll().catch(() => null) : null;
+            if (store) {
+                for (const c of store) entries.push({ name: c.name, type: 'cookie', days: c.expires ? (c.expires - Date.now()) / 864e5 : 0, host: c.domain || '' });
+            } else {
+                for (const name of win.document.cookie.split('; ').map((c) => c.split('=')[0]).filter(Boolean)) entries.push({ name: decodeURIComponent(name), type: 'cookie', days: null, host: '' });
+            }
             for (const name of Object.keys(win.localStorage)) entries.push({ name, type: 'local_storage' });
             for (const name of Object.keys(win.sessionStorage)) entries.push({ name, type: 'session_storage' });
 
@@ -322,12 +328,36 @@
                 result.innerHTML = '<div class="alert alert-info">' + esc(labels.scan_none) + '</div>';
                 return;
             }
+            const measured = new Map(entries.map((e) => [e.type + ':' + e.name, e]));
+            const formatDays = (days) => {
+                if (days === null || days === undefined) return labels.scan_no_duration;
+                if (days <= 0) return labels.duration_session;
+                const pick = (n, unit) => { const v = Math.round(n); return (v === 1 ? labels['duration_' + unit + '_one'] : labels['duration_' + unit]).replace('{n}', v); };
+                if (days < 1 / 12) return pick(days * 1440, 'minutes');
+                if (days < 2) return pick(days * 24, 'hours');
+                if (days < 60) return pick(days, 'days');
+                if (days < 350) return pick(days / 30.44, 'months');
+                return pick(days / 365.25, 'years');
+            };
             const rows = data.entries.map((entry) => {
                 let text;
                 let state;
+                const found = measured.get(entry.type + ':' + entry.name) || {};
+                let duration = entry.type === 'cookie' ? esc(formatDays(found.days)) : '–';
+                if (entry.type === 'cookie' && found.host) duration += '<br><span class="text-muted">' + esc(found.host) + '</span>';
                 if (entry.service) {
                     state = entry.active ? 'ok' : 'warn';
                     text = esc((entry.active ? labels.scan_known : labels.scan_inactive).replace('{0}', entry.service));
+                    if (entry.documented) {
+                        text += '<br><span class="text-muted">' + esc(labels.scan_documented.replace('{0}', entry.documented.text)) + '</span>';
+                        // Sitzung vs. Datum oder mehr als ein Viertel Unterschied: Dokumentation pruefen.
+                        const d = entry.documented.days;
+                        const m = found.days;
+                        if (m !== null && m !== undefined && ((d === null) !== (m <= 0) || (d !== null && m > 0 && Math.abs(m - d) / d > 0.25))) {
+                            state = 'warn';
+                            text += '<br><strong>' + esc(labels.scan_deviates) + '</strong>';
+                        }
+                    }
                 } else {
                     state = 'warn';
                     text = '<strong>' + esc(labels.scan_unknown) + '</strong>';
@@ -336,9 +366,9 @@
                             + '<br><span class="text-muted">' + esc(entry.catalog.description) + '</span>';
                     }
                 }
-                return '<tr class="ck-scan-' + state + '"><td><code>' + esc(entry.name) + '</code></td><td>' + esc(labels['type_' + entry.type]) + '</td><td>' + text + '</td></tr>';
+                return '<tr class="ck-scan-' + state + '"><td><code>' + esc(entry.name) + '</code></td><td>' + esc(labels['type_' + entry.type]) + '</td><td>' + duration + '</td><td>' + text + '</td></tr>';
             }).join('');
-            result.innerHTML = '<table class="table"><thead><tr><th>' + esc(labels.scan_col_name) + '</th><th>' + esc(labels.scan_col_type) + '</th><th>' + esc(labels.scan_col_result) + '</th></tr></thead><tbody>' + rows + '</tbody></table>';
+            result.innerHTML = '<table class="table"><thead><tr><th>' + esc(labels.scan_col_name) + '</th><th>' + esc(labels.scan_col_type) + '</th><th>' + esc(labels.scan_col_duration) + '</th><th>' + esc(labels.scan_col_result) + '</th></tr></thead><tbody>' + rows + '</tbody></table>';
         } catch (error) {
             result.innerHTML = '<div class="alert alert-danger">' + esc(labels.scan_failed) + '</div>';
         } finally {
