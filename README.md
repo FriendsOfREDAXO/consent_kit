@@ -35,7 +35,7 @@ Solange kein einwilligungspflichtiger Dienst aktiv ist, sehen Besucher keinen Hi
 
 ## Voraussetzungen
 
-REDAXO ≥ 5.18, PHP ≥ 8.2. YRewrite ist optional und liefert die Domains. Das Cronjob-AddOn ist optional und bereinigt das Protokoll.
+REDAXO ≥ 5.18, PHP ≥ 8.2. Optional: YRewrite liefert die Domains, das Cronjob-AddOn bereinigt das Protokoll, WriteAssist übersetzt Sprachfelder per Klick.
 
 ## Hinweis
 

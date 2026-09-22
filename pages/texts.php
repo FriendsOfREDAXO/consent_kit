@@ -1,5 +1,6 @@
 <?php
 
+use KLXM\ConsentKit\Backend\WriteAssist;
 use KLXM\ConsentKit\Cache;
 use KLXM\ConsentKit\I18n;
 use KLXM\ConsentKit\Texts;
@@ -43,6 +44,8 @@ if ('post' === rex_request::requestMethod()) {
 
 $defaults = Texts::defaultsFor($current);
 $overrides = (array) (((array) $addon->getConfig('texts', []))[$current] ?? []);
+$defaultCode = (string) array_key_first($languages);
+$defaultOverrides = (array) (((array) $addon->getConfig('texts', []))[$defaultCode] ?? []);
 
 $tabs = '';
 foreach ($languages as $code => $name) {
@@ -63,7 +66,12 @@ foreach ($sections as $section => $keys) {
         $control = $long
             ? '<textarea class="form-control" rows="3" id="' . $id . '" name="texts[' . $key . ']" placeholder="' . rex_escape($default) . '" lang="' . rex_escape(substr($current, 0, 2)) . '">' . rex_escape($value) . '</textarea>'
             : '<input type="text" class="form-control" id="' . $id . '" name="texts[' . $key . ']" value="' . rex_escape($value) . '" placeholder="' . rex_escape($default) . '" lang="' . rex_escape(substr($current, 0, 2)) . '">';
-        $body .= '<div class="ck-text-row"><label for="' . $id . '">' . rex_i18n::msg('consent_kit_text_' . $key) . ' <code>' . $key . '</code></label>' . $control . '</div>';
+        $translate = '';
+        if ($current !== $defaultCode) {
+            $sourceText = (string) ($defaultOverrides[$key] ?? Texts::defaultsFor($defaultCode)[$key] ?? '');
+            $translate = WriteAssist::button($id, $current, $defaultCode, null, $sourceText);
+        }
+        $body .= '<div class="ck-text-row"><label for="' . $id . '">' . rex_i18n::msg('consent_kit_text_' . $key) . ' <code>' . $key . '</code></label><div class="ck-text-control">' . $control . $translate . '</div></div>';
     }
     $body .= '</fieldset>';
 }
@@ -72,6 +80,6 @@ echo $message;
 $fragment = new rex_fragment();
 $fragment->setVar('title', rex_i18n::msg('consent_kit_texts'), false);
 $fragment->setVar('body', '<p class="ck-panel-intro">' . rex_i18n::rawMsg('consent_kit_texts_intro') . '</p><ul class="nav nav-tabs">' . $tabs . '</ul>'
-    . '<form method="post" action="' . rex_url::currentBackendPage(['lang' => $current]) . '" class="ck-form ck-tab-content">' . $csrf->getHiddenField() . $body
+    . '<form method="post" action="' . rex_url::currentBackendPage(['lang' => $current]) . '" class="ck-form ck-tab-content">' . $csrf->getHiddenField() . '<p class="sr-only" role="status" aria-live="polite" data-ck-translate-status></p>' . $body
     . '<footer class="ck-form-footer ck-sticky-footer"><button type="submit" class="btn btn-save">' . rex_i18n::msg('consent_kit_save') . '</button></footer></form>', false);
 echo $fragment->parse('core/page/section.php');

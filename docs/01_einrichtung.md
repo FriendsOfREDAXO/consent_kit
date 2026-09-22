@@ -48,4 +48,8 @@ Unter **Einstellungen → Rechtstexte und Domains** werden Datenschutzerklärung
 
 Unter **Texte** lässt sich jeder Text pro Sprache überschreiben. Leere Felder verwenden den Standard (grau sichtbar). Mitgeliefert sind Deutsch und Englisch; andere Sprachen zeigen Englisch, bis eigene Texte eingetragen sind. Platzhalter: `{name}` (Dienst/Gruppe), `{n}` (Anzahl), `{id}` und `{date}` (Einwilligungs-ID und Datum).
 
+### Übersetzen mit WriteAssist
+
+Ist das AddOn [WriteAssist](https://github.com/FriendsOfREDAXO/writeassist) installiert und dort DeepL oder eine Text-KI konfiguriert, steht an jedem Sprachfeld eine Schaltfläche „Aus DE übersetzen“ – bei Beschreibungen von Diensten und Gruppen, beim Zweck von Cookies und auf der Seite **Texte**. Sie füllt das Feld aus der Standardsprache; vorhandener Text wird nur nach Rückfrage ersetzt. Ohne WriteAssist fehlt die Schaltfläche einfach.
+
 Texte zählen nicht als Änderung der Einwilligungsgrundlage – Besucher werden deshalb nicht erneut gefragt.

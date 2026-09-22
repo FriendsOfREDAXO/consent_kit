@@ -403,3 +403,7 @@ consent_kit_dismissible_help = Schließen zählt nie als Einwilligung: Es wird n
 consent_kit_text_close = Schließen-Schaltfläche (Vorlesetext)
 consent_kit_oembed = Einbettungen aus CKEditor 5 und TinyMCE sperren
 consent_kit_oembed_help = Wandelt <code>&lt;oembed&gt;</code>-Tags der Editoren (YouTube, Vimeo, weitere über die Hosts der Dienste) in Platzhalter um, die erst nach Einwilligung laden. Ohne diese Option bleiben die Tags unverändert im HTML.
+consent_kit_translate_from = Aus {0} übersetzen (WriteAssist)
+consent_kit_translate_empty = Das Feld der Standardsprache ist leer.
+consent_kit_translate_overwrite = Vorhandenen Text durch die Übersetzung ersetzen?
+consent_kit_translate_done = Übersetzt

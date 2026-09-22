@@ -162,6 +162,12 @@ body.rex-theme-dark .ck-note-warn { background: #3a2a12; }
 .ck-css-export summary { cursor: pointer; font-weight: 700; }
 
 /* Texte */
+.ck-text-control { display: flex; gap: 6px; align-items: flex-start; }
+.ck-text-control .form-control { flex: 1; }
+.ck-translate-spacer { visibility: hidden; pointer-events: none; }
+.ck-translate[aria-busy="true"] .rex-icon { animation: ck-spin 1s linear infinite; }
+@keyframes ck-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ck-translate[aria-busy="true"] .rex-icon { animation: none; } }
 .ck-text-row { display: grid; grid-template-columns: minmax(200px, 30%) 1fr; gap: 4px 16px; margin-bottom: 8px; align-items: start; }
 .ck-text-row label { margin: 6px 0 0; font-weight: 400; }
 .ck-text-row code { display: block; font-size: 11px; color: #6b7780; background: none; padding: 0; }

@@ -57,7 +57,43 @@
         }
 
         if (event.target.closest('[data-ck-scan-start]')) scan();
+
+        const translate = event.target.closest('[data-ck-translate]');
+        if (translate) translateField(translate);
     });
+
+    /* Sprachfeld per WriteAssist aus der Standardsprache fuellen. */
+    async function translateField(button) {
+        const target = document.getElementById(button.dataset.ckTranslate);
+        const source = button.dataset.sourceId ? document.getElementById(button.dataset.sourceId)?.value : button.dataset.sourceText;
+        const status = button.closest('form')?.querySelector('[data-ck-translate-status]');
+        const say = (text) => { if (status) status.textContent = text; };
+        if (!target) return;
+        if (!source || !source.trim()) { say(button.dataset.msgEmpty || 'Quelle ist leer'); target.focus(); return; }
+        if (target.value.trim() && !window.confirm(button.dataset.msgOverwrite || 'Vorhandenen Text ersetzen?')) return;
+        button.disabled = true;
+        button.setAttribute('aria-busy', 'true');
+        try {
+            const body = new FormData();
+            body.append('text', source);
+            body.append('target_lang', button.dataset.targetLang);
+            body.append('source_lang', button.dataset.sourceLang);
+            body.append('preserve_formatting', '0');
+            const response = await fetch('index.php?rex-api-call=writeassist_translate', { method: 'POST', body, credentials: 'same-origin' });
+            const data = await response.json();
+            if (!data.success || !data.translation) throw new Error(data.error || 'Übersetzungsfehler');
+            target.value = data.translation.trim();
+            target.dispatchEvent(new Event('input', { bubbles: true }));
+            say((button.dataset.msgDone || 'Übersetzt') + ': ' + button.dataset.targetLang);
+        } catch (error) {
+            say(error.message);
+            window.alert(error.message);
+        } finally {
+            button.disabled = false;
+            button.removeAttribute('aria-busy');
+            target.focus();
+        }
+    }
 
     document.addEventListener('change', (event) => {
         if (event.target.name === 'service[domain_mode]') {

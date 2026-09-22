@@ -117,14 +117,25 @@ final class Form
         foreach (array_keys($values) as $code) {
             $languages += [$code => strtoupper($code)];
         }
+        $sourceId = null;
+        $sourceCode = (string) array_key_first($languages);
+        // Die Standardsprache bekommt einen unsichtbaren Platzhalter, damit alle Felder gleich breit sind.
+        $hasTranslate = WriteAssist::available() && count($languages) > 1;
         foreach ($languages as $code => $language) {
             $id = self::id();
+            $sourceId ??= $id;
             $field = self::e($name . '[' . $code . ']');
             $value = self::e($values[$code] ?? '');
             $control = $multiline
                 ? '<textarea class="form-control" rows="2" id="' . $id . '" name="' . $field . '" lang="' . self::e(substr($code, 0, 2)) . '">' . $value . '</textarea>'
                 : '<input type="text" class="form-control" id="' . $id . '" name="' . $field . '" value="' . $value . '" lang="' . self::e(substr($code, 0, 2)) . '">';
-            $out .= '<div class="input-group ck-i18n-row"><label class="input-group-addon" for="' . $id . '" title="' . self::e($language) . '">' . self::e(strtoupper($code)) . '<span class="sr-only"> – ' . self::e($label . ' (' . $language . ')') . '</span></label>' . $control . '</div>';
+            // Uebersetzen aus der Standardsprache (nur mit writeassist).
+            $translate = $code === $sourceCode ? '' : WriteAssist::button($id, $code, $sourceCode, $sourceId);
+            $out .= '<div class="input-group ck-i18n-row"><label class="input-group-addon" for="' . $id . '" title="' . self::e($language) . '">' . self::e(strtoupper($code)) . '<span class="sr-only"> – ' . self::e($label . ' (' . $language . ')') . '</span></label>' . $control
+                . ('' !== $translate ? '<span class="input-group-btn">' . $translate . '</span>' : ($hasTranslate ? '<span class="input-group-btn"><span class="btn btn-default ck-translate-spacer" aria-hidden="true"></span></span>' : '')) . '</div>';
+        }
+        if (WriteAssist::available() && count($languages) > 1) {
+            $out .= '<p class="sr-only" role="status" aria-live="polite" data-ck-translate-status></p>';
         }
         if ('' !== $help) {
             $out .= '<p class="help-block">' . $help . '</p>';

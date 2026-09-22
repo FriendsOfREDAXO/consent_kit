@@ -403,3 +403,7 @@ consent_kit_dismissible_help = Closing never counts as consent: nothing is loade
 consent_kit_text_close = Close button (screen reader text)
 consent_kit_oembed = Block embeds from CKEditor 5 and TinyMCE
 consent_kit_oembed_help = Converts the editors’ <code>&lt;oembed&gt;</code> tags (YouTube, Vimeo, others via the services’ hosts) into placeholders that only load after consent. Without this option the tags stay unchanged in the HTML.
+consent_kit_translate_from = Translate from {0} (WriteAssist)
+consent_kit_translate_empty = The default-language field is empty.
+consent_kit_translate_overwrite = Replace the existing text with the translation?
+consent_kit_translate_done = Translated
