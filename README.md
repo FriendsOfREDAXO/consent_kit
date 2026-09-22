@@ -1,4 +1,4 @@
-# Consent Kit
+# ConsentKit
 
 Einwilligungsverwaltung für REDAXO: eine neutrale, barrierefreie Web Component im Frontend, ein kompaktes Backend und ein nachvollziehbares Protokoll.
 
