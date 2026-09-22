@@ -1,6 +1,6 @@
 <?php
 
-use KLXM\ConsentKit\Log;
+use FriendsOfRedaxo\ConsentKit\Log;
 
 $addon = rex_addon::get('consent_kit');
 $csrf = rex_csrf_token::factory('consent_kit');

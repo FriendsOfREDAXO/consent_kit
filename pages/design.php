@@ -1,8 +1,8 @@
 <?php
 
-use KLXM\ConsentKit\Cache;
-use KLXM\ConsentKit\Frontend;
-use KLXM\ConsentKit\Repository;
+use FriendsOfRedaxo\ConsentKit\Cache;
+use FriendsOfRedaxo\ConsentKit\Frontend;
+use FriendsOfRedaxo\ConsentKit\Repository;
 
 $addon = rex_addon::get('consent_kit');
 $csrf = rex_csrf_token::factory('consent_kit');

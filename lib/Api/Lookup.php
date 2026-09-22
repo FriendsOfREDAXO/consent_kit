@@ -1,10 +1,10 @@
 <?php
 
-namespace KLXM\ConsentKit\Api;
+namespace FriendsOfRedaxo\ConsentKit\Api;
 
-use KLXM\ConsentKit\Catalog;
-use KLXM\ConsentKit\Repository;
-use KLXM\ConsentKit\Texts;
+use FriendsOfRedaxo\ConsentKit\Catalog;
+use FriendsOfRedaxo\ConsentKit\Repository;
+use FriendsOfRedaxo\ConsentKit\Texts;
 use rex;
 use rex_api_function;
 use rex_api_result;

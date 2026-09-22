@@ -108,4 +108,4 @@ Fehler im eigenen Code stehen in der Konsole mit dem Präfix `[consent-kit] even
 
 - Gespeichert werden die Zeilen als JSON in `rex_consent_kit_service.events` (`trigger`, `target`, `event`, `label`, `code`).
 - Vorlagen liefern die Aufrufe im Feld `events` (`{"lead": "…", "registration": "…", "appointment": "…", "page_view": "…"}`), mit `{{label}}` für die Kennung und `{{param}}` für Angaben des Dienstes – siehe `presets/FORMAT.md`. Eigene Vorlagen im Data-Ordner können das ebenso.
-- `KLXM\ConsentKit\Events::build($rows, $templates)` erzeugt das Script; es landet als `jsEvents` in der Frontend-Konfiguration und wird von der Komponente einmal pro Seite nach `html_head`/`html_body` ausgeführt, vor `js_accept`.
+- `FriendsOfRedaxo\ConsentKit\Events::build($rows, $templates)` erzeugt das Script; es landet als `jsEvents` in der Frontend-Konfiguration und wird von der Komponente einmal pro Seite nach `html_head`/`html_body` ausgeführt, vor `js_accept`.

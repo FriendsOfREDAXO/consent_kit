@@ -1,11 +1,11 @@
 <?php
 
-use KLXM\ConsentKit\Backend\BulkTranslator;
-use KLXM\ConsentKit\Backend\WriteAssist;
-use KLXM\ConsentKit\Catalog;
-use KLXM\ConsentKit\I18n;
-use KLXM\ConsentKit\Texts;
-use KLXM\ConsentKit\LegacyImporter;
+use FriendsOfRedaxo\ConsentKit\Backend\BulkTranslator;
+use FriendsOfRedaxo\ConsentKit\Backend\WriteAssist;
+use FriendsOfRedaxo\ConsentKit\Catalog;
+use FriendsOfRedaxo\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\Texts;
+use FriendsOfRedaxo\ConsentKit\LegacyImporter;
 
 $csrf = rex_csrf_token::factory('consent_kit');
 $message = '';

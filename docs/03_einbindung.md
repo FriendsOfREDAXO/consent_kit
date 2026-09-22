@@ -24,7 +24,7 @@ Automatik unter **Einstellungen → Darstellung** abschalten und im Template mö
 Dasselbe in PHP, etwa in einem Template mit `<?php`-Blöcken oder in einem eigenen Layout:
 
 ```php
-<?php echo \KLXM\ConsentKit\Consent::head(); ?>
+<?php echo \FriendsOfRedaxo\ConsentKit\Consent::head(); ?>
 ```
 
 Steht die Ausgabe bereits im HTML, fügt die Automatik nichts doppelt ein. Wer Layout oder Farbschema für ein Template abweichend setzen will, platziert das Element selbst:
@@ -55,7 +55,7 @@ Scripts, die im Backend beim Dienst hinterlegt sind, brauchen nichts weiter. Fü
 ## Serverseitig prüfen
 
 ```php
-use KLXM\ConsentKit\Consent;
+use FriendsOfRedaxo\ConsentKit\Consent;
 
 if (Consent::has('matomo')) {
     echo '<img src="https://stats.example.org/matomo.php?idsite=3&rec=1" alt="">';
@@ -112,13 +112,13 @@ Diese Tags werden im Frontend automatisch in gesperrte Platzhalter umgewandelt (
 | Andere URL, deren Host bei einem Dienst hinterlegt ist | iframe mit der URL selbst (z. B. Google-Maps-Embed-Link) |
 | Unbekannter Host | nur ein Link – nichts wird geladen |
 
-Ist die Umwandlung abgeschaltet, geht es gezielt in der Modulausgabe: `echo \KLXM\ConsentKit\Consent::oembed($html);`.
+Ist die Umwandlung abgeschaltet, geht es gezielt in der Modulausgabe: `echo \FriendsOfRedaxo\ConsentKit\Consent::oembed($html);`.
 
 Fertige iframes (z. B. aus dem Quelltext-Modus des Editors) sind ein zweiter Fall: Mit **Einstellungen → iframes bekannter Dienste automatisch sperren** werden iframes ersetzt, deren Host bei einem Dienst unter *Erweitert → Hosts für eingebettete Inhalte* steht (Subdomains zählen mit). Bereits verpackte iframes bleiben unberührt. In eigenem Code geht dasselbe gezielt:
 
 ```php
-use KLXM\ConsentKit\Consent;
-use KLXM\ConsentKit\Embed;
+use FriendsOfRedaxo\ConsentKit\Consent;
+use FriendsOfRedaxo\ConsentKit\Embed;
 
 $html = Embed::filter($html, Consent::config());
 ```
@@ -140,4 +140,4 @@ Auch `.consent-kit-open` und das vom consent_manager bekannte `.consent_manager-
 REX_CONSENT_KIT[output=overview level=3]
 ```
 
-oder in PHP `echo \KLXM\ConsentKit\Consent::overview(3);`. Ausgegeben werden alle Dienste der aktuellen Domain in der aktuellen Sprache: Beschreibung, Anbieter, Datenschutz-Link, Tabelle der Cookies und Speichereinträge sowie ein Link zu den Cookie-Einstellungen. `level` ist die Überschriften-Ebene der Gruppen.
+oder in PHP `echo \FriendsOfRedaxo\ConsentKit\Consent::overview(3);`. Ausgegeben werden alle Dienste der aktuellen Domain in der aktuellen Sprache: Beschreibung, Anbieter, Datenschutz-Link, Tabelle der Cookies und Speichereinträge sowie ein Link zu den Cookie-Einstellungen. `level` ist die Überschriften-Ebene der Gruppen.

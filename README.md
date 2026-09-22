@@ -43,6 +43,6 @@ REDAXO ≥ 5.18, PHP ≥ 8.2. Optional: YRewrite liefert die Domains, das Cronjo
 
 Das AddOn ist ein Werkzeug und ersetzt keine Rechtsberatung. Vorlagen sind sorgfältig geprüft, Anbieter ändern Cookies und Laufzeiten aber ohne Ankündigung.
 
-## Lizenz
+## Lizenz und Credits
 
-MIT, siehe [LICENSE](LICENSE). Die optional ladbare [Open Cookie Database](https://github.com/jkwakman/Open-Cookie-Database) steht unter Apache-2.0 und wird nicht mitgeliefert.
+MIT, siehe [LICENSE](LICENSE). Entwickelt von [KLXM Crossmedia](https://klxm.de) für Friends Of REDAXO. Die optional ladbare [Open Cookie Database](https://github.com/jkwakman/Open-Cookie-Database) steht unter Apache-2.0 und wird nicht mitgeliefert.

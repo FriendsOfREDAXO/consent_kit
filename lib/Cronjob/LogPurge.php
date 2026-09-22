@@ -1,8 +1,8 @@
 <?php
 
-namespace KLXM\ConsentKit\Cronjob;
+namespace FriendsOfRedaxo\ConsentKit\Cronjob;
 
-use KLXM\ConsentKit\Log;
+use FriendsOfRedaxo\ConsentKit\Log;
 use rex_cronjob;
 use rex_i18n;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace KLXM\ConsentKit;
+namespace FriendsOfRedaxo\ConsentKit;
 
 use rex_addon;
 

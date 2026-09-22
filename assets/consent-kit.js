@@ -1,6 +1,6 @@
 /*!
  * Consent Kit – <consent-kit> und <consent-embed>
- * (c) KLXM Crossmedia GmbH, MIT License
+ * Friends Of REDAXO, MIT License – entwickelt von KLXM Crossmedia GmbH
  */
 const configElement = document.getElementById('consent-kit-config');
 const cfg = configElement ? JSON.parse(configElement.textContent || '{}') : null;

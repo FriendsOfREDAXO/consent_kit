@@ -1,6 +1,6 @@
 <?php
 
-namespace KLXM\ConsentKit;
+namespace FriendsOfRedaxo\ConsentKit;
 
 /**
  * Conversion-Ereignisse ohne Programmierung: "Wenn Klick auf … / Seite … /

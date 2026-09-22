@@ -1,6 +1,6 @@
 <?php
 
-namespace KLXM\ConsentKit;
+namespace FriendsOfRedaxo\ConsentKit;
 
 /**
  * Wandelt das Speicherformat von CKEditor 5 und TinyMCE (for_oembed)

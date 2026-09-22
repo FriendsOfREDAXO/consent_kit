@@ -1,8 +1,8 @@
 <?php
 
-namespace KLXM\ConsentKit\Command;
+namespace FriendsOfRedaxo\ConsentKit\Command;
 
-use KLXM\ConsentKit\Log;
+use FriendsOfRedaxo\ConsentKit\Log;
 use rex_console_command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

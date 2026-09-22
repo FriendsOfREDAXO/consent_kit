@@ -1,8 +1,8 @@
 <?php
 
-namespace KLXM\ConsentKit\Backend;
+namespace FriendsOfRedaxo\ConsentKit\Backend;
 
-use KLXM\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\I18n;
 
 /** Kleine Bausteine fuer die Bootstrap-3-Formulare der Backend-Seiten. */
 final class Form

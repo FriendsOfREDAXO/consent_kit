@@ -2,7 +2,7 @@
 
 ## PHP
 
-Namespace `KLXM\ConsentKit`.
+Namespace `FriendsOfRedaxo\ConsentKit`.
 
 ### `Consent`
 
@@ -18,7 +18,7 @@ Namespace `KLXM\ConsentKit`.
 | `Consent::domain()` | `array` | Domain-Eintrag zum aktuellen Host: `id`, `host`, `privacy_article_id`, `imprint_article_id`. |
 
 ```php
-use KLXM\ConsentKit\Consent;
+use FriendsOfRedaxo\ConsentKit\Consent;
 
 foreach (Consent::config()['groups'] as $group) {
     foreach ($group['services'] as $service) {
@@ -44,8 +44,8 @@ foreach (Consent::config()['groups'] as $group) {
 Dienst per Code aus einer Vorlage anlegen, z. B. in der `install.php` eines Projekt-AddOns:
 
 ```php
-use KLXM\ConsentKit\PresetRepository;
-use KLXM\ConsentKit\Repository;
+use FriendsOfRedaxo\ConsentKit\PresetRepository;
+use FriendsOfRedaxo\ConsentKit\Repository;
 
 if (!Repository::serviceKeyExists('matomo')) {
     [$data, $items] = PresetRepository::toService('matomo');

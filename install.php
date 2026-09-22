@@ -1,6 +1,6 @@
 <?php
 
-use KLXM\ConsentKit\Installer;
+use FriendsOfRedaxo\ConsentKit\Installer;
 
 rex_sql_table::get(rex::getTable('consent_kit_group'))
     ->ensurePrimaryIdColumn()

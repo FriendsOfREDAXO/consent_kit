@@ -1,11 +1,11 @@
 <?php
 
-namespace KLXM\ConsentKit\Backend;
+namespace FriendsOfRedaxo\ConsentKit\Backend;
 
-use KLXM\ConsentKit\Cache;
-use KLXM\ConsentKit\I18n;
-use KLXM\ConsentKit\Repository;
-use KLXM\ConsentKit\Texts;
+use FriendsOfRedaxo\ConsentKit\Cache;
+use FriendsOfRedaxo\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\Repository;
+use FriendsOfRedaxo\ConsentKit\Texts;
 use rex_addon;
 
 /**

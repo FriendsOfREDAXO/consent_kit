@@ -1,10 +1,10 @@
 <?php
 
-use KLXM\ConsentKit\Api\Lookup;
-use KLXM\ConsentKit\Api\Save;
-use KLXM\ConsentKit\Cache;
-use KLXM\ConsentKit\Cronjob\LogPurge as LogPurgeCronjob;
-use KLXM\ConsentKit\Frontend;
+use FriendsOfRedaxo\ConsentKit\Api\Lookup;
+use FriendsOfRedaxo\ConsentKit\Api\Save;
+use FriendsOfRedaxo\ConsentKit\Cache;
+use FriendsOfRedaxo\ConsentKit\Cronjob\LogPurge as LogPurgeCronjob;
+use FriendsOfRedaxo\ConsentKit\Frontend;
 
 rex_perm::register('consent_kit[]');
 rex_perm::register('consent_kit[settings]');

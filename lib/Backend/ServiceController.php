@@ -1,12 +1,12 @@
 <?php
 
-namespace KLXM\ConsentKit\Backend;
+namespace FriendsOfRedaxo\ConsentKit\Backend;
 
-use KLXM\ConsentKit\Cache;
-use KLXM\ConsentKit\Events;
-use KLXM\ConsentKit\I18n;
-use KLXM\ConsentKit\PresetRepository;
-use KLXM\ConsentKit\Repository;
+use FriendsOfRedaxo\ConsentKit\Cache;
+use FriendsOfRedaxo\ConsentKit\Events;
+use FriendsOfRedaxo\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\PresetRepository;
+use FriendsOfRedaxo\ConsentKit\Repository;
 use rex;
 use rex_addon;
 use rex_article;

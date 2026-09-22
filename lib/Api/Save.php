@@ -1,9 +1,9 @@
 <?php
 
-namespace KLXM\ConsentKit\Api;
+namespace FriendsOfRedaxo\ConsentKit\Api;
 
-use KLXM\ConsentKit\Consent;
-use KLXM\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\Consent;
+use FriendsOfRedaxo\ConsentKit\I18n;
 use rex;
 use rex_api_function;
 use rex_api_result;

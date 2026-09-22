@@ -1,10 +1,10 @@
 <?php
 
-namespace KLXM\ConsentKit\Backend;
+namespace FriendsOfRedaxo\ConsentKit\Backend;
 
 use FriendsOfREDAXO\WriteAssist\AutoTranslateService;
 use FriendsOfREDAXO\WriteAssist\WriteAssistAiFactory;
-use KLXM\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\I18n;
 use rex_clang;
 use Throwable;
 use rex_addon;

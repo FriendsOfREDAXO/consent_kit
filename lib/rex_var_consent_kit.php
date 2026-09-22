@@ -9,8 +9,8 @@ class rex_var_consent_kit extends rex_var
     protected function getOutput()
     {
         if ('overview' === $this->getArg('output', '', true)) {
-            return '\KLXM\ConsentKit\Consent::overview(' . (int) $this->getArg('level', 3, true) . ')';
+            return '\FriendsOfRedaxo\ConsentKit\Consent::overview(' . (int) $this->getArg('level', 3, true) . ')';
         }
-        return '\KLXM\ConsentKit\Frontend::head()';
+        return '\FriendsOfRedaxo\ConsentKit\Frontend::head()';
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace KLXM\ConsentKit;
+namespace FriendsOfRedaxo\ConsentKit;
 
 /**
  * 2-Klick-Einbettung. Das Original-Markup liegt inert in einem <template> und

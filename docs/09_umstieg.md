@@ -29,8 +29,8 @@ Oft ist es sauberer, Standarddienste (Matomo, YouTube, Google Analytics …) fri
 | consent_manager | Consent Kit |
 | --- | --- |
 | `REX_CONSENT_MANAGER[]` | entfällt (automatische Einbindung) oder `REX_CONSENT_KIT[]` |
-| `consent_manager_util::has_consent('uid')` / `Utility::has_consent('uid')` | `\KLXM\ConsentKit\Consent::has('key')` |
-| `doConsent('youtube', $html)` / `InlineConsent::doConsent()` | `\KLXM\ConsentKit\Consent::embed('youtube', $html)` |
+| `consent_manager_util::has_consent('uid')` / `Utility::has_consent('uid')` | `\FriendsOfRedaxo\ConsentKit\Consent::has('key')` |
+| `doConsent('youtube', $html)` / `InlineConsent::doConsent()` | `\FriendsOfRedaxo\ConsentKit\Consent::embed('youtube', $html)` |
 | `Frontend::getCookieList()` / `REX_COOKIEDB[]` | `REX_CONSENT_KIT[output=overview]` |
 | Klasse `consent_manager-show-box` | funktioniert weiter; neu: `href="#consent-kit"` |
 | JS-Ereignis `consent_manager-saved` | `consentkit:change` auf `document` |
