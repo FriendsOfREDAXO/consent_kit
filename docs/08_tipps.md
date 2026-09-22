@@ -103,6 +103,10 @@ ConsentKit.onChange(({ accepted }) => {
 - Die Seite selbst darf gecacht werden: Im HTML steht nichts Besucherspezifisches, die Entscheidung liest die Komponente im Browser aus dem Cookie. Nur `Consent::has()` in PHP verträgt keinen Full-Page-Cache.
 - Nach Änderungen an JS/CSS des AddOns in Entwicklungsumgebungen mit getrenntem Asset-Ordner: `php redaxo/bin/console assets:sync`.
 
+## Deployment (ydeploy & Co.)
+
+Ein Deployment fragt Besucher **nicht** erneut. Ob eine gespeicherte Entscheidung noch gilt, hängt nur an den Diensten in der Datenbank (Fingerabdruck aus Gruppe, Schlüssel, Anbieter und Cookie-Einträgen) und an der Einstellung „Alle Besucher erneut fragen“. Der Konfigurations-Cache unter `var/cache` ist ein reiner Zwischenspeicher und wird aus der Datenbank neu aufgebaut – er muss nicht als `shared_dir` gepflegt werden. Nur Änderungen an den Diensten selbst oder ein bewusster Klick auf „Alle Besucher erneut fragen“ lösen eine neue Abfrage aus.
+
 ## Mehrere Websites, eine Installation
 
 Jede YRewrite-Domain ist eine Spalte in der Matrix und kann eigene Rechtstexte haben. Der Cookie gilt pro Host, Besucher entscheiden also je Website getrennt. Das Protokoll führt die Domain mit und lässt sich danach filtern bzw. exportieren.

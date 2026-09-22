@@ -567,7 +567,7 @@ final class ServiceController
         $general .= '<div class="row"><div class="col-md-6">'
             . Form::text('service[name]', rex_i18n::msg('consent_kit_name'), $service['name'], '', ['required' => true])
             . '</div><div class="col-md-6">'
-            . Form::text('service[key]', rex_i18n::msg('consent_kit_key'), $service['key'], rex_i18n::rawMsg('consent_kit_key_help', rex_escape('' !== $service['key'] ? $service['key'] : 'matomo')), ['required' => true, 'pattern' => '[a-z0-9_]{2,64}', 'spellcheck' => 'false', 'autocomplete' => 'off'])
+            . $this->keyField('service[key]', $service['key'], $service['id'] > 0)
             . '</div></div><div class="row"><div class="col-md-6">'
             . Form::select('service[group_id]', rex_i18n::msg('consent_kit_group'), $service['group_id'], $groupOptions)
             . '</div><div class="col-md-6 ck-status-field">'
@@ -763,7 +763,7 @@ final class ServiceController
         $form = '<form method="post" action="' . rex_url::backendPage('consent_kit/services', ['func' => 'group_save']) . '" class="ck-form">'
             . $this->csrf->getHiddenField() . '<input type="hidden" name="id" value="' . (int) $group['id'] . '">'
             . Form::i18n('group[name]', rex_i18n::msg('consent_kit_name'), $group['name'])
-            . Form::text('group[key]', rex_i18n::msg('consent_kit_key'), $group['key'], rex_i18n::msg('consent_kit_group_key_help'), ['required' => true, 'pattern' => '[a-z0-9_]{2,64}', 'spellcheck' => 'false'])
+            . $this->keyField('group[key]', $group['key'], $group['id'] > 0)
             . Form::i18n('group[description]', rex_i18n::msg('consent_kit_description'), $group['description'], true)
             . Form::checkbox('group[required]', rex_i18n::msg('consent_kit_required'), $group['required'], rex_i18n::msg('consent_kit_required_help'))
             . ('' !== WriteAssist::bulkButton() ? '<div class="ck-toolbar">' . WriteAssist::bulkButton() . '<span class="ck-toolbar-hint" data-ck-translate-progress></span></div>' : '')
@@ -771,6 +771,26 @@ final class ServiceController
             . '<a class="btn btn-abort" href="' . rex_url::backendPage('consent_kit/services') . '">' . rex_i18n::msg('consent_kit_cancel') . '</a></footer></form>';
 
         return $this->section($group['id'] > 0 ? rex_i18n::msg('consent_kit_group_edit') : rex_i18n::msg('consent_kit_group_add'), $form, $this->backButton());
+    }
+
+    /**
+     * Der Schluessel ist nach dem Anlegen gesperrt: Templates verweisen darauf, und
+     * eine Aenderung macht die gespeicherten Einwilligungen zu diesem Dienst ungueltig.
+     */
+    private function keyField(string $name, string $value, bool $locked): string
+    {
+        $attributes = ['required' => true, 'pattern' => '[a-z0-9_]{2,64}', 'spellcheck' => 'false', 'autocomplete' => 'off'];
+        $help = str_starts_with($name, 'group')
+            ? rex_i18n::msg('consent_kit_group_key_help')
+            : rex_i18n::rawMsg('consent_kit_key_help', rex_escape('' !== $value ? $value : 'matomo'));
+        if (!$locked) {
+            return Form::text($name, rex_i18n::msg('consent_kit_key'), $value, $help, $attributes);
+        }
+        $attributes['readonly'] = true;
+        $attributes['data-ck-key-locked'] = true;
+        $field = Form::text($name, rex_i18n::msg('consent_kit_key'), $value, $help, $attributes);
+        $unlock = '<button type="button" class="btn btn-default btn-xs ck-key-unlock" data-ck-key-unlock data-msg="' . rex_escape(rex_i18n::rawMsg('consent_kit_key_unlock_confirm')) . '"><i class="rex-icon fa-unlock-alt" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_key_unlock') . '</button>';
+        return str_replace('<p class="help-block"', $unlock . '<p class="help-block"', $field);
     }
 
     private function backButton(): string

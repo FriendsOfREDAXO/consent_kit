@@ -61,6 +61,17 @@
         const translate = event.target.closest('[data-ck-translate]');
         if (translate) translateField(translate);
 
+        const unlock = event.target.closest('[data-ck-key-unlock]');
+        if (unlock) {
+            if (!window.confirm(unlock.dataset.msg)) return;
+            const input = unlock.closest('.ck-field').querySelector('[data-ck-key-locked]');
+            input.readOnly = false;
+            input.focus();
+            input.select();
+            unlock.remove();
+            return;
+        }
+
         const translateAll = event.target.closest('[data-ck-translate-all]');
         if (translateAll) translateAllFields(translateAll);
     });

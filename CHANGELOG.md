@@ -2,6 +2,7 @@
 
 ## 1.0.0-dev
 
+- Schlüssel von Diensten und Gruppen sind nach dem Anlegen gesperrt (Freigabe mit Rückfrage).
 - „Einwilligung widerrufen“ im Einstellungen-Dialog (Cookie löschen, Dienste stoppen, Protokoll „Widerrufen“), `ConsentKit.withdraw()`.
 - Sprachfelder per WriteAssist aus der Standardsprache übersetzen (wenn installiert und konfiguriert): einzeln, alle leeren Felder eines Formulars oder unter Werkzeuge alle fehlenden Übersetzungen einer Sprache.
 - `<oembed>`-Tags von CKEditor 5 und TinyMCE (YouTube, Vimeo, Hosts der Dienste) werden automatisch in gesperrte Platzhalter umgewandelt; `Consent::oembed()`, `Consent::head()`.

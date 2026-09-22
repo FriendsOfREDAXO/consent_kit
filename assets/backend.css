@@ -95,6 +95,9 @@ body.rex-theme-dark .ck-onboarding { background: #1c2e42; border-color: #3b6ea3;
 .ck-field.has-error .form-control { border-color: #b3261e; box-shadow: 0 0 0 1px #b3261e; }
 
 /* Formulare */
+.ck-field [data-ck-key-locked] { background: #f5f6f7; color: #3c4650; }
+.ck-key-unlock { margin: 6px 0 0; }
+body.rex-theme-dark .ck-field [data-ck-key-locked] { background: #1a2430; color: #a9b6c3; }
 .ck-form fieldset { margin: 0 0 20px; }
 .ck-form legend { margin-bottom: 8px; font-size: 14px; font-weight: 700; border: 0; }
 .ck-i18n-row { margin-bottom: 6px; }

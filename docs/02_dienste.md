@@ -27,7 +27,7 @@ Für alles ohne Vorlage. Die Reiter:
 | Varianten | Abweichungen je Domain oder Sprache |
 | Erweitert | Consent-Mode-Signale; Domains, von denen der Dienst Inhalte einbettet (siehe unten) |
 
-Der **Schlüssel** ist der Name, unter dem Templates und Module den Dienst ansprechen (`Consent::has('…')`, `data-consent="…"`). Er sollte nach dem Livegang nicht mehr geändert werden.
+Der **Schlüssel** ist der Name, unter dem Templates und Module den Dienst ansprechen (`Consent::has('…')`, `data-consent="…"`). Nach dem Anlegen ist das Feld gesperrt; „Schlüssel ändern“ gibt es nach einer Rückfrage frei – Templates müssen dann angepasst werden, und Besucher werden zu diesem Dienst erneut gefragt.
 
 ### Die fünf Code-Felder
 
