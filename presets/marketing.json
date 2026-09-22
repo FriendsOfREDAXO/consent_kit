@@ -851,6 +851,73 @@
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen. EU-Konten nutzen ggf. einen anderen Script-Host (js-eu1).",
         "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account. EU accounts may use a different script host (js-eu1)."
       }
+    },
+    {
+      "key": "openai_pixel",
+      "name": "OpenAI Measurement Pixel (ChatGPT Ads)",
+      "group": "marketing",
+      "provider": "OpenAI Ireland Limited, 1st Floor, The Liffey Trust Centre, 117-126 Sheriff Street Upper, Dublin 1, D01 YC43, Ireland",
+      "privacy_url": "https://openai.com/policies/eu-privacy-policy/",
+      "description": {
+        "de": "Messpixel von OpenAI zur Erfolgsmessung von Anzeigen in ChatGPT. Ordnet Aktionen auf der Website (z. B. Anfragen oder Käufe) Anzeigenklicks zu; dazu werden Cookies gesetzt und Ereignisdaten an OpenAI übertragen.",
+        "en": "Measurement pixel by OpenAI for attributing conversions to ads in ChatGPT. Assigns actions on the website (e.g. enquiries or purchases) to ad clicks; cookies are set and event data is transferred to OpenAI."
+      },
+      "params": [
+        {
+          "key": "pixel_id",
+          "label": {
+            "de": "Pixel-ID",
+            "en": "Pixel ID"
+          },
+          "placeholder": "AQhQ…",
+          "pattern": "^[A-Za-z0-9_-]{6,}$"
+        }
+      ],
+      "html_head": "<script>\n(function (w, d, s, u) {\n  if (w.oaiq) return;\n  var q = function () { q.q.push(arguments); };\n  q.q = [];\n  w.oaiq = q;\n  var js = d.createElement(s);\n  js.async = true;\n  js.src = u;\n  var f = d.getElementsByTagName(s)[0];\n  f.parentNode.insertBefore(js, f);\n})(window, document, \"script\", \"https://bzrcdn.openai.com/sdk/oaiq.min.js\");\noaiq(\"consent\", true);\noaiq(\"init\", { pixelId: \"{{pixel_id}}\" });\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "if (window.oaiq) { oaiq(\"consent\", false); }",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "__oppref",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert die Anzeigen-Kennung (oppref) aus der Landingpage-URL, damit spätere Aktionen dem Anzeigenklick zugeordnet werden können.",
+            "en": "Stores the ad click reference (oppref) from the landing page URL so that later actions can be attributed to the ad click."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__obref",
+          "host": "",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Zufällig erzeugte Browser-Kennung für diese Website zur Wiedererkennung bei der Erfolgsmessung.",
+            "en": "Randomly generated browser reference for this website used to recognise the browser for measurement."
+          }
+        }
+      ],
+      "note": {
+        "de": "Das Pixel misst keine Seitenaufrufe von allein: Ereignisse wie lead_created müssen per oaiq(\"measure\", …) ausgelöst werden – z. B. per Script mit data-consent=\"openai_pixel\" im Template. Wird die Einwilligung widerrufen, speichert das Pixel die Ablehnung und sendet nichts mehr.",
+        "en": "The pixel does not measure page views by itself: events such as lead_created must be triggered via oaiq(\"measure\", …) – e.g. by a script with data-consent=\"openai_pixel\" in the template. On withdrawal the pixel stores the denial and sends nothing further."
+      },
+      "sources": [
+        "https://developers.openai.com/ads/measurement-pixel",
+        "https://developers.openai.com/ads/supported-events",
+        "https://openai.com/policies/eu-privacy-policy/"
+      ],
+      "verified": "2026-09-22"
     }
   ]
 }

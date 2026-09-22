@@ -32,6 +32,25 @@
 
 Soll stattdessen ein Platzhalter mit Schaltflächen erscheinen, das Ganze in `<consent-embed service="google_maps"><template>…</template></consent-embed>` legen.
 
+## Conversions messen (OpenAI Pixel, Meta, Google Ads …)
+
+Tracking-Pixel messen nichts von allein – ein Ereignis wie „Anfrage gesendet“ muss die Website auslösen. Dafür gehört der Aufruf in ein Script, das erst nach Einwilligung läuft. Beispiel für das OpenAI Measurement Pixel (Vorlage `openai_pixel`): Klicks auf WhatsApp- und E-Mail-Links als Lead melden.
+
+```html
+<script type="text/plain" data-consent="openai_pixel">
+document.addEventListener('click', function (event) {
+    var link = event.target.closest('a[href^="https://wa.me/"], a[href^="mailto:"]');
+    if (link) {
+        oaiq('measure', 'lead_created', { type: 'customer_action' });
+    }
+});
+</script>
+```
+
+Dank `data-consent` wird das Script nur aktiviert, wenn der Dienst erlaubt ist – eine `typeof oaiq`-Prüfung ist nicht nötig. Für ein Formular gehört der Aufruf auf die Dankeseite (`page_viewed` oder `lead_created`), für Bestellungen `order_created` mit `amount` (in Cent) und `currency`. Die Ereignisnamen stehen in der Dokumentation des Anbieters; das AddOn liefert nur die sichere Einbettung.
+
+Dasselbe Muster gilt für andere Anbieter: `fbq('track', 'Lead')`, `gtag('event', 'conversion', …)` oder `_paq.push(['trackEvent', …])` – jeweils in ein Script mit dem `data-consent` des passenden Dienstes.
+
 ## Unterschiedliche Matomo-Seiten je Domain
 
 Ein Dienst „Matomo“, im Reiter **Varianten** je Domain eine Variante mit abweichender Website-ID. Besucher sehen überall denselben Dienst, das Protokoll bleibt vergleichbar. Für eine andere Matomo-Instanz je Domain zusätzlich die URL in der Variante überschreiben.

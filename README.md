@@ -5,7 +5,7 @@ Einwilligungsverwaltung für REDAXO: eine neutrale, barrierefreie Web Component 
 ## Was es kann
 
 - **Dienste einzeln wählbar**, in Gruppen zusammengefasst; „Alle ablehnen“ und „Alle akzeptieren“ sind technisch immer gleichwertig gestaltet.
-- **37 Vorlagen** (Deutsch/Englisch) mit Scripts, Cookies, Storage-Einträgen, Laufzeiten und Quellenangabe – geprüft gegen die Dokumentation der Anbieter.
+- **38 Vorlagen** (Deutsch/Englisch) mit Scripts, Cookies, Storage-Einträgen, Laufzeiten und Quellenangabe – geprüft gegen die Dokumentation der Anbieter.
 - **Dienste × Domains** als Matrix, **Varianten** je Domain oder Sprache (andere IDs, anderer Code).
 - **Google Consent Mode v2**, **Global Privacy Control**, Anbieter-Aufrufe für Microsoft UET/Clarity, Meta und weitere.
 - **2-Klick-Platzhalter** für Videos, Karten und Social-Media-Einbettungen; `<oembed>`-Tags aus CKEditor 5 und TinyMCE werden automatisch gesperrt.
