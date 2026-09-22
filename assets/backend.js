@@ -60,10 +60,34 @@
 
         const translate = event.target.closest('[data-ck-translate]');
         if (translate) translateField(translate);
+
+        const translateAll = event.target.closest('[data-ck-translate-all]');
+        if (translateAll) translateAllFields(translateAll);
     });
 
+    /* Alle leeren Sprachfelder des Formulars nacheinander uebersetzen. */
+    async function translateAllFields(button) {
+        const form = button.closest('form');
+        const progress = form.querySelector('[data-ck-translate-progress]');
+        const buttons = [...form.querySelectorAll('[data-ck-translate]')].filter((b) => {
+            const target = document.getElementById(b.dataset.ckTranslate);
+            const source = b.dataset.sourceId ? document.getElementById(b.dataset.sourceId)?.value : b.dataset.sourceText;
+            return target && !target.value.trim() && source && source.trim();
+        });
+        if (!buttons.length) { progress.textContent = button.dataset.msgNone; return; }
+        button.disabled = true;
+        let done = 0;
+        for (const b of buttons) {
+            progress.textContent = button.dataset.msgProgress.replace('{0}', ++done).replace('{1}', buttons.length);
+            await translateField(b, true);
+        }
+        button.disabled = false;
+        progress.textContent = button.dataset.msgProgress.replace('{0}', buttons.length).replace('{1}', buttons.length);
+        button.focus();
+    }
+
     /* Sprachfeld per WriteAssist aus der Standardsprache fuellen. */
-    async function translateField(button) {
+    async function translateField(button, silent = false) {
         const target = document.getElementById(button.dataset.ckTranslate);
         const source = button.dataset.sourceId ? document.getElementById(button.dataset.sourceId)?.value : button.dataset.sourceText;
         const status = button.closest('form')?.querySelector('[data-ck-translate-status]');
@@ -87,11 +111,11 @@
             say((button.dataset.msgDone || 'Übersetzt') + ': ' + button.dataset.targetLang);
         } catch (error) {
             say(error.message);
-            window.alert(error.message);
+            if (!silent) window.alert(error.message);
         } finally {
             button.disabled = false;
             button.removeAttribute('aria-busy');
-            target.focus();
+            if (!silent) target.focus();
         }
     }
 

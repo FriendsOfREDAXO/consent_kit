@@ -80,6 +80,7 @@ echo $message;
 $fragment = new rex_fragment();
 $fragment->setVar('title', rex_i18n::msg('consent_kit_texts'), false);
 $fragment->setVar('body', '<p class="ck-panel-intro">' . rex_i18n::rawMsg('consent_kit_texts_intro') . '</p><ul class="nav nav-tabs">' . $tabs . '</ul>'
-    . '<form method="post" action="' . rex_url::currentBackendPage(['lang' => $current]) . '" class="ck-form ck-tab-content">' . $csrf->getHiddenField() . '<p class="sr-only" role="status" aria-live="polite" data-ck-translate-status></p>' . $body
+    . '<form method="post" action="' . rex_url::currentBackendPage(['lang' => $current]) . '" class="ck-form ck-tab-content">' . $csrf->getHiddenField() . '<p class="sr-only" role="status" aria-live="polite" data-ck-translate-status></p>'
+    . ($current !== $defaultCode && '' !== WriteAssist::bulkButton() ? '<div class="ck-toolbar">' . WriteAssist::bulkButton() . '<span class="ck-toolbar-hint" data-ck-translate-progress></span></div>' : '') . $body
     . '<footer class="ck-form-footer ck-sticky-footer"><button type="submit" class="btn btn-save">' . rex_i18n::msg('consent_kit_save') . '</button></footer></form>', false);
 echo $fragment->parse('core/page/section.php');

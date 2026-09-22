@@ -52,4 +52,11 @@ Unter **Texte** lässt sich jeder Text pro Sprache überschreiben. Leere Felder 
 
 Ist das AddOn [WriteAssist](https://github.com/FriendsOfREDAXO/writeassist) installiert und dort DeepL oder eine Text-KI konfiguriert, steht an jedem Sprachfeld eine Schaltfläche „Aus DE übersetzen“ – bei Beschreibungen von Diensten und Gruppen, beim Zweck von Cookies und auf der Seite **Texte**. Sie füllt das Feld aus der Standardsprache; vorhandener Text wird nur nach Rückfrage ersetzt. Ohne WriteAssist fehlt die Schaltfläche einfach.
 
+Für mehr auf einmal:
+
+- **Alle leeren Sprachfelder übersetzen** – unten in jedem Dienst-, Gruppen- und Texte-Formular. Füllt nacheinander alle leeren Felder des Formulars und zeigt den Fortschritt; anschließend speichern.
+- **Werkzeuge → Fehlende Übersetzungen ergänzen** – für eine neu angelegte Sprache. Übersetzt serverseitig alle Gruppen, Dienste, Cookie-Zwecke und Frontend-Texte, die in der Zielsprache noch leer sind, und speichert sie direkt. Vorhandene Übersetzungen bleiben unangetastet. Je nach Umfang und Dienst dauert das einige Minuten (etwa 90 Felder ≈ 5 Minuten mit einer Text-KI).
+
+Maschinelle Übersetzungen sind ein Entwurf – die Ergebnisse bitte stichprobenartig prüfen, besonders bei Text-KI-Anbietern, die gelegentlich Steuerwörter mitübersetzen.
+
 Texte zählen nicht als Änderung der Einwilligungsgrundlage – Besucher werden deshalb nicht erneut gefragt.

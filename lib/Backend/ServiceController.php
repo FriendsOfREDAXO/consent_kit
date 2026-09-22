@@ -660,6 +660,7 @@ final class ServiceController
             . '<input type="hidden" name="id" value="' . (int) $service['id'] . '">'
             . '<input type="hidden" name="service[preset]" value="' . rex_escape($service['preset']) . '">'
             . '<ul class="nav nav-tabs" role="tablist">' . $nav . '</ul><div class="tab-content ck-tab-content">' . $panes . '</div>'
+            . ('' !== WriteAssist::bulkButton() ? '<div class="ck-toolbar">' . WriteAssist::bulkButton() . '<span class="ck-toolbar-hint" data-ck-translate-progress></span></div>' : '')
             . '<footer class="ck-form-footer">' . $buttons . '</footer></form>';
 
         $extra = '';
@@ -765,6 +766,7 @@ final class ServiceController
             . Form::text('group[key]', rex_i18n::msg('consent_kit_key'), $group['key'], rex_i18n::msg('consent_kit_group_key_help'), ['required' => true, 'pattern' => '[a-z0-9_]{2,64}', 'spellcheck' => 'false'])
             . Form::i18n('group[description]', rex_i18n::msg('consent_kit_description'), $group['description'], true)
             . Form::checkbox('group[required]', rex_i18n::msg('consent_kit_required'), $group['required'], rex_i18n::msg('consent_kit_required_help'))
+            . ('' !== WriteAssist::bulkButton() ? '<div class="ck-toolbar">' . WriteAssist::bulkButton() . '<span class="ck-toolbar-hint" data-ck-translate-progress></span></div>' : '')
             . '<footer class="ck-form-footer"><button type="submit" class="btn btn-save">' . rex_i18n::msg('consent_kit_save_close') . '</button> '
             . '<a class="btn btn-abort" href="' . rex_url::backendPage('consent_kit/services') . '">' . rex_i18n::msg('consent_kit_cancel') . '</a></footer></form>';
 
