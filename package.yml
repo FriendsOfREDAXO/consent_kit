@@ -57,6 +57,7 @@ default_config:
     reload_on_revoke: true
     dismissible: true
     block_embeds: false
+    oembed: true
     revision_bump: 0
     css_vars: []
     texts: []

@@ -11,6 +11,7 @@ use rex_request;
  *   Consent::head()                                   // Einbindung im <head> (statt REX_CONSENT_KIT[])
  *   Consent::has('matomo')
  *   Consent::embed('youtube', '<iframe …></iframe>')
+ *   Consent::oembed($html)                            // <oembed>-Tags aus CKE5/TinyMCE sperren
  *   Consent::overview()                               // Dienste-Liste fuer die Datenschutzerklaerung
  */
 final class Consent
@@ -174,6 +175,15 @@ final class Consent
             }
         }
         return $out . '<p><a href="#consent-kit">' . $e($texts['trigger']) . '</a></p></div>';
+    }
+
+    /**
+     * Wandelt <oembed>-Tags von CKEditor 5 / TinyMCE in gesperrte Platzhalter um –
+     * fuer Modulausgaben, wenn die automatische Umwandlung abgeschaltet ist.
+     */
+    public static function oembed(string $html): string
+    {
+        return Oembed::render($html, self::config());
     }
 
     /**

@@ -7,7 +7,7 @@ use KLXM\ConsentKit\Repository;
 $addon = rex_addon::get('consent_kit');
 $csrf = rex_csrf_token::factory('consent_kit');
 $message = '';
-$checkboxes = ['auto_inject', 'trigger', 'dismissible', 'reload_on_revoke', 'block_embeds', 'gcm_ads_data_redaction', 'gcm_url_passthrough'];
+$checkboxes = ['auto_inject', 'trigger', 'dismissible', 'reload_on_revoke', 'oembed', 'block_embeds', 'gcm_ads_data_redaction', 'gcm_url_passthrough'];
 Repository::syncYrewriteDomains();
 
 if ('post' === rex_request::requestMethod()) {
@@ -107,6 +107,7 @@ $display = Form::checkbox('settings[auto_inject]', rex_i18n::msg('consent_kit_au
 // Einwilligung
 $consent = Form::text('settings[consent_days]', rex_i18n::msg('consent_kit_consent_days'), (string) $get('consent_days', 365), rex_i18n::msg('consent_kit_consent_days_help'), ['type' => 'number', 'min' => '1', 'max' => '395'])
     . Form::checkbox('settings[reload_on_revoke]', rex_i18n::msg('consent_kit_reload'), (bool) $get('reload_on_revoke', true), rex_i18n::msg('consent_kit_reload_help'))
+    . Form::checkbox('settings[oembed]', rex_i18n::msg('consent_kit_oembed'), (bool) $get('oembed', true), rex_i18n::rawMsg('consent_kit_oembed_help'))
     . Form::checkbox('settings[block_embeds]', rex_i18n::msg('consent_kit_block_embeds'), (bool) $get('block_embeds', false), rex_i18n::rawMsg('consent_kit_block_embeds_help'))
     . Form::text('settings[log_days]', rex_i18n::msg('consent_kit_log_days'), (string) $get('log_days', 1095), rex_i18n::msg('consent_kit_log_days_help'), ['type' => 'number', 'min' => '0']);
 

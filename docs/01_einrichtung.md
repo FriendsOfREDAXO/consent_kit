@@ -31,6 +31,7 @@ Unter **Einstellungen → Rechtstexte und Domains** werden Datenschutzerklärung
 | --- | --- | --- |
 | Gültigkeit der Entscheidung | 365 Tage | Danach wird erneut gefragt, auch nach einer Ablehnung. Browser begrenzen Cookies auf rund 400 Tage. |
 | Seite nach Widerruf neu laden | an | Bereits geladene Scripts lassen sich nur so sicher stoppen. |
+| Einbettungen aus CKEditor 5 und TinyMCE sperren | an | Wandelt `<oembed>`-Tags der Editoren in [2-Klick-Platzhalter](03_einbindung.md#inhalte-aus-dem-editor) um. |
 | iframes automatisch sperren | aus | Ersetzt iframes bekannter Hosts durch den [2-Klick-Platzhalter](03_einbindung.md#externe-inhalte). |
 | Aufbewahrung des Protokolls | 1095 Tage | `0` = nie löschen. Siehe [Protokoll](06_protokoll.md). |
 

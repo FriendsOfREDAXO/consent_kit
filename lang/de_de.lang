@@ -401,3 +401,5 @@ consent_kit_check_legal_is_start = Als „{0}“ ist eine Startseite gewählt. O
 consent_kit_dismissible = Schließen-Schaltfläche (×) im Hinweis anzeigen
 consent_kit_dismissible_help = Schließen zählt nie als Einwilligung: Es wird nichts geladen, und der Hinweis bleibt bis zum Ende der Browser-Sitzung ausgeblendet. Ohne × muss im Dialog eine Entscheidung getroffen werden – auf den Seiten Datenschutzerklärung und Impressum erscheint er dann als Box an der gewählten Position, damit sie lesbar bleiben.
 consent_kit_text_close = Schließen-Schaltfläche (Vorlesetext)
+consent_kit_oembed = Einbettungen aus CKEditor 5 und TinyMCE sperren
+consent_kit_oembed_help = Wandelt <code>&lt;oembed&gt;</code>-Tags der Editoren (YouTube, Vimeo, weitere über die Hosts der Dienste) in Platzhalter um, die erst nach Einwilligung laden. Ohne diese Option bleiben die Tags unverändert im HTML.

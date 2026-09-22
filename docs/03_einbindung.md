@@ -97,7 +97,24 @@ Auch Script-Einbettungen funktionieren – Scripts im `<template>` werden nach d
 
 ### Inhalte aus dem Editor
 
-Mit **Einstellungen → iframes bekannter Dienste automatisch sperren** werden iframes ersetzt, deren Host bei einem Dienst unter *Erweitert → Hosts für eingebettete Inhalte* steht (Subdomains zählen mit). Bereits verpackte iframes bleiben unberührt. In eigenem Code geht dasselbe gezielt:
+CKEditor 5 und TinyMCE (Plugin `for_oembed`) speichern Einbettungen als
+
+```html
+<figure class="media"><oembed url="https://www.youtube.com/watch?v=…"></oembed></figure>
+```
+
+Diese Tags werden im Frontend automatisch in gesperrte Platzhalter umgewandelt (**Einstellungen → Einbettungen aus CKEditor 5 und TinyMCE sperren**, Standard: an). Der Renderer der Editoren ist dann nicht nötig.
+
+| URL | Ergebnis |
+| --- | --- |
+| YouTube (`watch`, `shorts`, `live`, `embed`, `youtu.be`, auch mit Zeitmarke `t=`) | Player über `youtube-nocookie.com`, Dienst `youtube` |
+| Vimeo (`vimeo.com/ID`, auch mit Hash für private Videos) | Player mit `dnt=1`, Dienst `vimeo` |
+| Andere URL, deren Host bei einem Dienst hinterlegt ist | iframe mit der URL selbst (z. B. Google-Maps-Embed-Link) |
+| Unbekannter Host | nur ein Link – nichts wird geladen |
+
+Ist die Umwandlung abgeschaltet, geht es gezielt in der Modulausgabe: `echo \KLXM\ConsentKit\Consent::oembed($html);`.
+
+Fertige iframes (z. B. aus dem Quelltext-Modus des Editors) sind ein zweiter Fall: Mit **Einstellungen → iframes bekannter Dienste automatisch sperren** werden iframes ersetzt, deren Host bei einem Dienst unter *Erweitert → Hosts für eingebettete Inhalte* steht (Subdomains zählen mit). Bereits verpackte iframes bleiben unberührt. In eigenem Code geht dasselbe gezielt:
 
 ```php
 use KLXM\ConsentKit\Consent;

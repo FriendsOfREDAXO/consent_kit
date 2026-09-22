@@ -401,3 +401,5 @@ consent_kit_check_legal_is_start = A start page is selected as “{0}”. Withou
 consent_kit_dismissible = Show close button (×) in the notice
 consent_kit_dismissible_help = Closing never counts as consent: nothing is loaded and the notice stays hidden until the browser session ends. Without × a decision is required in the dialog – on the privacy policy and legal notice pages it then appears as a box at the chosen position so they stay readable.
 consent_kit_text_close = Close button (screen reader text)
+consent_kit_oembed = Block embeds from CKEditor 5 and TinyMCE
+consent_kit_oembed_help = Converts the editors’ <code>&lt;oembed&gt;</code> tags (YouTube, Vimeo, others via the services’ hosts) into placeholders that only load after consent. Without this option the tags stay unchanged in the HTML.

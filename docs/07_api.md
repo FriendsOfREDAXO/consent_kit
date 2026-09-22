@@ -11,6 +11,7 @@ Namespace `KLXM\ConsentKit`.
 | `Consent::head()` | `string` | Ausgabe für den `<head>` (entspricht `REX_CONSENT_KIT[]`). |
 | `Consent::has(string $key)` | `bool` | `true`, wenn der Dienst notwendig ist oder ihm in seiner aktuellen Fassung zugestimmt wurde. Liest den Cookie des aktuellen Requests. |
 | `Consent::embed(string $key, string $html, array $options = [])` | `string` | Verpackt Markup in `<consent-embed>`. Optionen: `title` (Beschriftung), `ratio` (z. B. `'16/9'`). |
+| `Consent::oembed(string $html)` | `string` | `<oembed>`-Tags von CKEditor 5/TinyMCE in gesperrte Platzhalter umwandeln. |
 | `Consent::overview(int $headingLevel = 3)` | `string` | Dienste-Übersicht als HTML für die Datenschutzerklärung. |
 | `Consent::state()` | `?array` | Inhalt des Cookies: `id`, `e`, `rev`, `ts`, `a`, `r` – oder `null`. |
 | `Consent::config()` | `array` | Fertige Frontend-Konfiguration für aktuelle Domain und Sprache (aus dem Cache). |
@@ -31,6 +32,8 @@ foreach (Consent::config()['groups'] as $group) {
 | Aufruf | Zweck |
 | --- | --- |
 | `Embed::filter(string $html, array $config)` | iframes bekannter Hosts im HTML durch Platzhalter ersetzen |
+| `Embed::serviceForUrl(string $url, array $config)` | Schlüssel des Dienstes, dessen Hosts zur URL passen, sonst `null` |
+| `Oembed::render(string $html, array $config)`, `Oembed::resolve(string $url, array $config)` | `<oembed>`-Tags umwandeln bzw. eine URL zu Embed-Adresse und Dienst auflösen |
 | `Cache::clear()` | Konfigurations-Cache leeren (passiert bei jedem Speichern im Backend und beim REDAXO-Cache-Reset von selbst) |
 | `Repository::services(bool $onlyActive = false)`, `::groups()`, `::domains()` | Rohdaten lesen |
 | `Repository::saveService(int $id, array $data, array $items, ?array $variants = null)` | Dienst anlegen (`$id = 0`) oder ändern |

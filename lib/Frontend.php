@@ -123,6 +123,9 @@ final class Frontend
             }
         }
 
+        if ($addon->getConfig('oembed', true)) {
+            $html = Oembed::render($html, $config);
+        }
         if ($addon->getConfig('block_embeds', false)) {
             $html = Embed::filter($html, $config);
         }

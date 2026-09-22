@@ -75,6 +75,24 @@ final class Embed
         return implode('', $parts);
     }
 
+    /**
+     * Dienst, dem der Host einer URL zugeordnet ist (embed_hosts, Subdomains inklusive).
+     *
+     * @param array<string, mixed> $config
+     */
+    public static function serviceForUrl(string $url, array $config): ?string
+    {
+        $hosts = [];
+        foreach ($config['groups'] as $group) {
+            foreach ($group['services'] as $service) {
+                foreach ($service['hosts'] as $host) {
+                    $hosts[$host] = $service['key'];
+                }
+            }
+        }
+        return self::matchHost($url, $hosts);
+    }
+
     /** @param array<string, string> $hosts host => service key */
     private static function matchHost(string $url, array $hosts): ?string
     {
