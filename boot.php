@@ -34,7 +34,8 @@ if (rex::isBackend() && rex::getUser()) {
 
     if ('consent_kit' === rex_be_controller::getCurrentPagePart(1)) {
         $addon = rex_addon::get('consent_kit');
-        $version = $addon->getVersion() . '-' . @filemtime($addon->getAssetsPath('backend.js'));
+        $file = $addon->getAssetsPath('backend.js');
+        $version = $addon->getVersion() . '-' . (is_file($file) ? filemtime($file) : 0);
         rex_view::addCssFile($addon->getAssetsUrl('backend.css') . '?v=' . $version);
         rex_view::addJsFile($addon->getAssetsUrl('backend.js') . '?v=' . $version);
     }

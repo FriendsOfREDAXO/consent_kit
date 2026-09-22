@@ -37,7 +37,7 @@ if ('post' === rex_request::requestMethod()) {
         $message = $report((new LegacyImporter())->fromTables());
     } elseif (rex_request::post('legacy_file', 'bool', false)) {
         $file = rex_request::files('legacy_json', 'array', []);
-        $data = isset($file['tmp_name']) && is_uploaded_file((string) $file['tmp_name']) ? json_decode((string) file_get_contents((string) $file['tmp_name']), true) : null;
+        $data = isset($file['tmp_name']) && is_uploaded_file((string) $file['tmp_name']) ? json_decode((string) rex_file::get((string) $file['tmp_name']), true) : null;
         $message = is_array($data) && isset($data['cookies'], $data['cookiegroups'])
             ? $report((new LegacyImporter())->fromArray($data))
             : rex_view::error(rex_i18n::msg('consent_kit_legacy_invalid'));

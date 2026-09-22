@@ -36,8 +36,8 @@ final class Save extends rex_api_function
             $this->fail(rex_response::HTTP_FORBIDDEN, 'Cross-site request');
         }
 
-        $body = (string) file_get_contents('php://input', false, null, 0, 16384);
-        $payload = json_decode($body, true);
+        $body = (string) rex::getRequest()->getContent();
+        $payload = strlen($body) <= 16384 ? json_decode($body, true) : null;
         if (!is_array($payload)) {
             $this->fail(rex_response::HTTP_BAD_REQUEST, 'Invalid payload');
         }

@@ -4,6 +4,7 @@ namespace KLXM\ConsentKit;
 
 use rex_addon;
 use rex_file;
+use rex_finder;
 
 /** Liest die Dienste-Vorlagen aus presets/*.json und data/addons/consent_kit/presets/*.json (Format: presets/FORMAT.md). */
 final class PresetRepository
@@ -19,12 +20,8 @@ final class PresetRepository
         }
         self::$presets = [];
         $addon = rex_addon::get('consent_kit');
-        $files = glob($addon->getPath('presets/*.json')) ?: [];
-        sort($files);
         // Eigene Vorlagen liegen update-sicher im Data-Ordner und ueberschreiben gleichnamige Schluessel.
-        $custom = glob($addon->getDataPath('presets/*.json')) ?: [];
-        sort($custom);
-        $files = array_merge($files, $custom);
+        $files = array_merge(self::jsonFiles($addon->getPath('presets')), self::jsonFiles($addon->getDataPath('presets')));
         foreach ($files as $file) {
             $data = json_decode((string) rex_file::get($file), true);
             foreach ((array) ($data['services'] ?? []) as $preset) {
@@ -35,6 +32,22 @@ final class PresetRepository
         }
         uasort(self::$presets, static fn (array $a, array $b) => strcasecmp((string) $a['name'], (string) $b['name']));
         return self::$presets;
+    }
+
+    /** @return list<string> */
+    private static function jsonFiles(string $dir): array
+    {
+        if (!is_dir($dir)) {
+            return [];
+        }
+        $files = [];
+        foreach (rex_finder::factory($dir)->filesOnly()->ignoreFiles('.*') as $path => $file) {
+            if ('json' === strtolower($file->getExtension())) {
+                $files[] = (string) $path;
+            }
+        }
+        sort($files);
+        return $files;
     }
 
     /** @return array<string, mixed>|null */

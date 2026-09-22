@@ -143,7 +143,7 @@ final class Consent
         $texts = $config['texts'];
         $group = 'h' . max(1, min(5, $headingLevel));
         $service = 'h' . (max(1, min(5, $headingLevel)) + 1);
-        $e = static fn (string $value): string => htmlspecialchars($value, ENT_QUOTES);
+        $e = static fn (string $value): string => rex_escape($value);
 
         $out = '<div class="consent-kit-overview">';
         foreach ($config['groups'] as $entry) {

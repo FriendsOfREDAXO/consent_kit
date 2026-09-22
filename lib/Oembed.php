@@ -30,7 +30,7 @@ final class Oembed
             }
             $embed = self::embed($url, $config);
             if (null === $embed) {
-                return $figureOpen . '<p><a href="' . htmlspecialchars($url, ENT_QUOTES) . '" rel="noopener noreferrer">' . htmlspecialchars($url, ENT_QUOTES) . '</a></p>' . $figureClose;
+                return $figureOpen . '<p><a href="' . rex_escape($url) . '" rel="noopener noreferrer">' . rex_escape($url) . '</a></p>' . $figureClose;
             }
             return $figureOpen . $embed . $figureClose;
         }, $html);
@@ -77,7 +77,7 @@ final class Oembed
         if (null === $resolved) {
             return null;
         }
-        $iframe = '<iframe src="' . htmlspecialchars($resolved['src'], ENT_QUOTES) . '" title="' . htmlspecialchars($resolved['title'], ENT_QUOTES) . '"'
+        $iframe = '<iframe src="' . rex_escape($resolved['src']) . '" title="' . rex_escape($resolved['title']) . '"'
             . ' loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"'
             . ' style="display:block;width:100%;aspect-ratio:16/9;border:0"></iframe>';
         return Embed::wrap($resolved['service'], $iframe, ['ratio' => '16/9']);

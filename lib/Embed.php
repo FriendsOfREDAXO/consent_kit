@@ -11,9 +11,9 @@ final class Embed
     /** @param array{title?: string, ratio?: string} $options */
     public static function wrap(string $serviceKey, string $html, array $options = []): string
     {
-        $attributes = ' service="' . htmlspecialchars($serviceKey, ENT_QUOTES) . '"';
+        $attributes = ' service="' . rex_escape($serviceKey) . '"';
         if (isset($options['title']) && '' !== $options['title']) {
-            $attributes .= ' label="' . htmlspecialchars($options['title'], ENT_QUOTES) . '"';
+            $attributes .= ' label="' . rex_escape($options['title']) . '"';
         }
         if (isset($options['ratio']) && 1 === preg_match('~^\d+(\.\d+)?\s*/\s*\d+(\.\d+)?$~', $options['ratio'])) {
             $attributes .= ' style="--ck-embed-ratio:' . $options['ratio'] . '"';
