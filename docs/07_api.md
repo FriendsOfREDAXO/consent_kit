@@ -8,6 +8,7 @@ Namespace `KLXM\ConsentKit`.
 
 | Methode | Rückgabe | Zweck |
 | --- | --- | --- |
+| `Consent::head()` | `string` | Ausgabe für den `<head>` (entspricht `REX_CONSENT_KIT[]`). |
 | `Consent::has(string $key)` | `bool` | `true`, wenn der Dienst notwendig ist oder ihm in seiner aktuellen Fassung zugestimmt wurde. Liest den Cookie des aktuellen Requests. |
 | `Consent::embed(string $key, string $html, array $options = [])` | `string` | Verpackt Markup in `<consent-embed>`. Optionen: `title` (Beschriftung), `ratio` (z. B. `'16/9'`). |
 | `Consent::overview(int $headingLevel = 3)` | `string` | Dienste-Übersicht als HTML für die Datenschutzerklärung. |
@@ -29,7 +30,6 @@ foreach (Consent::config()['groups'] as $group) {
 
 | Aufruf | Zweck |
 | --- | --- |
-| `Frontend::head()` | Ausgabe für den `<head>` (entspricht `REX_CONSENT_KIT[]`) |
 | `Embed::filter(string $html, array $config)` | iframes bekannter Hosts im HTML durch Platzhalter ersetzen |
 | `Cache::clear()` | Konfigurations-Cache leeren (passiert bei jedem Speichern im Backend und beim REDAXO-Cache-Reset von selbst) |
 | `Repository::services(bool $onlyActive = false)`, `::groups()`, `::domains()` | Rohdaten lesen |

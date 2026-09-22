@@ -8,8 +8,10 @@ use rex_request;
 /**
  * Oeffentliche PHP-API fuer Templates und Module.
  *
+ *   Consent::head()                                   // Einbindung im <head> (statt REX_CONSENT_KIT[])
  *   Consent::has('matomo')
  *   Consent::embed('youtube', '<iframe …></iframe>')
+ *   Consent::overview()                               // Dienste-Liste fuer die Datenschutzerklaerung
  */
 final class Consent
 {
@@ -46,6 +48,15 @@ final class Consent
             return self::$domain = $match;
         }
         return self::$domain = $fallback;
+    }
+
+    /**
+     * Ausgabe fuer den <head> des Templates – Alternative zur automatischen
+     * Einbindung und zu REX_CONSENT_KIT[]. Moeglichst weit oben platzieren.
+     */
+    public static function head(): string
+    {
+        return Frontend::head();
     }
 
     /** @return array<string, mixed> */

@@ -21,6 +21,12 @@ Automatik unter **Einstellungen → Darstellung** abschalten und im Template mö
 </head>
 ```
 
+Dasselbe in PHP, etwa in einem Template mit `<?php`-Blöcken oder in einem eigenen Layout:
+
+```php
+<?php echo \KLXM\ConsentKit\Consent::head(); ?>
+```
+
 Steht die Ausgabe bereits im HTML, fügt die Automatik nichts doppelt ein. Wer Layout oder Farbschema für ein Template abweichend setzen will, platziert das Element selbst:
 
 ```html
@@ -117,4 +123,4 @@ Auch `.consent-kit-open` und das vom consent_manager bekannte `.consent_manager-
 REX_CONSENT_KIT[output=overview level=3]
 ```
 
-oder `echo \KLXM\ConsentKit\Consent::overview(3);`. Ausgegeben werden alle Dienste der aktuellen Domain in der aktuellen Sprache: Beschreibung, Anbieter, Datenschutz-Link, Tabelle der Cookies und Speichereinträge sowie ein Link zu den Cookie-Einstellungen. `level` ist die Überschriften-Ebene der Gruppen.
+oder in PHP `echo \KLXM\ConsentKit\Consent::overview(3);`. Ausgegeben werden alle Dienste der aktuellen Domain in der aktuellen Sprache: Beschreibung, Anbieter, Datenschutz-Link, Tabelle der Cookies und Speichereinträge sowie ein Link zu den Cookie-Einstellungen. `level` ist die Überschriften-Ebene der Gruppen.

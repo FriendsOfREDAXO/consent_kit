@@ -18,7 +18,7 @@ Unter **Einstellungen → Rechtstexte und Domains** werden Datenschutzerklärung
 
 | Einstellung | Bedeutung |
 | --- | --- |
-| Automatisch einbinden | Fügt alles Nötige per `OUTPUT_FILTER` in den `<head>` ein. Alternative: [`REX_CONSENT_KIT[]`](03_einbindung.md#manuelle-einbindung). |
+| Automatisch einbinden | Fügt alles Nötige per `OUTPUT_FILTER` in den `<head>` ein. Alternative: [`REX_CONSENT_KIT[]` oder `Consent::head()`](03_einbindung.md#manuelle-einbindung). |
 | Form | **Box** (Ecke, Seite bleibt bedienbar), **Leiste** (volle Breite), **Dialog** (mittig, Seite gesperrt). |
 | Position | Ecke der Box bzw. oben/unten bei der Leiste. |
 | Farbschema | Hell, Dunkel oder Automatisch (folgt dem System des Besuchers – nur sinnvoll, wenn die Website selbst einen Dark Mode hat). |

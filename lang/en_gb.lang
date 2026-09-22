@@ -27,7 +27,7 @@ consent_kit_check_label_ok = OK
 consent_kit_check_label_warn = Warning
 consent_kit_check_label_info = Information
 consent_kit_check_inject_on = The notice is embedded automatically on all pages.
-consent_kit_check_inject_off = Automatic embedding is off – the template needs <code>REX_CONSENT_KIT[]</code> inside <code>&lt;head&gt;</code>.
+consent_kit_check_inject_off = Automatic embedding is off – the template needs <code>REX_CONSENT_KIT[]</code> or <code>Consent::head()</code> inside <code>&lt;head&gt;</code>.
 consent_kit_check_privacy_ok = Privacy policy is linked.
 consent_kit_check_privacy_missing = No privacy policy linked – <a href="{0}">set it in the settings</a>.
 consent_kit_check_imprint_ok = Legal notice is linked.
@@ -180,7 +180,7 @@ consent_kit_domain_new = another domain, e.g. shop.example.org
 consent_kit_domain_duplicate = The domain “{0}” was entered twice and saved only once.
 consent_kit_section_display = Display
 consent_kit_auto_inject = Embed automatically on all pages
-consent_kit_auto_inject_help = Recommended. Alternatively place <code>REX_CONSENT_KIT[]</code> inside the template’s <code>&lt;head&gt;</code>.
+consent_kit_auto_inject_help = Recommended. Alternatively place <code>REX_CONSENT_KIT[]</code> or <code>Consent::head()</code> inside the template’s <code>&lt;head&gt;</code>.
 consent_kit_layout = Notice layout
 consent_kit_layout_box = Box
 consent_kit_layout_box_text = Compact in a corner. The page stays usable.

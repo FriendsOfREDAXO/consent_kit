@@ -27,7 +27,7 @@ consent_kit_check_label_ok = In Ordnung
 consent_kit_check_label_warn = Hinweis
 consent_kit_check_label_info = Information
 consent_kit_check_inject_on = Der Hinweis wird automatisch auf allen Seiten eingebunden.
-consent_kit_check_inject_off = Automatische Einbindung ist aus – im Template muss <code>REX_CONSENT_KIT[]</code> im <code>&lt;head&gt;</code> stehen.
+consent_kit_check_inject_off = Automatische Einbindung ist aus – im Template muss <code>REX_CONSENT_KIT[]</code> oder <code>Consent::head()</code> im <code>&lt;head&gt;</code> stehen.
 consent_kit_check_privacy_ok = Datenschutzerklärung ist verlinkt.
 consent_kit_check_privacy_missing = Keine Datenschutzerklärung verlinkt – <a href="{0}">in den Einstellungen festlegen</a>.
 consent_kit_check_imprint_ok = Impressum ist verlinkt.
@@ -180,7 +180,7 @@ consent_kit_domain_new = weitere Domain, z. B. shop.example.org
 consent_kit_domain_duplicate = Die Domain „{0}“ ist doppelt und wurde nur einmal gespeichert.
 consent_kit_section_display = Darstellung
 consent_kit_auto_inject = Automatisch auf allen Seiten einbinden
-consent_kit_auto_inject_help = Empfohlen. Alternativ <code>REX_CONSENT_KIT[]</code> im <code>&lt;head&gt;</code> des Templates platzieren.
+consent_kit_auto_inject_help = Empfohlen. Alternativ <code>REX_CONSENT_KIT[]</code> oder <code>Consent::head()</code> im <code>&lt;head&gt;</code> des Templates platzieren.
 consent_kit_layout = Form des Hinweises
 consent_kit_layout_box = Box
 consent_kit_layout_box_text = Kompakt in einer Ecke. Die Seite bleibt bedienbar.
