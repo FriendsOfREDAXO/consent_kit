@@ -22,7 +22,7 @@ final class Oembed
         $pattern = '~(<figure\b[^>]*\bclass=["\'][^"\']*\bmedia\b[^"\']*["\'][^>]*>\s*)?<oembed\b[^>]*\burl=(["\'])(.*?)\2[^>]*>(?:\s*</oembed>)?(\s*</figure>)?~is';
         return (string) preg_replace_callback($pattern, static function (array $match) use ($config): string {
             $url = trim(html_entity_decode($match[3], ENT_QUOTES));
-            $figureOpen = $match[1] ?? '';
+            $figureOpen = $match[1];
             $figureClose = $match[4] ?? '';
             // Nur eine vollstaendige figure-Klammer beibehalten.
             if ('' === $figureOpen || '' === $figureClose) {
@@ -59,7 +59,7 @@ final class Oembed
             }
         }
         if (1 === preg_match('~vimeo\.com/(?:video/)?(\d{5,})(?:/([a-f0-9]+))?~', $url, $m)) {
-            $src = 'https://player.vimeo.com/video/' . $m[1] . '?dnt=1' . (isset($m[2]) && '' !== $m[2] ? '&h=' . $m[2] : '');
+            $src = 'https://player.vimeo.com/video/' . $m[1] . '?dnt=1' . (isset($m[2]) ? '&h=' . $m[2] : '');
             return ['src' => $src, 'service' => Embed::serviceForUrl($src, $config) ?? 'vimeo', 'title' => 'Vimeo'];
         }
         // Unbekannter Anbieter: nur einbetten, wenn ein Dienst den Host kennt (z. B. Google Maps, Spotify).
