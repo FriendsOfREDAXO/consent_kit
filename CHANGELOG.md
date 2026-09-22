@@ -1,6 +1,8 @@
 # Changelog
 
-## 1.0.0-dev
+## 1.0.0-beta1 – 2026-09-22
+
+Erste öffentliche Beta. Rückmeldungen bitte über die GitHub-Issues.
 
 - Reiter „Ereignisse“ je Dienst: Conversions (Anfrage, Registrierung, Terminbuchung, Seite) per Klick/Seite/Formular ohne Code; Aufrufe für OpenAI Pixel, Meta Pixel, Google Ads, GA4 und Matomo in den Vorlagen.
 - Vorlage „OpenAI Measurement Pixel (ChatGPT Ads)“ mit Consent-Aufrufen; Anleitung zum Conversion-Tracking in den Tipps.
