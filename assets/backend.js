@@ -17,6 +17,7 @@
             list.append(row);
             row.querySelector('input, select').focus();
             updateCount(type);
+            syncConditional();
             return;
         }
 
@@ -131,6 +132,11 @@
     }
 
     document.addEventListener('change', (event) => {
+        if (event.target.name?.endsWith('[trigger]')) {
+            const row = event.target.closest('[data-ck-row]');
+            const target = row?.querySelector('[data-ck-event-target]');
+            if (target) target.placeholder = JSON.parse(row.dataset.placeholders)[event.target.value] || '';
+        }
         if (event.target.name === 'service[domain_mode]') {
             const list = document.querySelector('[data-ck-domain-list]');
             list.hidden = event.target.value !== 'selected';

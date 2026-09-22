@@ -133,6 +133,7 @@ final class Repository
                 'js_revoke' => (string) $row['js_revoke'],
                 'gcm_signals' => self::splitList((string) $row['gcm_signals']),
                 'embed_hosts' => self::splitList((string) $row['embed_hosts']),
+                'events' => Events::normalize((array) json_decode((string) $row['events'], true)),
                 'domain_ids' => array_map('intval', self::splitList((string) $row['domain_ids'])),
                 'preset' => (string) $row['preset'],
                 'items' => $items[$id] ?? [],
@@ -184,6 +185,7 @@ final class Repository
         $signals = array_values(array_intersect(self::GCM_SIGNALS, (array) ($data['gcm_signals'] ?? [])));
         $sql->setValue('gcm_signals', implode(',', $signals));
         $sql->setValue('embed_hosts', implode(',', self::normalizeHosts((array) ($data['embed_hosts'] ?? []))));
+        $sql->setValue('events', (string) json_encode(Events::normalize((array) ($data['events'] ?? [])), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         $sql->setValue('domain_ids', implode(',', array_filter(array_map('intval', (array) ($data['domain_ids'] ?? [])))));
         $sql->setValue('preset', (string) ($data['preset'] ?? ''));
         $sql->addGlobalUpdateFields($user);

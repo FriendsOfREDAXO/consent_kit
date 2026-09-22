@@ -154,6 +154,7 @@ const core = {
                 this.loaded.add(service.key);
                 inject(service.head, document.head);
                 inject(service.body, document.body);
+                run(service.jsEvents, service.key + ' events');
             }
             run(service.jsAccept, service.key + ' js_accept');
         }

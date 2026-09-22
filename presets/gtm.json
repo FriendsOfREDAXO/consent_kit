@@ -58,6 +58,12 @@
       "note": {
         "de": "Diese Vorlage lädt selbst nichts. Sie setzt voraus, dass das Tag im Google Tag Manager mit aktivierter Einwilligungsprüfung (Consent Mode) eingerichtet ist.",
         "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled."
+      },
+      "events": {
+        "lead": "gtag('event', 'generate_lead');",
+        "registration": "gtag('event', 'sign_up');",
+        "appointment": "gtag('event', 'generate_lead', { event_label: 'appointment' });",
+        "page_view": "gtag('event', 'page_view');"
       }
     },
     {
@@ -198,6 +204,12 @@
       "note": {
         "de": "Diese Vorlage lädt selbst nichts. Sie setzt voraus, dass das Tag im Google Tag Manager mit aktivierter Einwilligungsprüfung (Consent Mode) eingerichtet ist.",
         "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled."
+      },
+      "events": {
+        "lead": "gtag('event', 'conversion', { send_to: '{{label}}' });",
+        "registration": "gtag('event', 'conversion', { send_to: '{{label}}' });",
+        "appointment": "gtag('event', 'conversion', { send_to: '{{label}}' });",
+        "page_view": "gtag('event', 'conversion', { send_to: '{{label}}' });"
       }
     }
   ]

@@ -61,5 +61,6 @@ Every `presets/*.json` file holds a list of service presets. All files are merge
 - `items[].name`: exact name; `*` allowed as wildcard (`_ga_*`).
 - `items[].host`: domain that sets the entry if it is a third-party host (e.g. `.youtube.com`), empty string for first-party.
 - `items[].duration.unit`: `session`, `minutes`, `hours`, `days`, `months`, `years`, `persistent` (`value` is `0` for `session`/`persistent`).
+- `events` (optional): `{"lead": "…", "registration": "…", "appointment": "…", "page_view": "…"}` – the vendor call per conversion event, used by the “Events” tab. `{{label}}` is the per-event identifier the site owner enters (e.g. a Google Ads conversion label); `{{param}}` placeholders work as in the code fields.
 - `note` (optional): `{"de": "…", "en": "…"}` – what could not be verified against vendor documentation; shown to the admin in the service form.
 - `sources`: official vendor documentation URLs that back the items and snippets.

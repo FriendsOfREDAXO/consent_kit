@@ -181,7 +181,13 @@
         "https://developers.google.com/tag-platform/gtagjs/install",
         "https://policies.google.com/privacy"
       ],
-      "verified": "2026-09-21"
+      "verified": "2026-09-21",
+      "events": {
+        "lead": "gtag('event', 'conversion', { send_to: '{{conversion_id}}/{{label}}' });",
+        "registration": "gtag('event', 'conversion', { send_to: '{{conversion_id}}/{{label}}' });",
+        "appointment": "gtag('event', 'conversion', { send_to: '{{conversion_id}}/{{label}}' });",
+        "page_view": "gtag('event', 'conversion', { send_to: '{{conversion_id}}/{{label}}' });"
+      }
     },
     {
       "key": "meta_pixel",
@@ -259,7 +265,13 @@
         "https://www.facebook.com/privacy/policies/cookies/",
         "https://www.facebook.com/privacy/policy/"
       ],
-      "verified": "2026-09-21"
+      "verified": "2026-09-21",
+      "events": {
+        "lead": "fbq('track', 'Lead');",
+        "registration": "fbq('track', 'CompleteRegistration');",
+        "appointment": "fbq('track', 'Schedule');",
+        "page_view": "fbq('track', 'ViewContent');"
+      }
     },
     {
       "key": "linkedin_insight",
@@ -909,15 +921,21 @@
         }
       ],
       "note": {
-        "de": "Das Pixel misst keine Seitenaufrufe von allein: Ereignisse wie lead_created müssen per oaiq(\"measure\", …) ausgelöst werden – z. B. per Script mit data-consent=\"openai_pixel\" im Template. Wird die Einwilligung widerrufen, speichert das Pixel die Ablehnung und sendet nichts mehr.",
-        "en": "The pixel does not measure page views by itself: events such as lead_created must be triggered via oaiq(\"measure\", …) – e.g. by a script with data-consent=\"openai_pixel\" in the template. On withdrawal the pixel stores the denial and sends nothing further."
+        "de": "Das Pixel misst keine Seitenaufrufe von allein: Was gemeldet werden soll (Anfrage, Terminbuchung, wichtige Seite), wird im Reiter „Ereignisse“ festgelegt. Wird die Einwilligung widerrufen, speichert das Pixel die Ablehnung und sendet nichts mehr.",
+        "en": "The pixel does not measure page views by itself: what to report (enquiry, appointment, important page) is set in the “Events” tab. On withdrawal the pixel stores the denial and sends nothing further."
       },
       "sources": [
         "https://developers.openai.com/ads/measurement-pixel",
         "https://developers.openai.com/ads/supported-events",
         "https://openai.com/policies/eu-privacy-policy/"
       ],
-      "verified": "2026-09-22"
+      "verified": "2026-09-22",
+      "events": {
+        "lead": "oaiq(\"measure\", \"lead_created\", { type: \"customer_action\" });",
+        "registration": "oaiq(\"measure\", \"registration_completed\", { type: \"customer_action\" });",
+        "appointment": "oaiq(\"measure\", \"appointment_scheduled\", { type: \"customer_action\" });",
+        "page_view": "oaiq(\"measure\", \"page_viewed\", { type: \"contents\" });"
+      }
     }
   ]
 }

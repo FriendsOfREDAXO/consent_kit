@@ -42,6 +42,8 @@
 .ck-cell-button.is-on { color: #2b7a3d; }
 .ck-cell-button:hover { background: rgba(0, 0, 0, .06); }
 .ck-cell-button:focus-visible { outline: 3px solid #2a6db0; outline-offset: 1px; }
+.ck-event-grid { display: grid; grid-template-columns: 1fr 2fr 1.2fr 1fr; gap: 0 12px; }
+@media (max-width: 991px) { .ck-event-grid { grid-template-columns: 1fr 1fr; } }
 .ck-variant-scope, .ck-variant-params { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
 .ck-variant-code summary { cursor: pointer; font-weight: 700; margin-bottom: 6px; }
 body.rex-theme-dark .ck-matrix > thead > tr > th, body.rex-theme-dark .ck-group-row > th, body.rex-theme-dark .ck-group-row > td { background: #1a2430; border-color: #33414f !important; }

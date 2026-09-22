@@ -56,7 +56,9 @@ final class Cache
             if ([] !== $service['domain_ids'] && !in_array($domain['id'], $service['domain_ids'], true)) {
                 continue;
             }
-            $code = self::resolveParams(self::applyVariants($service, $domain, $clangCode));
+            $service = self::applyVariants($service, $domain, $clangCode);
+            $service['js_events'] = Events::build($service['events'], PresetRepository::events($service['preset']));
+            $code = self::resolveParams($service);
             if (null === $code) {
                 continue;
             }
@@ -91,6 +93,7 @@ final class Cache
                 'body' => $code['html_body'],
                 'jsAccept' => $code['js_accept'],
                 'jsRevoke' => $code['js_revoke'],
+                'jsEvents' => $code['js_events'],
                 'gcm' => $service['gcm_signals'],
                 'hosts' => $service['embed_hosts'],
                 'items' => $items,
@@ -201,7 +204,7 @@ final class Cache
      * ist der Dienst unvollstaendig konfiguriert und wird nicht ausgeliefert.
      *
      * @param array<string, mixed> $service
-     * @return array{html_head: string, html_body: string, js_default: string, js_accept: string, js_revoke: string}|null
+     * @return array{html_head: string, html_body: string, js_default: string, js_accept: string, js_revoke: string, js_events: string}|null
      */
     public static function resolveParams(array $service): ?array
     {
@@ -212,8 +215,8 @@ final class Cache
             }
         }
         $out = [];
-        foreach (['html_head', 'html_body', 'js_default', 'js_accept', 'js_revoke'] as $field) {
-            $value = strtr((string) $service[$field], $replace);
+        foreach (['html_head', 'html_body', 'js_default', 'js_accept', 'js_revoke', 'js_events'] as $field) {
+            $value = strtr((string) ($service[$field] ?? ''), $replace);
             if (1 === preg_match('~\{\{[a-z0-9_]+\}\}~i', $value)) {
                 return null;
             }

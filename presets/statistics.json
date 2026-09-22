@@ -64,7 +64,13 @@
         "https://business.safety.google/adscookies/",
         "https://policies.google.com/privacy"
       ],
-      "verified": "2026-09-21"
+      "verified": "2026-09-21",
+      "events": {
+        "lead": "gtag('event', 'generate_lead');",
+        "registration": "gtag('event', 'sign_up');",
+        "appointment": "gtag('event', 'generate_lead', { event_label: 'appointment' });",
+        "page_view": "gtag('event', 'page_view');"
+      }
     },
     {
       "key": "matomo",
@@ -174,7 +180,13 @@
         "https://matomo.org/faq/general/faq_146/",
         "https://developer.matomo.org/guides/tracking-javascript-guide"
       ],
-      "verified": "2026-09-21"
+      "verified": "2026-09-21",
+      "events": {
+        "lead": "_paq.push(['trackEvent', 'Conversion', 'Lead', '{{label}}']);",
+        "registration": "_paq.push(['trackEvent', 'Conversion', 'Registration', '{{label}}']);",
+        "appointment": "_paq.push(['trackEvent', 'Conversion', 'Appointment', '{{label}}']);",
+        "page_view": "_paq.push(['trackEvent', 'Conversion', 'PageView', '{{label}}']);"
+      }
     },
     {
       "key": "microsoft_clarity",

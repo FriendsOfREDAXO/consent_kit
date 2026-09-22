@@ -3,6 +3,7 @@
 namespace KLXM\ConsentKit\Backend;
 
 use KLXM\ConsentKit\Cache;
+use KLXM\ConsentKit\Events;
 use KLXM\ConsentKit\I18n;
 use KLXM\ConsentKit\PresetRepository;
 use KLXM\ConsentKit\Repository;
@@ -144,6 +145,7 @@ final class ServiceController
         $data['status'] = $service['status'];
         $data['params'] = $service['params'];
         $data['domain_ids'] = $service['domain_ids'];
+        $data['events'] = $service['events'];
         Repository::saveService($id, $data, $items);
         $this->redirect('preset_reset', 'edit', $id);
     }
@@ -195,6 +197,7 @@ final class ServiceController
                 $items[] = $item;
             }
         }
+        $data['events'] = rex_request::post('events', 'array', []);
         $variants = array_values(array_filter(rex_request::post('variants', 'array', []), 'is_array'));
         $id = Repository::saveService($id, $data, $items, $variants);
         $this->redirect('service_saved', rex_request::post('save_and_close', 'bool', false) ? '' : 'edit', $id);
@@ -497,7 +500,7 @@ final class ServiceController
         $service ??= [
             'id' => 0, 'key' => '', 'group_id' => 0, 'status' => true, 'name' => '', 'provider' => '', 'privacy_url' => '',
             'description' => [], 'params' => [], 'html_head' => '', 'html_body' => '', 'js_default' => '', 'js_accept' => '', 'js_revoke' => '',
-            'gcm_signals' => [], 'embed_hosts' => [], 'domain_ids' => [], 'preset' => '', 'items' => [], 'variants' => [],
+            'gcm_signals' => [], 'embed_hosts' => [], 'domain_ids' => [], 'preset' => '', 'items' => [], 'variants' => [], 'events' => [],
         ];
         // Nach einem Validierungsfehler die Eingaben behalten.
         if ([] !== $posted) {
@@ -511,6 +514,7 @@ final class ServiceController
             $service['gcm_signals'] = array_map('strval', (array) ($posted['gcm_signals'] ?? []));
             $service['domain_ids'] = 'selected' === ($posted['domain_mode'] ?? 'all') ? array_map('intval', (array) ($posted['domain_ids'] ?? [])) ?: [-1] : [];
             $service['embed_hosts'] = preg_split('~[\s,]+~', (string) ($posted['embed_hosts'] ?? ''), -1, PREG_SPLIT_NO_EMPTY) ?: [];
+            $service['events'] = Events::normalize(rex_request::post('events', 'array', []));
             $service['variants'] = [];
             foreach (rex_request::post('variants', 'array', []) as $variant) {
                 if (is_array($variant)) {
@@ -627,6 +631,18 @@ final class ServiceController
             . '<template id="ck-variant-template">' . $this->variantRow('__INDEX__', ['domain_id' => (int) (array_values(array_filter(Repository::domains(), static fn (array $d) => '*' !== $d['host']))[0]['id'] ?? 0)] + $emptyVariant, $paramDefinitions) . '</template>'
             . '<button type="button" class="btn btn-default" data-ck-repeater-add="variant"><i class="rex-icon fa-plus" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_variant_add') . '</button>';
 
+        // Ereignisse
+        $templates = PresetRepository::events($service['preset']);
+        $eventRows = '';
+        foreach ($service['events'] as $index => $row) {
+            $eventRows .= $this->eventRow((string) $index, $row, $templates);
+        }
+        $eventsTab = '<p class="help-block">' . rex_i18n::rawMsg('consent_kit_events_help') . '</p>'
+            . ([] === $templates ? '<p class="ck-note">' . rex_i18n::msg('consent_kit_events_no_templates') . '</p>' : '')
+            . '<div class="ck-items" data-ck-repeater="event">' . $eventRows . '</div>'
+            . '<template id="ck-event-template">' . $this->eventRow('__INDEX__', ['trigger' => 'click', 'target' => '', 'event' => [] === $templates ? 'custom' : 'lead', 'label' => '', 'code' => ''], $templates) . '</template>'
+            . '<button type="button" class="btn btn-default" data-ck-repeater-add="event"><i class="rex-icon fa-plus" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_event_add') . '</button>';
+
         // Erweitert
         $advanced = '<fieldset class="ck-i18n"><legend>' . rex_i18n::msg('consent_kit_gcm_signals') . '</legend><div class="ck-signal-grid">';
         foreach (Repository::GCM_SIGNALS as $signal) {
@@ -639,6 +655,7 @@ final class ServiceController
             'general' => [rex_i18n::msg('consent_kit_tab_general'), $general],
             'items' => [rex_i18n::msg('consent_kit_tab_items') . ' <span class="badge" data-ck-count="item">' . count($service['items']) . '</span>', $items],
             'scripts' => [rex_i18n::msg('consent_kit_tab_scripts'), $scripts],
+            'events' => [rex_i18n::msg('consent_kit_tab_events') . ' <span class="badge" data-ck-count="event">' . count($service['events']) . '</span>', $eventsTab],
             'variants' => [rex_i18n::msg('consent_kit_tab_variants') . ' <span class="badge" data-ck-count="variant">' . count($service['variants']) . '</span>', $variantsTab],
             'advanced' => [rex_i18n::msg('consent_kit_tab_advanced'), $advanced],
         ];
@@ -743,6 +760,41 @@ final class ServiceController
             $out .= Form::textarea($name . '[' . $field . ']', rex_i18n::msg('consent_kit_' . $field), (string) $variant[$field], '', ['class' => 'ck-code', 'rows' => 3, 'spellcheck' => 'false', 'autocomplete' => 'off']);
         }
         return $out . '</details><button type="button" class="btn btn-default btn-xs ck-item-remove" data-ck-row-remove><i class="rex-icon fa-trash-o" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_variant_remove') . '</button></fieldset>';
+    }
+
+    /**
+     * @param array<string, mixed> $row
+     * @param array<string, string> $templates
+     */
+    private function eventRow(string $index, array $row, array $templates): string
+    {
+        $name = 'events[' . $index . ']';
+        $triggers = [];
+        foreach (Events::TRIGGERS as $trigger) {
+            $triggers[$trigger] = rex_i18n::msg('consent_kit_trigger_' . $trigger);
+        }
+        $types = [];
+        foreach (Events::TYPES as $type) {
+            if ('custom' === $type || isset($templates[$type])) {
+                $types[$type] = rex_i18n::msg('consent_kit_event_' . $type);
+            }
+        }
+        $placeholders = [];
+        foreach (Events::TRIGGERS as $trigger) {
+            $placeholders[$trigger] = rex_i18n::rawMsg('consent_kit_trigger_' . $trigger . '_placeholder');
+        }
+        $needsLabel = [] !== array_filter($templates, static fn (string $t) => str_contains($t, '{{label}}'));
+        return '<fieldset class="ck-item ck-event" data-ck-row data-placeholders="' . rex_escape((string) json_encode($placeholders)) . '"><legend class="sr-only">' . rex_i18n::msg('consent_kit_event') . '</legend>'
+            . '<div class="ck-event-grid">'
+            . Form::select($name . '[trigger]', rex_i18n::msg('consent_kit_event_trigger'), (string) $row['trigger'], $triggers)
+            . Form::text($name . '[target]', rex_i18n::msg('consent_kit_event_target'), (string) $row['target'], '', ['placeholder' => $placeholders[(string) $row['trigger']] ?? '', 'spellcheck' => 'false', 'autocomplete' => 'off', 'class' => 'ck-code', 'data-ck-event-target' => true])
+            . Form::select($name . '[event]', rex_i18n::msg('consent_kit_event_type'), (string) $row['event'], $types)
+            . ($needsLabel ? Form::text($name . '[label]', rex_i18n::msg('consent_kit_event_label'), (string) $row['label'], '', ['spellcheck' => 'false', 'autocomplete' => 'off', 'placeholder' => rex_i18n::msg('consent_kit_event_label_placeholder')]) : '')
+            . '</div>'
+            . '<div data-ck-show-if="' . rex_escape($name . '[event]') . '" data-ck-show-values="custom">'
+            . Form::textarea($name . '[code]', rex_i18n::msg('consent_kit_event_code'), (string) $row['code'], rex_i18n::msg('consent_kit_event_code_help'), ['class' => 'ck-code', 'rows' => 3, 'spellcheck' => 'false', 'placeholder' => "oaiq('measure', 'lead_created', { type: 'customer_action' });"])
+            . '</div>'
+            . '<button type="button" class="btn btn-default btn-xs ck-item-remove" data-ck-row-remove><i class="rex-icon fa-trash-o" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_event_remove') . '</button></fieldset>';
     }
 
     private function groupForm(int $id): string

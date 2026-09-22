@@ -79,6 +79,22 @@ final class PresetRepository
     }
 
     /**
+     * Aufruf-Vorlagen je Ereignis (lead, registration, appointment, page_view).
+     *
+     * @return array<string, string>
+     */
+    public static function events(string $key): array
+    {
+        $out = [];
+        foreach ((array) (self::get($key)['events'] ?? []) as $event => $call) {
+            if (is_string($event) && is_string($call) && '' !== trim($call)) {
+                $out[$event] = trim($call);
+            }
+        }
+        return $out;
+    }
+
+    /**
      * Preset in die Form von Repository::saveService() bringen.
      *
      * @return array{0: array<string, mixed>, 1: list<array<string, mixed>>}|null

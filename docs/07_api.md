@@ -173,7 +173,7 @@ Der Server übernimmt nur Schlüssel, die auf der aktuellen Domain aktiv und opt
 | Tabelle | Inhalt |
 | --- | --- |
 | `rex_consent_kit_group` | Gruppen (`key`, `prio`, `required`, `name`, `description`) |
-| `rex_consent_kit_service` | Dienste inkl. Code-Felder, `params`, `gcm_signals`, `embed_hosts`, `domain_ids` (leer = alle), `preset` |
+| `rex_consent_kit_service` | Dienste inkl. Code-Felder, `params`, `gcm_signals`, `embed_hosts`, `events` (JSON), `domain_ids` (leer = alle), `preset` |
 | `rex_consent_kit_item` | Cookies und Speichereinträge je Dienst |
 | `rex_consent_kit_variant` | Abweichungen je `domain_id` (0 = alle) und `clang` (leer = alle) |
 | `rex_consent_kit_domain` | Domains mit Rechtstexten; `host = '*'` ist der Fallback |

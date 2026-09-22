@@ -34,7 +34,7 @@ Soll stattdessen ein Platzhalter mit Schaltflächen erscheinen, das Ganze in `<c
 
 ## Conversions messen (OpenAI Pixel, Meta, Google Ads …)
 
-Tracking-Pixel messen nichts von allein – ein Ereignis wie „Anfrage gesendet“ muss die Website auslösen. Dafür gehört der Aufruf in ein Script, das erst nach Einwilligung läuft. Beispiel für das OpenAI Measurement Pixel (Vorlage `openai_pixel`): Klicks auf WhatsApp- und E-Mail-Links als Lead melden.
+Für die üblichen Fälle (Klick auf Mail/WhatsApp-Link, Dankeseite, Formular) reicht der Reiter **Ereignisse** im Dienst – ohne Code. Alles Weitere gehört in ein Script, das erst nach Einwilligung läuft. Beispiel für das OpenAI Measurement Pixel (Vorlage `openai_pixel`), von Hand:
 
 ```html
 <script type="text/plain" data-consent="openai_pixel">

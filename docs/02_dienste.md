@@ -24,6 +24,7 @@ Für alles ohne Vorlage. Die Reiter:
 | Allgemein | Name, Schlüssel, Gruppe, Beschreibung je Sprache, Anbieter, Datenschutz-Link, Domains |
 | Cookies & Speicher | Was der Dienst im Browser ablegt: Art (Cookie, Local/Session Storage, IndexedDB), Name mit `*` als Platzhalter, Domain, Laufzeit, Zweck je Sprache |
 | Scripts | Code, der erst nach Einwilligung läuft (siehe unten) |
+| Ereignisse | Conversions ohne Programmierung: „Wenn Klick auf … / Seite … / Formular … dann melde Anfrage“ (siehe unten) |
 | Varianten | Abweichungen je Domain oder Sprache |
 | Erweitert | Consent-Mode-Signale; Domains, von denen der Dienst Inhalte einbettet (siehe unten) |
 
@@ -48,6 +49,20 @@ Beim Widerruf werden außerdem alle unter „Cookies & Speicher“ eingetragenen
 Manche Dienste laufen nicht als Script, sondern als eingebetteter Inhalt: ein YouTube-Video, eine Google-Karte, ein Facebook-Post. Damit Consent Kit solche iframes und Editor-Einbettungen erkennt und diesem Dienst zuordnet, stehen unter **Erweitert** die Domains, von denen der Dienst einbettet – bei YouTube etwa `youtube.com` und `youtube-nocookie.com`, bei Facebook `facebook.com`. Subdomains zählen automatisch mit.
 
 Genutzt wird die Liste an drei Stellen: von der automatischen Umwandlung der `<oembed>`-Tags aus den Editoren, von „iframes bekannter Dienste automatisch sperren“ und bei `Consent::embed()` nur zur Anzeige des Namens. Die Vorlagen bringen die passenden Domains mit. Dienste, die nichts einbetten (Statistik, Pixel), lassen das Feld leer.
+
+## Ereignisse (Conversions)
+
+Tracking-Pixel messen nichts von allein – die Website muss melden, wenn etwas passiert ist. Im Reiter **Ereignisse** geht das ohne JavaScript:
+
+| Wenn … | Ziel | … dann melde |
+| --- | --- | --- |
+| Klick auf | CSS-Selektor, z. B. `a[href^="mailto:"], a[href^="https://wa.me/"]` | Anfrage (Lead) |
+| Aufruf der Seite | Pfad, z. B. `/danke/` (Beginn des Pfads oder, ohne führenden `/`, enthalten) | Wichtige Seite aufgerufen |
+| Formular gesendet | Selektor des Formulars, z. B. `#kontakt` | Anfrage (Lead) |
+
+Zur Wahl stehen **Anfrage**, **Registrierung**, **Terminbuchung** und **Wichtige Seite** – die Vorlage kennt den passenden Aufruf des Anbieters (OpenAI Pixel, Meta Pixel, Google Ads, Google Analytics 4, Matomo). Google Ads braucht je Ereignis zusätzlich das Conversion-Label aus dem Ads-Konto („Kennung beim Anbieter“). Für alles andere gibt es **Eigener Code**: ein JavaScript-Aufruf, der beim Auslöser läuft.
+
+Das erzeugte Script läuft nur, wenn der Dienst erlaubt ist, und einmal pro Seite. Käufe mit Betrag lassen sich so nicht abbilden, weil der Betrag von der Bestellung abhängt – dafür den Aufruf im Shop-Template als `<script type="text/plain" data-consent="…">` hinterlegen (siehe [Tipps](08_tipps.md#conversions-messen-openai-pixel-meta-google-ads-)).
 
 ## Varianten je Domain oder Sprache
 
