@@ -10,6 +10,7 @@ $chapters = [
     'einbindung' => ['docs/03_einbindung.md', 'Einbindung im Template'],
     'design' => ['docs/04_design.md', 'Gestaltung'],
     'signale' => ['docs/05_signale.md', 'Consent Mode und Signale'],
+    'ereignisse' => ['docs/10_ereignisse.md', 'Conversions und Ereignisse'],
     'protokoll' => ['docs/06_protokoll.md', 'Protokoll und Nachweis'],
     'api' => ['docs/07_api.md', 'API-Referenz'],
     'tipps' => ['docs/08_tipps.md', 'Tipps und Tricks'],

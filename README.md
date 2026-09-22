@@ -29,10 +29,11 @@ Solange kein einwilligungspflichtiger Dienst aktiv ist, sehen Besucher keinen Hi
 3. [Einbindung im Template](docs/03_einbindung.md)
 4. [Gestaltung](docs/04_design.md)
 5. [Consent Mode und Signale](docs/05_signale.md)
-6. [Protokoll und Nachweis](docs/06_protokoll.md)
-7. [API-Referenz](docs/07_api.md)
-8. [Tipps und Tricks](docs/08_tipps.md)
-9. [Umstieg vom consent_manager](docs/09_umstieg.md)
+6. [Conversions und Ereignisse](docs/10_ereignisse.md)
+7. [Protokoll und Nachweis](docs/06_protokoll.md)
+8. [API-Referenz](docs/07_api.md)
+9. [Tipps und Tricks](docs/08_tipps.md)
+10. [Umstieg vom consent_manager](docs/09_umstieg.md)
 
 ## Voraussetzungen
 

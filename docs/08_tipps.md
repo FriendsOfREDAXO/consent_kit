@@ -34,7 +34,7 @@ Soll stattdessen ein Platzhalter mit Schaltflächen erscheinen, das Ganze in `<c
 
 ## Conversions messen (OpenAI Pixel, Meta, Google Ads …)
 
-Für die üblichen Fälle (Klick auf Mail/WhatsApp-Link, Dankeseite, Formular) reicht der Reiter **Ereignisse** im Dienst – ohne Code. Alles Weitere gehört in ein Script, das erst nach Einwilligung läuft. Beispiel für das OpenAI Measurement Pixel (Vorlage `openai_pixel`), von Hand:
+Für die üblichen Fälle (Klick auf Mail/WhatsApp-Link, Dankeseite, Formular) reicht der Reiter **Ereignisse** im Dienst – ohne Code, siehe [Conversions und Ereignisse](10_ereignisse.md). Alles Weitere gehört in ein Script, das erst nach Einwilligung läuft. Beispiel für das OpenAI Measurement Pixel (Vorlage `openai_pixel`), von Hand:
 
 ```html
 <script type="text/plain" data-consent="openai_pixel">

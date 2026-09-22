@@ -52,17 +52,7 @@ Genutzt wird die Liste an drei Stellen: von der automatischen Umwandlung der `<o
 
 ## Ereignisse (Conversions)
 
-Tracking-Pixel messen nichts von allein – die Website muss melden, wenn etwas passiert ist. Im Reiter **Ereignisse** geht das ohne JavaScript:
-
-| Wenn … | Ziel | … dann melde |
-| --- | --- | --- |
-| Klick auf | CSS-Selektor, z. B. `a[href^="mailto:"], a[href^="https://wa.me/"]` | Anfrage (Lead) |
-| Aufruf der Seite | Pfad, z. B. `/danke/` (Beginn des Pfads oder, ohne führenden `/`, enthalten) | Wichtige Seite aufgerufen |
-| Formular gesendet | Selektor des Formulars, z. B. `#kontakt` | Anfrage (Lead) |
-
-Zur Wahl stehen **Anfrage**, **Registrierung**, **Terminbuchung** und **Wichtige Seite** – die Vorlage kennt den passenden Aufruf des Anbieters (OpenAI Pixel, Meta Pixel, Google Ads, Google Analytics 4, Matomo). Google Ads braucht je Ereignis zusätzlich das Conversion-Label aus dem Ads-Konto („Kennung beim Anbieter“). Für alles andere gibt es **Eigener Code**: ein JavaScript-Aufruf, der beim Auslöser läuft.
-
-Das erzeugte Script läuft nur, wenn der Dienst erlaubt ist, und einmal pro Seite. Käufe mit Betrag lassen sich so nicht abbilden, weil der Betrag von der Bestellung abhängt – dafür den Aufruf im Shop-Template als `<script type="text/plain" data-consent="…">` hinterlegen (siehe [Tipps](08_tipps.md#conversions-messen-openai-pixel-meta-google-ads-)).
+Im Reiter **Ereignisse** legt man ohne Code fest, wann ein Dienst eine Conversion melden soll: „Wenn Klick auf `a[href^="mailto:"]` dann melde Anfrage“. Auslöser sind Klick, Seitenaufruf und Formular; die Vorlage kennt den Aufruf je Anbieter. Ausführlich mit Beispielen: [Conversions und Ereignisse](10_ereignisse.md).
 
 ## Varianten je Domain oder Sprache
 

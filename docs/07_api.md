@@ -33,6 +33,7 @@ foreach (Consent::config()['groups'] as $group) {
 | --- | --- |
 | `Embed::filter(string $html, array $config)` | iframes bekannter Hosts im HTML durch Platzhalter ersetzen |
 | `Embed::serviceForUrl(string $url, array $config)` | Schlüssel des Dienstes, dessen Hosts zur URL passen, sonst `null` |
+| `Events::normalize(array $rows)`, `Events::build(array $rows, array $templates)` | Ereignis-Zeilen bereinigen bzw. daraus das Conversion-Script erzeugen ([Kapitel](10_ereignisse.md)) |
 | `Oembed::render(string $html, array $config)`, `Oembed::resolve(string $url, array $config)` | `<oembed>`-Tags umwandeln bzw. eine URL zu Embed-Adresse und Dienst auflösen |
 | `Cache::clear()` | Konfigurations-Cache leeren (passiert bei jedem Speichern im Backend und beim REDAXO-Cache-Reset von selbst) |
 | `Repository::services(bool $onlyActive = false)`, `::groups()`, `::domains()` | Rohdaten lesen |
