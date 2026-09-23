@@ -19,8 +19,9 @@ Unter **Einstellungen → Rechtstexte und Domains** werden Datenschutzerklärung
 | Einstellung | Bedeutung |
 | --- | --- |
 | Automatisch einbinden | Fügt alles Nötige per `OUTPUT_FILTER` in den `<head>` ein. Alternative: [`REX_CONSENT_KIT[]` oder `Consent::head()`](03_einbindung.md#manuelle-einbindung). |
-| Form | **Box** (Ecke, Seite bleibt bedienbar), **Leiste** (volle Breite), **Dialog** (mittig, Seite gesperrt). |
-| Position | Ecke der Box bzw. oben/unten bei der Leiste. |
+| Form | **Box** (Ecke, Seite bleibt bedienbar), **Leiste** (volle Breite), **Dialog** (mittig, Seite gesperrt), **Off-Canvas** (Panel über die volle Höhe am linken oder rechten Rand, Seite bleibt bedienbar). |
+| Position | Ecke der Box, oben/unten bei der Leiste, links/rechts beim Off-Canvas-Panel. |
+| Gruppen im Hinweis zeigen | Nur bei **Dialog** und **Off-Canvas**: Der Hinweis listet die Gruppen mit Schaltern, die mittlere Schaltfläche wird „Auswahl speichern“. Es ist nichts vorausgewählt – eine Vorbelegung wäre keine wirksame Einwilligung. Die einzelnen Dienste bleiben in den Einstellungen. Standard: aus. |
 | Farbschema | Hell, Dunkel oder Automatisch (folgt dem System des Besuchers – nur sinnvoll, wenn die Website selbst einen Dark Mode hat). |
 | Schließen-Schaltfläche (×) | Schließt den Hinweis **ohne Entscheidung**: Es wird nichts geladen, und der Hinweis bleibt bis zum Ende der Browser-Sitzung ausgeblendet (Escape wirkt genauso). Ohne × muss im Dialog entschieden werden. Standard: an. |
 | Schwebende Schaltfläche | Öffnet die Einstellungen erneut. Ohne sie muss ein [eigener Link](03_einbindung.md#einstellungen-erneut-oeffnen) vorhanden sein: Der Widerruf muss so einfach sein wie die Einwilligung. |

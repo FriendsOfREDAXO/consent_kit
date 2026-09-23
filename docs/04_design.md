@@ -69,6 +69,7 @@ Ohne dunkle Entsprechung:
 | `--ck-tap-size` | `2.75rem` | Mindestgröße aller Bedienelemente (44 px, nicht kleiner setzen) |
 | `--ck-width` | `30rem` | Breite von Box und Dialog |
 | `--ck-settings-width` | `44rem` | Breite des Einstellungen-Dialogs |
+| `--ck-offcanvas-width` | `26rem` | Breite des Off-Canvas-Panels (schmale Schirme: volle Breite) |
 | `--ck-backdrop-filter` | `none` | z. B. `blur(4px)` hinter dem Dialog |
 | `--ck-trigger-shadow` | weicher Schatten | Schatten der schwebenden Schaltfläche |
 | `--ck-z` | `2147483000` | Stapelreihenfolge |
@@ -106,7 +107,7 @@ Für alles, was über Variablen hinausgeht:
 | `button` | **jede** Schaltfläche |
 | `close` | das × zum Schließen ohne Entscheidung |
 | `withdraw` | Link „Einwilligung widerrufen“ im Einstellungen-Dialog |
-| `group` | Gruppe im Einstellungen-Dialog |
+| `group` | Gruppe in den Einstellungen und – falls aktiviert – im Hinweis |
 | `service` | Dienst innerhalb einer Gruppe |
 | `trigger` | schwebende Schaltfläche |
 | `placeholder` | Platzhalter von `<consent-embed>` |
@@ -124,8 +125,8 @@ consent-kit::part(trigger) { bottom: 5rem; }
 ## Barrierefreiheit
 
 - Natives `<dialog>`: Fokusfalle, Escape und „Rest der Seite inert“ kommen vom Browser. Escape und das × schließen ohne Entscheidung – nichts wird geladen, der Hinweis bleibt für die Browser-Sitzung ausgeblendet.
-- Box und Leiste ziehen beim Seitenaufruf **keinen** Fokus an sich, sind aber der erste Tab-Stopp. Dialog und Einstellungen setzen den Fokus auf die Überschrift und geben ihn beim Schließen zurück.
+- Box, Leiste und Off-Canvas ziehen beim Seitenaufruf **keinen** Fokus an sich, sind aber der erste Tab-Stopp. Dialog und Einstellungen setzen den Fokus auf die Überschrift und geben ihn beim Schließen zurück.
 - Schalter sind echte Checkboxen mit Beschriftung, Gruppen zeigen einen gemischten Zustand.
 - Auf schmalen Bildschirmen wird die Cookie-Tabelle zur Liste, es gibt kein horizontales Scrollen.
-- Animationen nur ohne `prefers-reduced-motion`; `forced-colors` (Windows-Kontrastmodus) wird unterstützt.
+- Animationen nur ohne `prefers-reduced-motion` – auch das Einfahren des Off-Canvas-Panels; `forced-colors` (Windows-Kontrastmodus) wird unterstützt.
 - Mindestgröße der Bedienelemente 44 × 44 px.

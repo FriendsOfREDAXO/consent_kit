@@ -31,6 +31,7 @@ Steht die Ausgabe bereits im HTML, fügt die Automatik nichts doppelt ein. Wer L
 
 ```html
 <consent-kit layout="bar" position="top-left" theme="auto"></consent-kit>
+<consent-kit layout="offcanvas" position="top-right"></consent-kit>
 ```
 
 ## Eigene Scripts sperren

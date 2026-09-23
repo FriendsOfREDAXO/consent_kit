@@ -474,3 +474,7 @@ consent_kit_var_button_transform = Button letter case
 consent_kit_var_switch_width = Switch width
 consent_kit_var_switch_height = Switch height
 consent_kit_var_settings_width = Settings width
+consent_kit_layout_offcanvas = Off-canvas
+consent_kit_layout_offcanvas_text = Full-height panel on the left or right edge. The page stays usable.
+consent_kit_banner_groups = Show groups in the notice
+consent_kit_banner_groups_help = The notice lists the groups with switches and the middle button becomes "Save selection". Nothing is preselected; individual services remain in the settings.

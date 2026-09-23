@@ -7,7 +7,7 @@ use FriendsOfRedaxo\ConsentKit\Repository;
 $addon = rex_addon::get('consent_kit');
 $csrf = rex_csrf_token::factory('consent_kit');
 $message = '';
-$checkboxes = ['auto_inject', 'trigger', 'dismissible', 'reload_on_revoke', 'oembed', 'block_embeds', 'gcm_ads_data_redaction', 'gcm_url_passthrough'];
+$checkboxes = ['auto_inject', 'trigger', 'dismissible', 'banner_groups', 'reload_on_revoke', 'oembed', 'block_embeds', 'gcm_ads_data_redaction', 'gcm_url_passthrough'];
 Repository::syncYrewriteDomains();
 
 if ('post' === rex_request::requestMethod()) {
@@ -20,7 +20,7 @@ if ('post' === rex_request::requestMethod()) {
     } else {
         $settings = rex_request::post('settings', 'array', []);
         $choices = [
-            'layout' => ['box', 'bar', 'modal'],
+            'layout' => ['box', 'bar', 'modal', 'offcanvas'],
             'position' => ['bottom-left', 'bottom-right', 'top-left', 'top-right'],
             'theme' => ['light', 'dark', 'auto'],
             'trigger_position' => ['bottom-left', 'bottom-right'],
@@ -86,7 +86,12 @@ $display = Form::checkbox('settings[auto_inject]', rex_i18n::msg('consent_kit_au
         'box' => [rex_i18n::msg('consent_kit_layout_box'), rex_i18n::msg('consent_kit_layout_box_text')],
         'bar' => [rex_i18n::msg('consent_kit_layout_bar'), rex_i18n::msg('consent_kit_layout_bar_text')],
         'modal' => [rex_i18n::msg('consent_kit_layout_modal'), rex_i18n::msg('consent_kit_layout_modal_text')],
+        'offcanvas' => [rex_i18n::msg('consent_kit_layout_offcanvas'), rex_i18n::msg('consent_kit_layout_offcanvas_text')],
     ])
+    // Gruppen im Hinweis brauchen Hoehe: nur bei Dialog und Off-Canvas sinnvoll.
+    . '<div data-ck-show-if="settings[layout]" data-ck-show-values="modal,offcanvas">'
+    . Form::checkbox('settings[banner_groups]', rex_i18n::msg('consent_kit_banner_groups'), (bool) $get('banner_groups', false), rex_i18n::msg('consent_kit_banner_groups_help'))
+    . '</div>'
     . '<div class="row"><div class="col-md-6">'
     . Form::select('settings[position]', rex_i18n::msg('consent_kit_position'), (string) $get('position', 'bottom-left'), [
         'bottom-left' => rex_i18n::msg('consent_kit_pos_bottom_left'), 'bottom-right' => rex_i18n::msg('consent_kit_pos_bottom_right'),

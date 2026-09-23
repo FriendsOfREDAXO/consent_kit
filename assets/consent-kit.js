@@ -361,12 +361,32 @@ dialog.box.top-right { right: 1rem; top: 1rem; }
 dialog.bar { left: 0; right: 0; width: 100%; border-radius: 0; border-width: var(--_border-width) 0 0; }
 dialog.bar.bottom-left, dialog.bar.bottom-right { bottom: 0; }
 dialog.bar.top-left, dialog.bar.top-right { top: 0; border-width: 0 0 var(--_border-width); }
+/*
+ * Off-Canvas: volle Hoehe an einer Seite. Die Ecken-Angabe aus "position" bestimmt die Seite,
+ * damit dieselbe Einstellung fuer alle Layouts gilt.
+ */
+dialog.offcanvas {
+    top: 0; bottom: 0; height: 100dvh; max-height: 100dvh;
+    /* Auf schmalen Schirmen ueber die volle Breite – ein Rand neben einem randlosen Panel wirkt wie ein Fehler. */
+    width: min(var(--ck-offcanvas-width, 26rem), 100vw);
+    border-radius: 0; border-width: 0;
+}
+dialog.offcanvas.bottom-left, dialog.offcanvas.top-left { left: 0; border-right-width: var(--_border-width); }
+dialog.offcanvas.bottom-right, dialog.offcanvas.top-right { right: 0; border-left-width: var(--_border-width); }
+/* Inhalt oben, Schaltflaechen unten – die Mitte scrollt, falls der Text lang ist. */
+dialog.offcanvas .inner { height: 100%; }
+dialog.offcanvas .body { flex: 1; }
 dialog.bar .inner { width: min(72rem, 100%); margin: 0 auto; }
 @media (min-width: 60rem) {
     dialog.bar:not(.settings) .inner { display: grid; grid-template-columns: 1fr auto; column-gap: 2rem; align-items: center; }
     dialog.bar:not(.settings) .foot { min-width: 38rem; }
 }
-.inner { display: flex; flex-direction: column; min-height: 0; }
+.inner { display: flex; flex-direction: column; min-height: 0; max-height: 100%; }
+/*
+ * Der Textbereich muss schrumpfen duerfen, sonst schiebt langer Inhalt (z. B. Gruppen im Hinweis)
+ * die Schaltflaechen aus dem Dialog. Gescrollt wird in .body.
+ */
+.text { display: flex; flex-direction: column; min-height: 0; }
 .head, .foot { padding: var(--_space) var(--_space) 0; }
 .head { display: flex; align-items: flex-start; gap: .75rem; }
 .head h2 { flex: 1; }
@@ -392,6 +412,11 @@ p { margin: 0 0 .75rem; }
 .group-head, .service-head { display: flex; align-items: center; gap: .75rem; }
 .group-head { padding: .35rem .75rem .35rem .25rem; }
 .group > .muted { margin: 0; padding: 0 .75rem .7rem 2.45rem; }
+/* Gruppen im Hinweis: ohne Aufklapp-Schaltflaeche buendig zum Text einruecken. */
+.group.plain .group-head { padding: .5rem .75rem; min-height: var(--_tap); }
+.group.plain .group-head h3 { font-weight: 600; }
+.group.plain .group-head .count { font-weight: 400; color: var(--_muted); font-size: var(--_small-size); }
+.group.plain > .muted { padding-left: .75rem; }
 .expand {
     flex: 1; display: flex; align-items: center; gap: .5rem; min-height: var(--_tap); padding: .25rem .5rem;
     text-align: left; font-weight: 600; background: none; border: 0; border-radius: 6px;
@@ -434,8 +459,12 @@ input:focus-visible + .track { outline: 3px solid var(--_accent); outline-offset
 .trigger svg { width: 1.4rem; height: 1.4rem; }
 @media (prefers-reduced-motion: no-preference) {
     dialog[open] { animation: ck-in .2s ease-out; }
+    dialog.offcanvas.bottom-left[open], dialog.offcanvas.top-left[open] { animation: ck-in-left .25s ease-out; }
+    dialog.offcanvas.bottom-right[open], dialog.offcanvas.top-right[open] { animation: ck-in-right .25s ease-out; }
     .track::after, .chev { transition: left .15s, transform .15s; }
     @keyframes ck-in { from { opacity: 0; transform: translateY(.5rem); } }
+    @keyframes ck-in-left { from { transform: translateX(-100%); } }
+    @keyframes ck-in-right { from { transform: translateX(100%); } }
 }
 @media (max-width: 30rem) {
     .settings .foot { padding: .6rem .9rem .75rem; }
@@ -541,6 +570,9 @@ class ConsentKitElement extends HTMLElement {
         if (view === 'settings' && this.view !== 'settings') {
             this.selection = new Set(core.accepted());
             this.returnFocus = document.activeElement;
+        } else if (view === 'banner' && this.view !== 'banner') {
+            // Ohne vorliegende Entscheidung ist nichts ausgewaehlt; eine frueher getroffene wird uebernommen.
+            this.selection = new Set(core.accepted());
         }
         this.view = view;
         const modal = view === 'settings' || this.layout === 'modal';
@@ -560,7 +592,8 @@ class ConsentKitElement extends HTMLElement {
             this.dialog.setAttribute('open', '');
             document.documentElement.style.removeProperty('overflow');
         }
-        if (view === 'settings') this.syncSwitches();
+        // Im Hinweis mit Gruppen ist bewusst nichts vorausgewaehlt: keine Vorab-Einwilligung.
+        if (view === 'settings' || this.withGroups) this.syncSwitches();
     }
 
     close() {
@@ -617,33 +650,54 @@ class ConsentKitElement extends HTMLElement {
         return '<ul class="links">' + cfg.links.map((l) => `<li><a href="${esc(safeUrl(l.url))}">${esc(l.label)}</a></li>`).join('') + '</ul>';
     }
 
+    /** Zeigt der Hinweis die Gruppen direkt? Nur wo die Hoehe reicht. */
+    get withGroups() {
+        return !!cfg.bannerGroups && core.optional.length > 0 && ['modal', 'offcanvas'].includes(this.layout);
+    }
+
     bannerHtml() {
         const t = cfg.texts;
+        const groups = this.withGroups ? this.groupsHtml(false) : '';
         return `<div class="inner">
             <div class="text"><div class="head"><h2 id="ck-title" tabindex="-1">${esc(t.title)}</h2>${cfg.dismiss ? this.closeHtml() : ''}</div>
-            <div class="body"><p>${esc(t.intro)}</p>${core.gpc ? `<p class="notice">${esc(t.gpc_notice)}</p>` : ''}${this.linksHtml()}</div></div>
-            <div class="foot">${this.buttons('settings')}</div>
+            <div class="body"><p>${esc(t.intro)}</p>${core.gpc ? `<p class="notice">${esc(t.gpc_notice)}</p>` : ''}${groups}${this.linksHtml()}</div></div>
+            <div class="foot">${this.buttons(this.withGroups ? 'save' : 'settings')}</div>
         </div>`;
     }
 
-    settingsHtml() {
+    /**
+     * Gruppenliste. Mit details=false (Hinweis) bleiben die Dienste eingeklappt und
+     * werden gar nicht erst gerendert – der Hinweis soll knapp bleiben.
+     */
+    groupsHtml(details = true) {
         const t = cfg.texts;
-        const groups = cfg.groups.map((group, index) => {
+        return cfg.groups.map((group, index) => {
             const id = 'ck-g' + index;
-            const open = this.expanded.has(id);
+            const open = details && this.expanded.has(id);
             const count = group.services.length === 1 ? t.services_count_one : fill(t.services_count, { n: group.services.length });
             const toggle = group.required
                 ? `<span class="always">${esc(t.always_active)}</span>`
                 : `<label class="switch"><input type="checkbox" data-group="${esc(group.key)}" aria-label="${esc(fill(t.group_toggle, { name: group.name }))}"><span class="track"></span></label>`;
-            return `<section class="group" part="group">
+            const name = details
+                ? `<h3 style="flex:1;display:flex"><button type="button" class="expand" aria-expanded="${open}" aria-controls="${id}" data-expand="${id}"><span class="chev"></span><span>${esc(group.name)}</span><span class="count">${esc(count)}</span></button></h3>`
+                : `<h3 style="flex:1"><span>${esc(group.name)}</span> <span class="count">${esc(count)}</span></h3>`;
+            const services = details
+                ? `<div class="services" id="${id}" ${open ? '' : 'hidden'}>${group.services.map((s, i) => this.serviceHtml(group, s, id + 's' + i)).join('')}</div>`
+                : '';
+            return `<section class="group${details ? '' : ' plain'}" part="group">
                 <div class="group-head">
-                    <h3 style="flex:1;display:flex"><button type="button" class="expand" aria-expanded="${open}" aria-controls="${id}" data-expand="${id}"><span class="chev"></span><span>${esc(group.name)}</span><span class="count">${esc(count)}</span></button></h3>
+                    ${name}
                     ${toggle}
                 </div>
                 <p class="muted">${esc(group.description)}</p>
-                <div class="services" id="${id}" ${open ? '' : 'hidden'}>${group.services.map((s, i) => this.serviceHtml(group, s, id + 's' + i)).join('')}</div>
+                ${services}
             </section>`;
         }).join('');
+    }
+
+    settingsHtml() {
+        const t = cfg.texts;
+        const groups = this.groupsHtml(true);
 
         const meta = core.state
             ? `<p class="meta">${esc(fill(t.consent_info, { id: core.state.id, date: new Date(core.state.ts * 1000).toLocaleString(cfg.lang.replace('_', '-')) }))}</p>

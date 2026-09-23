@@ -133,6 +133,9 @@ final class Cache
             'gpc' => (string) $addon->getConfig('gpc', 'reject'),
             'reload' => (bool) $addon->getConfig('reload_on_revoke', true),
             'dismiss' => (bool) $addon->getConfig('dismissible', true),
+            // Gruppen im Hinweis: nur dort, wo die Hoehe dafuer reicht.
+            'bannerGroups' => (bool) $addon->getConfig('banner_groups', false)
+                && in_array((string) $addon->getConfig('layout', 'box'), ['modal', 'offcanvas'], true),
             'gcm' => 'off' !== $gcmMode && $gcmUsed,
             'gcmOptions' => [
                 'adsDataRedaction' => (bool) $addon->getConfig('gcm_ads_data_redaction', true),
