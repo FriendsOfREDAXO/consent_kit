@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-beta3 – 2026-09-23
+
+- **Eigene Vorlagen importieren und exportieren** unter **Werkzeuge → Eigene Vorlagen**: angelegte Dienste als Vorlagen-Datei herunterladen (alle oder eine Auswahl, einzeln auch im Dienst-Formular) und fremde Vorlagen einspielen. Der Export enthält Code, Cookies und die auszufüllenden Felder, aber nie die eingetragenen IDs, Domains, Varianten oder den Status – die Platzhalter `{{…}}` bleiben im Code stehen. Der Import prüft Schlüssel, Gruppe, Eintragsarten, Laufzeiten und Consent-Mode-Signale und benennt fehlerhafte Einträge einzeln. Vorhandene eigene Vorlagen lassen sich dort auch herunterladen und löschen.
+- Behoben: Nach einem REDAXO-Cache-Reset brach die nächste Aktion, die den Konfigurations-Cache leert, mit einer `UnexpectedValueException` ab („Failed to open directory“) – der Ordner `var/cache/addons/consent_kit/` existierte dann nicht mehr. Betroffen waren alle Speichervorgänge sowie die Sammelübersetzung.
+- Neues Kapitel **Eigene Vorlagen** in der Hilfe: wie Platzhalter (`params`, `{{measurement_id}}`, `{{lang}}`, `{{domain}}`), `placeholder` und `pattern` zusammenspielen, was beim Export draußen bleibt und worauf beim Weitergeben zu achten ist.
+
 ## 1.0.0-beta2 – 2026-09-23
 
 - Neue Form des Hinweises: **Off-Canvas** – ein Panel über die volle Höhe am linken oder rechten Rand, wie bei Box und Leiste ohne Abdunklung, die Seite bleibt bedienbar. Breite über `--ck-offcanvas-width`, auf schmalen Schirmen volle Breite; das Einfahren entfällt bei `prefers-reduced-motion`.

@@ -12,6 +12,7 @@ $chapters = [
     'signale' => ['docs/05_signale.md', 'Consent Mode und Signale'],
     'ereignisse' => ['docs/10_ereignisse.md', 'Conversions und Ereignisse'],
     'protokoll' => ['docs/06_protokoll.md', 'Protokoll und Nachweis'],
+    'vorlagen' => ['docs/11_vorlagen.md', 'Eigene Vorlagen'],
     'api' => ['docs/07_api.md', 'API-Referenz'],
     'tipps' => ['docs/08_tipps.md', 'Tipps und Tricks'],
     'umstieg' => ['docs/09_umstieg.md', 'Umstieg vom consent_manager'],

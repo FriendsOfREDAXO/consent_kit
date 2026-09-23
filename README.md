@@ -5,7 +5,7 @@ Einwilligungsverwaltung für REDAXO: eine neutrale, barrierefreie Web Component 
 ## Was es kann
 
 - **Dienste einzeln wählbar**, in Gruppen zusammengefasst; „Alle ablehnen“ und „Alle akzeptieren“ sind technisch immer gleichwertig gestaltet.
-- **38 Vorlagen** (Deutsch/Englisch) mit Scripts, Cookies, Storage-Einträgen, Laufzeiten und Quellenangabe – geprüft gegen die Dokumentation der Anbieter.
+- **38 Vorlagen** (Deutsch/Englisch) mit Scripts, Cookies, Storage-Einträgen, Laufzeiten und Quellenangabe – geprüft gegen die Dokumentation der Anbieter. Eigene Vorlagen lassen sich [importieren und exportieren](docs/11_vorlagen.md).
 - **Dienste × Domains** als Matrix, **Varianten** je Domain oder Sprache (andere IDs, anderer Code).
 - **Google Consent Mode v2**, **Global Privacy Control**, Anbieter-Aufrufe für Microsoft UET/Clarity, Meta und weitere.
 - **Conversions ohne Code:** „Wenn Klick auf … dann melde Anfrage“ – der Aufruf je Anbieter kommt aus der Vorlage.
@@ -31,9 +31,10 @@ Solange kein einwilligungspflichtiger Dienst aktiv ist, sehen Besucher keinen Hi
 5. [Consent Mode und Signale](docs/05_signale.md)
 6. [Conversions und Ereignisse](docs/10_ereignisse.md)
 7. [Protokoll und Nachweis](docs/06_protokoll.md)
-8. [API-Referenz](docs/07_api.md)
-9. [Tipps und Tricks](docs/08_tipps.md)
-10. [Umstieg vom consent_manager](docs/09_umstieg.md)
+8. [Eigene Vorlagen](docs/11_vorlagen.md)
+9. [API-Referenz](docs/07_api.md)
+10. [Tipps und Tricks](docs/08_tipps.md)
+11. [Umstieg vom consent_manager](docs/09_umstieg.md)
 
 ## Voraussetzungen
 

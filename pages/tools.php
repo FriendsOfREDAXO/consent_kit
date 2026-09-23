@@ -6,6 +6,8 @@ use FriendsOfRedaxo\ConsentKit\Catalog;
 use FriendsOfRedaxo\ConsentKit\I18n;
 use FriendsOfRedaxo\ConsentKit\Texts;
 use FriendsOfRedaxo\ConsentKit\LegacyImporter;
+use FriendsOfRedaxo\ConsentKit\PresetIo;
+use FriendsOfRedaxo\ConsentKit\Repository;
 
 $csrf = rex_csrf_token::factory('consent_kit');
 $message = '';
@@ -33,6 +35,38 @@ if ('post' === rex_request::requestMethod()) {
             $stats = BulkTranslator::run($target, I18n::defaultCode());
             $message = rex_view::success(rex_i18n::msg('consent_kit_bulk_done', (string) $stats['translated'], (string) $stats['skipped'], (string) $stats['failed']));
         }
+    } elseif (rex_request::post('preset_export', 'bool', false)) {
+        $ids = array_values(array_filter(array_map('intval', rex_request::post('export_ids', 'array', []))));
+        PresetIo::download(PresetIo::export($ids), 'consent-kit-presets-' . date('Y-m-d') . '.json');
+    } elseif (rex_request::post('preset_import', 'bool', false)) {
+        $file = rex_request::files('preset_json', 'array', []);
+        if (!isset($file['tmp_name']) || !is_uploaded_file((string) $file['tmp_name'])) {
+            $message = rex_view::error(rex_i18n::msg('consent_kit_presets_import_none'));
+        } else {
+            $result = PresetIo::import(
+                (string) rex_file::get((string) $file['tmp_name']),
+                (string) ($file['name'] ?? 'presets.json'),
+                rex_request::post('preset_overwrite', 'bool', false),
+            );
+            $message = $result['ok']
+                ? rex_view::success(rex_i18n::msg('consent_kit_presets_import_done', (string) count($result['added']), rex_escape($result['file']), rex_escape(implode(', ', $result['added']))))
+                : rex_view::error(rex_i18n::msg('consent_kit_presets_import_failed'));
+            if ([] !== $result['errors']) {
+                $message .= rex_view::warning('<strong>' . rex_i18n::msg('consent_kit_presets_import_partial') . '</strong><ul><li>' . implode('</li><li>', array_map('rex_escape', $result['errors'])) . '</li></ul>');
+            }
+        }
+    } elseif ('' !== rex_request::post('preset_file_download', 'string', '')) {
+        $name = PresetIo::safeName(rex_request::post('preset_file_download', 'string', ''));
+        $content = rex_file::get(PresetIo::dir() . '/' . $name);
+        if (null === $content) {
+            $message = rex_view::error(rex_i18n::msg('consent_kit_presets_import_failed'));
+        } else {
+            PresetIo::download($content, $name);
+        }
+    } elseif ('' !== rex_request::post('preset_file_delete', 'string', '')) {
+        $message = PresetIo::delete(rex_request::post('preset_file_delete', 'string', ''))
+            ? rex_view::success(rex_i18n::msg('consent_kit_presets_deleted'))
+            : rex_view::error(rex_i18n::msg('consent_kit_presets_delete_failed'));
     } elseif (rex_request::post('legacy_tables', 'bool', false) && LegacyImporter::tablesExist()) {
         $message = $report((new LegacyImporter())->fromTables());
     } elseif (rex_request::post('legacy_file', 'bool', false)) {
@@ -86,6 +120,56 @@ if (WriteAssist::available() && [] !== BulkTranslator::targetLanguages()) {
         . '<p class="help-block">' . rex_i18n::msg('consent_kit_bulk_help') . '</p>';
     echo $section(rex_i18n::msg('consent_kit_bulk_title'), $bulk);
 }
+
+// Eigene Vorlagen: Export, Import, vorhandene Dateien
+$presetDir = str_replace(rex_path::base(), '', PresetIo::dir()) . '/';
+$services = Repository::services();
+$options = '';
+foreach ($services as $service) {
+    $options .= '<option value="' . $service['id'] . '">' . rex_escape($service['name'] . ' (' . $service['key'] . ')') . '</option>';
+}
+$export = '<p class="ck-panel-intro">' . rex_i18n::rawMsg('consent_kit_presets_export_intro') . '</p>';
+$export .= [] === $services
+    ? '<p class="text-muted">' . rex_i18n::msg('consent_kit_presets_export_empty') . '</p>'
+    : '<form method="post" action="' . rex_url::currentBackendPage() . '">' . $csrf->getHiddenField()
+        . '<div class="form-group"><label for="ck-export-ids">' . rex_i18n::msg('consent_kit_presets_export_select') . '</label>'
+        . '<select class="form-control" id="ck-export-ids" name="export_ids[]" multiple size="' . min(8, count($services)) . '">' . $options . '</select>'
+        . '<p class="help-block">' . rex_i18n::msg('consent_kit_presets_export_all') . '</p></div>'
+        . '<button type="submit" class="btn btn-default" name="preset_export" value="1"><i class="rex-icon fa-download" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_presets_export_start') . '</button></form>';
+
+$import = '<p class="ck-panel-intro">' . rex_i18n::msg('consent_kit_presets_import_intro') . '</p>'
+    . '<form method="post" enctype="multipart/form-data" action="' . rex_url::currentBackendPage() . '">' . $csrf->getHiddenField()
+    . '<div class="form-group"><label for="ck-preset-json">' . rex_i18n::msg('consent_kit_presets_import_file') . '</label>'
+    . '<input type="file" id="ck-preset-json" name="preset_json" accept="application/json,.json" required></div>'
+    . '<div class="checkbox"><label><input type="checkbox" name="preset_overwrite" value="1"> ' . rex_i18n::msg('consent_kit_presets_import_overwrite') . '</label></div>'
+    . '<button type="submit" class="btn btn-default" name="preset_import" value="1"><i class="rex-icon fa-upload" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_presets_import_start') . '</button></form>';
+
+$files = PresetIo::files();
+$list = '';
+if ([] === $files) {
+    $list = '<p class="text-muted">' . rex_i18n::msg('consent_kit_presets_list_empty') . '</p>';
+} else {
+    $rows = '';
+    foreach ($files as $file) {
+        $actions = '<form class="ck-inline-form" method="post" action="' . rex_url::currentBackendPage() . '">' . $csrf->getHiddenField()
+            . '<input type="hidden" name="preset_file_download" value="' . rex_escape($file['file']) . '">'
+            . '<button type="submit" class="btn btn-default btn-xs"><i class="rex-icon fa-download" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_presets_download') . '</button></form> '
+            . '<form class="ck-inline-form" method="post" action="' . rex_url::currentBackendPage() . '">' . $csrf->getHiddenField()
+            . '<input type="hidden" name="preset_file_delete" value="' . rex_escape($file['file']) . '">'
+            . '<button type="submit" class="btn btn-delete btn-xs" data-confirm="' . rex_escape(rex_i18n::rawMsg('consent_kit_presets_delete_confirm', $file['file'])) . '"><i class="rex-icon fa-times" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_presets_delete') . '</button></form>';
+        $rows .= '<tr><td><code>' . rex_escape($file['file']) . '</code></td><td>' . $file['count'] . '</td>'
+            . '<td>' . rex_escape(implode(', ', $file['keys'])) . '</td><td class="rex-table-action">' . $actions . '</td></tr>';
+    }
+    $list = '<table class="table table-hover"><thead><tr><th>' . rex_i18n::msg('consent_kit_presets_col_file') . '</th>'
+        . '<th>' . rex_i18n::msg('consent_kit_presets_col_count') . '</th><th>' . rex_i18n::msg('consent_kit_presets_col_keys') . '</th>'
+        . '<th class="rex-table-action">&nbsp;</th></tr></thead><tbody>' . $rows . '</tbody></table>';
+}
+
+$presets = '<p class="ck-panel-intro">' . rex_i18n::rawMsg('consent_kit_presets_intro', rex_escape($presetDir)) . '</p>'
+    . '<h3>' . rex_i18n::msg('consent_kit_presets_export_title') . '</h3>' . $export
+    . '<h3>' . rex_i18n::msg('consent_kit_presets_import_title') . '</h3>' . $import
+    . '<h3>' . rex_i18n::msg('consent_kit_presets_list_title') . '</h3>' . $list;
+echo $section(rex_i18n::msg('consent_kit_presets_title'), $presets);
 
 // Open Cookie Database
 $count = Catalog::count();

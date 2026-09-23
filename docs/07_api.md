@@ -214,4 +214,4 @@ Dateien: `presets/*.json` im AddOn und `…/data/addons/consent_kit/presets/*.js
 }
 ```
 
-Alle Felder beschreibt `presets/FORMAT.md`.
+Alle Felder beschreibt `presets/FORMAT.md`. Wie Platzhalter, Export und Import funktionieren: [Eigene Vorlagen](11_vorlagen.md).

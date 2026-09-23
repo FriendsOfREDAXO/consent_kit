@@ -20,7 +20,11 @@ final class Cache
 {
     public static function clear(): void
     {
-        rex_dir::delete(rex_path::addonCache('consent_kit'), false);
+        $dir = rex_path::addonCache('consent_kit');
+        // Nach einem REDAXO-Cache-Reset gibt es den Ordner nicht mehr; rex_dir::delete wirft dann.
+        if (is_dir($dir)) {
+            rex_dir::delete($dir, false);
+        }
     }
 
     /**

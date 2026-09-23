@@ -5,6 +5,7 @@ namespace FriendsOfRedaxo\ConsentKit\Backend;
 use FriendsOfRedaxo\ConsentKit\Cache;
 use FriendsOfRedaxo\ConsentKit\Events;
 use FriendsOfRedaxo\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\PresetIo;
 use FriendsOfRedaxo\ConsentKit\PresetRepository;
 use FriendsOfRedaxo\ConsentKit\Repository;
 use rex;
@@ -83,6 +84,12 @@ final class ServiceController
                     $this->redirect('group_deleted');
                 }
                 return rex_view::error(rex_i18n::msg('consent_kit_group_not_empty'));
+            case 'export':
+                $service = Repository::service($id);
+                if (null !== $service) {
+                    PresetIo::download(PresetIo::export([$id]), 'consent-kit-preset-' . $service['key'] . '.json');
+                }
+                $this->redirect('');
             case 'preset':
                 return $this->addPreset(rex_request::post('preset', 'string', ''));
             case 'reset':
@@ -694,6 +701,13 @@ final class ServiceController
                 . ('' !== $note ? '<p class="ck-note ck-note-warn"><i class="rex-icon fa-exclamation-triangle" aria-hidden="true"></i> ' . rex_escape($note) . '</p>' : '') . '<p>' . rex_i18n::msg('consent_kit_preset_verified', (string) ($preset['verified'] ?? '–')) . '</p>'
                 . ('' !== $sources ? '<p>' . rex_i18n::msg('consent_kit_preset_sources') . '</p><ul>' . $sources . '</ul>' : '')
                 . $this->postButton('reset', ['id' => $service['id']], rex_i18n::msg('consent_kit_preset_reset'), 'btn-default', rex_i18n::msg('consent_kit_preset_reset_confirm')) . '</aside>';
+        }
+
+        // Jeder gespeicherte Dienst laesst sich als eigene Vorlage sichern.
+        if ($service['id'] > 0) {
+            $extra .= '<aside class="ck-preset-info"><h3>' . rex_i18n::msg('consent_kit_presets_title') . '</h3>'
+                . '<p>' . rex_i18n::msg('consent_kit_preset_export_help') . '</p>'
+                . $this->postButton('export', ['id' => $service['id']], '<i class="rex-icon fa-download" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_preset_export_service'), 'btn-default') . '</aside>';
         }
 
         $title = $service['id'] > 0 ? rex_i18n::msg('consent_kit_service_edit', $service['name']) : rex_i18n::msg('consent_kit_custom_service_create');

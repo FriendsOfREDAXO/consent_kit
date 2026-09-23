@@ -50,7 +50,7 @@ Every `presets/*.json` file holds a list of service presets. All files are merge
 
 - `key`: `[a-z0-9_]+`, unique across all preset files.
 - `group`: one of `necessary`, `functional`, `statistics`, `marketing`, `media`.
-- `params`: values the site owner must enter; referenced as `{{key}}` in the code fields. `pattern` is an optional JS/PCRE-compatible regex. Empty array if none.
+- `params`: values the site owner must enter; referenced as `{{key}}` in the code fields and in `events`. `pattern` is an optional JS/PCRE-compatible regex used as the input's `pattern` attribute. Empty array if none. See **Placeholders** below.
 - `html_head` / `html_body`: HTML (usually `<script>` tags) injected only after consent. Use the vendor's current official snippet.
 - `js_default`: plain JS that runs on every page before any consent decision (e.g. a vendor "consent default denied" call). Must not load anything or set cookies.
 - `js_accept`: plain JS run each time the service is (or already was) accepted, after `html_*` was injected.
@@ -64,3 +64,35 @@ Every `presets/*.json` file holds a list of service presets. All files are merge
 - `events` (optional): `{"lead": "…", "registration": "…", "appointment": "…", "page_view": "…"}` – the vendor call per conversion event, used by the “Events” tab. `{{label}}` is the per-event identifier the site owner enters (e.g. a Google Ads conversion label); `{{param}}` placeholders work as in the code fields.
 - `note` (optional): `{"de": "…", "en": "…"}` – what could not be verified against vendor documentation; shown to the admin in the service form.
 - `sources`: official vendor documentation URLs that back the items and snippets.
+
+## Placeholders
+
+A preset carries the vendor's code but never an account identifier. Wherever an
+ID belongs, the code holds `{{key}}` and `params` describes the field the site
+owner fills in:
+
+```json
+"params": [
+  { "key": "measurement_id", "label": {"de": "Mess-ID", "en": "Measurement ID"},
+    "placeholder": "G-XXXXXXXXXX", "pattern": "^G-[A-Z0-9]+$" }
+],
+"html_head": "<script async src=\"https://www.googletagmanager.com/gtag/js?id={{measurement_id}}\"></script>"
+```
+
+`label` becomes the field label, `placeholder` the greyed-out example, `pattern`
+the browser-side format check. Substitution happens when the configuration is
+cached; a placeholder left unresolved means the service is incomplete and is not
+delivered at all.
+
+Two placeholders are always available and need no `params` entry: `{{lang}}`
+(two-letter language code) and `{{domain}}` (current host). Inside `events`,
+`{{label}}` is the per-event identifier entered by the site owner.
+
+## Export and import
+
+The backend writes and reads these files under **Tools → Own templates**. An
+export of a configured service keeps the placeholders and the `params`
+definitions but never the entered values, and leaves out domains, variants,
+status and order. Own template files live in
+`…/data/addons/consent_kit/presets/*.json`, survive updates and override
+bundled presets with the same key.

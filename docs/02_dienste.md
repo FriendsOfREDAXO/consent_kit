@@ -88,4 +88,4 @@ Jeder Dienst hat einen Fingerabdruck aus Gruppe, Schlüssel, Anbieter und den Ei
 
 ## Eigene Vorlagen
 
-JSON-Dateien im Data-Ordner des AddOns (`…/data/addons/consent_kit/presets/*.json`) werden zusätzlich geladen, überstehen Updates und überschreiben mitgelieferte Vorlagen mit gleichem Schlüssel. Das Format beschreibt die Datei `presets/FORMAT.md` im AddOn-Ordner; ein Beispiel steht in der [API-Referenz](07_api.md#vorlagen-format).
+Unter **Werkzeuge → Eigene Vorlagen** lassen sich angelegte Dienste als Vorlagen-Datei exportieren und fremde Vorlagen importieren – ohne die eingetragenen IDs, die im Code als Platzhalter `{{…}}` stehen bleiben. Ausführlich: [Eigene Vorlagen](11_vorlagen.md).
