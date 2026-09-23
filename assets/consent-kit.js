@@ -354,6 +354,8 @@ dialog[open] { display: flex; flex-direction: column; }
 dialog::backdrop { background: var(--_backdrop); backdrop-filter: var(--_backdrop-filter); }
 dialog.modal, dialog.settings { inset: 0; margin: auto; }
 dialog.settings { width: min(var(--ck-settings-width, 44rem), calc(100vw - 2rem)); }
+/* Einstellungen als Off-Canvas: Seitenlage schlaegt die mittige Voreinstellung. */
+dialog.settings.offcanvas { inset: auto; margin: 0; width: min(var(--ck-offcanvas-settings-width, var(--ck-offcanvas-width, 26rem)), 100vw); }
 dialog.box.bottom-left { left: 1rem; bottom: 1rem; }
 dialog.box.bottom-right { right: 1rem; bottom: 1rem; }
 dialog.box.top-left { left: 1rem; top: 1rem; }
@@ -578,7 +580,9 @@ class ConsentKitElement extends HTMLElement {
         const modal = view === 'settings' || this.layout === 'modal';
         if (this.dialog.open) this.dialog.close();
         this.dialog.removeAttribute('open');
-        this.dialog.className = (view === 'settings' ? 'settings' : this.layout + ' banner') + ' ' + (this.getAttribute('position') || cfg.position);
+        // Off-Canvas behaelt seine Form auch fuer die Einstellungen, sonst spraenge der Dialog in die Mitte.
+        const offcanvas = this.layout === 'offcanvas';
+        this.dialog.className = (view === 'settings' ? 'settings' + (offcanvas ? ' offcanvas' : '') : this.layout + ' banner') + ' ' + (this.getAttribute('position') || cfg.position);
         this.dialog.innerHTML = view === 'settings' ? this.settingsHtml() : this.bannerHtml();
         this.trigger.hidden = true;
         if (modal) {
@@ -736,6 +740,14 @@ class ConsentKitElement extends HTMLElement {
         }
         for (const input of this.dialog.querySelectorAll('input[data-group]')) {
             const inputs = [...this.dialog.querySelectorAll(`input[data-in-group="${CSS.escape(input.dataset.group)}"]`)];
+            if (!inputs.length) {
+                // Im Hinweis sind die Dienste nicht gerendert; dann zaehlt die Auswahl selbst.
+                const services = cfg.groups.find((g) => g.key === input.dataset.group)?.services || [];
+                const on = services.filter((s) => this.selection.has(s.key)).length;
+                input.checked = on > 0 && on === services.length;
+                input.indeterminate = on > 0 && on < services.length;
+                continue;
+            }
             const on = inputs.filter((i) => i.checked).length;
             input.checked = on > 0 && on === inputs.length;
             input.indeterminate = on > 0 && on < inputs.length;

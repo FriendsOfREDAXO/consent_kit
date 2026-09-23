@@ -70,6 +70,7 @@ Ohne dunkle Entsprechung:
 | `--ck-width` | `30rem` | Breite von Box und Dialog |
 | `--ck-settings-width` | `44rem` | Breite des Einstellungen-Dialogs |
 | `--ck-offcanvas-width` | `26rem` | Breite des Off-Canvas-Panels (schmale Schirme: volle Breite) |
+| `--ck-offcanvas-settings-width` | wie `--ck-offcanvas-width` | Breite der Einstellungen als Off-Canvas-Panel |
 | `--ck-backdrop-filter` | `none` | z. B. `blur(4px)` hinter dem Dialog |
 | `--ck-trigger-shadow` | weicher Schatten | Schatten der schwebenden Schaltfläche |
 | `--ck-z` | `2147483000` | Stapelreihenfolge |
