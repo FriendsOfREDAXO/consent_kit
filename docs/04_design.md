@@ -4,7 +4,7 @@ Die Komponente ist bewusst neutral: Sie übernimmt die Schrift der Seite, bringt
 
 ## Design-Editor
 
-**Design** zeigt links die Variablen, rechts eine Live-Vorschau mit den echten Diensten: Hinweis, Einstellungen und Platzhalter, hell und dunkel, Desktop und Mobil. Eine Kontrastprüfung meldet Kombinationen unter WCAG AA (4,5 : 1 für Text, 3 : 1 für Rahmen). Gespeichert werden nur Abweichungen vom Standard.
+**Design** zeigt links die Variablen – Farben hell und dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen –, rechts eine Live-Vorschau mit den echten Diensten: Hinweis, Einstellungen und Platzhalter, hell und dunkel, Desktop und Mobil. Eine Kontrastprüfung meldet Kombinationen unter WCAG AA (4,5 : 1 für Text, 3 : 1 für Rahmen). Gespeichert werden nur Abweichungen vom Standard.
 
 Wer die Werte lieber im eigenen Stylesheet pflegt, kopiert den Block unter „Als CSS für das eigene Stylesheet“.
 
@@ -34,18 +34,65 @@ consent-embed {
 | `--ck-shadow` | weicher Schatten | kräftiger | Schatten des Dialogs |
 | `--ck-backdrop` | `rgba(0,0,0,.55)` | `rgba(0,0,0,.7)` | Abdunklung hinter dem Dialog |
 
+Die Hover-Farben der Schaltflächen gibt es ebenfalls hell und dunkel. Ohne eigene Werte bleibt es bei der Helligkeitsänderung des Standards:
+
+| Variable | Standard | Wirkung |
+| --- | --- | --- |
+| `--ck-button-hover-bg` | wie `--ck-button-bg` | Schaltfläche im Hover |
+| `--ck-button-hover-text` | wie `--ck-button-text` | Text im Hover |
+| `--ck-button-hover-border` | wie `--ck-button-border` | Rahmen im Hover |
+| `--ck-button-hover-filter` | `brightness(1.15)` | Aufhellung; `none` schaltet sie ab |
+
 Ohne dunkle Entsprechung:
 
 | Variable | Standard | Wirkung |
 | --- | --- | --- |
 | `--ck-font` | `inherit` | Schriftart |
 | `--ck-font-size` | `1rem` | Schriftgröße |
+| `--ck-line-height` | `1.5` | Zeilenhöhe |
+| `--ck-heading-size` | `1.2em` | Größe der Überschrift |
+| `--ck-heading-weight` | `700` | Stärke der Überschrift |
+| `--ck-small-size` | `.875em` | Größe von Nebentext, Tabellen und Details |
+| `--ck-space` | `1.25rem` | Innenabstand von Kopf, Inhalt und Fuß |
+| `--ck-gap` | `.6rem` | Abstand zwischen Schaltflächen und Gruppen |
 | `--ck-radius` | `12px` | Ecken von Dialog und Platzhalter |
 | `--ck-button-radius` | `8px` | Ecken der Schaltflächen |
+| `--ck-group-radius` | `10px` | Ecken von Gruppen, Tabellen und Hinweisen |
+| `--ck-border-width` | `1px` | Rahmen von Dialog, Gruppen und Tabellen |
+| `--ck-button-padding` | `.55rem 1rem` | Innenabstand der Schaltflächen |
+| `--ck-button-weight` | `600` | Schriftstärke der Schaltflächen |
+| `--ck-button-border-width` | `2px` | Rahmenbreite der Schaltflächen |
+| `--ck-button-transform` | `none` | z. B. `uppercase` |
+| `--ck-button-letter-spacing` | `normal` | Laufweite der Schaltflächen |
+| `--ck-switch-width` | `2.75rem` | Breite der Schalter |
+| `--ck-switch-height` | `1.5rem` | Höhe der Schalter; der Knopf richtet sich danach |
+| `--ck-tap-size` | `2.75rem` | Mindestgröße aller Bedienelemente (44 px, nicht kleiner setzen) |
 | `--ck-width` | `30rem` | Breite von Box und Dialog |
 | `--ck-settings-width` | `44rem` | Breite des Einstellungen-Dialogs |
+| `--ck-backdrop-filter` | `none` | z. B. `blur(4px)` hinter dem Dialog |
+| `--ck-trigger-shadow` | weicher Schatten | Schatten der schwebenden Schaltfläche |
 | `--ck-z` | `2147483000` | Stapelreihenfolge |
 | `--ck-embed-ratio` | `16 / 9` | Seitenverhältnis des Platzhalters |
+| `--ck-embed-min-height` | `14rem` | Mindesthöhe des Platzhalters |
+
+## Eigenes Stylesheet
+
+Was sich mit Variablen nicht erreichen lässt, geht über eine eigene CSS-Datei: **Design › Eigenes Stylesheet**. Die Datei wird zusätzlich im Shadow DOM geladen und erreicht damit auch Elemente, für die es keine Variable gibt.
+
+```css
+/* /assets/consent-kit.css – projektübergreifend wiederverwendbar */
+.btn { letter-spacing: .05em; }
+.group { border-style: dashed; }
+caption { text-transform: uppercase; }
+```
+
+Angegeben wird ein projektinterner Pfad (`/assets/consent-kit.css`) oder eine vollständige Adresse. Zwei Dinge sind dabei zu beachten: Eine Datei auf fremder Domain muss dort erreichbar und in der `Content-Security-Policy` der Website erlaubt sein. Und das eigene Stylesheet steht hinter dem Basis-CSS – bei gleicher Spezifität gewinnt es, `!important` ist selten nötig.
+
+Wer nur Variablen setzen will, braucht dafür kein Feld im Backend: `--ck-*` sind vererbte Custom Properties und wirken deshalb auch aus einem ganz normalen Stylesheet der Website heraus durch die Shadow-Grenze.
+
+```css
+consent-kit, consent-embed { --ck-accent: #1e87f0; }
+```
 
 Der Dunkelmodus wird über das Attribut `theme` gesteuert (`light`, `dark`, `auto`), nicht über eigene Media Queries: `auto` folgt `prefers-color-scheme`.
 

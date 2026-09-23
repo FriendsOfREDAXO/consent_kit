@@ -262,7 +262,7 @@
         const label = (name) => document.querySelector('label[for="ck-var-' + name.slice(5) + '"]')?.textContent || name;
         const failures = [];
         for (const prefix of ['--ck-', '--ck-dark-']) {
-            for (const [fg, bg, min] of [['text', 'bg', 4.5], ['muted', 'bg', 4.5], ['accent', 'bg', 4.5], ['button-text', 'button-bg', 4.5], ['border', 'bg', 3]]) {
+            for (const [fg, bg, min] of [['text', 'bg', 4.5], ['muted', 'bg', 4.5], ['accent', 'bg', 4.5], ['button-text', 'button-bg', 4.5], ['button-hover-text', 'button-hover-bg', 4.5], ['border', 'bg', 3]]) {
                 const a = value(prefix + fg);
                 const b = value(prefix + bg);
                 if (!/^#[0-9a-f]{6}$/i.test(a) || !/^#[0-9a-f]{6}$/i.test(b)) continue;

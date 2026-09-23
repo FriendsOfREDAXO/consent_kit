@@ -85,12 +85,38 @@ final class Frontend
         $public['quiet'] = $quiet;
         $public['endpoint'] = rex_url::base('index.php') . '?rex-api-call=consent_kit';
         $public['cssVars'] = (object) array_filter((array) $addon->getConfig('css_vars', []), 'is_string');
+        $public['cssUrl'] = self::styleUrl();
 
         $file = $addon->getAssetsPath('consent-kit.js');
         $version = $addon->getVersion() . '-' . (is_file($file) ? filemtime($file) : 0);
 
         return '<script type="application/json" ' . self::MARKER . '>' . self::json($public) . '</script>'
             . '<script type="module" src="' . rex_url::addonAssets('consent_kit', 'consent-kit.js') . '?v=' . rawurlencode($version) . '"></script>';
+    }
+
+    /**
+     * Eigenes Stylesheet fuer das Shadow DOM: absolute URL oder projektinterner Pfad.
+     * Leer, wenn nichts gesetzt oder der Wert keine brauchbare URL ergibt.
+     */
+    public static function styleUrl(): string
+    {
+        $value = trim((string) rex_addon::get('consent_kit')->getConfig('css_url', ''));
+        if ('' === $value) {
+            return '';
+        }
+        if (1 === preg_match('~^https?://~i', $value)) {
+            return false !== filter_var($value, FILTER_VALIDATE_URL) ? $value : '';
+        }
+        /*
+         * Projektinterner Pfad: absolut ausgeben, denn rex_url::base() liefert einen relativen
+         * Pfad ("../assets/…"), der auf Unterseiten ins Leere zeigen wuerde. Das Basisverzeichnis
+         * stammt aus rex_url::frontendController(), damit auch Installationen in einem
+         * Unterverzeichnis den richtigen Praefix bekommen.
+         */
+        $controller = rex_url::frontendController();
+        $prefix = rtrim(str_replace('\\', '/', dirname('/' . ltrim(preg_replace('~^(\.\./)+~', '', $controller) ?? '', '/'))), '/');
+
+        return $prefix . '/' . ltrim($value, '/');
     }
 
     public static function head(): string

@@ -1,5 +1,12 @@
 # Changelog
 
+## Unveröffentlicht
+
+- Gestaltung deutlich erweitert: Abstände, Zeilenhöhe, Überschriften- und Nebentextgröße, Innenabstand, Schriftstärke, Rahmenbreite, Schreibweise und Hover-Farben der Schaltflächen, Größe der Schalter, Eckenradius von Gruppen und Tabellen, Backdrop-Filter, Mindesthöhe des Platzhalters. Alle neuen Variablen behalten als Standard exakt den bisherigen Wert, die Darstellung ändert sich also nicht von selbst.
+- Eigenes Stylesheet unter **Design**: Eine CSS-Datei (Projektpfad oder vollständige Adresse) wird zusätzlich im Shadow DOM geladen und erreicht damit auch Elemente ohne eigene Variable – projektübergreifend wiederverwendbar.
+- Design-Editor nach Themen gegliedert (Farben hell/dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen); die Kontrastprüfung berücksichtigt auch die Hover-Farben.
+- Die Schaltflächen bleiben bewusst gemeinsam gestaltet: Es gibt weiterhin keine Variable, mit der sich „Akzeptieren“ gegenüber „Ablehnen“ hervorheben ließe.
+
 ## 1.0.0-beta1 – 2026-09-22
 
 Erste öffentliche Beta. Rückmeldungen bitte über die GitHub-Issues.
