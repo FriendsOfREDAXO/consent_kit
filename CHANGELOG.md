@@ -1,6 +1,6 @@
 # Changelog
 
-## Unveröffentlicht
+## 1.0.0-beta2 – 2026-09-23
 
 - Neue Form des Hinweises: **Off-Canvas** – ein Panel über die volle Höhe am linken oder rechten Rand, wie bei Box und Leiste ohne Abdunklung, die Seite bleibt bedienbar. Breite über `--ck-offcanvas-width`, auf schmalen Schirmen volle Breite; das Einfahren entfällt bei `prefers-reduced-motion`.
 - Option **Gruppen im Hinweis zeigen** (nur bei Dialog und Off-Canvas): Der Hinweis listet die Gruppen mit Schaltern, die mittlere Schaltfläche wird „Auswahl speichern“. Es ist bewusst nichts vorausgewählt – eine Vorbelegung wäre keine wirksame Einwilligung. Die einzelnen Dienste bleiben in den Einstellungen.
