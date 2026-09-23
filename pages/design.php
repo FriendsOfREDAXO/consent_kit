@@ -209,8 +209,19 @@ $controls = '<form method="post" action="' . rex_url::currentBackendPage() . '" 
     . '<button type="submit" class="btn btn-default" name="reset" value="1" data-confirm="' . rex_i18n::msg('consent_kit_design_reset_confirm') . '">' . rex_i18n::msg('consent_kit_design_reset') . '</button></footer></form>'
     . '<details class="ck-css-export"><summary>' . rex_i18n::msg('consent_kit_design_css') . '</summary><p class="help-block">' . rex_i18n::msg('consent_kit_design_css_help') . '</p><pre><code data-ck-css></code></pre></details>';
 
+/*
+ * Der Layout-Umschalter probiert die Formen nur in der Vorschau durch; gespeichert wird
+ * die Form weiterhin unter Einstellungen. Startwert ist deshalb der gespeicherte Wert.
+ */
+$previewLayout = (string) $addon->getConfig('layout', 'box');
 $preview = '<div class="ck-preview-tools">'
     . $toggle('view', ['banner' => rex_i18n::msg('consent_kit_preview_banner'), 'settings' => rex_i18n::msg('consent_kit_preview_settings'), 'embed' => rex_i18n::msg('consent_kit_preview_embed')], 'banner')
+    . $toggle('layout', [
+        'box' => rex_i18n::msg('consent_kit_layout_box'),
+        'bar' => rex_i18n::msg('consent_kit_layout_bar'),
+        'modal' => rex_i18n::msg('consent_kit_layout_modal'),
+        'offcanvas' => rex_i18n::msg('consent_kit_layout_offcanvas'),
+    ], in_array($previewLayout, ['box', 'bar', 'modal', 'offcanvas'], true) ? $previewLayout : 'box')
     . $toggle('theme', ['light' => rex_i18n::msg('consent_kit_theme_light'), 'dark' => rex_i18n::msg('consent_kit_theme_dark')], 'dark' === $addon->getConfig('theme') ? 'dark' : 'light')
     . $toggle('size', ['desktop' => rex_i18n::msg('consent_kit_preview_desktop'), 'mobile' => rex_i18n::msg('consent_kit_preview_mobile')], 'desktop')
     . '</div><div class="ck-preview-frame" data-size="desktop"><iframe title="' . rex_i18n::msg('consent_kit_preview') . '" src="' . rex_url::currentBackendPage(['preview' => 1]) . '" data-ck-preview-frame data-layout="' . rex_escape((string) $addon->getConfig('layout', 'box')) . '" data-position="' . rex_escape((string) $addon->getConfig('position', 'bottom-left')) . '"></iframe></div>';

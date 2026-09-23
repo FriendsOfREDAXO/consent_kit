@@ -4,8 +4,8 @@
 
 - Neue Form des Hinweises: **Off-Canvas** – ein Panel über die volle Höhe am linken oder rechten Rand, wie bei Box und Leiste ohne Abdunklung, die Seite bleibt bedienbar. Breite über `--ck-offcanvas-width`, auf schmalen Schirmen volle Breite; das Einfahren entfällt bei `prefers-reduced-motion`.
 - Option **Gruppen im Hinweis zeigen** (nur bei Dialog und Off-Canvas): Der Hinweis listet die Gruppen mit Schaltern, die mittlere Schaltfläche wird „Auswahl speichern“. Es ist bewusst nichts vorausgewählt – eine Vorbelegung wäre keine wirksame Einwilligung. Die einzelnen Dienste bleiben in den Einstellungen.
+- Die Vorschau im Design-Editor hat einen Umschalter für die Form (Box, Leiste, Dialog, Off-Canvas). Damit lassen sich die Formen durchprobieren, ohne die gespeicherte Einstellung zu ändern.
 - Behoben: Bei langem Inhalt konnte der Textbereich des Hinweises die Schaltflächen aus dem Dialog schieben, sodass „Akzeptieren“ unter dem sichtbaren Bereich lag. Jetzt scrollt der Inhalt, die Schaltflächen bleiben immer vollständig sichtbar.
-
 - Gestaltung deutlich erweitert: Abstände, Zeilenhöhe, Überschriften- und Nebentextgröße, Innenabstand, Schriftstärke, Rahmenbreite, Schreibweise und Hover-Farben der Schaltflächen, Größe der Schalter, Eckenradius von Gruppen und Tabellen, Backdrop-Filter, Mindesthöhe des Platzhalters. Alle neuen Variablen behalten als Standard exakt den bisherigen Wert, die Darstellung ändert sich also nicht von selbst.
 - Eigenes Stylesheet unter **Design**: Eine CSS-Datei (Projektpfad oder vollständige Adresse) wird zusätzlich im Shadow DOM geladen und erreicht damit auch Elemente ohne eigene Variable – projektübergreifend wiederverwendbar.
 - Design-Editor nach Themen gegliedert (Farben hell/dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen); die Kontrastprüfung berücksichtigt auch die Hover-Farben.

@@ -478,3 +478,4 @@ consent_kit_layout_offcanvas = Off-Canvas
 consent_kit_layout_offcanvas_text = Panel über die volle Höhe am linken oder rechten Rand. Die Seite bleibt bedienbar.
 consent_kit_banner_groups = Gruppen im Hinweis zeigen
 consent_kit_banner_groups_help = Der Hinweis zeigt die Gruppen mit Schaltern, die mittlere Schaltfläche wird „Auswahl speichern“. Es ist nichts vorausgewählt; die einzelnen Dienste bleiben in den Einstellungen.
+consent_kit_preview_layout = Form

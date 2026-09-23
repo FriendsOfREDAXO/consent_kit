@@ -239,7 +239,8 @@
         const vars = designValues();
         frame.contentWindow?.postMessage({
             source: 'consent-kit-design', vars, view: pick('view'), theme: pick('theme'),
-            layout: frame.dataset.layout, position: frame.dataset.position,
+            // Der Umschalter probiert Formen nur in der Vorschau; ohne ihn gilt die gespeicherte Form.
+            layout: pick('layout') || frame.dataset.layout, position: frame.dataset.position,
         }, location.origin);
 
         const css = Object.entries(vars).map(([name, value]) => '    ' + name + ': ' + value + ';').join('\n');

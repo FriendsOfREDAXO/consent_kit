@@ -478,3 +478,4 @@ consent_kit_layout_offcanvas = Off-canvas
 consent_kit_layout_offcanvas_text = Full-height panel on the left or right edge. The page stays usable.
 consent_kit_banner_groups = Show groups in the notice
 consent_kit_banner_groups_help = The notice lists the groups with switches and the middle button becomes "Save selection". Nothing is preselected; individual services remain in the settings.
+consent_kit_preview_layout = Layout

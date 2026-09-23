@@ -4,7 +4,7 @@ Die Komponente ist bewusst neutral: Sie übernimmt die Schrift der Seite, bringt
 
 ## Design-Editor
 
-**Design** zeigt links die Variablen – Farben hell und dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen –, rechts eine Live-Vorschau mit den echten Diensten: Hinweis, Einstellungen und Platzhalter, hell und dunkel, Desktop und Mobil. Eine Kontrastprüfung meldet Kombinationen unter WCAG AA (4,5 : 1 für Text, 3 : 1 für Rahmen). Gespeichert werden nur Abweichungen vom Standard.
+**Design** zeigt links die Variablen – Farben hell und dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen –, rechts eine Live-Vorschau mit den echten Diensten: Hinweis, Einstellungen und Platzhalter, alle vier Formen (Box, Leiste, Dialog, Off-Canvas), hell und dunkel, Desktop und Mobil. Der Formen-Umschalter wirkt nur in der Vorschau; gespeichert wird die Form unter **Einstellungen**. Eine Kontrastprüfung meldet Kombinationen unter WCAG AA (4,5 : 1 für Text, 3 : 1 für Rahmen). Gespeichert werden nur Abweichungen vom Standard.
 
 Wer die Werte lieber im eigenen Stylesheet pflegt, kopiert den Block unter „Als CSS für das eigene Stylesheet“.
 
