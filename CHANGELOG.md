@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0-beta4 – 2026-09-26
+
+Vielen Dank an **Alex Wenz** ([@alexwenz](https://github.com/alexwenz)): Alle Änderungen dieser Version gehen auf seine Pull Requests und Issues zurück, entstanden beim Umstieg einer Kundenseite von consent_manager – sorgfältig begründet und gründlich geprüft.
+
+- Platzhalter: `{privacy}`, `{imprint}` und `{service_privacy}` im Text werden zu Links auf die eigene Datenschutzerklärung, das Impressum bzw. die Datenschutzerklärung des Dienstes; der übrige Text bleibt maskiert (#7).
+- Platzhalter für Dienste, die nicht angelegt, inaktiv oder der Domain nicht zugeordnet sind: kein „Inhalt einmal laden“ mehr, sondern „Dieser Inhalt ist derzeit nicht verfügbar“. Der Name kommt aus der gleichnamigen Vorlage statt des rohen Schlüssels; angemeldete Redakteure sehen, welcher Dienst fehlt, die Konsole meldet es ebenfalls (#4).
+- `ConsentKit.accept()` für eigene 2-Klick-Lösungen (#2), `--ck-rem` für Seiten mit verkleinerter Grundschrift (#3), Cache-Buster für das eigene Stylesheet (#6).
+- Behoben: Vorlagensuche und Filter unter „Dienst hinzufügen“ blendeten nichts aus (#1); der Platzhalter wurde auf schmalen Schirmen abgeschnitten (#5).
+
 ## 1.0.0-beta3 – 2026-09-23
 
 - **Eigene Vorlagen importieren und exportieren** unter **Werkzeuge → Eigene Vorlagen**: angelegte Dienste als Vorlagen-Datei herunterladen (alle oder eine Auswahl, einzeln auch im Dienst-Formular) und fremde Vorlagen einspielen. Der Export enthält Code, Cookies und die auszufüllenden Felder, aber nie die eingetragenen IDs, Domains, Varianten oder den Status – die Platzhalter `{{…}}` bleiben im Code stehen. Der Import prüft Schlüssel, Gruppe, Eintragsarten, Laufzeiten und Consent-Mode-Signale und benennt fehlerhafte Einträge einzeln. Vorhandene eigene Vorlagen lassen sich dort auch herunterladen und löschen.

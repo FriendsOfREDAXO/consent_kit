@@ -8,6 +8,17 @@ const cfg = configElement ? JSON.parse(configElement.textContent || '{}') : null
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const safeUrl = (url) => (/^(https?:)?\/\//i.test(url) || /^[/?#.]/.test(url) ? url : '#');
 const fill = (text, values) => String(text ?? '').replace(/\{(\w+)\}/g, (m, key) => (key in values ? values[key] : m));
+/**
+ * Wie fill(), aber als HTML: Der Text wird maskiert, Platzhalter aus links werden zu <a>
+ * ({label, url, external}). Ohne url bleibt nur die Beschriftung stehen.
+ */
+const fillHtml = (text, values, links) => String(text ?? '').split(/(\{\w+\})/).map((part) => {
+    const link = /^\{\w+\}$/.test(part) ? links[part.slice(1, -1)] : null;
+    if (!link) return esc(fill(part, values));
+    if (!link.url) return esc(link.label);
+    const target = link.external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${esc(safeUrl(link.url))}"${target}>${esc(link.label)}</a>`;
+}).join('');
 const wildcard = (pattern) => new RegExp('^' + pattern.split('*').map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('.*') + '$');
 
 /* ---------------------------------------------------------------- Kern --- */
@@ -512,6 +523,7 @@ const embedCss = baseCss + `
 .placeholder > * { width: min(calc(36 * var(--_rem)), 100%); margin-inline: auto; }
 h3 { margin: 0; font-size: 1.05em; }
 p { margin: 0; font-size: .925em; color: var(--_muted); }
+.notice { padding: calc(.6 * var(--_rem)) calc(.75 * var(--_rem)); border: var(--_border-width) dashed var(--_border); border-radius: var(--_group-radius); }
 `;
 
 /*
@@ -812,23 +824,33 @@ class ConsentEmbedElement extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         const key = this.getAttribute('service') || '';
         const service = core.services.get(key);
-        const name = service?.name || key;
+        const name = service?.name || this.getAttribute('name') || key;
         const t = cfg.texts;
         if (!this.hasAttribute('theme')) this.setAttribute('theme', cfg.theme);
         for (const [prop, value] of Object.entries(cfg.cssVars || {})) {
             if (prop.startsWith('--ck-')) this.style.setProperty(prop, value);
         }
         const label = this.getAttribute('label');
-        this.shadowRoot.innerHTML = `<style>${embedCss}</style>${customStyle()}
-            <div class="placeholder" part="placeholder" role="group" aria-labelledby="ck-embed-title">
-                <h3 id="ck-embed-title">${esc(fill(t.embed_title, { name }))}${label ? ': ' + esc(label) : ''}</h3>
-                <p>${esc(fill(t.embed_text, { name }))}</p>
+        const heading = `<h3 id="ck-embed-title">${esc(fill(t.embed_title, { name }))}${label ? ': ' + esc(label) : ''}</h3>`;
+        let body;
+        if (service) {
+            const links = { privacy: { label: t.privacy_policy }, imprint: { label: t.imprint } };
+            for (const link of cfg.links) links[link.key] = link;
+            links.service_privacy = { label: fill(t.privacy_policy_of, { name }), url: service.privacyUrl, external: true };
+            body = `<p>${fillHtml(t.embed_text, { name }, links)}</p>
                 <div class="buttons">
                     <button type="button" class="btn" part="button" data-action="once">${esc(t.embed_once)}</button>
-                    ${service && !service.required ? `<button type="button" class="btn" part="button" data-action="always">${esc(fill(t.embed_always, { name }))}</button>` : ''}
+                    ${!service.required ? `<button type="button" class="btn" part="button" data-action="always">${esc(fill(t.embed_always, { name }))}</button>` : ''}
                     <button type="button" class="btn" part="button" data-action="settings">${esc(t.embed_settings)}</button>
-                </div>
-            </div><slot></slot>`;
+                </div>`;
+        } else {
+            // Nicht angelegt oder inaktiv: Ohne Dienst gaebe es keine Angaben im Hinweis und in der
+            // Datenschutzerklaerung, also auch kein "einmal laden".
+            console.warn(`[consent-kit] <consent-embed service="${key}">: service missing or inactive on this domain`);
+            body = `<p>${esc(t.embed_unavailable)}</p>${cfg.editorHint ? `<p class="notice">${esc(cfg.editorHint.replace('{0}', key))}</p>` : ''}`;
+        }
+        this.shadowRoot.innerHTML = `<style>${embedCss}</style>${customStyle()}
+            <div class="placeholder" part="placeholder" role="group" aria-labelledby="ck-embed-title">${heading}${body}</div><slot></slot>`;
         this.shadowRoot.addEventListener('click', (event) => {
             const action = event.target.closest('button')?.dataset.action;
             if (action === 'once') this.load(true);

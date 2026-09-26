@@ -57,6 +57,7 @@ return [
         'embed_once' => 'Inhalt einmal laden',
         'embed_always' => '{name} immer erlauben',
         'embed_settings' => 'Cookie-Einstellungen öffnen',
+        'embed_unavailable' => 'Dieser Inhalt ist derzeit nicht verfügbar.',
     ],
     'en' => [
         'title' => 'Privacy settings',
@@ -110,5 +111,6 @@ return [
         'embed_once' => 'Load content once',
         'embed_always' => 'Always allow {name}',
         'embed_settings' => 'Open cookie settings',
+        'embed_unavailable' => 'This content is currently unavailable.',
     ],
 ];
