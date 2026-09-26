@@ -48,6 +48,7 @@ Ohne dunkle Entsprechung:
 | Variable | Standard | Wirkung |
 | --- | --- | --- |
 | `--ck-font` | `inherit` | Schriftart |
+| `--ck-rem` | `1rem` | Maßeinheit, aus der sich alle `rem`-Werte dieser Tabelle und die inneren Abstände ableiten (siehe unten) |
 | `--ck-font-size` | `1rem` | Schriftgröße |
 | `--ck-line-height` | `1.5` | Zeilenhöhe |
 | `--ck-heading-size` | `1.2em` | Größe der Überschrift |
@@ -76,6 +77,19 @@ Ohne dunkle Entsprechung:
 | `--ck-z` | `2147483000` | Stapelreihenfolge |
 | `--ck-embed-ratio` | `16 / 9` | Seitenverhältnis des Platzhalters |
 | `--ck-embed-min-height` | `14rem` | Mindesthöhe des Platzhalters |
+
+### Seiten mit verkleinerter Grundschrift
+
+Alle Größen der Komponente beziehen sich auf `--ck-rem`. Setzt eine Website `html { font-size: 62.5% }` (1rem = 10px), wäre sonst alles auf 62,5 % verkleinert – Schrift, Abstände, Breiten und auch die Mindestgröße der Bedienelemente. Ein Wert gleicht das aus:
+
+```css
+consent-kit,
+consent-embed {
+    --ck-rem: 1.6rem;
+}
+```
+
+`1.6rem` statt `16px` hält die Komponente an der Schriftgröße, die Besucher im Browser eingestellt haben. Die Umbrüche für schmale Bildschirme hängen nicht davon ab; sie folgen wie jede Media Query der Standardschriftgröße des Browsers.
 
 ## Eigenes Stylesheet
 

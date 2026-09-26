@@ -31,6 +31,7 @@ $variables = [
     'button-border-width' => ['length', '2px', null],
     'space' => ['length', '1.25rem', null],
     'gap' => ['length', '0.6rem', null],
+    'rem' => ['length', '1rem', null],
     'font-size' => ['length', '1rem', null],
     'line-height' => ['number', '1.5', null],
     'heading-size' => ['length', '1.2em', null],
@@ -162,7 +163,7 @@ $field = static function (string $name, string $type, string $default) use ($sav
 
 /* Nicht-Farbwerte nach Thema gruppiert, sonst wird die Liste unuebersichtlich. */
 $sections = [
-    'typo' => ['font', 'font-size', 'line-height', 'heading-size', 'heading-weight', 'small-size'],
+    'typo' => ['font', 'rem', 'font-size', 'line-height', 'heading-size', 'heading-weight', 'small-size'],
     'spacing' => ['space', 'gap', 'width', 'settings-width'],
     'shape' => ['radius', 'button-radius', 'group-radius', 'border-width', 'switch-width', 'switch-height'],
     'buttons' => ['button-padding', 'button-weight', 'button-border-width', 'button-transform'],

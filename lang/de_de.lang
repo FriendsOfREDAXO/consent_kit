@@ -259,6 +259,7 @@ consent_kit_var_button_border = Schaltflächen-Rahmen
 consent_kit_var_radius = Eckenradius
 consent_kit_var_button_radius = Eckenradius Schaltflächen
 consent_kit_var_font_size = Schriftgröße
+consent_kit_var_rem = Maßeinheit (1.6rem bei html { font-size: 62.5% })
 consent_kit_var_width = Breite der Box
 consent_kit_var_font = Schriftart
 consent_kit_preview = Vorschau
