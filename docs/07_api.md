@@ -98,6 +98,7 @@ Cronjob-Typ: „Consent Kit: Protokoll bereinigen“.
 | --- | --- | --- |
 | `ConsentKit.has('matomo')` | `boolean` | Einwilligung für den Dienst (notwendige Dienste: immer `true`) |
 | `ConsentKit.accepted()` | `string[]` | Schlüssel aller akzeptierten optionalen Dienste |
+| `ConsentKit.accept('maps')` | `boolean` | Einwilligung für einen Dienst (oder ein Array von Diensten) erteilen – wie „… immer erlauben“ am Platzhalter, protokolliert als `embed`. Andere Entscheidungen bleiben unverändert. `false`, wenn kein Schlüssel ein optionaler Dienst ist |
 | `ConsentKit.open()` | – | Einstellungen öffnen |
 | `ConsentKit.onChange(fn)` | – | `fn({ accepted, rejected, action })` bei jeder Entscheidung |
 | `ConsentKit.withdraw()` | – | Einwilligung widerrufen: Dienste stoppen, Cookie löschen, protokollieren, neu laden |
@@ -111,6 +112,14 @@ document.addEventListener('consentkit:ready', () => {
 });
 document.addEventListener('consentkit:change', (event) => {
     if (event.detail.accepted.includes('maps')) initMap();
+});
+```
+
+Eigene 2-Klick-Lösungen, die sich nicht als `<consent-embed>` abbilden lassen (etwa eine Karte über eine JavaScript-API), erteilen die Einwilligung selbst:
+
+```js
+document.querySelector('.map-consent button').addEventListener('click', () => {
+    ConsentKit.accept('maps'); // löst consentkit:change aus, initMap() läuft über den Listener oben
 });
 ```
 

@@ -248,8 +248,11 @@ function clearItems(service) {
 
 const baseCss = `
 :host {
+    /* Masseinheit fuer alle Groessen. Seiten mit html { font-size: 62.5% } setzen --ck-rem: 1.6rem,
+       sonst schrumpft alles auf 62,5 % - auch die Mindest-Trefferflaeche. */
+    --_rem: var(--ck-rem, 1rem);
     --_font: var(--ck-font, inherit);
-    --_size: var(--ck-font-size, 1rem);
+    --_size: var(--ck-font-size, var(--_rem));
     --_line-height: var(--ck-line-height, 1.5);
     --_heading-size: var(--ck-heading-size, 1.2em);
     --_heading-weight: var(--ck-heading-weight, 700);
@@ -268,10 +271,10 @@ const baseCss = `
     --_shadow: var(--ck-shadow, 0 12px 40px rgba(0, 0, 0, .22));
     --_backdrop: var(--ck-backdrop, rgba(0, 0, 0, .55));
     /* Abstandsraster: eine Basis, alles andere leitet sich daraus ab. */
-    --_space: var(--ck-space, 1.25rem);
-    --_gap: var(--ck-gap, .6rem);
+    --_space: var(--ck-space, calc(1.25 * var(--_rem)));
+    --_gap: var(--ck-gap, calc(.6 * var(--_rem)));
     --_border-width: var(--ck-border-width, 1px);
-    --_btn-padding: var(--ck-button-padding, .55rem 1rem);
+    --_btn-padding: var(--ck-button-padding, calc(.55 * var(--_rem)) var(--_rem));
     --_btn-weight: var(--ck-button-weight, 600);
     --_btn-border-width: var(--ck-button-border-width, 2px);
     --_btn-transform: var(--ck-button-transform, none);
@@ -281,11 +284,11 @@ const baseCss = `
     --_btn-hover-text: var(--ck-button-hover-text, var(--_btn-text));
     --_btn-hover-border: var(--ck-button-hover-border, var(--_btn-border));
     --_btn-hover-filter: var(--ck-button-hover-filter, brightness(1.15));
-    --_switch-width: var(--ck-switch-width, 2.75rem);
-    --_switch-height: var(--ck-switch-height, 1.5rem);
+    --_switch-width: var(--ck-switch-width, calc(2.75 * var(--_rem)));
+    --_switch-height: var(--ck-switch-height, calc(1.5 * var(--_rem)));
     --_group-radius: var(--ck-group-radius, 10px);
     --_backdrop-filter: var(--ck-backdrop-filter, none);
-    --_tap: var(--ck-tap-size, 2.75rem);
+    --_tap: var(--ck-tap-size, calc(2.75 * var(--_rem)));
     color-scheme: light;
     font-family: var(--_font);
     font-size: var(--_size);
@@ -315,7 +318,7 @@ a { color: var(--_accent); text-underline-offset: .15em; }
 .foot, .placeholder { container-type: inline-size; }
 .buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--_gap); }
 /* Entweder alle nebeneinander oder alle untereinander – nie eine Schaltflaeche allein in einer Zeile. */
-@container (max-width: 36rem) { .buttons { grid-template-columns: 1fr; } }
+@container (max-width: 36em) { .buttons { grid-template-columns: 1fr; } }
 @media (forced-colors: active) {
     .btn, dialog, .track, .placeholder { border: 2px solid CanvasText; }
     .track::after { background: CanvasText; }
@@ -344,8 +347,8 @@ function darkVars() {
 const kitCss = baseCss + `
 dialog {
     position: fixed; inset: auto; margin: 0; padding: 0; border: var(--_border-width) solid var(--_border);
-    width: min(var(--ck-width, 30rem), calc(100vw - 2rem)); max-width: none;
-    max-height: calc(100dvh - 2rem); overflow: hidden;
+    width: min(var(--ck-width, calc(30 * var(--_rem))), calc(100vw - calc(2 * var(--_rem)))); max-width: none;
+    max-height: calc(100dvh - calc(2 * var(--_rem))); overflow: hidden;
     color: var(--_text); background: var(--_bg);
     border-radius: var(--_radius); box-shadow: var(--_shadow);
     z-index: var(--ck-z, 2147483000);
@@ -353,13 +356,13 @@ dialog {
 dialog[open] { display: flex; flex-direction: column; }
 dialog::backdrop { background: var(--_backdrop); backdrop-filter: var(--_backdrop-filter); }
 dialog.modal, dialog.settings { inset: 0; margin: auto; }
-dialog.settings { width: min(var(--ck-settings-width, 44rem), calc(100vw - 2rem)); }
+dialog.settings { width: min(var(--ck-settings-width, calc(44 * var(--_rem))), calc(100vw - calc(2 * var(--_rem)))); }
 /* Einstellungen als Off-Canvas: Seitenlage schlaegt die mittige Voreinstellung. */
-dialog.settings.offcanvas { inset: auto; margin: 0; width: min(var(--ck-offcanvas-settings-width, var(--ck-offcanvas-width, 26rem)), 100vw); }
-dialog.box.bottom-left { left: 1rem; bottom: 1rem; }
-dialog.box.bottom-right { right: 1rem; bottom: 1rem; }
-dialog.box.top-left { left: 1rem; top: 1rem; }
-dialog.box.top-right { right: 1rem; top: 1rem; }
+dialog.settings.offcanvas { inset: auto; margin: 0; width: min(var(--ck-offcanvas-settings-width, var(--ck-offcanvas-width, calc(26 * var(--_rem)))), 100vw); }
+dialog.box.bottom-left { left: var(--_rem); bottom: var(--_rem); }
+dialog.box.bottom-right { right: var(--_rem); bottom: var(--_rem); }
+dialog.box.top-left { left: var(--_rem); top: var(--_rem); }
+dialog.box.top-right { right: var(--_rem); top: var(--_rem); }
 dialog.bar { left: 0; right: 0; width: 100%; border-radius: 0; border-width: var(--_border-width) 0 0; }
 dialog.bar.bottom-left, dialog.bar.bottom-right { bottom: 0; }
 dialog.bar.top-left, dialog.bar.top-right { top: 0; border-width: 0 0 var(--_border-width); }
@@ -370,7 +373,7 @@ dialog.bar.top-left, dialog.bar.top-right { top: 0; border-width: 0 0 var(--_bor
 dialog.offcanvas {
     top: 0; bottom: 0; height: 100dvh; max-height: 100dvh;
     /* Auf schmalen Schirmen ueber die volle Breite – ein Rand neben einem randlosen Panel wirkt wie ein Fehler. */
-    width: min(var(--ck-offcanvas-width, 26rem), 100vw);
+    width: min(var(--ck-offcanvas-width, calc(26 * var(--_rem))), 100vw);
     border-radius: 0; border-width: 0;
 }
 dialog.offcanvas.bottom-left, dialog.offcanvas.top-left { left: 0; border-right-width: var(--_border-width); }
@@ -378,10 +381,10 @@ dialog.offcanvas.bottom-right, dialog.offcanvas.top-right { right: 0; border-lef
 /* Inhalt oben, Schaltflaechen unten – die Mitte scrollt, falls der Text lang ist. */
 dialog.offcanvas .inner { height: 100%; }
 dialog.offcanvas .body { flex: 1; }
-dialog.bar .inner { width: min(72rem, 100%); margin: 0 auto; }
+dialog.bar .inner { width: min(calc(72 * var(--_rem)), 100%); margin: 0 auto; }
 @media (min-width: 60rem) {
-    dialog.bar:not(.settings) .inner { display: grid; grid-template-columns: 1fr auto; column-gap: 2rem; align-items: center; }
-    dialog.bar:not(.settings) .foot { min-width: 38rem; }
+    dialog.bar:not(.settings) .inner { display: grid; grid-template-columns: 1fr auto; column-gap: calc(2 * var(--_rem)); align-items: center; }
+    dialog.bar:not(.settings) .foot { min-width: calc(38 * var(--_rem)); }
 }
 .inner { display: flex; flex-direction: column; min-height: 0; max-height: 100%; }
 /*
@@ -390,102 +393,102 @@ dialog.bar .inner { width: min(72rem, 100%); margin: 0 auto; }
  */
 .text { display: flex; flex-direction: column; min-height: 0; }
 .head, .foot { padding: var(--_space) var(--_space) 0; }
-.head { display: flex; align-items: flex-start; gap: .75rem; }
+.head { display: flex; align-items: flex-start; gap: calc(.75 * var(--_rem)); }
 .head h2 { flex: 1; }
 .close {
     flex: none; display: inline-flex; align-items: center; justify-content: center;
-    width: var(--_tap); height: var(--_tap); margin: -.6rem -.6rem 0 0; padding: 0;
+    width: var(--_tap); height: var(--_tap); margin: calc(-.6 * var(--_rem)) calc(-.6 * var(--_rem)) 0 0; padding: 0;
     color: var(--_muted); background: none; border: 0; border-radius: 50%;
 }
 .close:hover { color: var(--_text); background: var(--_line); }
-.close svg { width: 1.25rem; height: 1.25rem; }
-.foot { padding-bottom: var(--_space); border-top: var(--_border-width) solid var(--_line); padding-top: 1rem; }
+.close svg { width: calc(1.25 * var(--_rem)); height: calc(1.25 * var(--_rem)); }
+.foot { padding-bottom: var(--_space); border-top: var(--_border-width) solid var(--_line); padding-top: var(--_rem); }
 .banner .foot { border-top: 0; padding-top: 0; }
-.body { padding: .75rem var(--_space) 1rem; overflow-y: auto; overscroll-behavior: contain; }
+.body { padding: calc(.75 * var(--_rem)) var(--_space) var(--_rem); overflow-y: auto; overscroll-behavior: contain; }
 h2 { margin: 0; font-size: var(--_heading-size); font-weight: var(--_heading-weight); line-height: 1.3; }
 h2:focus { outline: none; }
 h3 { margin: 0; font-size: 1em; }
-p { margin: 0 0 .75rem; }
+p { margin: 0 0 calc(.75 * var(--_rem)); }
 .muted, .links, .meta { color: var(--_muted); font-size: var(--_small-size); }
-.links { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: 0 0 .9rem; padding: 0; list-style: none; }
-.meta { margin: .75rem 0 0; overflow-wrap: anywhere; }
-.notice { padding: .6rem .75rem; border: var(--_border-width) solid var(--_border); border-radius: var(--_group-radius); font-size: .9em; }
+.links { display: flex; flex-wrap: wrap; gap: calc(.25 * var(--_rem)) var(--_rem); margin: 0 0 calc(.9 * var(--_rem)); padding: 0; list-style: none; }
+.meta { margin: calc(.75 * var(--_rem)) 0 0; overflow-wrap: anywhere; }
+.notice { padding: calc(.6 * var(--_rem)) calc(.75 * var(--_rem)); border: var(--_border-width) solid var(--_border); border-radius: var(--_group-radius); font-size: .9em; }
 .group { border: var(--_border-width) solid var(--_line); border-radius: var(--_group-radius); margin-bottom: var(--_gap); }
-.group-head, .service-head { display: flex; align-items: center; gap: .75rem; }
-.group-head { padding: .35rem .75rem .35rem .25rem; }
-.group > .muted { margin: 0; padding: 0 .75rem .7rem 2.45rem; }
+.group-head, .service-head { display: flex; align-items: center; gap: calc(.75 * var(--_rem)); }
+.group-head { padding: calc(.35 * var(--_rem)) calc(.75 * var(--_rem)) calc(.35 * var(--_rem)) calc(.25 * var(--_rem)); }
+.group > .muted { margin: 0; padding: 0 calc(.75 * var(--_rem)) calc(.7 * var(--_rem)) calc(2.45 * var(--_rem)); }
 /* Gruppen im Hinweis: ohne Aufklapp-Schaltflaeche buendig zum Text einruecken. */
-.group.plain .group-head { padding: .5rem .75rem; min-height: var(--_tap); }
+.group.plain .group-head { padding: calc(.5 * var(--_rem)) calc(.75 * var(--_rem)); min-height: var(--_tap); }
 .group.plain .group-head h3 { font-weight: 600; }
 .group.plain .group-head .count { font-weight: 400; color: var(--_muted); font-size: var(--_small-size); }
-.group.plain > .muted { padding-left: .75rem; }
+.group.plain > .muted { padding-left: calc(.75 * var(--_rem)); }
 .expand {
-    flex: 1; display: flex; align-items: center; gap: .5rem; min-height: var(--_tap); padding: .25rem .5rem;
+    flex: 1; display: flex; align-items: center; gap: calc(.5 * var(--_rem)); min-height: var(--_tap); padding: calc(.25 * var(--_rem)) calc(.5 * var(--_rem));
     text-align: left; font-weight: 600; background: none; border: 0; border-radius: 6px;
 }
 .expand .count { font-weight: 400; color: var(--_muted); font-size: var(--_small-size); }
-.chev { flex: none; width: .55rem; height: .55rem; margin: 0 .3rem; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(-45deg); }
+.chev { flex: none; width: calc(.55 * var(--_rem)); height: calc(.55 * var(--_rem)); margin: 0 calc(.3 * var(--_rem)); border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(-45deg); }
 [aria-expanded="true"] > .chev { transform: rotate(45deg); }
 .always { font-size: var(--_small-size); color: var(--_muted); white-space: nowrap; }
 .services { border-top: var(--_border-width) solid var(--_line); }
-.service { padding: .7rem .75rem; }
+.service { padding: calc(.7 * var(--_rem)) calc(.75 * var(--_rem)); }
 .service + .service { border-top: var(--_border-width) solid var(--_line); }
 .service-head .name { flex: 1; font-weight: 600; }
-.service p { margin: .25rem 0 .35rem; font-size: .925em; }
-.more { padding: .2rem 0; min-height: var(--_tap); background: none; border: 0; font-size: var(--_small-size); color: var(--_accent); text-decoration: underline; text-underline-offset: .15em; }
-.details { margin-top: .5rem; font-size: var(--_small-size); }
-.details dl { display: grid; grid-template-columns: auto 1fr; gap: .2rem .75rem; margin: 0 0 .6rem; }
+.service p { margin: calc(.25 * var(--_rem)) 0 calc(.35 * var(--_rem)); font-size: .925em; }
+.more { padding: calc(.2 * var(--_rem)) 0; min-height: var(--_tap); background: none; border: 0; font-size: var(--_small-size); color: var(--_accent); text-decoration: underline; text-underline-offset: .15em; }
+.details { margin-top: calc(.5 * var(--_rem)); font-size: var(--_small-size); }
+.details dl { display: grid; grid-template-columns: auto 1fr; gap: calc(.2 * var(--_rem)) calc(.75 * var(--_rem)); margin: 0 0 calc(.6 * var(--_rem)); }
 .details dt { color: var(--_muted); }
 .details dd { margin: 0; overflow-wrap: anywhere; }
 .table { overflow-x: auto; border: var(--_border-width) solid var(--_line); border-radius: var(--_group-radius); }
 table { width: 100%; border-collapse: collapse; }
-caption { text-align: left; padding: .45rem .6rem; font-weight: 600; }
-th, td { padding: .4rem .6rem; text-align: left; vertical-align: top; border-top: var(--_border-width) solid var(--_line); }
+caption { text-align: left; padding: calc(.45 * var(--_rem)) calc(.6 * var(--_rem)); font-weight: 600; }
+th, td { padding: calc(.4 * var(--_rem)) calc(.6 * var(--_rem)); text-align: left; vertical-align: top; border-top: var(--_border-width) solid var(--_line); }
 th { color: var(--_muted); font-weight: 600; white-space: nowrap; }
-td:first-child { min-width: 9rem; overflow-wrap: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95em; }
+td:first-child { min-width: calc(9 * var(--_rem)); overflow-wrap: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95em; }
 .switch { flex: none; position: relative; display: inline-flex; align-items: center; min-height: var(--_tap); cursor: pointer; }
 .switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
-.track { position: relative; width: var(--_switch-width); height: var(--_switch-height); border-radius: 1rem; border: 2px solid var(--_border); background: transparent; }
-.track::after { content: ""; position: absolute; top: 2px; left: 2px; width: calc(var(--_switch-height) - .5rem); height: calc(var(--_switch-height) - .5rem); border-radius: 50%; background: var(--_border); }
+.track { position: relative; width: var(--_switch-width); height: var(--_switch-height); border-radius: var(--_rem); border: 2px solid var(--_border); background: transparent; }
+.track::after { content: ""; position: absolute; top: 2px; left: 2px; width: calc(var(--_switch-height) - calc(.5 * var(--_rem))); height: calc(var(--_switch-height) - calc(.5 * var(--_rem))); border-radius: 50%; background: var(--_border); }
 input:checked + .track { background: var(--_accent); border-color: var(--_accent); }
-input:checked + .track::after { left: calc(100% - (var(--_switch-height) - .5rem) - 2px); background: var(--_bg); }
-input:indeterminate + .track::after { left: calc(50% - .5rem); border-radius: 3px; height: .3rem; top: calc(50% - .15rem); background: var(--_accent); }
+input:checked + .track::after { left: calc(100% - (var(--_switch-height) - calc(.5 * var(--_rem))) - 2px); background: var(--_bg); }
+input:indeterminate + .track::after { left: calc(50% - calc(.5 * var(--_rem))); border-radius: 3px; height: calc(.3 * var(--_rem)); top: calc(50% - calc(.15 * var(--_rem))); background: var(--_accent); }
 input:focus-visible + .track { outline: 3px solid var(--_accent); outline-offset: 2px; }
 .trigger {
     position: fixed; z-index: var(--ck-z, 2147483000); display: inline-flex; align-items: center; justify-content: center;
     width: var(--_tap); height: var(--_tap); padding: 0; color: var(--_text); background: var(--_bg);
     border: var(--_border-width) solid var(--_border); border-radius: 50%; box-shadow: var(--ck-trigger-shadow, 0 2px 10px rgba(0, 0, 0, .18));
 }
-.trigger.bottom-left { left: 1rem; bottom: 1rem; }
-.trigger.bottom-right { right: 1rem; bottom: 1rem; }
-.trigger svg { width: 1.4rem; height: 1.4rem; }
+.trigger.bottom-left { left: var(--_rem); bottom: var(--_rem); }
+.trigger.bottom-right { right: var(--_rem); bottom: var(--_rem); }
+.trigger svg { width: calc(1.4 * var(--_rem)); height: calc(1.4 * var(--_rem)); }
 @media (prefers-reduced-motion: no-preference) {
     dialog[open] { animation: ck-in .2s ease-out; }
     dialog.offcanvas.bottom-left[open], dialog.offcanvas.top-left[open] { animation: ck-in-left .25s ease-out; }
     dialog.offcanvas.bottom-right[open], dialog.offcanvas.top-right[open] { animation: ck-in-right .25s ease-out; }
     .track::after, .chev { transition: left .15s, transform .15s; }
-    @keyframes ck-in { from { opacity: 0; transform: translateY(.5rem); } }
+    @keyframes ck-in { from { opacity: 0; transform: translateY(calc(.5 * var(--_rem))); } }
     @keyframes ck-in-left { from { transform: translateX(-100%); } }
     @keyframes ck-in-right { from { transform: translateX(100%); } }
 }
 @media (max-width: 30rem) {
-    .settings .foot { padding: .6rem .9rem .75rem; }
-    .settings .buttons { gap: .4rem; }
-    .settings .head { padding: 1rem .9rem 0; }
-    .settings .body { padding: .6rem .9rem .75rem; }
+    .settings .foot { padding: calc(.6 * var(--_rem)) calc(.9 * var(--_rem)) calc(.75 * var(--_rem)); }
+    .settings .buttons { gap: calc(.4 * var(--_rem)); }
+    .settings .head { padding: var(--_rem) calc(.9 * var(--_rem)) 0; }
+    .settings .body { padding: calc(.6 * var(--_rem)) calc(.9 * var(--_rem)) calc(.75 * var(--_rem)); }
     /* Tabelle als Liste: kein horizontales Scrollen auf dem Telefon. */
     .table { overflow: visible; border: 0; }
     table, tbody, tr, td { display: block; }
     thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
     caption { display: block; padding-left: 0; }
-    tr { padding: .5rem .6rem; border: var(--_border-width) solid var(--_line); border-radius: var(--_group-radius); }
-    tr + tr { margin-top: .4rem; }
-    td { padding: .1rem 0; border: 0; }
+    tr { padding: calc(.5 * var(--_rem)) calc(.6 * var(--_rem)); border: var(--_border-width) solid var(--_line); border-radius: var(--_group-radius); }
+    tr + tr { margin-top: calc(.4 * var(--_rem)); }
+    td { padding: calc(.1 * var(--_rem)) 0; border: 0; }
     td::before { content: attr(data-label) ": "; color: var(--_muted); }
     td:first-child { min-width: 0; font-weight: 600; }
     td:first-child::before { content: none; }
-    dialog.box { left: .5rem !important; right: .5rem !important; width: auto; }
-    .group > .muted { padding-left: .75rem; }
+    dialog.box { left: calc(.5 * var(--_rem)) !important; right: calc(.5 * var(--_rem)) !important; width: auto; }
+    .group > .muted { padding-left: calc(.75 * var(--_rem)); }
 }
 `;
 
@@ -497,7 +500,7 @@ const embedCss = baseCss + `
  * den Rand schieben. Der Platzhalter waechst mit, wenn sein Inhalt nicht ins Seitenverhaeltnis
  * passt (kein overflow, damit die automatische Mindesthoehe den Inhalt einschliesst).
  */
-:host(:not([loaded])) { display: flex; flex-direction: column; min-height: var(--ck-embed-min-height, 14rem); }
+:host(:not([loaded])) { display: flex; flex-direction: column; min-height: var(--ck-embed-min-height, calc(14 * var(--_rem))); }
 :host([loaded]) .placeholder { display: none; }
 .placeholder {
     flex: 1 0 auto; min-width: 0;
@@ -506,7 +509,7 @@ const embedCss = baseCss + `
     color: var(--_text); background: var(--_bg);
     border: var(--_border-width) solid var(--_border); border-radius: var(--_radius);
 }
-.placeholder > * { width: min(36rem, 100%); margin-inline: auto; }
+.placeholder > * { width: min(calc(36 * var(--_rem)), 100%); margin-inline: auto; }
 h3 { margin: 0; font-size: 1.05em; }
 p { margin: 0; font-size: .925em; color: var(--_muted); }
 `;
@@ -862,6 +865,17 @@ class ConsentEmbedElement extends HTMLElement {
 const api = {
     has: (key) => core.has(key),
     accepted: () => core.accepted(),
+    /**
+     * Einwilligung fuer einzelne Dienste erteilen, wie "immer erlauben" am Platzhalter
+     * (Protokoll-Aktion "embed"). Fuer eigene 2-Klick-Loesungen ohne <consent-embed>.
+     * Unbekannte und notwendige Schluessel werden ignoriert; false, wenn keiner uebrig bleibt.
+     */
+    accept(keys) {
+        const add = [].concat(keys).filter((key) => core.optional.some((s) => s.key === key));
+        if (!add.length) return false;
+        if (add.some((key) => !core.has(key))) core.decide([...new Set([...core.accepted(), ...add])], 'embed');
+        return true;
+    },
     open: () => kit()?.open('settings'),
     /** Verwirft die Entscheidung und zeigt den Hinweis erneut. */
     /** Einwilligung widerrufen (wie die Schaltflaeche im Dialog). */
