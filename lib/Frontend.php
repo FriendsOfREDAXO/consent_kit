@@ -5,6 +5,7 @@ namespace FriendsOfRedaxo\ConsentKit;
 use rex_addon;
 use rex_article;
 use rex_clang;
+use rex_path;
 use rex_response;
 use rex_url;
 
@@ -115,8 +116,21 @@ final class Frontend
          */
         $controller = rex_url::frontendController();
         $prefix = rtrim(str_replace('\\', '/', dirname('/' . ltrim(preg_replace('~^(\.\./)+~', '', $controller) ?? '', '/'))), '/');
+        $path = ltrim($value, '/');
+        $url = $prefix . '/' . $path;
 
-        return $prefix . '/' . ltrim($value, '/');
+        /*
+         * Cache-Buster wie beim eigenen Script: Ohne ihn saehen Besucher nach einer Aenderung
+         * die alte Datei aus dem Browser-Cache. Ein selbst gesetzter Query-String bleibt unberuehrt.
+         */
+        if (!str_contains($path, '?') && !str_contains($path, '#')) {
+            $file = rex_path::frontend($path);
+            if (is_file($file)) {
+                $url .= '?v=' . filemtime($file);
+            }
+        }
+
+        return $url;
     }
 
     public static function head(): string
