@@ -855,6 +855,17 @@ class ConsentEmbedElement extends HTMLElement {
 const api = {
     has: (key) => core.has(key),
     accepted: () => core.accepted(),
+    /**
+     * Einwilligung fuer einzelne Dienste erteilen, wie "immer erlauben" am Platzhalter
+     * (Protokoll-Aktion "embed"). Fuer eigene 2-Klick-Loesungen ohne <consent-embed>.
+     * Unbekannte und notwendige Schluessel werden ignoriert; false, wenn keiner uebrig bleibt.
+     */
+    accept(keys) {
+        const add = [].concat(keys).filter((key) => core.optional.some((s) => s.key === key));
+        if (!add.length) return false;
+        if (add.some((key) => !core.has(key))) core.decide([...new Set([...core.accepted(), ...add])], 'embed');
+        return true;
+    },
     open: () => kit()?.open('settings'),
     /** Verwirft die Entscheidung und zeigt den Hinweis erneut. */
     /** Einwilligung widerrufen (wie die Schaltflaeche im Dialog). */
