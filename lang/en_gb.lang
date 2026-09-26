@@ -259,6 +259,7 @@ consent_kit_var_button_border = Button border
 consent_kit_var_radius = Corner radius
 consent_kit_var_button_radius = Button corner radius
 consent_kit_var_font_size = Font size
+consent_kit_var_rem = Base unit (1.6rem with html { font-size: 62.5% })
 consent_kit_var_width = Box width
 consent_kit_var_font = Font family
 consent_kit_preview = Preview
