@@ -1,4 +1,7 @@
 /* Consent Kit – Backend */
+/* hidden muss gegen eigene display-Werte gewinnen (.ck-preset flex, .ck-signal-grid grid),
+   sonst bleiben ausgeblendete Vorlagen und die Domain-Liste sichtbar. Datei laedt nur auf AddOn-Seiten. */
+[hidden] { display: none !important; }
 .ck-toolbar { margin: 0 0 16px; }
 .ck-panel-intro { max-width: 70ch; color: #5b6770; }
 .ck-inline-form { display: inline-block; margin: 0; }
