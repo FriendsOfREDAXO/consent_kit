@@ -1,6 +1,8 @@
 # Changelog
 
-## Unveröffentlicht
+## 1.0.0-beta4 – 2026-09-26
+
+Vielen Dank an **Alex Wenz** ([@alexwenz](https://github.com/alexwenz)): Alle Änderungen dieser Version gehen auf seine Pull Requests und Issues zurück, entstanden beim Umstieg einer Kundenseite von consent_manager – sorgfältig begründet und gründlich geprüft.
 
 - Platzhalter: `{privacy}`, `{imprint}` und `{service_privacy}` im Text werden zu Links auf die eigene Datenschutzerklärung, das Impressum bzw. die Datenschutzerklärung des Dienstes; der übrige Text bleibt maskiert (#7).
 - Platzhalter für Dienste, die nicht angelegt, inaktiv oder der Domain nicht zugeordnet sind: kein „Inhalt einmal laden“ mehr, sondern „Dieser Inhalt ist derzeit nicht verfügbar“. Der Name kommt aus der gleichnamigen Vorlage statt des rohen Schlüssels; angemeldete Redakteure sehen, welcher Dienst fehlt, die Konsole meldet es ebenfalls (#4).

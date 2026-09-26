@@ -87,7 +87,7 @@ Im Text des Platzhalters (**Texte → Platzhalter für externe Inhalte → Erkl�
 
 Beispiel: `Mit dem Laden werden Daten an {name} übertragen. Details in unserer {privacy}.` Ist die Seite oder Adresse nicht hinterlegt, erscheint der Linktext ohne Link.
 
-Ist der Dienst nicht angelegt, inaktiv oder der aktuellen Domain nicht zugeordnet, lässt sich der Inhalt nicht laden: Der Platzhalter zeigt „Dieser Inhalt ist derzeit nicht verfügbar“ ohne Schaltflächen, denn ohne Dienst fehlen die Angaben im Hinweis und in der Datenschutzerklärung. Als Name dient die gleichnamige Vorlage, sofern es eine gibt. Angemeldete Redakteure sehen zusätzlich, welcher Dienst fehlt; in der Browser-Konsole steht eine Warnung.
+Ist der Dienst nicht angelegt, inaktiv oder der aktuellen Domain nicht zugeordnet, lässt sich der Inhalt nicht laden: Der Platzhalter zeigt „Dieser Inhalt ist derzeit nicht verfügbar“ ohne Schaltflächen, denn ohne Dienst fehlen die Angaben im Hinweis und in der Datenschutzerklärung. Als Name dient die gleichnamige Vorlage, sofern es eine gibt. Angemeldete Redakteure sehen zusätzlich, welcher Dienst fehlt; in der Browser-Konsole steht eine Warnung. Wer einen Full-Page-Cache einsetzt, sollte Seitenaufrufe angemeldeter Redakteure davon ausnehmen, sonst landet dieser Hinweis im Cache.
 
 Ohne PHP:
 
