@@ -12,6 +12,10 @@ final class Embed
     public static function wrap(string $serviceKey, string $html, array $options = []): string
     {
         $attributes = ' service="' . rex_escape($serviceKey) . '"';
+        $name = self::missingServiceName($serviceKey);
+        if (null !== $name) {
+            $attributes .= ' name="' . rex_escape($name) . '"';
+        }
         if (isset($options['title']) && '' !== $options['title']) {
             $attributes .= ' label="' . rex_escape($options['title']) . '"';
         }
@@ -91,6 +95,23 @@ final class Embed
             }
         }
         return self::matchHost($url, $hosts);
+    }
+
+    /**
+     * Name aus der Vorlage fuer Dienste, die auf dieser Domain nicht angelegt oder inaktiv sind –
+     * sonst zeigt der Platzhalter nur den Schluessel. null, wenn der Dienst aktiv ist oder keine Vorlage passt.
+     */
+    private static function missingServiceName(string $serviceKey): ?string
+    {
+        foreach (Consent::config()['groups'] as $group) {
+            foreach ($group['services'] as $service) {
+                if ($service['key'] === $serviceKey) {
+                    return null;
+                }
+            }
+        }
+        $preset = PresetRepository::get($serviceKey);
+        return null !== $preset ? (string) $preset['name'] : null;
     }
 
     /** @param array<string, string> $hosts host => service key */

@@ -18,7 +18,7 @@ $sections = [
     'banner' => ['title', 'intro', 'accept_all', 'reject_all', 'settings', 'close', 'gpc_notice', 'trigger'],
     'dialog' => ['settings_title', 'settings_intro', 'save', 'always_active', 'group_toggle', 'services_count', 'services_count_one', 'show_details', 'hide_details', 'consent_info', 'withdraw'],
     'details' => ['provider', 'privacy_policy', 'privacy_policy_of', 'imprint', 'storage', 'no_items', 'col_name', 'col_type', 'col_host', 'col_duration', 'col_purpose', 'type_cookie', 'type_local_storage', 'type_session_storage', 'type_indexed_db'],
-    'embed' => ['embed_title', 'embed_text', 'embed_once', 'embed_always', 'embed_settings'],
+    'embed' => ['embed_title', 'embed_text', 'embed_once', 'embed_always', 'embed_settings', 'embed_unavailable'],
     'duration' => ['duration_session', 'duration_persistent', 'duration_minutes', 'duration_minutes_one', 'duration_hours', 'duration_hours_one', 'duration_days', 'duration_days_one', 'duration_months', 'duration_months_one', 'duration_years', 'duration_years_one'],
 ];
 

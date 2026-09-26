@@ -60,7 +60,7 @@ if (rex_request::get('preview', 'bool', false)) {
     $config['dismiss'] = (bool) $addon->getConfig('dismissible', true);
     $config['quiet'] = false;
     $config['endpoint'] = '';
-    $config['links'] = [['label' => $config['texts']['privacy_policy'], 'url' => '#'], ['label' => $config['texts']['imprint'], 'url' => '#']];
+    $config['links'] = [['key' => 'privacy', 'label' => $config['texts']['privacy_policy'], 'url' => '#'], ['key' => 'imprint', 'label' => $config['texts']['imprint'], 'url' => '#']];
     // Variablen kommen live per postMessage; das eigene Stylesheet wird wie im Frontend geladen.
     $config['cssVars'] = (object) [];
     $config['cssUrl'] = Frontend::styleUrl();

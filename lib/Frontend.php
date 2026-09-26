@@ -4,7 +4,9 @@ namespace FriendsOfRedaxo\ConsentKit;
 
 use rex_addon;
 use rex_article;
+use rex_backend_login;
 use rex_clang;
+use rex_i18n;
 use rex_path;
 use rex_response;
 use rex_url;
@@ -72,9 +74,9 @@ final class Frontend
 
         $links = [];
         $quiet = false;
-        foreach (['privacy_policy' => $domain['privacy_article_id'], 'imprint' => $domain['imprint_article_id']] as $textKey => $articleId) {
+        foreach (['privacy' => ['privacy_policy', $domain['privacy_article_id']], 'imprint' => ['imprint', $domain['imprint_article_id']]] as $key => [$textKey, $articleId]) {
             if ($articleId > 0 && null !== rex_article::get($articleId, $clangId)) {
-                $links[] = ['label' => $config['texts'][$textKey], 'url' => rex_getUrl($articleId, $clangId)];
+                $links[] = ['key' => $key, 'label' => $config['texts'][$textKey], 'url' => rex_getUrl($articleId, $clangId)];
                 $quiet = $quiet || rex_article::getCurrentId() === $articleId;
             }
         }
@@ -87,6 +89,9 @@ final class Frontend
         $public['endpoint'] = rex_url::base('index.php') . '?rex-api-call=consent_kit';
         $public['cssVars'] = (object) array_filter((array) $addon->getConfig('css_vars', []), 'is_string');
         $public['cssUrl'] = self::styleUrl();
+        // Nur fuer angemeldete Redakteure: Platzhalter nennen Dienste, die fehlen oder inaktiv sind.
+        $user = rex_backend_login::createUser();
+        $public['editorHint'] = null !== $user && $user->hasPerm('consent_kit[]') ? rex_i18n::rawMsg('consent_kit_embed_missing_hint') : '';
 
         $file = $addon->getAssetsPath('consent-kit.js');
         $version = $addon->getVersion() . '-' . (is_file($file) ? filemtime($file) : 0);
