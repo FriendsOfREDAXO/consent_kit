@@ -79,7 +79,7 @@ Ohne dunkle Entsprechung:
 
 ## Eigenes Stylesheet
 
-Was sich mit Variablen nicht erreichen lässt, geht über eine eigene CSS-Datei: **Design › Eigenes Stylesheet**. Die Datei wird zusätzlich im Shadow DOM geladen und erreicht damit auch Elemente, für die es keine Variable gibt.
+Was sich mit Variablen nicht erreichen lässt, geht über eine eigene CSS-Datei: **Design › Eigenes Stylesheet**. Die Datei wird zusätzlich im Shadow DOM geladen und erreicht damit auch Elemente, für die es keine Variable gibt. Sie gilt für alle Komponenten – Hinweis, Einstellungen und Platzhalter. Hinweis und Platzhalter teilen sich Klassen wie `.buttons` und `.btn`; was nur den Platzhalter betreffen soll, gehört deshalb unter `.placeholder`.
 
 ```css
 /* /assets/consent-kit.css – projektübergreifend wiederverwendbar */
@@ -89,6 +89,8 @@ caption { text-transform: uppercase; }
 ```
 
 Angegeben wird ein projektinterner Pfad (`/assets/consent-kit.css`) oder eine vollständige Adresse. Zwei Dinge sind dabei zu beachten: Eine Datei auf fremder Domain muss dort erreichbar und in der `Content-Security-Policy` der Website erlaubt sein. Und das eigene Stylesheet steht hinter dem Basis-CSS – bei gleicher Spezifität gewinnt es, `!important` ist selten nötig.
+
+An projektinterne Pfade hängt Consent Kit die Änderungszeit der Datei an (`?v=…`), damit Besucher nach einer Änderung nicht die alte Fassung aus dem Browser-Cache sehen. Ein selbst angegebener Query-String bleibt unverändert, ebenso eine vollständige Adresse.
 
 Wer nur Variablen setzen will, braucht dafür kein Feld im Backend: `--ck-*` sind vererbte Custom Properties und wirken deshalb auch aus einem ganz normalen Stylesheet der Website heraus durch die Shadow-Grenze.
 
