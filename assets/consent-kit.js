@@ -491,13 +491,20 @@ input:focus-visible + .track { outline: 3px solid var(--_accent); outline-offset
 
 const embedCss = baseCss + `
 :host { display: block; }
+/*
+ * Die Mindesthoehe sitzt am Host, nicht am Platzhalter: Dort wuerde sie ueber aspect-ratio
+ * zur Mindestbreite (14rem * 16/9 = 398px) und den Platzhalter auf schmalen Schirmen ueber
+ * den Rand schieben. Der Platzhalter waechst mit, wenn sein Inhalt nicht ins Seitenverhaeltnis
+ * passt (kein overflow, damit die automatische Mindesthoehe den Inhalt einschliesst).
+ */
+:host(:not([loaded])) { display: flex; flex-direction: column; min-height: var(--ck-embed-min-height, 14rem); }
 :host([loaded]) .placeholder { display: none; }
 .placeholder {
+    flex: 1 0 auto; min-width: 0;
     display: flex; flex-direction: column; justify-content: center; gap: var(--_gap);
-    aspect-ratio: var(--ck-embed-ratio, 16 / 9); min-height: var(--ck-embed-min-height, 14rem); padding: var(--_space);
+    aspect-ratio: var(--ck-embed-ratio, 16 / 9); padding: var(--_space);
     color: var(--_text); background: var(--_bg);
     border: var(--_border-width) solid var(--_border); border-radius: var(--_radius);
-    overflow: auto;
 }
 .placeholder > * { width: min(36rem, 100%); margin-inline: auto; }
 h3 { margin: 0; font-size: 1.05em; }
