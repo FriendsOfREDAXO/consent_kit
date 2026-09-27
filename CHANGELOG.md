@@ -1,5 +1,51 @@
 # Changelog
 
+## 1.0.0 – 2026-09-27
+
+Die erste stabile Version von Consent Kit: Einwilligungsverwaltung für REDAXO mit einer neutralen, barrierefreien Web Component im Frontend, einem kompakten Backend und einem nachvollziehbaren Protokoll. Consent Kit ist der Nachfolger des `consent_manager` und kann parallel zu ihm installiert werden. So ist ein Umstieg ohne Lücke möglich.
+
+#### Frontend
+
+- **Web Components** `<consent-kit>` (Hinweis und Einstellungen) und `<consent-embed>` (2-Klick-Platzhalter) im Shadow DOM, ohne Abhängigkeiten. Die Einbindung erfolgt automatisch, alternativ über `REX_CONSENT_KIT[]` oder `Consent::head()`.
+- **Vier Formen des Hinweises:** Box, Leiste, Dialog und Off-Canvas. Wahlweise mit Gruppen-Schaltern direkt im Hinweis, bewusst ohne Vorauswahl.
+- **Gleichwertige Entscheidung:** „Alle ablehnen“ und „Alle akzeptieren“ sind technisch immer gleich gestaltet. Es gibt keine Variable, die eine Schaltfläche hervorhebt.
+- **Einwilligung je Dienst mit Fassungsstand:** Ändert sich ein Dienst, wird nur zu diesem neu gefragt. „Einwilligung widerrufen“ stoppt die Dienste, löscht den Cookie und protokolliert den Widerruf.
+- **2-Klick-Platzhalter** für Videos, Karten und Social Media mit den Aktionen „einmal laden“, „immer erlauben“ und „Einstellungen“. `<oembed>`-Tags aus CKEditor 5 und TinyMCE werden automatisch gesperrt, iframes bekannter Dienste auf Wunsch ebenfalls. Im Text des Platzhalters sind Links zur Datenschutzerklärung möglich (`{privacy}`, `{imprint}`, `{service_privacy}`). Für Dienste, die fehlen oder inaktiv sind, lässt sich nichts laden.
+- **Signale:** Google Consent Mode v2 (Standardwerte früh im `<head>`, automatisch aktiv, sobald ein Dienst Signale nutzt) und Global Privacy Control (ablehnen, nachfragen oder ignorieren).
+- **Barrierefrei:** natives `<dialog>`, Fokusführung, vollständige Tastaturbedienung, Mindest-Trefferflächen, `prefers-reduced-motion` und `forced-colors`.
+- **JavaScript-API:** `ConsentKit.has()`, `accepted()`, `accept()`, `open()`, `withdraw()`, `reset()` und `onChange()`, dazu die Ereignisse `consentkit:ready` und `consentkit:change`. Links mit `href="#consent-kit"` oder der alten Klasse `consent_manager-show-box` öffnen die Einstellungen.
+
+#### Backend
+
+- **Dienste × Domains** als kompakte Matrix, Domains kommen automatisch aus YRewrite. **Varianten** je Domain oder Sprache erlauben andere IDs und anderen Code.
+- **38 geprüfte Vorlagen** (Deutsch/Englisch) mit Scripts, Cookies, Storage-Einträgen, Laufzeiten und Quellenangabe. Eigene Vorlagen lassen sich update-sicher ablegen, importieren und exportieren.
+- **Conversions ohne Code:** Anfrage, Registrierung, Terminbuchung oder Seitenaufruf werden per Klick, Seite oder Formular gemeldet. Den Aufruf je Anbieter (GA4, Google Ads, Meta, Matomo, OpenAI Pixel, Microsoft UET/Clarity …) liefert die Vorlage.
+- **Cookie-Scanner** mit tatsächlicher Laufzeit aus dem Browser und optionaler Open Cookie Database.
+- **Design-Editor** mit Live-Vorschau aller Formen, hellem und dunklem Farbschema und Kontrastprüfung. Gestaltet wird über rund 60 CSS Custom Properties (`--ck-*`), dazu kommen `--ck-rem` für Seiten mit verkleinerter Grundschrift und ein eigenes Stylesheet im Shadow DOM.
+- **Texte** je Sprache überschreibbar, fehlende Übersetzungen per WriteAssist mit einem Klick.
+- **Protokoll** ohne IP-Adresse und User-Agent, mit Schnappschuss dessen, was zur Auswahl stand. Bereinigung per Cronjob oder `consent_kit:log-purge`.
+- **Übernahme aus `consent_manager`** direkt aus den Tabellen oder aus einem JSON-Export. Übernommene Dienste starten inaktiv, ein Bericht nennt, was zu prüfen ist.
+
+#### Für Entwickler
+
+- PHP-API `FriendsOfRedaxo\ConsentKit\Consent`: `has()`, `state()`, `embed()`, `oembed()`, `overview()` (Dienste-Liste für die Datenschutzerklärung, auch als `REX_CONSENT_KIT[output=overview]`) und `head()`.
+- Extension Points `CONSENT_KIT_CONFIG` und `CONSENT_KIT_SAVED`.
+- Dokumentation in elf Kapiteln direkt im Backend unter **Hilfe**.
+
+#### Update von einer Beta
+
+Eine neue `update.php` ergänzt beim Update über den Installer fehlende Tabellen und Spalten und leert den Konfigurations-Cache. Bestehende Dienste, Einstellungen und Einwilligungen bleiben erhalten. Neu gegenüber 1.0.0-beta4 ist nur dieser Update-Pfad, am Verhalten ändert sich nichts.
+
+#### Voraussetzungen
+
+REDAXO ≥ 5.18, PHP ≥ 8.2. Optional: YRewrite (Domains), Cronjob (Protokoll bereinigen), WriteAssist (Übersetzungen).
+
+#### Danke
+
+An **Alex Wenz** ([@alexwenz](https://github.com/alexwenz)) für die ersten Beiträge von außen: fünf sorgfältig begründete und gründlich geprüfte Pull Requests sowie zwei Issues aus dem Umstieg einer echten Kundenseite. Sie sind alle in diese Version eingeflossen. Und an alle, die die Betas ausprobiert und Rückmeldung gegeben haben.
+
+Consent Kit ist ein Werkzeug und ersetzt keine Rechtsberatung. Entwickelt von [KLXM Crossmedia](https://klxm.de) für Friends Of REDAXO, MIT-Lizenz.
+
 ## 1.0.0-beta4 – 2026-09-26
 
 Vielen Dank an **Alex Wenz** ([@alexwenz](https://github.com/alexwenz)): Alle Änderungen dieser Version gehen auf seine Pull Requests und Issues zurück, entstanden beim Umstieg einer Kundenseite von consent_manager – sorgfältig begründet und gründlich geprüft.
