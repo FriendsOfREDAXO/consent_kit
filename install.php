@@ -110,7 +110,12 @@ rex_sql_table::get(rex::getTable('consent_kit_catalog'))
     ->ensureIndex(new rex_sql_index('name', ['name']))
     ->ensure();
 
-// lib/ ist waehrend der Installation noch nicht im Autoloader.
-require_once __DIR__ . '/lib/I18n.php';
-require_once __DIR__ . '/lib/Installer.php';
+// lib/ ist waehrend der Installation noch nicht im Autoloader. Beim Update (update.php)
+// kann die bisherige Fassung schon geladen sein, dann gilt sie.
+if (!class_exists(FriendsOfRedaxo\ConsentKit\I18n::class, false)) {
+    require_once __DIR__ . '/lib/I18n.php';
+}
+if (!class_exists(Installer::class, false)) {
+    require_once __DIR__ . '/lib/Installer.php';
+}
 Installer::seed();
