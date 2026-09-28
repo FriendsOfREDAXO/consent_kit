@@ -26,11 +26,7 @@ if (rex::isFrontend()) {
 
 if (rex::isBackend() && rex::getUser()) {
     // Links im Hinweis haengen an Artikeln und Sprachen.
-    foreach (['CLANG_ADDED', 'CLANG_UPDATED', 'CLANG_DELETED'] as $extensionPoint) {
-        rex_extension::register($extensionPoint, static function () {
-            Cache::clear();
-        });
-    }
+    rex_extension::register(['CLANG_ADDED', 'CLANG_UPDATED', 'CLANG_DELETED'], Cache::clear(...));
 
     if ('consent_kit' === rex_be_controller::getCurrentPagePart(1)) {
         $addon = rex_addon::get('consent_kit');
