@@ -342,8 +342,12 @@ final class Repository
         }
         $known = array_column(self::domains(), 'host');
         foreach (rex_yrewrite::getDomains() as $domain) {
+            // Die YRewrite-Default-Domain hat keinen Host (getHost() liefert null).
+            if ('default' === $domain->getName() || null === $domain->getHost()) {
+                continue;
+            }
             $host = self::normalizeHost($domain->getHost());
-            if ('' === $host || 'default' === $domain->getName() || in_array($host, $known, true)) {
+            if ('' === $host || in_array($host, $known, true)) {
                 continue;
             }
             rex_sql::factory()->setTable(rex::getTable('consent_kit_domain'))->setValue('host', $host)->insert();

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unveröffentlicht
+
+#### Behoben
+
+- **YRewrite-Default-Domain:** Die Seiten „Dienste“ und „Einstellungen“ brachen mit einem `TypeError` ab, wenn YRewrite eine Default-Domain ohne Host kennt (`rex_yrewrite_domain::getHost()` liefert dort `null`). Diese Domain wird beim Abgleich jetzt übersprungen, bevor der Host normalisiert wird.
+
 ## 1.0.0 – 2026-09-27
 
 Die erste stabile Version von Consent Kit: Einwilligungsverwaltung für REDAXO mit einer neutralen, barrierefreien Web Component im Frontend, einem kompakten Backend und einem nachvollziehbaren Protokoll. Consent Kit ist der Nachfolger des `consent_manager` und kann parallel zu ihm installiert werden. So ist ein Umstieg ohne Lücke möglich.
