@@ -1,10 +1,14 @@
 # Changelog
 
-## Unveröffentlicht
+## 1.0.1 – 2026-10-03
 
 #### Behoben
 
-- **YRewrite-Default-Domain:** Die Seiten „Dienste“ und „Einstellungen“ brachen mit einem `TypeError` ab, wenn YRewrite eine Default-Domain ohne Host kennt (`rex_yrewrite_domain::getHost()` liefert dort `null`). Diese Domain wird beim Abgleich jetzt übersprungen, bevor der Host normalisiert wird.
+- **YRewrite-Default-Domain:** Die Seiten „Dienste“ und „Einstellungen“ brachen mit einem `TypeError` ab, wenn YRewrite eine Default-Domain ohne Host kennt (`rex_yrewrite_domain::getHost()` liefert dort `null`). Diese Domain wird beim Abgleich jetzt übersprungen, bevor der Host normalisiert wird. (#11)
+
+#### Intern
+
+- Cache-Leerung bei Sprachänderungen (`CLANG_ADDED`, `CLANG_UPDATED`, `CLANG_DELETED`) wird in einem Aufruf registriert. Danke an [@christophboecker](https://github.com/christophboecker) (#10).
 
 ## 1.0.0 – 2026-09-27
 
