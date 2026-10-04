@@ -79,7 +79,7 @@ Mit × lässt sich der Hinweis überall schließen. Wer das × abschaltet, bekom
 Schwebende Schaltfläche abschalten und im Footer verlinken:
 
 ```html
-<a href="#consent-kit">Cookie-Einstellungen</a>
+<a href="#consent-kit">Datenschutz-Einstellungen</a>
 ```
 
 Der Link muss auf **jeder** Seite erreichbar sein. Fehlt beides, können Besucher ihre Einwilligung nicht widerrufen.

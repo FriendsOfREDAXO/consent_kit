@@ -24,6 +24,7 @@ if ('post' === rex_request::requestMethod()) {
             'position' => ['bottom-left', 'bottom-right', 'top-left', 'top-right'],
             'theme' => ['light', 'dark', 'auto'],
             'trigger_position' => ['bottom-left', 'bottom-right'],
+            'open_mode' => ['always', 'on_demand', 'never'],
             'gpc' => ['reject', 'ask', 'ignore'],
             'gcm' => ['auto', 'off'],
         ];
@@ -102,6 +103,11 @@ $display = Form::checkbox('settings[auto_inject]', rex_i18n::msg('consent_kit_au
         'light' => rex_i18n::msg('consent_kit_theme_light'), 'dark' => rex_i18n::msg('consent_kit_theme_dark'), 'auto' => rex_i18n::msg('consent_kit_theme_auto'),
     ], rex_i18n::msg('consent_kit_theme_help'))
     . '</div></div>'
+    . Form::choice('settings[open_mode]', rex_i18n::msg('consent_kit_open_mode'), (string) $get('open_mode', 'always'), [
+        'always' => [rex_i18n::msg('consent_kit_open_mode_always'), rex_i18n::msg('consent_kit_open_mode_always_text')],
+        'on_demand' => [rex_i18n::msg('consent_kit_open_mode_on_demand'), rex_i18n::msg('consent_kit_open_mode_on_demand_text')],
+        'never' => [rex_i18n::msg('consent_kit_open_mode_never'), rex_i18n::msg('consent_kit_open_mode_never_text')],
+    ])
     . Form::checkbox('settings[dismissible]', rex_i18n::msg('consent_kit_dismissible'), (bool) $get('dismissible', true), rex_i18n::msg('consent_kit_dismissible_help'))
     . Form::checkbox('settings[trigger]', rex_i18n::msg('consent_kit_trigger'), (bool) $get('trigger', true), rex_i18n::rawMsg('consent_kit_trigger_help'))
     . '<div data-ck-show-if="settings[trigger]" data-ck-show-values="1">'
@@ -162,6 +168,31 @@ foreach ($rows as $index => $domain) {
         . '<td>' . $delete . '</td></tr>';
 }
 $domains = '<table class="table ck-domains"><thead><tr><th>' . rex_i18n::msg('consent_kit_domain_host') . '</th><th>' . rex_i18n::msg('consent_kit_domain_privacy') . '</th><th>' . rex_i18n::msg('consent_kit_domain_imprint') . '</th><th><span class="sr-only">' . rex_i18n::msg('consent_kit_actions') . '</span></th></tr></thead><tbody>' . $domainRows . '</tbody></table>';
+
+/*
+ * "Nur bei Bedarf" und "Nie" taugen nur, wenn ohne Einwilligung nichts lädt. Sobald ein
+ * optionaler Dienst eigenen Code mitbringt, der nach der Einwilligung läuft, muss vorher
+ * gefragt werden – sonst würde er nie starten.
+ */
+$openMode = (string) $get('open_mode', 'always');
+if ('always' !== $openMode) {
+    $loading = [];
+    foreach (Repository::services(true) as $service) {
+        if ([] !== ($service['events'] ?? [])) {
+            $loading[] = $service['name'];
+            continue;
+        }
+        foreach (['html_head', 'html_body', 'js_accept'] as $field) {
+            if ('' !== trim((string) ($service[$field] ?? ''))) {
+                $loading[] = $service['name'];
+                continue 2;
+            }
+        }
+    }
+    if ([] !== $loading) {
+        $message .= rex_view::warning(rex_i18n::rawMsg('consent_kit_open_mode_warning', rex_escape(implode(', ', $loading))));
+    }
+}
 
 echo $message;
 echo '<form method="post" action="' . rex_url::currentBackendPage() . '" class="ck-form ck-settings">' . $csrf->getHiddenField();

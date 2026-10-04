@@ -8,7 +8,9 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Einbettung von Videos der Plattform YouTube. Beim Laden des Videos wird die IP-Adresse an Google übertragen, und es können Cookies gesetzt werden; der erweiterte Datenschutzmodus (youtube-nocookie.com) verhindert laut Google lediglich die Personalisierung anhand der Wiedergabe.",
-        "en": "Embeds videos from the YouTube platform. Loading a video transfers the IP address to Google and cookies may be set; according to Google, privacy-enhanced mode (youtube-nocookie.com) only prevents personalisation based on the view."
+        "en": "Embeds videos from the YouTube platform. Loading a video transfers the IP address to Google and cookies may be set; according to Google, privacy-enhanced mode (youtube-nocookie.com) only prevents personalisation based on the view.",
+        "nl": "Insluiten van video's van het platform YouTube. Bij het laden van de video wordt het IP-adres naar Google verzonden en kunnen cookies worden geplaatst; de uitgebreide privacymodus (youtube-nocookie.com) voorkomt volgens Google uitsluitend personalisatie op basis van het afspelen.",
+        "it": "Integrazione di video della piattaforma YouTube. Al caricamento del video l'indirizzo IP viene trasmesso a Google e possono essere impostati cookie; secondo Google la modalità privacy avanzata (youtube-nocookie.com) impedisce soltanto la personalizzazione basata sulla riproduzione."
       },
       "params": [],
       "html_head": "",
@@ -33,7 +35,9 @@
           },
           "purpose": {
             "de": "Stellt sicher, dass Anfragen innerhalb einer Sitzung vom Nutzer und nicht von anderen Websites stammen.",
-            "en": "Ensures that requests within a browsing session are made by the user and not by other sites."
+            "en": "Ensures that requests within a browsing session are made by the user and not by other sites.",
+            "nl": "Zorgt ervoor dat verzoeken binnen een sessie van de gebruiker komen en niet van andere websites.",
+            "it": "Garantisce che le richieste all'interno di una sessione provengano dall'utente e non da altri siti."
           }
         },
         {
@@ -46,7 +50,9 @@
           },
           "purpose": {
             "de": "Ermöglicht personalisierte Empfehlungen und wird für Analysen und Werbung verwendet.",
-            "en": "Enables personalised recommendations and is used for analytics and advertising."
+            "en": "Enables personalised recommendations and is used for analytics and advertising.",
+            "nl": "Maakt gepersonaliseerde aanbevelingen mogelijk en wordt gebruikt voor analyse en advertenties.",
+            "it": "Consente consigli personalizzati e viene utilizzato per analisi e pubblicità."
           }
         },
         {
@@ -59,7 +65,9 @@
           },
           "purpose": {
             "de": "Nachfolger von VISITOR_INFO1_LIVE; speichert Einstellungen, dient der Fehlererkennung sowie Analysen und Werbung.",
-            "en": "Successor of VISITOR_INFO1_LIVE; stores preferences and is used to detect problems, for analytics and advertising."
+            "en": "Successor of VISITOR_INFO1_LIVE; stores preferences and is used to detect problems, for analytics and advertising.",
+            "nl": "Opvolger van VISITOR_INFO1_LIVE; slaat instellingen op en dient voor foutdetectie, analyse en advertenties.",
+            "it": "Successore di VISITOR_INFO1_LIVE; memorizza impostazioni e serve per il rilevamento degli errori, le analisi e la pubblicità."
           }
         },
         {
@@ -72,7 +80,9 @@
           },
           "purpose": {
             "de": "Erkennt Spam, Betrug und Missbrauch.",
-            "en": "Detects spam, fraud and abuse."
+            "en": "Detects spam, fraud and abuse.",
+            "nl": "Detecteert spam, fraude en misbruik.",
+            "it": "Rileva spam, frodi e abusi."
           }
         },
         {
@@ -85,7 +95,9 @@
           },
           "purpose": {
             "de": "Nachfolger von __Secure-YEC; erkennt Spam, Betrug und Missbrauch und wird für Analysen verwendet.",
-            "en": "Successor of __Secure-YEC; detects spam, fraud and abuse and is used for analytics."
+            "en": "Successor of __Secure-YEC; detects spam, fraud and abuse and is used for analytics.",
+            "nl": "Opvolger van __Secure-YEC; detecteert spam, fraude en misbruik en wordt gebruikt voor analyse.",
+            "it": "Successore di __Secure-YEC; rileva spam, frodi e abusi e viene utilizzato per le analisi."
           }
         },
         {
@@ -98,7 +110,9 @@
           },
           "purpose": {
             "de": "Speichert Seitenkonfiguration und Wiedergabeeinstellungen wie Autoplay und Playergröße.",
-            "en": "Stores page configuration and playback preferences such as autoplay and player size."
+            "en": "Stores page configuration and playback preferences such as autoplay and player size.",
+            "nl": "Slaat paginaconfiguratie en afspeelinstellingen op, zoals autoplay en spelerformaat.",
+            "it": "Memorizza la configurazione della pagina e le impostazioni di riproduzione come autoplay e dimensioni del player."
           }
         },
         {
@@ -111,7 +125,9 @@
           },
           "purpose": {
             "de": "Dient der Einführung neuer Funktionen und der Messung ihrer Auswirkungen.",
-            "en": "Used to launch new features and measure their impact."
+            "en": "Used to launch new features and measure their impact.",
+            "nl": "Dient voor het uitrollen van nieuwe functies en het meten van hun effect.",
+            "it": "Serve all'introduzione di nuove funzionalità e alla misurazione del loro impatto."
           }
         }
       ],
@@ -129,7 +145,9 @@
       "privacy_url": "https://vimeo.com/privacy",
       "description": {
         "de": "Einbettung von Videos der Plattform Vimeo. Beim Laden des Players wird die IP-Adresse an Vimeo übertragen, und es werden Cookies gesetzt.",
-        "en": "Embeds videos from the Vimeo platform. Loading the player transfers the IP address to Vimeo and cookies are set."
+        "en": "Embeds videos from the Vimeo platform. Loading the player transfers the IP address to Vimeo and cookies are set.",
+        "nl": "Insluiten van video's van het platform Vimeo. Bij het laden van de speler wordt het IP-adres naar Vimeo verzonden en worden cookies geplaatst.",
+        "it": "Integrazione di video della piattaforma Vimeo. Al caricamento del player l'indirizzo IP viene trasmesso a Vimeo e vengono impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -153,7 +171,9 @@
           },
           "purpose": {
             "de": "Von Vimeo erzeugte ID zur Erstellung von Statistiken für den Videoinhaber.",
-            "en": "Vimeo-generated ID used for generating analytics information for the video owner."
+            "en": "Vimeo-generated ID used for generating analytics information for the video owner.",
+            "nl": "Door Vimeo gegenereerde ID voor het maken van statistieken voor de eigenaar van de video.",
+            "it": "ID generato da Vimeo per creare statistiche destinate al proprietario del video."
           }
         },
         {
@@ -166,7 +186,9 @@
           },
           "purpose": {
             "de": "Speichert Einstellungen der Playersteuerung (Lautstärke, Qualität, Untertitel).",
-            "en": "Stores preferences for player controls (volume, stream quality, captions)."
+            "en": "Stores preferences for player controls (volume, stream quality, captions).",
+            "nl": "Slaat instellingen van de spelerbediening op (volume, kwaliteit, ondertiteling).",
+            "it": "Memorizza le impostazioni dei comandi del player (volume, qualità, sottotitoli)."
           }
         },
         {
@@ -179,7 +201,9 @@
           },
           "purpose": {
             "de": "Legt vom Videoinhaber aktivierte Feature-Flags fest.",
-            "en": "Specifies feature flags enabled by the video owner."
+            "en": "Specifies feature flags enabled by the video owner.",
+            "nl": "Legt door de eigenaar van de video geactiveerde feature flags vast.",
+            "it": "Definisce i feature flag attivati dal proprietario del video."
           }
         },
         {
@@ -192,7 +216,9 @@
           },
           "purpose": {
             "de": "Dient der Abwehr von Bots.",
-            "en": "Used for bot prevention."
+            "en": "Used for bot prevention.",
+            "nl": "Dient ter afweer van bots.",
+            "it": "Serve a contrastare i bot."
           }
         },
         {
@@ -205,7 +231,9 @@
           },
           "purpose": {
             "de": "Cloudflare-Bot-Management: erkennt automatisierten Datenverkehr.",
-            "en": "Cloudflare bot management: identifies automated traffic."
+            "en": "Cloudflare bot management: identifies automated traffic.",
+            "nl": "Cloudflare-botbeheer: detecteert geautomatiseerd verkeer.",
+            "it": "Gestione bot di Cloudflare: rileva il traffico automatizzato."
           }
         },
         {
@@ -218,7 +246,9 @@
           },
           "purpose": {
             "de": "Cloudflare-Cookie zur Durchsetzung von Rate-Limiting-Regeln.",
-            "en": "Cloudflare cookie used to enforce rate-limiting rules."
+            "en": "Cloudflare cookie used to enforce rate-limiting rules.",
+            "nl": "Cloudflare-cookie voor het afdwingen van rate-limitingregels.",
+            "it": "Cookie di Cloudflare per applicare regole di limitazione della frequenza."
           }
         },
         {
@@ -231,7 +261,9 @@
           },
           "purpose": {
             "de": "Cloudflare-Cookie zur Abwehr von Bots.",
-            "en": "Cloudflare cookie used for bot prevention."
+            "en": "Cloudflare cookie used for bot prevention.",
+            "nl": "Cloudflare-cookie ter afweer van bots.",
+            "it": "Cookie di Cloudflare per contrastare i bot."
           }
         }
       ],
@@ -250,7 +282,9 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Einbettung interaktiver Karten von Google Maps. Beim Laden der Karte wird die IP-Adresse an Google übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds interactive maps from Google Maps. Loading the map transfers the IP address to Google and cookies may be set."
+        "en": "Embeds interactive maps from Google Maps. Loading the map transfers the IP address to Google and cookies may be set.",
+        "nl": "Insluiten van interactieve kaarten van Google Maps. Bij het laden van de kaart wordt het IP-adres naar Google verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione di mappe interattive di Google Maps. Al caricamento della mappa l'indirizzo IP viene trasmesso a Google e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -274,7 +308,9 @@
           },
           "purpose": {
             "de": "Speichert Einstellungen wie die Sprache und kann für Werbung bei nicht angemeldeten Nutzern verwendet werden.",
-            "en": "Stores preferences such as language and can be used to show ads to signed-out users."
+            "en": "Stores preferences such as language and can be used to show ads to signed-out users.",
+            "nl": "Slaat instellingen zoals de taal op en kan worden gebruikt voor advertenties bij niet-aangemelde gebruikers.",
+            "it": "Memorizza impostazioni come la lingua e può essere utilizzato per la pubblicità verso utenti non connessi."
           }
         }
       ],
@@ -292,7 +328,9 @@
       "privacy_url": "https://osmfoundation.org/wiki/Privacy_Policy",
       "description": {
         "de": "Einbettung von Karten des Projekts OpenStreetMap. Beim Laden der Karte wird die IP-Adresse an die Server der OpenStreetMap Foundation übertragen.",
-        "en": "Embeds maps from the OpenStreetMap project. Loading the map transfers the IP address to the servers of the OpenStreetMap Foundation."
+        "en": "Embeds maps from the OpenStreetMap project. Loading the map transfers the IP address to the servers of the OpenStreetMap Foundation.",
+        "nl": "Insluiten van kaarten van het project OpenStreetMap. Bij het laden van de kaart wordt het IP-adres naar de servers van de OpenStreetMap Foundation verzonden.",
+        "it": "Integrazione di mappe del progetto OpenStreetMap. Al caricamento della mappa l'indirizzo IP viene trasmesso ai server della OpenStreetMap Foundation."
       },
       "params": [],
       "html_head": "",
@@ -319,7 +357,9 @@
       "privacy_url": "https://www.spotify.com/de-en/legal/privacy-policy/",
       "description": {
         "de": "Einbettung des Spotify-Players für Musik und Podcasts. Beim Laden des Players wird die IP-Adresse an Spotify übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds the Spotify player for music and podcasts. Loading the player transfers the IP address to Spotify and cookies may be set."
+        "en": "Embeds the Spotify player for music and podcasts. Loading the player transfers the IP address to Spotify and cookies may be set.",
+        "nl": "Insluiten van de Spotify-speler voor muziek en podcasts. Bij het laden van de speler wordt het IP-adres naar Spotify verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione del player Spotify per musica e podcast. Al caricamento del player l'indirizzo IP viene trasmesso a Spotify e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -346,7 +386,9 @@
       "privacy_url": "https://soundcloud.com/pages/privacy",
       "description": {
         "de": "Einbettung des SoundCloud-Players für Audioinhalte. Beim Laden des Players wird die IP-Adresse an SoundCloud übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds the SoundCloud player for audio content. Loading the player transfers the IP address to SoundCloud and cookies may be set."
+        "en": "Embeds the SoundCloud player for audio content. Loading the player transfers the IP address to SoundCloud and cookies may be set.",
+        "nl": "Insluiten van de SoundCloud-speler voor audio-inhoud. Bij het laden van de speler wordt het IP-adres naar SoundCloud verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione del player SoundCloud per contenuti audio. Al caricamento del player l'indirizzo IP viene trasmesso a SoundCloud e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -374,7 +416,9 @@
       "privacy_url": "https://privacycenter.instagram.com/policy",
       "description": {
         "de": "Einbettung von Beiträgen der Plattform Instagram. Beim Laden der Inhalte wird die IP-Adresse an Meta übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds posts from the Instagram platform. Loading the content transfers the IP address to Meta and cookies may be set."
+        "en": "Embeds posts from the Instagram platform. Loading the content transfers the IP address to Meta and cookies may be set.",
+        "nl": "Insluiten van berichten van het platform Instagram. Bij het laden van de inhoud wordt het IP-adres naar Meta verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione di post della piattaforma Instagram. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a Meta e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -397,7 +441,9 @@
           },
           "purpose": {
             "de": "Eindeutige Browserkennung zum Schutz vor Betrug und zur Erkennung missbräuchlich genutzter Browser.",
-            "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors."
+            "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors.",
+            "nl": "Unieke browseridentificatie ter bescherming tegen fraude en voor het herkennen van misbruikte browsers.",
+            "it": "Identificativo univoco del browser per la protezione dalle frodi e il rilevamento di browser utilizzati in modo abusivo."
           }
         }
       ],
@@ -408,7 +454,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Meta nennt für das Cookie datr 400 Tage für seine Produkte allgemein; für Einbettungen ist es nicht gesondert dokumentiert.",
-        "en": "Meta states 400 days for the datr cookie across its products in general; it is not documented separately for embeds."
+        "en": "Meta states 400 days for the datr cookie across its products in general; it is not documented separately for embeds.",
+        "nl": "Meta noemt voor het cookie datr 400 dagen voor zijn producten in het algemeen; voor insluitingen is dit niet apart gedocumenteerd.",
+        "it": "Meta indica per il cookie datr 400 giorni per i suoi prodotti in generale; per le integrazioni non è documentato separatamente."
       }
     },
     {
@@ -419,7 +467,9 @@
       "privacy_url": "https://www.facebook.com/privacy/policy/",
       "description": {
         "de": "Einbettung von Beiträgen, Videos und sozialen Plugins der Plattform Facebook. Beim Laden der Inhalte wird die IP-Adresse an Meta übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds posts, videos and social plugins from the Facebook platform. Loading the content transfers the IP address to Meta and cookies may be set."
+        "en": "Embeds posts, videos and social plugins from the Facebook platform. Loading the content transfers the IP address to Meta and cookies may be set.",
+        "nl": "Insluiten van berichten, video's en sociale plug-ins van het platform Facebook. Bij het laden van de inhoud wordt het IP-adres naar Meta verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione di post, video e plugin sociali della piattaforma Facebook. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a Meta e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -442,7 +492,9 @@
           },
           "purpose": {
             "de": "Eindeutige Browserkennung zum Schutz vor Betrug und zur Erkennung missbräuchlich genutzter Browser.",
-            "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors."
+            "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors.",
+            "nl": "Unieke browseridentificatie ter bescherming tegen fraude en voor het herkennen van misbruikte browsers.",
+            "it": "Identificativo univoco del browser per la protezione dalle frodi e il rilevamento di browser utilizzati in modo abusivo."
           }
         },
         {
@@ -455,7 +507,9 @@
           },
           "purpose": {
             "de": "Dient der sicheren Identifizierung des Browsers.",
-            "en": "Helps to identify the browser securely."
+            "en": "Helps to identify the browser securely.",
+            "nl": "Dient voor de veilige identificatie van de browser.",
+            "it": "Serve all'identificazione sicura del browser."
           }
         },
         {
@@ -468,7 +522,9 @@
           },
           "purpose": {
             "de": "Dient der Auslieferung von Werbeanzeigen sowie der Messung und Verbesserung ihrer Relevanz.",
-            "en": "Used to deliver ads and to measure and improve their relevance."
+            "en": "Used to deliver ads and to measure and improve their relevance.",
+            "nl": "Dient voor het uitleveren van advertenties en voor het meten en verbeteren van hun relevantie.",
+            "it": "Serve alla distribuzione degli annunci e alla misurazione e al miglioramento della loro pertinenza."
           }
         },
         {
@@ -481,7 +537,9 @@
           },
           "purpose": {
             "de": "Speichert die Entscheidung gegen Werbung auf Basis von Aktivitäten auf Websites Dritter.",
-            "en": "Stores the opt-out from ads based on activity on third-party websites."
+            "en": "Stores the opt-out from ads based on activity on third-party websites.",
+            "nl": "Slaat de keuze tegen advertenties op basis van activiteiten op websites van derden op.",
+            "it": "Memorizza la scelta di rifiutare la pubblicità basata su attività su siti di terzi."
           }
         },
         {
@@ -494,7 +552,9 @@
           },
           "purpose": {
             "de": "Authentifiziert angemeldete Nutzer.",
-            "en": "Authenticates logged-in users."
+            "en": "Authenticates logged-in users.",
+            "nl": "Authenticeert aangemelde gebruikers.",
+            "it": "Autentica gli utenti connessi."
           }
         },
         {
@@ -507,7 +567,9 @@
           },
           "purpose": {
             "de": "Authentifiziert angemeldete Nutzer.",
-            "en": "Authenticates logged-in users."
+            "en": "Authenticates logged-in users.",
+            "nl": "Authenticeert aangemelde gebruikers.",
+            "it": "Autentica gli utenti connessi."
           }
         },
         {
@@ -520,7 +582,9 @@
           },
           "purpose": {
             "de": "Dient der optimalen Darstellung für den Bildschirm des Geräts.",
-            "en": "Helps to provide an optimal experience for the device screen."
+            "en": "Helps to provide an optimal experience for the device screen.",
+            "nl": "Dient voor de optimale weergave op het scherm van het apparaat.",
+            "it": "Serve alla visualizzazione ottimale per lo schermo del dispositivo."
           }
         },
         {
@@ -533,7 +597,9 @@
           },
           "purpose": {
             "de": "Dient der optimalen Darstellung für den Bildschirm des Geräts.",
-            "en": "Helps to provide an optimal experience for the device screen."
+            "en": "Helps to provide an optimal experience for the device screen.",
+            "nl": "Dient voor de optimale weergave op het scherm van het apparaat.",
+            "it": "Serve alla visualizzazione ottimale per lo schermo del dispositivo."
           }
         },
         {
@@ -546,7 +612,9 @@
           },
           "purpose": {
             "de": "Schützt vor Cross-Site-Request-Forgery-Angriffen.",
-            "en": "Protects against cross-site request forgery attacks."
+            "en": "Protects against cross-site request forgery attacks.",
+            "nl": "Beschermt tegen cross-site request forgery-aanvallen.",
+            "it": "Protegge dagli attacchi di cross-site request forgery."
           }
         }
       ],
@@ -564,7 +632,9 @@
       "privacy_url": "https://x.com/en/privacy",
       "description": {
         "de": "Einbettung von Beiträgen und Timelines der Plattform X (ehemals Twitter). Beim Laden der Inhalte werden die IP-Adresse, die besuchte Seite, Browserdaten und Cookie-Informationen an X übertragen.",
-        "en": "Embeds posts and timelines from the X platform (formerly Twitter). Loading the content transfers the IP address, the visited page, browser data and cookie information to X."
+        "en": "Embeds posts and timelines from the X platform (formerly Twitter). Loading the content transfers the IP address, the visited page, browser data and cookie information to X.",
+        "nl": "Insluiten van berichten en tijdlijnen van het platform X (voorheen Twitter). Bij het laden van de inhoud worden het IP-adres, de bezochte pagina, browsergegevens en cookie-informatie naar X verzonden.",
+        "it": "Integrazione di post e timeline della piattaforma X (già Twitter). Al caricamento dei contenuti vengono trasmessi a X l'indirizzo IP, la pagina visitata, i dati del browser e le informazioni sui cookie."
       },
       "params": [],
       "html_head": "",
@@ -595,7 +665,9 @@
       "privacy_url": "https://www.tiktok.com/legal/page/eea/privacy-policy/en",
       "description": {
         "de": "Einbettung von Videos der Plattform TikTok. Beim Laden der Inhalte wird die IP-Adresse an TikTok übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds videos from the TikTok platform. Loading the content transfers the IP address to TikTok and cookies may be set."
+        "en": "Embeds videos from the TikTok platform. Loading the content transfers the IP address to TikTok and cookies may be set.",
+        "nl": "Insluiten van video's van het platform TikTok. Bij het laden van de inhoud wordt het IP-adres naar TikTok verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione di video della piattaforma TikTok. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a TikTok e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -618,7 +690,9 @@
           },
           "purpose": {
             "de": "Dient der Sicherheit sowie der Analyse und Optimierung der Website (laut TikTok 1 Jahr bzw. höchstens 13 Monate).",
-            "en": "Used for security as well as analytics and web optimisation (according to TikTok 1 year or a maximum of 13 months)."
+            "en": "Used for security as well as analytics and web optimisation (according to TikTok 1 year or a maximum of 13 months).",
+            "nl": "Dient voor de beveiliging en voor de analyse en optimalisatie van de website (volgens TikTok 1 jaar respectievelijk maximaal 13 maanden).",
+            "it": "Serve alla sicurezza e all'analisi e ottimizzazione del sito (secondo TikTok 1 anno ovvero al massimo 13 mesi)."
           }
         }
       ],
@@ -636,7 +710,9 @@
       "privacy_url": "https://www.podigee.com/de/ueber-uns/datenschutz/",
       "description": {
         "de": "Einbettung des Podcast-Players von Podigee. Beim Laden des Players wird die IP-Adresse an Podigee übertragen.",
-        "en": "Embeds the Podigee podcast player. Loading the player transfers the IP address to Podigee."
+        "en": "Embeds the Podigee podcast player. Loading the player transfers the IP address to Podigee.",
+        "nl": "Insluiten van de podcastspeler van Podigee. Bij het laden van de speler wordt het IP-adres naar Podigee verzonden.",
+        "it": "Integrazione del player per podcast di Podigee. Al caricamento del player l'indirizzo IP viene trasmesso a Podigee."
       },
       "params": [],
       "html_head": "",

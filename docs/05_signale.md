@@ -46,7 +46,7 @@ GPC ist ein Browser-Signal (`navigator.globalPrivacyControl`, Header `Sec-GPC`),
 
 | Verhalten | Wirkung |
 | --- | --- |
-| **Als Ablehnung werten** (Standard) | Optionale Dienste bleiben aus, es erscheint kein Hinweis, im Protokoll steht „Abgelehnt per GPC“. Über die Cookie-Einstellungen können Besucher trotzdem einzeln zustimmen – eine ausdrückliche Einwilligung geht dem Signal vor. |
+| **Als Ablehnung werten** (Standard) | Optionale Dienste bleiben aus, es erscheint kein Hinweis, im Protokoll steht „Abgelehnt per GPC“. Über die Datenschutz-Einstellungen können Besucher trotzdem einzeln zustimmen – eine ausdrückliche Einwilligung geht dem Signal vor. |
 | Trotzdem fragen | Der Hinweis erscheint mit einer Anmerkung zum Signal. |
 | Ignorieren | Das Signal wird weder ausgewertet noch protokolliert. |
 

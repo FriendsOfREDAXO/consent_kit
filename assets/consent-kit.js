@@ -537,6 +537,17 @@ function customStyle() {
 
 const cookieIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.3A9 9 0 1 1 11.7 3a4 4 0 0 0 4.6 4.7A4 4 0 0 0 21 12.3Z"/><path d="M8.5 9.5h.01M8 14.5h.01M12.5 12.5h.01M13 17h.01M16.5 14h.01"/></svg>';
 
+/**
+ * Bringt der Dienst eigenen Code mit, der nach der Einwilligung läuft? Solche Dienste
+ * (Analytics, Pixel, Tag Manager) brauchen die Abfrage beim Seitenaufruf, weil sie sonst
+ * nie zum Zug kämen. Reine Embed-Dienste haben hier nichts stehen – sie laufen über den
+ * Platzhalter.
+ */
+function loadsOnConsent(service) {
+    return ['head', 'body', 'jsAccept', 'jsEvents'].some((field) => (service[field] || '').trim() !== '');
+}
+
+
 /* ---------------------------------------------------------- <consent-kit> --- */
 
 class ConsentKitElement extends HTMLElement {
@@ -574,6 +585,8 @@ class ConsentKitElement extends HTMLElement {
                 core.decide([], 'gpc');
                 this.updateTrigger();
             } else if (this.wasDismissed() && !cfg.preview) {
+                this.updateTrigger();
+            } else if (this.suppressed()) {
                 this.updateTrigger();
             } else {
                 this.open('banner');
@@ -647,6 +660,33 @@ class ConsentKitElement extends HTMLElement {
             try { sessionStorage.setItem('consent_kit_dismissed', String(cfg.rev)); } catch (e) { /* Storage gesperrt */ }
         }
         this.close();
+    }
+
+    /**
+     * Soll der Hinweis beim Seitenaufruf unterdrückt werden?
+     *
+     * never     – immer unterdrücken; der Einstieg läuft über Platzhalter, schwebende
+     *             Schaltfläche oder einen eigenen Link.
+     * on_demand – nur zeigen, wenn auf dieser Seite ein gesperrter Inhalt steht, also ein
+     *             <consent-embed>, dessen Dienst noch keine Einwilligung hat. Dienste, die
+     *             von sich aus laden (Scripts im <head>), sind davon unberührt: Sie
+     *             erzwingen weiterhin die Abfrage, sonst würde ohne Einwilligung geladen.
+     */
+    suppressed() {
+        const mode = cfg.openMode || 'always';
+        if (cfg.preview || mode === 'always') return false;
+        if (mode === 'never') return true;
+        if (core.optional.some((service) => loadsOnConsent(service))) return false;
+        return !this.blockedEmbed();
+    }
+
+    /** Gibt es auf der Seite einen Platzhalter, dessen Dienst noch nicht erlaubt ist? */
+    blockedEmbed() {
+        for (const element of document.querySelectorAll('consent-embed[service]')) {
+            const key = element.getAttribute('service') || '';
+            if (core.services.has(key) && !core.has(key)) return true;
+        }
+        return false;
     }
 
     wasDismissed() {

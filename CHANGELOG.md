@@ -1,5 +1,50 @@
 # Changelog
 
+## 1.1.0 – 2026-10-04
+
+#### Neu: Einstellung „Hinweis beim Seitenaufruf“ (`open_mode`)
+
+Bisher öffnete sich der Hinweis immer, sobald eine Entscheidung fehlte. Auf Websites, die nur externe Inhalte einbinden und sonst nichts laden, ist das unnötig: Dort entsteht der Bedarf erst beim Platzhalter. Die neue Einstellung hat drei Werte:
+
+| Wert | Verhalten |
+| --- | --- |
+| `always` (Standard) | wie bisher – Hinweis beim ersten Aufruf, solange keine Entscheidung vorliegt |
+| `on_demand` | Hinweis nur, wenn auf der Seite ein `<consent-embed>` steht, dessen Dienst noch nicht erlaubt ist |
+| `never` | Hinweis ausschließlich auf Zuruf (Platzhalter, schwebende Schaltfläche, eigener Link) |
+
+**Umsetzung im Einzelnen** (relevant für Portierungen):
+
+- `pages/settings.php`: `open_mode` in der Whitelist `$choices`, Auswahl als `Form::choice()` im Panel „Darstellung“ oberhalb der Schließen-Schaltfläche. Ohne gültigen Wert bleibt die Einstellung unangetastet.
+- `lib/Cache.php`: Der Wert wandert als `openMode` in die Frontend-Konfiguration; beim Lesen gegen die drei erlaubten Werte geprüft, sonst `always`. Damit bleibt eine beschädigte Konfiguration auf der sicheren Seite.
+- `assets/consent-kit.js`: Beim Start entscheidet `suppressed()` in `ConsentKitElement`, ob der Hinweis unterdrückt wird. Die Methode sitzt in der bestehenden Kette hinter `wasDismissed()`, damit GPC und „für diese Sitzung geschlossen“ unverändert Vorrang behalten. In der Vorschau (`cfg.preview`) greift sie nie.
+- `blockedEmbed()` sucht `consent-embed[service]` im Dokument und meldet `true`, sobald ein Dienst dabei ist, der in der Konfiguration existiert und noch keine Einwilligung hat. Platzhalter unbekannter Dienste zählen nicht, weil sie ohnehin keinen Weg zur Einwilligung bieten.
+- `loadsOnConsent(service)` (modulweite Funktion) prüft `head`, `body`, `jsAccept` und `jsEvents` eines Dienstes. Trifft das auf einen **optionalen** Dienst zu, ist `on_demand` wirkungslos und der Hinweis erscheint trotzdem – ein solcher Dienst würde sonst nie starten. Nur `never` unterdrückt ausnahmslos.
+- Die Einstellungsseite warnt bei `on_demand`/`never`, wenn aktive Dienste eigenen Code mitbringen, und nennt sie beim Namen (`consent_kit_open_mode_warning`). Geprüft werden `html_head`, `html_body`, `js_accept` und hinterlegte Ereignisse.
+
+Die schwebende Schaltfläche bleibt wie bisher rein optional (`trigger`) – der Einstieg kann genauso über einen eigenen Link `<a href="#consent-kit">` laufen.
+
+#### Neu: Niederländisch und Italienisch
+
+Frontend-Texte und Dienst-Vorlagen sprechen jetzt vier Sprachen. Das Backend bleibt bei Deutsch und Englisch.
+
+- `resources/texts.php`: Blöcke `nl` und `it` mit allen 52 Schlüsseln. Die Auflösung läuft unverändert über `Texts::defaultsFor()`, das zuerst den vollen Code (`nl_nl`), dann die zweistellige Form (`nl`) und zuletzt `en` versucht — es ist also keine Änderung am Code nötig, damit die Sprachen greifen.
+- `presets/*.json`: Alle 189 mehrsprachigen Felder der 38 Vorlagen um `nl` und `it` ergänzt — Dienstbeschreibungen, Hinweise, Parameter-Beschriftungen und die Zwecke der 125 Cookie- und Storage-Einträge. Übernommen wird das beim Anlegen eines Dienstes aus einer Vorlage; bereits angelegte Dienste bleiben unverändert.
+- Korrigiert: Die Standardtexte `intro` verwiesen in beiden Sprachen noch auf „Cookie-Einstellungen“ bzw. „Cookie settings“.
+
+#### Geändert: Wording
+
+Der Dialog verwaltet Dienste und jede Form von Speicher (Cookies, Local Storage, Session Storage, IndexedDB) – „Cookie-Einstellungen“ war dafür zu eng und sachlich falsch. Betroffen sind Frontend-Texte und Backend-Beschriftungen:
+
+- `resources/texts.php`: `trigger` „Cookie-Einstellungen“ → „Datenschutz-Einstellungen“ (en: „Cookie settings“ → „Privacy settings“), `embed_settings` und `embed_text` entsprechend.
+- `lang/*.lang`: Beschriftung der schwebenden Schaltfläche, Hilfetext mit dem Beispiel-Link, GPC-Hinweistext.
+- `docs/`: Beispiel-Links und Beschreibung des Platzhalters.
+
+Bestehende Übersetzungen in der Datenbank bleiben unangetastet – geändert wurden nur die Standardtexte. Wer die Texte im Backend überschrieben hat, behält seine Fassung.
+
+#### Hinweis zum Update
+
+Es sind keine Datenbankänderungen nötig. Die neue Einstellung greift ohne Eintrag auf `always` zurück — das Verhalten bleibt nach dem Update also unverändert, bis sie bewusst umgestellt wird. Die geänderten Standardtexte wirken nur dort, wo sie im Backend nicht überschrieben wurden; die ergänzten Sprachen der Vorlagen gelten für neu angelegte Dienste, bestehende bleiben wie sie sind.
+
 ## 1.0.1 – 2026-10-03
 
 #### Behoben

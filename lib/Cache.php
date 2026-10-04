@@ -137,6 +137,10 @@ final class Cache
             'gpc' => (string) $addon->getConfig('gpc', 'reject'),
             'reload' => (bool) $addon->getConfig('reload_on_revoke', true),
             'dismiss' => (bool) $addon->getConfig('dismissible', true),
+            // Wann der Hinweis von selbst erscheint: always | on_demand | never.
+            'openMode' => in_array($addon->getConfig('open_mode', 'always'), ['always', 'on_demand', 'never'], true)
+                ? (string) $addon->getConfig('open_mode', 'always')
+                : 'always',
             // Gruppen im Hinweis: nur dort, wo die Hoehe dafuer reicht.
             'bannerGroups' => (bool) $addon->getConfig('banner_groups', false)
                 && in_array((string) $addon->getConfig('layout', 'box'), ['modal', 'offcanvas'], true),

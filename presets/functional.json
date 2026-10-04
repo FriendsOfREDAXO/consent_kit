@@ -8,7 +8,9 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Schutz von Formularen vor automatisierten Zugriffen durch eine Risikoanalyse. Beim Laden wird die IP-Adresse an Google übertragen, und es wird ein Cookie gesetzt.",
-        "en": "Protects forms against automated access by means of a risk analysis. Loading the service transfers the IP address to Google and a cookie is set."
+        "en": "Protects forms against automated access by means of a risk analysis. Loading the service transfers the IP address to Google and a cookie is set.",
+        "nl": "Bescherming van formulieren tegen geautomatiseerde toegang door middel van een risicoanalyse. Bij het laden wordt het IP-adres naar Google verzonden en wordt een cookie geplaatst.",
+        "it": "Protezione dei moduli dagli accessi automatizzati tramite un'analisi del rischio. Al caricamento l'indirizzo IP viene trasmesso a Google e viene impostato un cookie."
       },
       "params": [],
       "html_head": "",
@@ -29,7 +31,9 @@
           },
           "purpose": {
             "de": "Wird bei der Ausführung von reCAPTCHA für die Risikoanalyse gesetzt.",
-            "en": "Set when reCAPTCHA is executed for the purpose of providing its risk analysis."
+            "en": "Set when reCAPTCHA is executed for the purpose of providing its risk analysis.",
+            "nl": "Wordt bij het uitvoeren van reCAPTCHA geplaatst voor de risicoanalyse.",
+            "it": "Viene impostato durante l'esecuzione di reCAPTCHA per l'analisi del rischio."
           }
         }
       ],
@@ -41,7 +45,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Google dokumentiert das Cookie _GRECAPTCHA, aber keine Laufzeit. Die 179 Tage stammen aus der Open Cookie Database.",
-        "en": "Google documents the _GRECAPTCHA cookie but no duration. The 179 days come from the Open Cookie Database."
+        "en": "Google documents the _GRECAPTCHA cookie but no duration. The 179 days come from the Open Cookie Database.",
+        "nl": "Google documenteert het cookie _GRECAPTCHA, maar geen looptijd. De 179 dagen komen uit de Open Cookie Database.",
+        "it": "Google documenta il cookie _GRECAPTCHA ma non la durata. I 179 giorni provengono dall'Open Cookie Database."
       }
     },
     {
@@ -52,7 +58,9 @@
       "privacy_url": "https://www.hcaptcha.com/privacy",
       "description": {
         "de": "Schutz von Formularen vor automatisierten Zugriffen. Beim Laden wird die IP-Adresse an den Anbieter übertragen, und es werden Cookies gesetzt.",
-        "en": "Protects forms against automated access. Loading the service transfers the IP address to the provider and cookies are set."
+        "en": "Protects forms against automated access. Loading the service transfers the IP address to the provider and cookies are set.",
+        "nl": "Bescherming van formulieren tegen geautomatiseerde toegang. Bij het laden wordt het IP-adres naar de aanbieder verzonden en worden cookies geplaatst.",
+        "it": "Protezione dei moduli dagli accessi automatizzati. Al caricamento l'indirizzo IP viene trasmesso al fornitore e vengono impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -73,7 +81,9 @@
           },
           "purpose": {
             "de": "Dient anonymen, dienstbezogenen Statistiken und technischen Zwecken wie der Unterstützung der Barrierefreiheit.",
-            "en": "Used for anonymous service-related statistics and technical purposes such as accessibility support."
+            "en": "Used for anonymous service-related statistics and technical purposes such as accessibility support.",
+            "nl": "Dient voor anonieme, dienstgerelateerde statistieken en technische doeleinden zoals ondersteuning van de toegankelijkheid.",
+            "it": "Serve per statistiche anonime relative al servizio e per finalità tecniche come il supporto dell'accessibilità."
           }
         },
         {
@@ -86,7 +96,9 @@
           },
           "purpose": {
             "de": "Ermöglicht die Nutzung des Barrierefreiheitszugangs (Dauer variiert, höchstens 30 Tage).",
-            "en": "Enables accessibility user access (duration varies, up to 30 days)."
+            "en": "Enables accessibility user access (duration varies, up to 30 days).",
+            "nl": "Maakt gebruik van de toegankelijkheidstoegang mogelijk (duur varieert, maximaal 30 dagen).",
+            "it": "Consente l'uso dell'accesso per l'accessibilità (durata variabile, al massimo 30 giorni)."
           }
         },
         {
@@ -99,7 +111,9 @@
           },
           "purpose": {
             "de": "Dient Sicherheitsfunktionen (Dauer variiert, höchstens 1 Tag).",
-            "en": "Used for security features (duration varies, up to 1 day)."
+            "en": "Used for security features (duration varies, up to 1 day).",
+            "nl": "Dient voor beveiligingsfuncties (duur varieert, maximaal 1 dag).",
+            "it": "Serve per funzioni di sicurezza (durata variabile, al massimo 1 giorno)."
           }
         }
       ],
@@ -116,7 +130,9 @@
       "privacy_url": "https://www.cloudflare.com/privacypolicy/",
       "description": {
         "de": "Schutz von Formularen vor automatisierten Zugriffen. Beim Laden werden die IP-Adresse und weitere Browsersignale an Cloudflare übertragen; nur bei aktivierter Pre-Clearance wird zusätzlich das Cookie cf_clearance mit einer vom Betreiber konfigurierten Dauer gesetzt.",
-        "en": "Protects forms against automated access. Loading the service transfers the IP address and further browser signals to Cloudflare; only with pre-clearance enabled the cookie cf_clearance is additionally set with a duration configured by the site operator."
+        "en": "Protects forms against automated access. Loading the service transfers the IP address and further browser signals to Cloudflare; only with pre-clearance enabled the cookie cf_clearance is additionally set with a duration configured by the site operator.",
+        "nl": "Bescherming van formulieren tegen geautomatiseerde toegang. Bij het laden worden het IP-adres en andere browsersignalen naar Cloudflare verzonden; alleen bij ingeschakelde pre-clearance wordt daarnaast het cookie cf_clearance geplaatst met een door de beheerder ingestelde duur.",
+        "it": "Protezione dei moduli dagli accessi automatizzati. Al caricamento l'indirizzo IP e altri segnali del browser vengono trasmessi a Cloudflare; solo con la pre-clearance attiva viene inoltre impostato il cookie cf_clearance con una durata configurata dal gestore."
       },
       "params": [],
       "html_head": "",
@@ -142,7 +158,9 @@
       "privacy_url": "https://friendlycaptcha.com/legal/privacy-end-users/",
       "description": {
         "de": "Schutz von Formularen vor automatisierten Zugriffen durch eine im Browser gelöste Rechenaufgabe. Beim Laden wird die IP-Adresse an den Anbieter übertragen und dort laut Anbieter nur gehasht verarbeitet; es werden keine Cookies gesetzt.",
-        "en": "Protects forms against automated access by means of a puzzle solved in the browser. Loading the service transfers the IP address to the provider, which according to the provider is only processed in hashed form; no cookies are set."
+        "en": "Protects forms against automated access by means of a puzzle solved in the browser. Loading the service transfers the IP address to the provider, which according to the provider is only processed in hashed form; no cookies are set.",
+        "nl": "Bescherming van formulieren tegen geautomatiseerde toegang door een rekenopgave die in de browser wordt opgelost. Bij het laden wordt het IP-adres naar de aanbieder verzonden en daar volgens de aanbieder alleen gehasht verwerkt; er worden geen cookies geplaatst.",
+        "it": "Protezione dei moduli dagli accessi automatizzati tramite un calcolo risolto nel browser. Al caricamento l'indirizzo IP viene trasmesso al fornitore e, secondo quest'ultimo, elaborato solo in forma hash; non vengono impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -166,7 +184,9 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Laden von Schriftarten von Servern von Google. Dabei werden die IP-Adresse, die angeforderte URL und Browserangaben an Google übertragen; Cookies werden laut Google nicht gesetzt.",
-        "en": "Loads fonts from Google servers. This transfers the IP address, the requested URL and browser details to Google; according to Google no cookies are set."
+        "en": "Loads fonts from Google servers. This transfers the IP address, the requested URL and browser details to Google; according to Google no cookies are set.",
+        "nl": "Laden van lettertypen van servers van Google. Daarbij worden het IP-adres, de opgevraagde URL en browsergegevens naar Google verzonden; volgens Google worden geen cookies geplaatst.",
+        "it": "Caricamento di caratteri dai server di Google. Vengono trasmessi a Google l'indirizzo IP, l'URL richiesto e informazioni sul browser; secondo Google non vengono impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -190,7 +210,9 @@
       "privacy_url": "https://www.adobe.com/privacy/policy.html",
       "description": {
         "de": "Laden von Schriftarten von Servern von Adobe. Dabei wird die IP-Adresse an Adobe übertragen; Cookies werden laut Adobe zur Bereitstellung der Schriften nicht gesetzt.",
-        "en": "Loads fonts from Adobe servers. This transfers the IP address to Adobe; according to Adobe no cookies are set in order to serve the fonts."
+        "en": "Loads fonts from Adobe servers. This transfers the IP address to Adobe; according to Adobe no cookies are set in order to serve the fonts.",
+        "nl": "Laden van lettertypen van servers van Adobe. Daarbij wordt het IP-adres naar Adobe verzonden; volgens Adobe worden voor het leveren van de lettertypen geen cookies geplaatst.",
+        "it": "Caricamento di caratteri dai server di Adobe. L'indirizzo IP viene trasmesso ad Adobe; secondo Adobe non vengono impostati cookie per la fornitura dei caratteri."
       },
       "params": [],
       "html_head": "",
@@ -215,7 +237,9 @@
       "privacy_url": "https://calendly.com/legal/privacy-notice",
       "description": {
         "de": "Einbettung der Terminbuchung von Calendly. Beim Laden wird die IP-Adresse an Calendly übertragen, und es können Cookies gesetzt werden.",
-        "en": "Embeds Calendly appointment scheduling. Loading the content transfers the IP address to Calendly and cookies may be set."
+        "en": "Embeds Calendly appointment scheduling. Loading the content transfers the IP address to Calendly and cookies may be set.",
+        "nl": "Insluiten van de afspraakplanner van Calendly. Bij het laden wordt het IP-adres naar Calendly verzonden en kunnen cookies worden geplaatst.",
+        "it": "Integrazione della prenotazione appuntamenti di Calendly. Al caricamento l'indirizzo IP viene trasmesso a Calendly e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",
@@ -242,7 +266,9 @@
       "privacy_url": "https://connect.lime-technologies.com/en/legal/privacy-policy/",
       "description": {
         "de": "Live-Chat auf der Website. Beim Laden des Chats wird die IP-Adresse an den Anbieter übertragen, und es werden ein Cookie sowie Einträge im lokalen Speicher angelegt.",
-        "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and a cookie as well as local storage entries are created."
+        "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and a cookie as well as local storage entries are created.",
+        "nl": "Livechat op de website. Bij het laden van de chat wordt het IP-adres naar de aanbieder verzonden en worden een cookie en vermeldingen in de lokale opslag aangemaakt.",
+        "it": "Chat dal vivo sul sito. Al caricamento della chat l'indirizzo IP viene trasmesso al fornitore e vengono creati un cookie e voci nell'archivio locale."
       },
       "params": [],
       "html_head": "",
@@ -263,7 +289,9 @@
           },
           "purpose": {
             "de": "Speichert den Status des Messengers und Kennungen zur Wiedererkennung von Kontakten (Standarddauer, vom Betreiber anpassbar).",
-            "en": "Stores the messenger state and identifiers to recognise returning contacts (default duration, adjustable by the operator)."
+            "en": "Stores the messenger state and identifiers to recognise returning contacts (default duration, adjustable by the operator).",
+            "nl": "Slaat de status van de messenger en identificatoren voor het herkennen van contacten op (standaardduur, aanpasbaar door de beheerder).",
+            "it": "Memorizza lo stato del messenger e gli identificativi per riconoscere i contatti (durata predefinita, modificabile dal gestore)."
           }
         },
         {
@@ -276,7 +304,9 @@
           },
           "purpose": {
             "de": "Speichert den Status des Messengers sowie die Anzahl der Seitenaufrufe und Besuche.",
-            "en": "Stores the messenger state and the number of page impressions and visits."
+            "en": "Stores the messenger state and the number of page impressions and visits.",
+            "nl": "Slaat de status van de messenger en het aantal paginaweergaven en bezoeken op.",
+            "it": "Memorizza lo stato del messenger e il numero di visualizzazioni di pagina e visite."
           }
         },
         {
@@ -289,7 +319,9 @@
           },
           "purpose": {
             "de": "Speichert das Log-Level der Anwendung.",
-            "en": "Stores the log level of the application."
+            "en": "Stores the log level of the application.",
+            "nl": "Slaat het logniveau van de applicatie op.",
+            "it": "Memorizza il livello di log dell'applicazione."
           }
         },
         {
@@ -302,7 +334,9 @@
           },
           "purpose": {
             "de": "Speichert das gewählte Farbschema (hell oder dunkel).",
-            "en": "Stores the selected colour scheme (light or dark)."
+            "en": "Stores the selected colour scheme (light or dark).",
+            "nl": "Slaat het gekozen kleurenschema op (licht of donker).",
+            "it": "Memorizza lo schema di colori scelto (chiaro o scuro)."
           }
         }
       ],
@@ -321,7 +355,9 @@
       "privacy_url": "https://www.tawk.to/privacy-policy/",
       "description": {
         "de": "Live-Chat auf der Website. Beim Laden des Chats wird die IP-Adresse an den Anbieter übertragen, und es werden Cookies sowie Einträge im lokalen Speicher angelegt.",
-        "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and cookies as well as local storage entries are created."
+        "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and cookies as well as local storage entries are created.",
+        "nl": "Livechat op de website. Bij het laden van de chat wordt het IP-adres naar de aanbieder verzonden en worden cookies en vermeldingen in de lokale opslag aangemaakt.",
+        "it": "Chat dal vivo sul sito. Al caricamento della chat l'indirizzo IP viene trasmesso al fornitore e vengono creati cookie e voci nell'archivio locale."
       },
       "params": [],
       "html_head": "",
@@ -342,7 +378,9 @@
           },
           "purpose": {
             "de": "Erkennt wiederkehrende Besucher anhand einer zufälligen Kennung.",
-            "en": "Recognises returning visitors by means of a random identifier."
+            "en": "Recognises returning visitors by means of a random identifier.",
+            "nl": "Herkent terugkerende bezoekers aan de hand van een willekeurige identificatie.",
+            "it": "Riconosce i visitatori di ritorno tramite un identificativo casuale."
           }
         },
         {
@@ -355,7 +393,9 @@
           },
           "purpose": {
             "de": "Verwaltet die Verbindung des Besuchers und verhindert mehrfache Verbindungsanfragen.",
-            "en": "Manages the visitor connection and prevents multiple connection requests."
+            "en": "Manages the visitor connection and prevents multiple connection requests.",
+            "nl": "Beheert de verbinding van de bezoeker en voorkomt meervoudige verbindingsverzoeken.",
+            "it": "Gestisce la connessione del visitatore e impedisce richieste di connessione multiple."
           }
         },
         {
@@ -368,7 +408,9 @@
           },
           "purpose": {
             "de": "Synchronisiert das Widget über mehrere Browser-Tabs.",
-            "en": "Keeps the widget synchronised across several browser tabs."
+            "en": "Keeps the widget synchronised across several browser tabs.",
+            "nl": "Synchroniseert de widget over meerdere browsertabbladen.",
+            "it": "Sincronizza il widget tra più schede del browser."
           }
         },
         {
@@ -381,7 +423,9 @@
           },
           "purpose": {
             "de": "Speichert ein Sitzungstoken, damit der Chat beim Seitenwechsel erhalten bleibt.",
-            "en": "Stores a session token so that the chat persists across page changes."
+            "en": "Stores a session token so that the chat persists across page changes.",
+            "nl": "Slaat een sessietoken op zodat de chat bij paginawissel behouden blijft.",
+            "it": "Memorizza un token di sessione affinché la chat venga mantenuta al cambio di pagina."
           }
         }
       ],
@@ -399,7 +443,9 @@
       "privacy_url": "https://www.paypal.com/de/legalhub/paypal/privacy-full",
       "description": {
         "de": "Bezahlfunktion über das JavaScript-SDK von PayPal. Beim Laden wird die IP-Adresse an PayPal übertragen, und es können Cookies gesetzt werden.",
-        "en": "Payment function via the PayPal JavaScript SDK. Loading the SDK transfers the IP address to PayPal and cookies may be set."
+        "en": "Payment function via the PayPal JavaScript SDK. Loading the SDK transfers the IP address to PayPal and cookies may be set.",
+        "nl": "Betaalfunctie via de JavaScript-SDK van PayPal. Bij het laden wordt het IP-adres naar PayPal verzonden en kunnen cookies worden geplaatst.",
+        "it": "Funzione di pagamento tramite l'SDK JavaScript di PayPal. Al caricamento l'indirizzo IP viene trasmesso a PayPal e possono essere impostati cookie."
       },
       "params": [],
       "html_head": "",

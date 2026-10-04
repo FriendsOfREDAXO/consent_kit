@@ -8,7 +8,9 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Webanalysedienst von Google, der die Nutzung der Website misst und statistisch auswertet. Dabei werden Cookies gesetzt und Nutzungsdaten an Google übertragen. Das Tag wird über den Google Tag Manager ausgespielt; die Einwilligung wird per Consent Mode an das Tag übermittelt.",
-        "en": "Web analytics service by Google that measures and statistically evaluates the use of the website. Cookies are set and usage data is transferred to Google. The tag is delivered via Google Tag Manager; consent is passed to the tag via Consent Mode."
+        "en": "Web analytics service by Google that measures and statistically evaluates the use of the website. Cookies are set and usage data is transferred to Google. The tag is delivered via Google Tag Manager; consent is passed to the tag via Consent Mode.",
+        "nl": "Webanalysedienst van Google die het gebruik van de website meet en statistisch analyseert. Daarbij worden cookies geplaatst en gebruiksgegevens naar Google verzonden. De tag wordt via Google Tag Manager uitgeleverd; de toestemming wordt via Consent Mode aan de tag doorgegeven.",
+        "it": "Servizio di analisi web di Google che misura e valuta statisticamente l'utilizzo del sito. Vengono impostati cookie e trasmessi dati di utilizzo a Google. Il tag viene distribuito tramite Google Tag Manager; il consenso viene comunicato al tag tramite Consent Mode."
       },
       "params": [],
       "html_head": "",
@@ -31,7 +33,9 @@
           },
           "purpose": {
             "de": "Dient der Unterscheidung von Nutzern.",
-            "en": "Used to distinguish users."
+            "en": "Used to distinguish users.",
+            "nl": "Dient om gebruikers van elkaar te onderscheiden.",
+            "it": "Serve a distinguere gli utenti."
           }
         },
         {
@@ -44,7 +48,9 @@
           },
           "purpose": {
             "de": "Dient der Beibehaltung des Sitzungsstatus.",
-            "en": "Used to persist session state."
+            "en": "Used to persist session state.",
+            "nl": "Dient om de sessiestatus te behouden.",
+            "it": "Serve a mantenere lo stato della sessione."
           }
         }
       ],
@@ -57,7 +63,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Diese Vorlage lädt selbst nichts. Sie setzt voraus, dass das Tag im Google Tag Manager mit aktivierter Einwilligungsprüfung (Consent Mode) eingerichtet ist.",
-        "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled."
+        "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled.",
+        "nl": "Deze sjabloon laadt zelf niets. Het vereist dat de tag in Google Tag Manager is ingericht met ingeschakelde toestemmingscontrole (Consent Mode).",
+        "it": "Questo modello non carica nulla di per sé. Presuppone che il tag sia configurato in Google Tag Manager con la verifica del consenso attiva (Consent Mode)."
       },
       "events": {
         "lead": "gtag('event', 'generate_lead');",
@@ -74,7 +82,9 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Werbedienst von Google zur Messung von Conversions nach Anzeigenklicks und zur Bildung von Remarketing-Zielgruppen. Dabei werden Cookies gesetzt und Daten an Google übertragen. Das Tag wird über den Google Tag Manager ausgespielt; die Einwilligung wird per Consent Mode an das Tag übermittelt.",
-        "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google. The tag is delivered via Google Tag Manager; consent is passed to the tag via Consent Mode."
+        "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google. The tag is delivered via Google Tag Manager; consent is passed to the tag via Consent Mode.",
+        "nl": "Advertentiedienst van Google voor het meten van conversies na advertentieklikken en het samenstellen van remarketingdoelgroepen. Daarbij worden cookies geplaatst en gegevens naar Google verzonden. De tag wordt via Google Tag Manager uitgeleverd; de toestemming wordt via Consent Mode aan de tag doorgegeven.",
+        "it": "Servizio pubblicitario di Google per misurare le conversioni dopo i clic sugli annunci e creare segmenti di pubblico per il remarketing. Vengono impostati cookie e trasmessi dati a Google. Il tag viene distribuito tramite Google Tag Manager; il consenso viene comunicato al tag tramite Consent Mode."
       },
       "params": [],
       "html_head": "",
@@ -99,7 +109,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -112,7 +124,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -125,7 +139,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -138,7 +154,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -151,7 +169,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -164,7 +184,9 @@
           },
           "purpose": {
             "de": "Von Google den Kategorien Analyse, Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
-            "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security."
+            "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security.",
+            "nl": "Door Google aan de categorieën analyse, advertenties en beveiliging toegewezen cookie voor Google Ads.",
+            "it": "Cookie per Google Ads assegnato da Google alle categorie analisi, pubblicità e sicurezza."
           }
         },
         {
@@ -177,7 +199,9 @@
           },
           "purpose": {
             "de": "Von Google den Kategorien Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
-            "en": "Cookie for Google Ads assigned by Google to the categories advertising and security."
+            "en": "Cookie for Google Ads assigned by Google to the categories advertising and security.",
+            "nl": "Door Google aan de categorieën advertenties en beveiliging toegewezen cookie voor Google Ads.",
+            "it": "Cookie per Google Ads assegnato da Google alle categorie pubblicità e sicurezza."
           }
         },
         {
@@ -190,7 +214,9 @@
           },
           "purpose": {
             "de": "Dient der Anzeige von Google-Werbung auf Websites außerhalb von Google; bei aktivierter Personalisierung auch zur Personalisierung von Anzeigen.",
-            "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads."
+            "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads.",
+            "nl": "Dient voor het tonen van Google-advertenties op websites buiten Google; bij ingeschakelde personalisatie ook voor het personaliseren van advertenties.",
+            "it": "Serve a mostrare annunci Google su siti esterni a Google; con la personalizzazione attiva anche per personalizzare gli annunci."
           }
         }
       ],
@@ -203,7 +229,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Diese Vorlage lädt selbst nichts. Sie setzt voraus, dass das Tag im Google Tag Manager mit aktivierter Einwilligungsprüfung (Consent Mode) eingerichtet ist.",
-        "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled."
+        "en": "This preset loads nothing itself. It requires the tag in Google Tag Manager to be set up with consent checks (Consent Mode) enabled.",
+        "nl": "Deze sjabloon laadt zelf niets. Het vereist dat de tag in Google Tag Manager is ingericht met ingeschakelde toestemmingscontrole (Consent Mode).",
+        "it": "Questo modello non carica nulla di per sé. Presuppone che il tag sia configurato in Google Tag Manager con la verifica del consenso attiva (Consent Mode)."
       },
       "events": {
         "lead": "gtag('event', 'conversion', { send_to: '{{label}}' });",
