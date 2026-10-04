@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.1 – 2026-10-04
+
+#### Behoben
+
+- **`open_mode`: unbekannter Wert wirkte wie `on_demand`.** `suppressed()` in `assets/consent-kit.js` prüfte nur auf `always` und `never` und behandelte alles Übrige als `on_demand` – ein unbekannter Wert unterdrückte den Hinweis also, sobald kein gesperrter `<consent-embed>` auf der Seite stand. Jetzt greift die Unterdrückung ausschließlich bei den beiden bekannten Werten, alles andere fällt wie im Backend auf `always` zurück. Das Verhalten der drei gültigen Werte bleibt unverändert.
+
+  Über das Backend war der Fall nicht erreichbar (`pages/settings.php` lässt nur die drei Werte zu, `lib/Cache.php` prüft erneut) – er betrifft eigene Integrationen, die die Konfiguration selbst erzeugen, einen veralteten Cache oder einen künftigen vierten Modus, den ein älteres Frontend noch nicht kennt. Danke an [@skerbis](https://github.com/skerbis) (#13), aufgefallen beim Portieren nach KLXM Studio.
+
 ## 1.1.0 – 2026-10-04
 
 #### Neu: Einstellung „Hinweis beim Seitenaufruf“ (`open_mode`)
