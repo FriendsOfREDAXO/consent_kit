@@ -8,14 +8,18 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Tag-Management-System von Google, über das weitere Skripte (Tags) geladen werden. Laut Google erfasst der Tag Manager selbst keine Informationen über Besucher; die darüber ausgelösten Tags benötigen jeweils eine eigene Einwilligungssteuerung.",
-        "en": "Tag management system by Google used to load further scripts (tags). According to Google, Tag Manager itself does not collect information about visitors; tags fired through it each need their own consent handling."
+        "en": "Tag management system by Google used to load further scripts (tags). According to Google, Tag Manager itself does not collect information about visitors; tags fired through it each need their own consent handling.",
+        "nl": "Tagmanagementsysteem van Google waarmee andere scripts (tags) worden geladen. Volgens Google verzamelt de Tag Manager zelf geen informatie over bezoekers; de daarmee geactiveerde tags hebben elk een eigen toestemmingsregeling nodig.",
+        "it": "Sistema di gestione dei tag di Google tramite cui vengono caricati altri script (tag). Secondo Google il Tag Manager non raccoglie di per sé informazioni sui visitatori; i tag attivati tramite esso necessitano ciascuno di una propria gestione del consenso."
       },
       "params": [
         {
           "key": "container_id",
           "label": {
             "de": "Container-ID",
-            "en": "Container ID"
+            "en": "Container ID",
+            "nl": "Container-ID",
+            "it": "ID container"
           },
           "placeholder": "GTM-XXXXXXX",
           "pattern": "^GTM-[A-Z0-9]+$"
@@ -45,14 +49,18 @@
       "privacy_url": "https://policies.google.com/privacy",
       "description": {
         "de": "Werbedienst von Google zur Messung von Conversions nach Anzeigenklicks und zur Bildung von Remarketing-Zielgruppen. Dabei werden Cookies gesetzt und Daten an Google übertragen.",
-        "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google."
+        "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google.",
+        "nl": "Advertentiedienst van Google voor het meten van conversies na advertentieklikken en het samenstellen van remarketingdoelgroepen. Daarbij worden cookies geplaatst en gegevens naar Google verzonden.",
+        "it": "Servizio pubblicitario di Google per misurare le conversioni dopo i clic sugli annunci e creare segmenti di pubblico per il remarketing. Vengono impostati cookie e trasmessi dati a Google."
       },
       "params": [
         {
           "key": "conversion_id",
           "label": {
             "de": "Conversion-ID",
-            "en": "Conversion ID"
+            "en": "Conversion ID",
+            "nl": "Conversie-ID",
+            "it": "ID conversione"
           },
           "placeholder": "AW-XXXXXXXXXX",
           "pattern": "^AW-[0-9]+$"
@@ -80,7 +88,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -93,7 +103,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -106,7 +118,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -119,7 +133,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -132,7 +148,9 @@
           },
           "purpose": {
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
-            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase."
+            "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
+            "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
           }
         },
         {
@@ -145,7 +163,9 @@
           },
           "purpose": {
             "de": "Von Google den Kategorien Analyse, Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
-            "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security."
+            "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security.",
+            "nl": "Door Google aan de categorieën analyse, advertenties en beveiliging toegewezen cookie voor Google Ads.",
+            "it": "Cookie per Google Ads assegnato da Google alle categorie analisi, pubblicità e sicurezza."
           }
         },
         {
@@ -158,7 +178,9 @@
           },
           "purpose": {
             "de": "Von Google den Kategorien Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
-            "en": "Cookie for Google Ads assigned by Google to the categories advertising and security."
+            "en": "Cookie for Google Ads assigned by Google to the categories advertising and security.",
+            "nl": "Door Google aan de categorieën advertenties en beveiliging toegewezen cookie voor Google Ads.",
+            "it": "Cookie per Google Ads assegnato da Google alle categorie pubblicità e sicurezza."
           }
         },
         {
@@ -171,7 +193,9 @@
           },
           "purpose": {
             "de": "Dient der Anzeige von Google-Werbung auf Websites außerhalb von Google; bei aktivierter Personalisierung auch zur Personalisierung von Anzeigen.",
-            "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads."
+            "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads.",
+            "nl": "Dient voor het tonen van Google-advertenties op websites buiten Google; bij ingeschakelde personalisatie ook voor het personaliseren van advertenties.",
+            "it": "Serve a mostrare annunci Google su siti esterni a Google; con la personalizzazione attiva anche per personalizzare gli annunci."
           }
         }
       ],
@@ -197,14 +221,18 @@
       "privacy_url": "https://www.facebook.com/privacy/policy/",
       "description": {
         "de": "Tracking-Pixel von Meta (Facebook, Instagram) zur Messung von Werbekampagnen und zur Bildung von Zielgruppen. Dabei werden Cookies gesetzt und Nutzungsdaten an Meta übertragen.",
-        "en": "Tracking pixel by Meta (Facebook, Instagram) for measuring advertising campaigns and building audiences. Cookies are set and usage data is transferred to Meta."
+        "en": "Tracking pixel by Meta (Facebook, Instagram) for measuring advertising campaigns and building audiences. Cookies are set and usage data is transferred to Meta.",
+        "nl": "Trackingpixel van Meta (Facebook, Instagram) voor het meten van advertentiecampagnes en het samenstellen van doelgroepen. Daarbij worden cookies geplaatst en gebruiksgegevens naar Meta verzonden.",
+        "it": "Pixel di tracciamento di Meta (Facebook, Instagram) per misurare le campagne pubblicitarie e creare segmenti di pubblico. Vengono impostati cookie e trasmessi dati di utilizzo a Meta."
       },
       "params": [
         {
           "key": "pixel_id",
           "label": {
             "de": "Pixel-ID",
-            "en": "Pixel ID"
+            "en": "Pixel ID",
+            "nl": "Pixel-ID",
+            "it": "ID pixel"
           },
           "placeholder": "123456789012345",
           "pattern": "^[0-9]+$"
@@ -228,7 +256,9 @@
           },
           "purpose": {
             "de": "Identifiziert Browser, um Analysedienste für Werbung und Websites bereitzustellen.",
-            "en": "Identifies browsers for the purposes of providing advertising and site analytics services."
+            "en": "Identifies browsers for the purposes of providing advertising and site analytics services.",
+            "nl": "Identificeert browsers om analysediensten voor advertenties en websites te leveren.",
+            "it": "Identifica i browser per fornire servizi di analisi per pubblicità e siti web."
           }
         },
         {
@@ -241,7 +271,9 @@
           },
           "purpose": {
             "de": "Speichert die Klick-ID (fbclid), wenn die Website über eine Meta-Anzeige aufgerufen wurde.",
-            "en": "Stores the click ID (fbclid) when the website was reached via a Meta ad."
+            "en": "Stores the click ID (fbclid) when the website was reached via a Meta ad.",
+            "nl": "Slaat de klik-ID (fbclid) op wanneer de website via een Meta-advertentie is bezocht.",
+            "it": "Memorizza l'ID clic (fbclid) quando il sito è stato raggiunto tramite un annuncio Meta."
           }
         },
         {
@@ -254,7 +286,9 @@
           },
           "purpose": {
             "de": "Dient der Auslieferung von Werbeanzeigen sowie der Messung und Verbesserung ihrer Relevanz.",
-            "en": "Used to deliver ads and to measure and improve their relevance."
+            "en": "Used to deliver ads and to measure and improve their relevance.",
+            "nl": "Dient voor het uitleveren van advertenties en voor het meten en verbeteren van hun relevantie.",
+            "it": "Serve alla distribuzione degli annunci e alla misurazione e al miglioramento della loro pertinenza."
           }
         }
       ],
@@ -281,14 +315,18 @@
       "privacy_url": "https://www.linkedin.com/legal/privacy-policy",
       "description": {
         "de": "Tracking-Tag von LinkedIn für Conversion-Messung, Retargeting und Website-Analysen zu LinkedIn-Kampagnen. Dabei werden Cookies gesetzt und Daten an LinkedIn übertragen.",
-        "en": "Tracking tag by LinkedIn for conversion tracking, retargeting and website analytics for LinkedIn campaigns. Cookies are set and data is transferred to LinkedIn."
+        "en": "Tracking tag by LinkedIn for conversion tracking, retargeting and website analytics for LinkedIn campaigns. Cookies are set and data is transferred to LinkedIn.",
+        "nl": "Trackingtag van LinkedIn voor conversiemeting, retargeting en website-analyses van LinkedIn-campagnes. Daarbij worden cookies geplaatst en gegevens naar LinkedIn verzonden.",
+        "it": "Tag di tracciamento di LinkedIn per la misurazione delle conversioni, il retargeting e le analisi del sito relative alle campagne LinkedIn. Vengono impostati cookie e trasmessi dati a LinkedIn."
       },
       "params": [
         {
           "key": "partner_id",
           "label": {
             "de": "Partner-ID",
-            "en": "Partner ID"
+            "en": "Partner ID",
+            "nl": "Partner-ID",
+            "it": "ID partner"
           },
           "placeholder": "1234567",
           "pattern": "^[0-9]+$"
@@ -312,7 +350,9 @@
           },
           "purpose": {
             "de": "Indirekte Mitgliederkennung für Conversion-Tracking, Retargeting und Analysen.",
-            "en": "Member indirect identifier for conversion tracking, retargeting and analytics."
+            "en": "Member indirect identifier for conversion tracking, retargeting and analytics.",
+            "nl": "Indirecte ledenidentificatie voor conversietracking, retargeting en analyses.",
+            "it": "Identificativo indiretto dei membri per il tracciamento delle conversioni, il retargeting e le analisi."
           }
         },
         {
@@ -325,7 +365,9 @@
           },
           "purpose": {
             "de": "Indirekte Kennung für Gruppen von LinkedIn-Mitgliedern für das Conversion-Tracking.",
-            "en": "Indirect identifier for groups of LinkedIn members used for conversion tracking."
+            "en": "Indirect identifier for groups of LinkedIn members used for conversion tracking.",
+            "nl": "Indirecte identificatie voor groepen LinkedIn-leden ten behoeve van conversietracking.",
+            "it": "Identificativo indiretto per gruppi di membri LinkedIn ai fini del tracciamento delle conversioni."
           }
         },
         {
@@ -338,7 +380,9 @@
           },
           "purpose": {
             "de": "Ermittelt, ob Oribi-Analysen auf dieser Domain durchgeführt werden können.",
-            "en": "Used to determine if Oribi analytics can be carried out on a specific domain."
+            "en": "Used to determine if Oribi analytics can be carried out on a specific domain.",
+            "nl": "Bepaalt of Oribi-analyses op dit domein kunnen worden uitgevoerd.",
+            "it": "Determina se è possibile eseguire analisi Oribi su questo dominio."
           }
         },
         {
@@ -351,7 +395,9 @@
           },
           "purpose": {
             "de": "Browser-Kennung zur eindeutigen Identifizierung von Geräten, zur Missbrauchserkennung und zu Diagnosezwecken.",
-            "en": "Browser identifier cookie to uniquely identify devices accessing LinkedIn, to detect abuse and for diagnostic purposes."
+            "en": "Browser identifier cookie to uniquely identify devices accessing LinkedIn, to detect abuse and for diagnostic purposes.",
+            "nl": "Browseridentificatie voor het uniek identificeren van apparaten, misbruikdetectie en diagnosedoeleinden.",
+            "it": "Identificativo del browser per l'identificazione univoca dei dispositivi, il rilevamento degli abusi e scopi diagnostici."
           }
         },
         {
@@ -364,7 +410,9 @@
           },
           "purpose": {
             "de": "Erleichtert die Auswahl des Rechenzentrums.",
-            "en": "To facilitate data center selection."
+            "en": "To facilitate data center selection.",
+            "nl": "Vergemakkelijkt de keuze van het datacenter.",
+            "it": "Facilita la selezione del data center."
           }
         },
         {
@@ -377,7 +425,9 @@
           },
           "purpose": {
             "de": "Speichert die Einwilligung von Gästen zur Verwendung nicht notwendiger Cookies.",
-            "en": "Used to store consent of guests regarding the use of cookies for non-essential purposes."
+            "en": "Used to store consent of guests regarding the use of cookies for non-essential purposes.",
+            "nl": "Slaat de toestemming van gasten voor het gebruik van niet-noodzakelijke cookies op.",
+            "it": "Memorizza il consenso degli ospiti all'uso di cookie non necessari."
           }
         },
         {
@@ -390,7 +440,9 @@
           },
           "purpose": {
             "de": "Synchronisierung der LinkedIn-Ads-ID.",
-            "en": "LinkedIn Ads ID syncing."
+            "en": "LinkedIn Ads ID syncing.",
+            "nl": "Synchronisatie van de LinkedIn-advertentie-ID.",
+            "it": "Sincronizzazione dell'ID annunci LinkedIn."
           }
         },
         {
@@ -403,7 +455,9 @@
           },
           "purpose": {
             "de": "Speichert den Zeitpunkt der letzten Synchronisierung mit dem Cookie lms_analytics.",
-            "en": "Used to store information about the time a sync took place with the lms_analytics cookie."
+            "en": "Used to store information about the time a sync took place with the lms_analytics cookie.",
+            "nl": "Slaat het tijdstip van de laatste synchronisatie met het cookie lms_analytics op.",
+            "it": "Memorizza il momento dell'ultima sincronizzazione con il cookie lms_analytics."
           }
         },
         {
@@ -416,7 +470,9 @@
           },
           "purpose": {
             "de": "Identifiziert LinkedIn-Mitglieder außerhalb von LinkedIn für Werbezwecke.",
-            "en": "Used to identify LinkedIn members off LinkedIn for advertising."
+            "en": "Used to identify LinkedIn members off LinkedIn for advertising.",
+            "nl": "Identificeert LinkedIn-leden buiten LinkedIn voor advertentiedoeleinden.",
+            "it": "Identifica i membri LinkedIn al di fuori di LinkedIn per finalità pubblicitarie."
           }
         },
         {
@@ -429,7 +485,9 @@
           },
           "purpose": {
             "de": "Identifiziert LinkedIn-Mitglieder außerhalb von LinkedIn für Analysezwecke.",
-            "en": "Used to identify LinkedIn members off LinkedIn for analytics."
+            "en": "Used to identify LinkedIn members off LinkedIn for analytics.",
+            "nl": "Identificeert LinkedIn-leden buiten LinkedIn voor analysedoeleinden.",
+            "it": "Identifica i membri LinkedIn al di fuori di LinkedIn per finalità di analisi."
           }
         },
         {
@@ -442,7 +500,9 @@
           },
           "purpose": {
             "de": "Dient der wahrscheinlichkeitsbasierten Zuordnung der Identität eines Nutzers.",
-            "en": "Used to make a probabilistic match of a user's identity."
+            "en": "Used to make a probabilistic match of a user's identity.",
+            "nl": "Dient voor de op waarschijnlijkheid gebaseerde toewijzing van de identiteit van een gebruiker.",
+            "it": "Serve all'attribuzione probabilistica dell'identità di un utente."
           }
         }
       ],
@@ -462,14 +522,18 @@
       "privacy_url": "https://www.tiktok.com/legal/page/eea/privacy-policy/en",
       "description": {
         "de": "Tracking-Pixel von TikTok zur Messung und Optimierung von Werbekampagnen. Dabei werden Cookies gesetzt und Nutzungsdaten an TikTok übertragen.",
-        "en": "Tracking pixel by TikTok for measuring and optimizing advertising campaigns. Cookies are set and usage data is transferred to TikTok."
+        "en": "Tracking pixel by TikTok for measuring and optimizing advertising campaigns. Cookies are set and usage data is transferred to TikTok.",
+        "nl": "Trackingpixel van TikTok voor het meten en optimaliseren van advertentiecampagnes. Daarbij worden cookies geplaatst en gebruiksgegevens naar TikTok verzonden.",
+        "it": "Pixel di tracciamento di TikTok per misurare e ottimizzare le campagne pubblicitarie. Vengono impostati cookie e trasmessi dati di utilizzo a TikTok."
       },
       "params": [
         {
           "key": "pixel_id",
           "label": {
             "de": "Pixel-ID",
-            "en": "Pixel ID"
+            "en": "Pixel ID",
+            "nl": "Pixel-ID",
+            "it": "ID pixel"
           },
           "placeholder": "CXXXXXXXXXXXXXXXXXXX",
           "pattern": "^[A-Z0-9]+$"
@@ -493,7 +557,9 @@
           },
           "purpose": {
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
-            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
+            "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
           }
         },
         {
@@ -506,7 +572,9 @@
           },
           "purpose": {
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
-            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
+            "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
           }
         },
         {
@@ -519,7 +587,9 @@
           },
           "purpose": {
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
-            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
+            "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
           }
         },
         {
@@ -532,7 +602,9 @@
           },
           "purpose": {
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
-            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok."
+            "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
+            "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
           }
         },
         {
@@ -545,7 +617,9 @@
           },
           "purpose": {
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert Anzeigen im Werbenetzwerk TikTok Pangle.",
-            "en": "Measures and improves the performance of advertising campaigns and personalizes ad experiences delivered by the TikTok Pangle ad network."
+            "en": "Measures and improves the performance of advertising campaigns and personalizes ad experiences delivered by the TikTok Pangle ad network.",
+            "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert advertenties in het advertentienetwerk TikTok Pangle.",
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza gli annunci nella rete pubblicitaria TikTok Pangle."
           }
         }
       ],
@@ -557,7 +631,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen.",
-        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account."
+        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account.",
+        "nl": "Het script komt niet van een openbaar toegankelijke pagina van de leverancier, omdat de aanbieder het alleen in het klantaccount beschikbaar stelt. Vergelijk het met de code uit uw eigen account.",
+        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account."
       }
     },
     {
@@ -568,14 +644,18 @@
       "privacy_url": "https://policy.pinterest.com/en/privacy-policy",
       "description": {
         "de": "Tracking-Tag von Pinterest zur Messung von Conversions und zur Bildung von Zielgruppen für Pinterest-Anzeigen. Dabei werden Cookies gesetzt und Daten an Pinterest übertragen.",
-        "en": "Tracking tag by Pinterest for measuring conversions and building audiences for Pinterest ads. Cookies are set and data is transferred to Pinterest."
+        "en": "Tracking tag by Pinterest for measuring conversions and building audiences for Pinterest ads. Cookies are set and data is transferred to Pinterest.",
+        "nl": "Trackingtag van Pinterest voor het meten van conversies en het samenstellen van doelgroepen voor Pinterest-advertenties. Daarbij worden cookies geplaatst en gegevens naar Pinterest verzonden.",
+        "it": "Tag di tracciamento di Pinterest per misurare le conversioni e creare segmenti di pubblico per gli annunci Pinterest. Vengono impostati cookie e trasmessi dati a Pinterest."
       },
       "params": [
         {
           "key": "tag_id",
           "label": {
             "de": "Tag-ID",
-            "en": "Tag ID"
+            "en": "Tag ID",
+            "nl": "Tag-ID",
+            "it": "ID tag"
           },
           "placeholder": "2612345678901",
           "pattern": "^[0-9]+$"
@@ -599,7 +679,9 @@
           },
           "purpose": {
             "de": "Wird beim Aufruf einer Seite über eine Pinterest-Anzeige gesetzt, um den Nutzer zuzuordnen.",
-            "en": "Placed by the JavaScript tag based on information sent from Pinterest with promoted traffic to help identify the user."
+            "en": "Placed by the JavaScript tag based on information sent from Pinterest with promoted traffic to help identify the user.",
+            "nl": "Wordt geplaatst bij het bezoeken van een pagina via een Pinterest-advertentie om de gebruiker toe te wijzen.",
+            "it": "Viene impostato quando si accede a una pagina tramite un annuncio Pinterest per attribuire l'utente."
           }
         },
         {
@@ -612,7 +694,9 @@
           },
           "purpose": {
             "de": "Wird vom Pinterest Tag gesetzt, wenn ohne vorhandene Cookies eine Zuordnung gelingt (z. B. Enhanced Match).",
-            "en": "Placed by the Pinterest tag when a match is identified when no cookies are present, such as enhanced match."
+            "en": "Placed by the Pinterest tag when a match is identified when no cookies are present, such as enhanced match.",
+            "nl": "Wordt door de Pinterest-tag geplaatst wanneer zonder bestaande cookies een toewijzing lukt (bijvoorbeeld Enhanced Match).",
+            "it": "Viene impostato dal tag Pinterest quando l'attribuzione riesce senza cookie esistenti (ad esempio Enhanced Match)."
           }
         }
       ],
@@ -632,14 +716,18 @@
       "privacy_url": "https://www.microsoft.com/en-us/privacy/privacystatement",
       "description": {
         "de": "Universal Event Tracking von Microsoft Advertising zur Conversion-Messung und für Remarketing. Dabei werden Cookies gesetzt und Daten an Microsoft übertragen.",
-        "en": "Universal Event Tracking by Microsoft Advertising for conversion measurement and remarketing. Cookies are set and data is transferred to Microsoft."
+        "en": "Universal Event Tracking by Microsoft Advertising for conversion measurement and remarketing. Cookies are set and data is transferred to Microsoft.",
+        "nl": "Universal Event Tracking van Microsoft Advertising voor conversiemeting en remarketing. Daarbij worden cookies geplaatst en gegevens naar Microsoft verzonden.",
+        "it": "Universal Event Tracking di Microsoft Advertising per la misurazione delle conversioni e il remarketing. Vengono impostati cookie e trasmessi dati a Microsoft."
       },
       "params": [
         {
           "key": "tag_id",
           "label": {
             "de": "UET-Tag-ID",
-            "en": "UET tag ID"
+            "en": "UET tag ID",
+            "nl": "UET-tag-ID",
+            "it": "ID tag UET"
           },
           "placeholder": "12345678",
           "pattern": "^[0-9]+$"
@@ -663,7 +751,9 @@
           },
           "purpose": {
             "de": "Enthält die Sitzungs-ID einer eindeutigen Sitzung auf der Website.",
-            "en": "Contains the session ID for a unique session on the site."
+            "en": "Contains the session ID for a unique session on the site.",
+            "nl": "Bevat de sessie-ID van een unieke sessie op de website.",
+            "it": "Contiene l'ID di sessione di una sessione univoca sul sito."
           }
         },
         {
@@ -676,7 +766,9 @@
           },
           "purpose": {
             "de": "Eindeutige, pseudonymisierte Besucher-ID, die UET einem Besucher zuweist.",
-            "en": "Unique, pseudonymized visitor ID that UET assigns to a visitor."
+            "en": "Unique, pseudonymized visitor ID that UET assigns to a visitor.",
+            "nl": "Unieke, gepseudonimiseerde bezoekers-ID die UET aan een bezoeker toewijst.",
+            "it": "ID visitatore univoco e pseudonimizzato che UET assegna a un visitatore."
           }
         },
         {
@@ -689,7 +781,9 @@
           },
           "purpose": {
             "de": "Microsoft-Klick-ID zur Verbesserung der Genauigkeit des Conversion-Trackings.",
-            "en": "Microsoft Click ID, used to improve the accuracy of conversion tracking."
+            "en": "Microsoft Click ID, used to improve the accuracy of conversion tracking.",
+            "nl": "Microsoft-klik-ID voor het verbeteren van de nauwkeurigheid van conversietracking.",
+            "it": "ID clic Microsoft per migliorare la precisione del tracciamento delle conversioni."
           }
         },
         {
@@ -702,7 +796,9 @@
           },
           "purpose": {
             "de": "Microsoft-Cookie mit einer dem Browser zugewiesenen GUID; wird bei der Interaktion mit Microsoft-Diensten gesetzt, auch durch UET-Aufrufe.",
-            "en": "Microsoft cookie containing a GUID assigned to the browser; set when interacting with a Microsoft property, including a UET beacon call."
+            "en": "Microsoft cookie containing a GUID assigned to the browser; set when interacting with a Microsoft property, including a UET beacon call.",
+            "nl": "Microsoft-cookie met een aan de browser toegewezen GUID; wordt geplaatst bij interactie met Microsoft-diensten, ook door UET-aanroepen.",
+            "it": "Cookie Microsoft con un GUID assegnato al browser; viene impostato durante l'interazione con i servizi Microsoft, anche tramite chiamate UET."
           }
         },
         {
@@ -715,7 +811,9 @@
           },
           "purpose": {
             "de": "Eindeutige, pseudonymisierte Besucher-ID als partitioniertes Cookie.",
-            "en": "Unique, pseudonymized visitor ID stored as a partitioned cookie."
+            "en": "Unique, pseudonymized visitor ID stored as a partitioned cookie.",
+            "nl": "Unieke, gepseudonimiseerde bezoekers-ID als gepartitioneerd cookie.",
+            "it": "ID visitatore univoco e pseudonimizzato come cookie partizionato."
           }
         }
       ],
@@ -729,7 +827,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Microsoft veröffentlicht keine Laufzeiten; sie stammen aus dem Quellcode von bat.js bzw. aus der Open Cookie Database.",
-        "en": "Microsoft does not publish durations; they come from the bat.js source code and the Open Cookie Database."
+        "en": "Microsoft does not publish durations; they come from the bat.js source code and the Open Cookie Database.",
+        "nl": "Microsoft publiceert geen looptijden; deze komen uit de broncode van bat.js of uit de Open Cookie Database.",
+        "it": "Microsoft non pubblica le durate; provengono dal codice sorgente di bat.js o dall'Open Cookie Database."
       }
     },
     {
@@ -740,14 +840,18 @@
       "privacy_url": "https://legal.hubspot.com/privacy-policy",
       "description": {
         "de": "Tracking-Code der Marketing- und CRM-Plattform HubSpot, der Besuche auswertet und Besucher mit Kontakten (z. B. nach Formularübermittlung) verknüpft. Dabei werden Cookies gesetzt und Daten an HubSpot übertragen.",
-        "en": "Tracking code of the HubSpot marketing and CRM platform that analyses visits and links visitors to contacts (e.g. after a form submission). Cookies are set and data is transferred to HubSpot."
+        "en": "Tracking code of the HubSpot marketing and CRM platform that analyses visits and links visitors to contacts (e.g. after a form submission). Cookies are set and data is transferred to HubSpot.",
+        "nl": "Trackingcode van het marketing- en CRM-platform HubSpot die bezoeken analyseert en bezoekers aan contacten koppelt (bijvoorbeeld na het verzenden van een formulier). Daarbij worden cookies geplaatst en gegevens naar HubSpot verzonden.",
+        "it": "Codice di tracciamento della piattaforma di marketing e CRM HubSpot che analizza le visite e collega i visitatori ai contatti (ad esempio dopo l'invio di un modulo). Vengono impostati cookie e trasmessi dati a HubSpot."
       },
       "params": [
         {
           "key": "hub_id",
           "label": {
             "de": "Hub-ID",
-            "en": "Hub ID"
+            "en": "Hub ID",
+            "nl": "Hub-ID",
+            "it": "ID hub"
           },
           "placeholder": "1234567",
           "pattern": "^[0-9]+$"
@@ -771,7 +875,9 @@
           },
           "purpose": {
             "de": "Haupt-Cookie zur Besucherverfolgung; enthält Domain, hubspotutk, Zeitstempel und Sitzungsnummer.",
-            "en": "The main cookie for tracking visitors; contains the domain, hubspotutk, timestamps and session number."
+            "en": "The main cookie for tracking visitors; contains the domain, hubspotutk, timestamps and session number.",
+            "nl": "Hoofdcookie voor bezoekersregistratie; bevat domein, hubspotutk, tijdstempel en sessienummer.",
+            "it": "Cookie principale per il monitoraggio dei visitatori; contiene dominio, hubspotutk, marca temporale e numero di sessione."
           }
         },
         {
@@ -784,7 +890,9 @@
           },
           "purpose": {
             "de": "Speichert die Identität des Besuchers; wird bei Formularübermittlung an HubSpot übergeben und zur Deduplizierung von Kontakten genutzt.",
-            "en": "Keeps track of a visitor's identity; passed to HubSpot on form submission and used when deduplicating contacts."
+            "en": "Keeps track of a visitor's identity; passed to HubSpot on form submission and used when deduplicating contacts.",
+            "nl": "Slaat de identiteit van de bezoeker op; wordt bij het verzenden van een formulier aan HubSpot doorgegeven en gebruikt voor het ontdubbelen van contacten.",
+            "it": "Memorizza l'identità del visitatore; viene trasmesso a HubSpot all'invio del modulo e utilizzato per la deduplicazione dei contatti."
           }
         },
         {
@@ -797,7 +905,9 @@
           },
           "purpose": {
             "de": "Verfolgt Sitzungen und bestimmt, ob Sitzungsnummer und Zeitstempel im Cookie __hstc erhöht werden.",
-            "en": "Keeps track of sessions and determines whether the session number and timestamps in __hstc are incremented."
+            "en": "Keeps track of sessions and determines whether the session number and timestamps in __hstc are incremented.",
+            "nl": "Volgt sessies en bepaalt of sessienummer en tijdstempel in het cookie __hstc worden verhoogd.",
+            "it": "Traccia le sessioni e determina se il numero di sessione e la marca temporale nel cookie __hstc vengono incrementati."
           }
         },
         {
@@ -810,7 +920,9 @@
           },
           "purpose": {
             "de": "Ermittelt, ob der Besucher den Browser neu gestartet hat.",
-            "en": "Determines if the visitor has restarted their browser."
+            "en": "Determines if the visitor has restarted their browser.",
+            "nl": "Bepaalt of de bezoeker de browser opnieuw heeft gestart.",
+            "it": "Determina se il visitatore ha riavviato il browser."
           }
         },
         {
@@ -823,7 +935,9 @@
           },
           "purpose": {
             "de": "Notwendiges Cookie des CDN-Anbieters von HubSpot zum Schutz vor Bots.",
-            "en": "Necessary cookie set by HubSpot's CDN provider for bot protection."
+            "en": "Necessary cookie set by HubSpot's CDN provider for bot protection.",
+            "nl": "Noodzakelijk cookie van de CDN-aanbieder van HubSpot ter bescherming tegen bots.",
+            "it": "Cookie necessario del fornitore CDN di HubSpot per la protezione dai bot."
           }
         },
         {
@@ -836,7 +950,9 @@
           },
           "purpose": {
             "de": "Cookie des CDN-Anbieters von HubSpot zur Durchsetzung von Rate-Limiting-Regeln.",
-            "en": "Set by HubSpot's CDN provider because of their rate limiting policies."
+            "en": "Set by HubSpot's CDN provider because of their rate limiting policies.",
+            "nl": "Cookie van de CDN-aanbieder van HubSpot voor het afdwingen van rate-limitingregels.",
+            "it": "Cookie del fornitore CDN di HubSpot per applicare regole di limitazione della frequenza."
           }
         },
         {
@@ -849,7 +965,9 @@
           },
           "purpose": {
             "de": "Cookie des CDN-Anbieters von HubSpot zur Durchsetzung von Rate-Limiting-Regeln.",
-            "en": "Set by HubSpot's CDN provider because of their rate limiting policies."
+            "en": "Set by HubSpot's CDN provider because of their rate limiting policies.",
+            "nl": "Cookie van de CDN-aanbieder van HubSpot voor het afdwingen van rate-limitingregels.",
+            "it": "Cookie del fornitore CDN di HubSpot per applicare regole di limitazione della frequenza."
           }
         }
       ],
@@ -861,7 +979,9 @@
       "verified": "2026-09-21",
       "note": {
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen. EU-Konten nutzen ggf. einen anderen Script-Host (js-eu1).",
-        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account. EU accounts may use a different script host (js-eu1)."
+        "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account. EU accounts may use a different script host (js-eu1).",
+        "nl": "Het script komt niet van een openbaar toegankelijke pagina van de leverancier, omdat de aanbieder het alleen in het klantaccount beschikbaar stelt. Vergelijk het met de code uit uw eigen account. EU-accounts gebruiken mogelijk een andere scripthost (js-eu1).",
+        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account. Gli account UE possono utilizzare un host di script diverso (js-eu1)."
       }
     },
     {
@@ -872,14 +992,18 @@
       "privacy_url": "https://openai.com/policies/eu-privacy-policy/",
       "description": {
         "de": "Messpixel von OpenAI zur Erfolgsmessung von Anzeigen in ChatGPT. Ordnet Aktionen auf der Website (z. B. Anfragen oder Käufe) Anzeigenklicks zu; dazu werden Cookies gesetzt und Ereignisdaten an OpenAI übertragen.",
-        "en": "Measurement pixel by OpenAI for attributing conversions to ads in ChatGPT. Assigns actions on the website (e.g. enquiries or purchases) to ad clicks; cookies are set and event data is transferred to OpenAI."
+        "en": "Measurement pixel by OpenAI for attributing conversions to ads in ChatGPT. Assigns actions on the website (e.g. enquiries or purchases) to ad clicks; cookies are set and event data is transferred to OpenAI.",
+        "nl": "Meetpixel van OpenAI voor het meten van het resultaat van advertenties in ChatGPT. Wijst acties op de website (bijvoorbeeld aanvragen of aankopen) toe aan advertentieklikken; daarvoor worden cookies geplaatst en gebeurtenisgegevens naar OpenAI verzonden.",
+        "it": "Pixel di misurazione di OpenAI per valutare il rendimento degli annunci in ChatGPT. Attribuisce ai clic sugli annunci le azioni compiute sul sito (ad esempio richieste o acquisti); a tal fine vengono impostati cookie e trasmessi dati sugli eventi a OpenAI."
       },
       "params": [
         {
           "key": "pixel_id",
           "label": {
             "de": "Pixel-ID",
-            "en": "Pixel ID"
+            "en": "Pixel ID",
+            "nl": "Pixel-ID",
+            "it": "ID pixel"
           },
           "placeholder": "AQhQ…",
           "pattern": "^[A-Za-z0-9_-]{6,}$"
@@ -903,7 +1027,9 @@
           },
           "purpose": {
             "de": "Speichert die Anzeigen-Kennung (oppref) aus der Landingpage-URL, damit spätere Aktionen dem Anzeigenklick zugeordnet werden können.",
-            "en": "Stores the ad click reference (oppref) from the landing page URL so that later actions can be attributed to the ad click."
+            "en": "Stores the ad click reference (oppref) from the landing page URL so that later actions can be attributed to the ad click.",
+            "nl": "Slaat de advertentie-identificatie (oppref) uit de landingspagina-URL op, zodat latere acties aan de advertentieklik kunnen worden toegewezen.",
+            "it": "Memorizza l'identificativo dell'annuncio (oppref) dall'URL della landing page, affinché le azioni successive possano essere attribuite al clic sull'annuncio."
           }
         },
         {
@@ -916,13 +1042,17 @@
           },
           "purpose": {
             "de": "Zufällig erzeugte Browser-Kennung für diese Website zur Wiedererkennung bei der Erfolgsmessung.",
-            "en": "Randomly generated browser reference for this website used to recognise the browser for measurement."
+            "en": "Randomly generated browser reference for this website used to recognise the browser for measurement.",
+            "nl": "Willekeurig gegenereerde browseridentificatie voor deze website ten behoeve van herkenning bij de resultaatmeting.",
+            "it": "Identificativo del browser generato casualmente per questo sito, utilizzato per il riconoscimento nella misurazione dei risultati."
           }
         }
       ],
       "note": {
         "de": "Das Pixel misst keine Seitenaufrufe von allein: Was gemeldet werden soll (Anfrage, Terminbuchung, wichtige Seite), wird im Reiter „Ereignisse“ festgelegt. Wird die Einwilligung widerrufen, speichert das Pixel die Ablehnung und sendet nichts mehr.",
-        "en": "The pixel does not measure page views by itself: what to report (enquiry, appointment, important page) is set in the “Events” tab. On withdrawal the pixel stores the denial and sends nothing further."
+        "en": "The pixel does not measure page views by itself: what to report (enquiry, appointment, important page) is set in the “Events” tab. On withdrawal the pixel stores the denial and sends nothing further.",
+        "nl": "De pixel meet niet uit zichzelf paginaweergaven: wat moet worden gemeld (aanvraag, afspraak, belangrijke pagina) wordt vastgelegd op het tabblad „Gebeurtenissen”. Wordt de toestemming ingetrokken, dan slaat de pixel de weigering op en verzendt niets meer.",
+        "it": "Il pixel non misura automaticamente le visualizzazioni di pagina: ciò che deve essere segnalato (richiesta, prenotazione, pagina importante) si definisce nella scheda «Eventi». Se il consenso viene revocato, il pixel memorizza il rifiuto e non invia più nulla."
       },
       "sources": [
         "https://developers.openai.com/ads/measurement-pixel",

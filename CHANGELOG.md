@@ -23,6 +23,14 @@ Bisher öffnete sich der Hinweis immer, sobald eine Entscheidung fehlte. Auf Web
 
 Die schwebende Schaltfläche bleibt wie bisher rein optional (`trigger`) – der Einstieg kann genauso über einen eigenen Link `<a href="#consent-kit">` laufen.
 
+#### Neu: Niederländisch und Italienisch
+
+Frontend-Texte und Dienst-Vorlagen sprechen jetzt vier Sprachen. Das Backend bleibt bei Deutsch und Englisch.
+
+- `resources/texts.php`: Blöcke `nl` und `it` mit allen 52 Schlüsseln. Die Auflösung läuft unverändert über `Texts::defaultsFor()`, das zuerst den vollen Code (`nl_nl`), dann die zweistellige Form (`nl`) und zuletzt `en` versucht — es ist also keine Änderung am Code nötig, damit die Sprachen greifen.
+- `presets/*.json`: Alle 189 mehrsprachigen Felder der 38 Vorlagen um `nl` und `it` ergänzt — Dienstbeschreibungen, Hinweise, Parameter-Beschriftungen und die Zwecke der 125 Cookie- und Storage-Einträge. Übernommen wird das beim Anlegen eines Dienstes aus einer Vorlage; bereits angelegte Dienste bleiben unverändert.
+- Korrigiert: Die Standardtexte `intro` verwiesen in beiden Sprachen noch auf „Cookie-Einstellungen“ bzw. „Cookie settings“.
+
 #### Geändert: Wording
 
 Der Dialog verwaltet Dienste und jede Form von Speicher (Cookies, Local Storage, Session Storage, IndexedDB) – „Cookie-Einstellungen“ war dafür zu eng und sachlich falsch. Betroffen sind Frontend-Texte und Backend-Beschriftungen:
