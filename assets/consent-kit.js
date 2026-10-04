@@ -538,9 +538,9 @@ function customStyle() {
 const cookieIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.3A9 9 0 1 1 11.7 3a4 4 0 0 0 4.6 4.7A4 4 0 0 0 21 12.3Z"/><path d="M8.5 9.5h.01M8 14.5h.01M12.5 12.5h.01M13 17h.01M16.5 14h.01"/></svg>';
 
 /**
- * Bringt der Dienst eigenen Code mit, der nach der Einwilligung laeuft? Solche Dienste
+ * Bringt der Dienst eigenen Code mit, der nach der Einwilligung läuft? Solche Dienste
  * (Analytics, Pixel, Tag Manager) brauchen die Abfrage beim Seitenaufruf, weil sie sonst
- * nie zum Zug kaemen. Reine Embed-Dienste haben hier nichts stehen - sie laufen ueber den
+ * nie zum Zug kämen. Reine Embed-Dienste haben hier nichts stehen – sie laufen über den
  * Platzhalter.
  */
 function loadsOnConsent(service) {
@@ -663,14 +663,14 @@ class ConsentKitElement extends HTMLElement {
     }
 
     /**
-     * Soll der Hinweis beim Seitenaufruf unterdrueckt werden?
+     * Soll der Hinweis beim Seitenaufruf unterdrückt werden?
      *
-     * never     – immer unterdruecken; der Einstieg laeuft ueber Platzhalter, schwebende
-     *             Schaltflaeche oder einen eigenen Link.
+     * never     – immer unterdrücken; der Einstieg läuft über Platzhalter, schwebende
+     *             Schaltfläche oder einen eigenen Link.
      * on_demand – nur zeigen, wenn auf dieser Seite ein gesperrter Inhalt steht, also ein
      *             <consent-embed>, dessen Dienst noch keine Einwilligung hat. Dienste, die
-     *             von sich aus laden (Scripts im <head>), sind davon unberuehrt: Sie
-     *             erzwingen weiterhin die Abfrage, sonst wuerde ohne Einwilligung geladen.
+     *             von sich aus laden (Scripts im <head>), sind davon unberührt: Sie
+     *             erzwingen weiterhin die Abfrage, sonst würde ohne Einwilligung geladen.
      */
     suppressed() {
         const mode = cfg.openMode || 'always';

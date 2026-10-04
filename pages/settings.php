@@ -170,9 +170,9 @@ foreach ($rows as $index => $domain) {
 $domains = '<table class="table ck-domains"><thead><tr><th>' . rex_i18n::msg('consent_kit_domain_host') . '</th><th>' . rex_i18n::msg('consent_kit_domain_privacy') . '</th><th>' . rex_i18n::msg('consent_kit_domain_imprint') . '</th><th><span class="sr-only">' . rex_i18n::msg('consent_kit_actions') . '</span></th></tr></thead><tbody>' . $domainRows . '</tbody></table>';
 
 /*
- * "Nur bei Bedarf" und "Nie" taugen nur, wenn ohne Einwilligung nichts laedt. Sobald ein
- * optionaler Dienst eigenen Code mitbringt, der nach der Einwilligung laeuft, muss vorher
- * gefragt werden - sonst wuerde er nie starten.
+ * "Nur bei Bedarf" und "Nie" taugen nur, wenn ohne Einwilligung nichts lädt. Sobald ein
+ * optionaler Dienst eigenen Code mitbringt, der nach der Einwilligung läuft, muss vorher
+ * gefragt werden – sonst würde er nie starten.
  */
 $openMode = (string) $get('open_mode', 'always');
 if ('always' !== $openMode) {
