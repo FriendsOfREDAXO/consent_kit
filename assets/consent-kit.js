@@ -673,8 +673,9 @@ class ConsentKitElement extends HTMLElement {
      *             erzwingen weiterhin die Abfrage, sonst würde ohne Einwilligung geladen.
      */
     suppressed() {
-        const mode = cfg.openMode || 'always';
-        if (cfg.preview || mode === 'always') return false;
+        // Unbekannte Werte verhalten sich wie "always" – dieselbe sichere Seite wie in Cache.php.
+        const mode = cfg.openMode;
+        if (cfg.preview || (mode !== 'on_demand' && mode !== 'never')) return false;
         if (mode === 'never') return true;
         if (core.optional.some((service) => loadsOnConsent(service))) return false;
         return !this.blockedEmbed();
