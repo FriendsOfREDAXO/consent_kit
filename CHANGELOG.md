@@ -41,6 +41,10 @@ Der Dialog verwaltet Dienste und jede Form von Speicher (Cookies, Local Storage,
 
 Bestehende Übersetzungen in der Datenbank bleiben unangetastet – geändert wurden nur die Standardtexte. Wer die Texte im Backend überschrieben hat, behält seine Fassung.
 
+#### Hinweis zum Update
+
+Es sind keine Datenbankänderungen nötig. Die neue Einstellung greift ohne Eintrag auf `always` zurück — das Verhalten bleibt nach dem Update also unverändert, bis sie bewusst umgestellt wird. Die geänderten Standardtexte wirken nur dort, wo sie im Backend nicht überschrieben wurden; die ergänzten Sprachen der Vorlagen gelten für neu angelegte Dienste, bestehende bleiben wie sie sind.
+
 ## 1.0.1 – 2026-10-03
 
 #### Behoben
