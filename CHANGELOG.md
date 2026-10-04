@@ -1,5 +1,38 @@
 # Changelog
 
+## 1.1.0 – 2026-10-04
+
+#### Neu: Einstellung „Hinweis beim Seitenaufruf“ (`open_mode`)
+
+Bisher öffnete sich der Hinweis immer, sobald eine Entscheidung fehlte. Auf Websites, die nur externe Inhalte einbinden und sonst nichts laden, ist das unnötig: Dort entsteht der Bedarf erst beim Platzhalter. Die neue Einstellung hat drei Werte:
+
+| Wert | Verhalten |
+| --- | --- |
+| `always` (Standard) | wie bisher – Hinweis beim ersten Aufruf, solange keine Entscheidung vorliegt |
+| `on_demand` | Hinweis nur, wenn auf der Seite ein `<consent-embed>` steht, dessen Dienst noch nicht erlaubt ist |
+| `never` | Hinweis ausschließlich auf Zuruf (Platzhalter, schwebende Schaltfläche, eigener Link) |
+
+**Umsetzung im Einzelnen** (relevant für Portierungen):
+
+- `pages/settings.php`: `open_mode` in der Whitelist `$choices`, Auswahl als `Form::choice()` im Panel „Darstellung“ oberhalb der Schließen-Schaltfläche. Ohne gültigen Wert bleibt die Einstellung unangetastet.
+- `lib/Cache.php`: Der Wert wandert als `openMode` in die Frontend-Konfiguration; beim Lesen gegen die drei erlaubten Werte geprüft, sonst `always`. Damit bleibt eine beschädigte Konfiguration auf der sicheren Seite.
+- `assets/consent-kit.js`: Beim Start entscheidet `suppressed()` in `ConsentKitElement`, ob der Hinweis unterdrückt wird. Die Methode sitzt in der bestehenden Kette hinter `wasDismissed()`, damit GPC und „für diese Sitzung geschlossen“ unverändert Vorrang behalten. In der Vorschau (`cfg.preview`) greift sie nie.
+- `blockedEmbed()` sucht `consent-embed[service]` im Dokument und meldet `true`, sobald ein Dienst dabei ist, der in der Konfiguration existiert und noch keine Einwilligung hat. Platzhalter unbekannter Dienste zählen nicht, weil sie ohnehin keinen Weg zur Einwilligung bieten.
+- `loadsOnConsent(service)` (modulweite Funktion) prüft `head`, `body`, `jsAccept` und `jsEvents` eines Dienstes. Trifft das auf einen **optionalen** Dienst zu, ist `on_demand` wirkungslos und der Hinweis erscheint trotzdem – ein solcher Dienst würde sonst nie starten. Nur `never` unterdrückt ausnahmslos.
+- Die Einstellungsseite warnt bei `on_demand`/`never`, wenn aktive Dienste eigenen Code mitbringen, und nennt sie beim Namen (`consent_kit_open_mode_warning`). Geprüft werden `html_head`, `html_body`, `js_accept` und hinterlegte Ereignisse.
+
+Die schwebende Schaltfläche bleibt wie bisher rein optional (`trigger`) – der Einstieg kann genauso über einen eigenen Link `<a href="#consent-kit">` laufen.
+
+#### Geändert: Wording
+
+Der Dialog verwaltet Dienste und jede Form von Speicher (Cookies, Local Storage, Session Storage, IndexedDB) – „Cookie-Einstellungen“ war dafür zu eng und sachlich falsch. Betroffen sind Frontend-Texte und Backend-Beschriftungen:
+
+- `resources/texts.php`: `trigger` „Cookie-Einstellungen“ → „Datenschutz-Einstellungen“ (en: „Cookie settings“ → „Privacy settings“), `embed_settings` und `embed_text` entsprechend.
+- `lang/*.lang`: Beschriftung der schwebenden Schaltfläche, Hilfetext mit dem Beispiel-Link, GPC-Hinweistext.
+- `docs/`: Beispiel-Links und Beschreibung des Platzhalters.
+
+Bestehende Übersetzungen in der Datenbank bleiben unangetastet – geändert wurden nur die Standardtexte. Wer die Texte im Backend überschrieben hat, behält seine Fassung.
+
 ## 1.0.1 – 2026-10-03
 
 #### Behoben

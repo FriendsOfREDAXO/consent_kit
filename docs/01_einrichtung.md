@@ -23,8 +23,23 @@ Unter **Einstellungen → Rechtstexte und Domains** werden Datenschutzerklärung
 | Position | Ecke der Box, oben/unten bei der Leiste, links/rechts beim Off-Canvas-Panel. |
 | Gruppen im Hinweis zeigen | Nur bei **Dialog** und **Off-Canvas**: Der Hinweis listet die Gruppen mit Schaltern, die mittlere Schaltfläche wird „Auswahl speichern“. Es ist nichts vorausgewählt – eine Vorbelegung wäre keine wirksame Einwilligung. Die einzelnen Dienste bleiben in den Einstellungen. Standard: aus. |
 | Farbschema | Hell, Dunkel oder Automatisch (folgt dem System des Besuchers – nur sinnvoll, wenn die Website selbst einen Dark Mode hat). |
+| Hinweis beim Seitenaufruf | **Immer zeigen** (Standard), **Nur bei Bedarf** oder **Nie von selbst** – siehe unten. |
 | Schließen-Schaltfläche (×) | Schließt den Hinweis **ohne Entscheidung**: Es wird nichts geladen, und der Hinweis bleibt bis zum Ende der Browser-Sitzung ausgeblendet (Escape wirkt genauso). Ohne × muss im Dialog entschieden werden. Standard: an. |
 | Schwebende Schaltfläche | Öffnet die Einstellungen erneut. Ohne sie muss ein [eigener Link](03_einbindung.md#einstellungen-erneut-oeffnen) vorhanden sein: Der Widerruf muss so einfach sein wie die Einwilligung. |
+
+### Hinweis beim Seitenaufruf
+
+Nicht jede Website braucht den Hinweis sofort. Wer ausschließlich externe Inhalte einbindet (Video, Karte, Social-Media-Einbettung) und sonst nichts lädt, kann die Abfrage dorthin verlagern, wo sie entsteht: an den Platzhalter.
+
+| Wert | Verhalten |
+| --- | --- |
+| **Immer zeigen** | Der Hinweis erscheint beim ersten Aufruf, solange keine Entscheidung vorliegt. Standard. |
+| **Nur bei Bedarf** | Der Hinweis erscheint nur, wenn auf der Seite ein `<consent-embed>` steht, dessen Dienst noch nicht erlaubt ist. Auf Seiten ohne gesperrte Inhalte bleibt er aus. |
+| **Nie von selbst** | Der Hinweis erscheint ausschließlich auf Zuruf – über den Platzhalter, die schwebende Schaltfläche oder einen eigenen Link. |
+
+**Die Einschränkung:** Sobald ein optionaler Dienst eigenen Code mitbringt, der nach der Einwilligung läuft (`html_head`, `html_body`, `js_accept` oder ein Ereignis), wird bei **Nur bei Bedarf** trotzdem gefragt – sonst käme dieser Dienst nie zum Zug. Nur **Nie von selbst** unterdrückt den Hinweis ausnahmslos; diese Stufe gehört auf Websites, die ohne Einwilligung nachweislich nichts laden. Die Einstellungsseite warnt, wenn ein solcher Dienst aktiv ist, und nennt ihn beim Namen.
+
+Bei **Nur bei Bedarf** und **Nie von selbst** braucht es einen dauerhaft erreichbaren Weg zu den Einstellungen: entweder die schwebende Schaltfläche oder einen [eigenen Link](03_einbindung.md#einstellungen-erneut-oeffnen). Der Widerruf muss so einfach sein wie die Einwilligung.
 
 ## Einwilligung und Protokoll
 

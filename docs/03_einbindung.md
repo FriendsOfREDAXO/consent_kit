@@ -75,7 +75,7 @@ echo Consent::embed(
 );
 ```
 
-Das Original-Markup liegt inert in einem `<template>` und gelangt erst nach Einwilligung in die Seite. Der Platzhalter bietet drei gleich gestaltete Schaltflächen: „Inhalt einmal laden“ (ohne Speicherung), „… immer erlauben“ (speichert die Einwilligung für den Dienst) und „Cookie-Einstellungen öffnen“.
+Das Original-Markup liegt inert in einem `<template>` und gelangt erst nach Einwilligung in die Seite. Der Platzhalter bietet drei gleich gestaltete Schaltflächen: „Inhalt einmal laden“ (ohne Speicherung), „… immer erlauben“ (speichert die Einwilligung für den Dienst) und „Datenschutz-Einstellungen öffnen“.
 
 Im Text des Platzhalters (**Texte → Platzhalter für externe Inhalte → Erklärung**) stehen neben `{name}` drei Link-Platzhalter zur Verfügung; der übrige Text bleibt maskiert:
 
@@ -141,8 +141,8 @@ $html = Embed::filter($html, Consent::config());
 Die schwebende Schaltfläche ist standardmäßig an. Alternativ oder zusätzlich – typischerweise im Footer:
 
 ```html
-<a href="#consent-kit">Cookie-Einstellungen</a>
-<button type="button" data-consent-kit-open>Cookie-Einstellungen</button>
+<a href="#consent-kit">Datenschutz-Einstellungen</a>
+<button type="button" data-consent-kit-open>Datenschutz-Einstellungen</button>
 ```
 
 Auch `.consent-kit-open` und das vom consent_manager bekannte `.consent_manager-show-box` funktionieren.
