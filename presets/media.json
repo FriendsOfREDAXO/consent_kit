@@ -732,6 +732,37 @@
         "https://github.com/podigee/podigee-podcast-player"
       ],
       "verified": "2026-09-21"
+    },
+    {
+      "key": "microsoft_forms",
+      "name": "Microsoft Forms",
+      "group": "media",
+      "provider": "Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ireland",
+      "privacy_url": "https://www.microsoft.com/privacy/privacystatement",
+      "description": {
+        "de": "Einbettung von Formularen und Umfragen aus Microsoft Forms. Beim Laden des Formulars wird die IP-Adresse an Microsoft übertragen; Microsoft kann dabei Cookies setzen.",
+        "en": "Embeds forms and surveys from Microsoft Forms. Loading the form transfers the IP address to Microsoft; Microsoft may set cookies.",
+        "nl": "Insluiten van formulieren en enquêtes uit Microsoft Forms. Bij het laden van het formulier wordt het IP-adres naar Microsoft verzonden; Microsoft kan daarbij cookies plaatsen.",
+        "it": "Integrazione di moduli e sondaggi da Microsoft Forms. Al caricamento del modulo l'indirizzo IP viene trasmesso a Microsoft; Microsoft può impostare cookie."
+      },
+      "params": [],
+      "html_head": "",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "",
+      "gcm_signals": [],
+      "embed_hosts": [
+        "forms.office.com",
+        "forms.microsoft.com",
+        "forms.cloud.microsoft"
+      ],
+      "items": [],
+      "sources": [
+        "https://support.microsoft.com/en-us/forms/send-a-form-and-collect-responses",
+        "https://www.microsoft.com/privacy/privacystatement"
+      ],
+      "verified": "2026-10-13"
     }
   ]
 }
