@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 – 2026-10-13
+
+#### Neu: Vorlage „Microsoft Forms“
+
+Eingebettete Formulare und Umfragen aus Microsoft Forms (Gruppe *Externe Medien*). Hosts für eingebettete Inhalte: `forms.office.com`, `forms.microsoft.com`, `forms.cloud.microsoft` – mit „iframes bekannter Dienste automatisch sperren“ werden die üblichen Einbettungscodes (`<iframe src="https://forms.office.com/…&embed=true">`) erst nach Einwilligung geladen.
+
+Cookies sind bewusst nicht hinterlegt: Microsoft veröffentlicht für Forms keine eigene Liste, die Beschreibung nennt die Übertragung der IP-Adresse und mögliche Cookies neutral. Quellen: Microsoft-Hilfe „Send a form and collect responses“ (Einbetten) und die Microsoft-Datenschutzerklärung.
+
 ## 1.1.1 – 2026-10-04
 
 #### Behoben
