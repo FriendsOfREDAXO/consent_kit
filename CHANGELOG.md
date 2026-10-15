@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.1 – 2026-10-15
+
+#### Behoben
+
+- **Hinweis auf iPhone und iPad unsichtbar, Seite gesperrt.** Auf einigen iOS-/iPadOS-Versionen (Safari/WebKit) fiel der mittige Dialog (Layout „modal“ und die Einstellungen) auf 0 px Höhe zusammen: Zu sehen war nur ein feiner Strich quer über der abgedunkelten Seite, die gleichzeitig gesperrt war. Ursache war das Zusammenspiel aus `max-height: 100%` am Inhalt und der nicht festgelegten Höhe des fixierten Dialogs – ältere WebKit-Versionen lösen die Prozentangabe dabei zu 0 auf. Der Dialog erhält jetzt ausdrücklich seine Inhaltshöhe (`fit-content`), das Höchstmaß des Inhalts richtet sich nach dem Viewport statt nach dem Dialog. Langer Inhalt scrollt weiterhin im Textbereich, die Schaltflächen bleiben sichtbar – geprüft für Hinweis und Einstellungen in den Layouts modal, box, bar und offcanvas.
+- **Absicherung gegen Layoutfehler:** Nach dem Öffnen prüft der Dialog seine Höhe. Ist sie unplausibel klein, bekommt er seine Inhaltshöhe ausdrücklich; hilft auch das nicht, öffnet er sich nicht-modal. Ein Darstellungsfehler kann die Seite damit nicht mehr komplett sperren.
+- Ältere Safari-Versionen ohne `dvh`-Einheit erhalten ein Höchstmaß über `vh`; die Einblend-Animation kommt ohne Custom Properties in den Keyframes aus.
+
+Die `--ck-*`-Variablen sind unverändert.
+
 ## 1.2.0 – 2026-10-13
 
 #### Neu: Vorlage „Microsoft Forms“
