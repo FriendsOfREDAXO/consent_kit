@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.1 – unveröffentlicht
+## 1.2.1 – 2026-10-15
 
 #### Behoben
 
