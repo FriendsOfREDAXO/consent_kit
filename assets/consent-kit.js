@@ -359,6 +359,7 @@ const kitCss = baseCss + `
 dialog {
     position: fixed; inset: auto; margin: 0; padding: 0; border: var(--_border-width) solid var(--_border);
     width: min(var(--ck-width, calc(30 * var(--_rem))), calc(100vw - calc(2 * var(--_rem)))); max-width: none;
+    max-height: calc(100vh - calc(2 * var(--_rem)));
     max-height: calc(100dvh - calc(2 * var(--_rem))); overflow: hidden;
     color: var(--_text); background: var(--_bg);
     border-radius: var(--_radius); box-shadow: var(--_shadow);
@@ -366,7 +367,11 @@ dialog {
 }
 dialog[open] { display: flex; flex-direction: column; }
 dialog::backdrop { background: var(--_backdrop); backdrop-filter: var(--_backdrop-filter); }
-dialog.modal, dialog.settings { inset: 0; margin: auto; }
+/*
+ * Inhaltshoehe ausdruecklich setzen: aeltere WebKit-Versionen (iOS/iPadOS) lassen den fixierten
+ * Flex-Dialog mit inset: 0 sonst auf 0 px zusammenfallen.
+ */
+dialog.modal, dialog.settings { inset: 0; margin: auto; height: -webkit-fit-content; height: fit-content; }
 dialog.settings { width: min(var(--ck-settings-width, calc(44 * var(--_rem))), calc(100vw - calc(2 * var(--_rem)))); }
 /* Einstellungen als Off-Canvas: Seitenlage schlaegt die mittige Voreinstellung. */
 dialog.settings.offcanvas { inset: auto; margin: 0; width: min(var(--ck-offcanvas-settings-width, var(--ck-offcanvas-width, calc(26 * var(--_rem)))), 100vw); }
@@ -390,14 +395,24 @@ dialog.offcanvas {
 dialog.offcanvas.bottom-left, dialog.offcanvas.top-left { left: 0; border-right-width: var(--_border-width); }
 dialog.offcanvas.bottom-right, dialog.offcanvas.top-right { right: 0; border-left-width: var(--_border-width); }
 /* Inhalt oben, Schaltflaechen unten – die Mitte scrollt, falls der Text lang ist. */
-dialog.offcanvas .inner { height: 100%; }
+dialog.offcanvas .inner { height: 100%; max-height: 100%; }
 dialog.offcanvas .body { flex: 1; }
 dialog.bar .inner { width: min(calc(72 * var(--_rem)), 100%); margin: 0 auto; }
 @media (min-width: 60rem) {
     dialog.bar:not(.settings) .inner { display: grid; grid-template-columns: 1fr auto; column-gap: calc(2 * var(--_rem)); align-items: center; }
+    /* Im Raster begrenzt die Textspalte selbst, sonst waechst die Zeile ueber das Hoechstmass hinaus. */
+    dialog.bar:not(.settings) .text { max-height: inherit; }
     dialog.bar:not(.settings) .foot { min-width: calc(38 * var(--_rem)); }
 }
-.inner { display: flex; flex-direction: column; min-height: 0; max-height: 100%; }
+/*
+ * Hoechstmass am Viewport statt max-height: 100%: Gegen die unbestimmte Hoehe des Dialogs loest
+ * aelteres WebKit die Prozentangabe zu 0 auf. Die Ausnahme bildet Off-Canvas (feste Hoehe, s. o.).
+ */
+.inner {
+    display: flex; flex-direction: column; min-height: 0;
+    max-height: calc(100vh - calc(2 * var(--_rem)) - calc(2 * var(--_border-width)));
+    max-height: calc(100dvh - calc(2 * var(--_rem)) - calc(2 * var(--_border-width)));
+}
 /*
  * Der Textbereich muss schrumpfen duerfen, sonst schiebt langer Inhalt (z. B. Gruppen im Hinweis)
  * die Schaltflaechen aus dem Dialog. Gescrollt wird in .body.
@@ -478,7 +493,8 @@ input:focus-visible + .track { outline: 3px solid var(--_accent); outline-offset
     dialog.offcanvas.bottom-left[open], dialog.offcanvas.top-left[open] { animation: ck-in-left .25s ease-out; }
     dialog.offcanvas.bottom-right[open], dialog.offcanvas.top-right[open] { animation: ck-in-right .25s ease-out; }
     .track::after, .chev { transition: left .15s, transform .15s; }
-    @keyframes ck-in { from { opacity: 0; transform: translateY(calc(.5 * var(--_rem))); } }
+    /* Feste Laenge statt var(): aeltere WebKit-Versionen werten Custom Properties in Keyframes nicht aus. */
+    @keyframes ck-in { from { opacity: 0; transform: translateY(.5rem); } }
     @keyframes ck-in-left { from { transform: translateX(-100%); } }
     @keyframes ck-in-right { from { transform: translateX(100%); } }
 }
@@ -615,6 +631,7 @@ class ConsentKitElement extends HTMLElement {
         const modal = view === 'settings' || this.layout === 'modal';
         if (this.dialog.open) this.dialog.close();
         this.dialog.removeAttribute('open');
+        this.dialog.style.removeProperty('height');
         // Off-Canvas behaelt seine Form auch fuer die Einstellungen, sonst spraenge der Dialog in die Mitte.
         const offcanvas = this.layout === 'offcanvas';
         this.dialog.className = (view === 'settings' ? 'settings' + (offcanvas ? ' offcanvas' : '') : this.layout + ' banner') + ' ' + (this.getAttribute('position') || cfg.position);
@@ -625,6 +642,7 @@ class ConsentKitElement extends HTMLElement {
             this.dialog.showModal();
             document.documentElement.style.setProperty('overflow', 'hidden');
             this.dialog.querySelector('h2').focus();
+            this.ensureVisible();
         } else {
             // Attribut statt show(): der nicht-modale Hinweis soll beim Seitenaufruf keinen Fokus an sich ziehen.
             this.dialog.setAttribute('aria-modal', 'false');
@@ -635,7 +653,38 @@ class ConsentKitElement extends HTMLElement {
         if (view === 'settings' || this.withGroups) this.syncSwitches();
     }
 
+    /**
+     * Absicherung gegen Layoutfehler einzelner Browser: Faellt der modale Dialog trotz Inhalt
+     * zusammen, bekommt er seine Inhaltshoehe ausdruecklich. Hilft auch das nicht, oeffnet er
+     * sich nicht-modal – ein unsichtbarer Dialog darf die Seite nie sperren.
+     */
+    ensureVisible() {
+        const dialog = this.dialog;
+        requestAnimationFrame(() => {
+            if (!dialog.open || dialog.getBoundingClientRect().height >= 40) return;
+            // Erst die volle Hoehe, dann auf den Bedarf des scrollenden Textbereichs verkleinern.
+            const max = window.innerHeight - 32;
+            dialog.style.height = max + 'px';
+            const inner = dialog.querySelector('.inner');
+            const body = dialog.querySelector('.body');
+            if (inner && body) {
+                let needed = dialog.offsetHeight - dialog.clientHeight + body.scrollHeight - body.clientHeight;
+                for (const child of inner.children) needed += child.offsetHeight;
+                dialog.style.height = Math.min(max, needed) + 'px';
+            }
+            requestAnimationFrame(() => {
+                if (!dialog.open || dialog.getBoundingClientRect().height >= 40) return;
+                dialog.style.removeProperty('height');
+                dialog.close();
+                dialog.setAttribute('aria-modal', 'false');
+                dialog.show();
+                document.documentElement.style.removeProperty('overflow');
+            });
+        });
+    }
+
     close() {
+        this.dialog.style.removeProperty('height');
         if (this.dialog.open) this.dialog.close();
         this.dialog.removeAttribute('open');
         this.dialog.innerHTML = '';
