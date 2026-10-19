@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0 – 2026-10-19
+
+#### Neu: Vorlage „OpenAI Measurement Pixel – nur Anzeigen-Besucher (ChatGPT Ads)“
+
+Zweite Vorlage für das OpenAI-Messpixel (`openai_pixel_ads`): Das Pixel lädt **nur für Besucher, die über eine Anzeige in ChatGPT kommen** – erkannt an der Klick-Kennung `oppref` in der Adresse – oder die in den letzten 30 Tagen so gekommen sind (Markierung `ck_openai_ad` im lokalen Speicher, nur nach Einwilligung). Alle anderen laden auch nach „Alle akzeptieren“ nichts von OpenAI.
+
+Warum: Die Server von OpenAI (`bzrcdn.openai.com`, `bzr.openai.com`) setzen über Cloudflare die Drittanbieter-Cookies `__cf_bm` und `_cfuvid`. Mit dem bisherigen Pixel hat damit jeder Besucher, der zustimmt, Drittanbieter-Cookies – Lighthouse wertet das unter „Bewährte Verfahren“ ab. Mit der neuen Vorlage betrifft das nur noch die Besucher, die man messen will.
+
+- Ereignisse („Anfrage“, „Terminbuchung“ …) funktionieren unverändert; bei allen anderen Besuchern ruft das Ereignis eine leere `oaiq`-Funktion auf – keine Anfrage, kein Fehler.
+- Widerruf löscht die Markierung und meldet den Widerruf an das Pixel.
+- Die Anzeigen-Kennung wird nur erkannt, wenn die Einwilligung auf der Landingpage erteilt wird – vor der Einwilligung wird bewusst nichts gespeichert.
+- Die bisherige Vorlage `openai_pixel` bleibt unverändert. Wechsel: Dienst mit der neuen Vorlage anlegen (Pixel-ID und Ereignisse übernehmen), alten Dienst deaktivieren. Nur eine der beiden Vorlagen verwenden.
+
 ## 1.2.1 – 2026-10-15
 
 #### Behoben

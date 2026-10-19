@@ -98,6 +98,7 @@ Der Code läuft, wenn der Auslöser eintritt; das Anbieter-Script ist zu diesem 
 ## Prüfen, ob es funktioniert
 
 1. Im Frontend dem Dienst zustimmen (vorher ggf. `ConsentKit.reset()` in der Konsole).
+   Mit der Vorlage „OpenAI Measurement Pixel – nur Anzeigen-Besucher“ die Seite mit `?oppref=test` aufrufen – ohne diesen Parameter lädt das Pixel bewusst nicht.
 2. Entwicklerwerkzeuge → **Netzwerk** öffnen, Auslöser ausführen (Link klicken, Dankeseite aufrufen). Es erscheint eine Anfrage an den Anbieter – OpenAI: `bzrcdn.openai.com` bzw. Ereignis-Aufrufe an `openai.com`, Meta: `facebook.com/tr`, Google: `googleads.g.doubleclick.net`.
 3. Die Anbieter haben Prüfwerkzeuge: OpenAI liefert mit `debug: true` Konsolenausgaben (nur zum Testen, nicht in der Vorlage), Meta den „Meta Pixel Helper“ (Browser-Erweiterung), Google Ads den „Tag Assistant“.
 4. Ohne Zustimmung darf **keine** dieser Anfragen erscheinen.
