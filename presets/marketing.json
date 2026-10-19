@@ -1066,6 +1066,104 @@
         "appointment": "oaiq(\"measure\", \"appointment_scheduled\", { type: \"customer_action\" });",
         "page_view": "oaiq(\"measure\", \"page_viewed\", { type: \"contents\" });"
       }
+    },
+    {
+      "key": "openai_pixel_ads",
+      "name": "OpenAI Measurement Pixel – nur Anzeigen-Besucher (ChatGPT Ads)",
+      "group": "marketing",
+      "provider": "OpenAI Ireland Limited, 1st Floor, The Liffey Trust Centre, 117-126 Sheriff Street Upper, Dublin 1, D01 YC43, Ireland",
+      "privacy_url": "https://openai.com/policies/eu-privacy-policy/",
+      "description": {
+        "de": "Messpixel von OpenAI zur Erfolgsmessung von Anzeigen in ChatGPT – geladen nur für Besucher, die über eine Anzeige in ChatGPT kommen (Klick-Kennung oppref in der Adresse) oder in den letzten 30 Tagen gekommen sind. Ordnet Aktionen auf der Website (z. B. Anfragen) Anzeigenklicks zu; dazu werden Cookies gesetzt und Ereignisdaten an OpenAI übertragen.",
+        "en": "Measurement pixel by OpenAI for attributing conversions to ads in ChatGPT – loaded only for visitors arriving via an ad in ChatGPT (click reference oppref in the URL) or who did so within the last 30 days. Assigns actions on the website (e.g. enquiries) to ad clicks; cookies are set and event data is transferred to OpenAI.",
+        "nl": "Meetpixel van OpenAI voor het meten van het resultaat van advertenties in ChatGPT – alleen geladen voor bezoekers die via een advertentie in ChatGPT komen (klikidentificatie oppref in de URL) of dat in de afgelopen 30 dagen deden. Wijst acties op de website (bijvoorbeeld aanvragen) toe aan advertentieklikken; daarvoor worden cookies geplaatst en gebeurtenisgegevens naar OpenAI verzonden.",
+        "it": "Pixel di misurazione di OpenAI per valutare il rendimento degli annunci in ChatGPT – caricato solo per i visitatori che arrivano tramite un annuncio in ChatGPT (identificativo del clic oppref nell'URL) o che lo hanno fatto negli ultimi 30 giorni. Attribuisce ai clic sugli annunci le azioni compiute sul sito (ad esempio richieste); a tal fine vengono impostati cookie e trasmessi dati sugli eventi a OpenAI."
+      },
+      "params": [
+        {
+          "key": "pixel_id",
+          "label": {
+            "de": "Pixel-ID",
+            "en": "Pixel ID",
+            "nl": "Pixel-ID",
+            "it": "ID pixel"
+          },
+          "placeholder": "AQhQ…",
+          "pattern": "^[A-Za-z0-9_-]{6,}$"
+        }
+      ],
+      "html_head": "<script>\n(function (w, d, s, u) {\n  if (w.oaiq) return;\n  // Nur für Besucher aus ChatGPT-Anzeigen: oppref in der Adresse oder Markierung von einem Anzeigen-Besuch (30 Tage)\n  var KEY = \"ck_openai_ad\", DAYS = 30, fromAd = false;\n  var hasRef = new URLSearchParams(w.location.search).has(\"oppref\");\n  try {\n    if (hasRef) { w.localStorage.setItem(KEY, String(Date.now())); }\n    var t = parseInt(w.localStorage.getItem(KEY) || \"0\", 10);\n    fromAd = hasRef || (t > 0 && Date.now() - t < DAYS * 864e5);\n    if (!fromAd && t) { w.localStorage.removeItem(KEY); }\n  } catch (e) {\n    fromAd = hasRef;\n  }\n  // Alle anderen Besucher: nichts laden; Ereignisse rufen eine leere Funktion auf\n  if (!fromAd) { w.oaiq = function () {}; return; }\n  var q = function () { q.q.push(arguments); };\n  q.q = [];\n  w.oaiq = q;\n  var js = d.createElement(s);\n  js.async = true;\n  js.src = u;\n  var f = d.getElementsByTagName(s)[0];\n  f.parentNode.insertBefore(js, f);\n  w.oaiq(\"consent\", true);\n  w.oaiq(\"init\", { pixelId: \"{{pixel_id}}\" });\n})(window, document, \"script\", \"https://bzrcdn.openai.com/sdk/oaiq.min.js\");\n</script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "",
+      "js_revoke": "try { localStorage.removeItem(\"ck_openai_ad\"); } catch (e) {}\nif (window.oaiq) { oaiq(\"consent\", false); }",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "__oppref",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Speichert die Anzeigen-Kennung (oppref) aus der Landingpage-URL, damit spätere Aktionen dem Anzeigenklick zugeordnet werden können.",
+            "en": "Stores the ad click reference (oppref) from the landing page URL so that later actions can be attributed to the ad click.",
+            "nl": "Slaat de advertentie-identificatie (oppref) uit de landingspagina-URL op, zodat latere acties aan de advertentieklik kunnen worden toegewezen.",
+            "it": "Memorizza l'identificativo dell'annuncio (oppref) dall'URL della landing page, affinché le azioni successive possano essere attribuite al clic sull'annuncio."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "__obref",
+          "host": "",
+          "duration": {
+            "value": 365,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Zufällig erzeugte Browser-Kennung für diese Website zur Wiedererkennung bei der Erfolgsmessung.",
+            "en": "Randomly generated browser reference for this website used to recognise the browser for measurement.",
+            "nl": "Willekeurig gegenereerde browseridentificatie voor deze website ten behoeve van herkenning bij de resultaatmeting.",
+            "it": "Identificativo del browser generato casualmente per questo sito, utilizzato per il riconoscimento nella misurazione dei risultati."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "ck_openai_ad",
+          "host": "",
+          "duration": {
+            "value": 30,
+            "unit": "days"
+          },
+          "purpose": {
+            "de": "Merkt sich (nur nach Einwilligung), dass der Besuch über eine Anzeige in ChatGPT kam – nur dann wird das Pixel geladen.",
+            "en": "Remembers (only after consent) that the visit came via an ad in ChatGPT – only then is the pixel loaded.",
+            "nl": "Onthoudt (alleen na toestemming) dat het bezoek via een advertentie in ChatGPT kwam – alleen dan wordt de pixel geladen.",
+            "it": "Memorizza (solo dopo il consenso) che la visita è arrivata tramite un annuncio in ChatGPT – solo in quel caso viene caricato il pixel."
+          }
+        }
+      ],
+      "note": {
+        "de": "Wie „OpenAI Measurement Pixel“, aber nur für Besucher aus ChatGPT-Anzeigen: Alle anderen laden auch nach Einwilligung nichts von OpenAI – keine Drittanbieter-Cookies (die Server von OpenAI setzen über Cloudflare __cf_bm und _cfuvid), keine Abfrage. Ereignisse laufen bei ihnen ins Leere. Die Anzeigen-Kennung wird nur erkannt, wenn die Einwilligung auf der Landingpage erteilt wird (vorher wird bewusst nichts gespeichert). Nur eine der beiden OpenAI-Vorlagen verwenden.",
+        "en": "Like “OpenAI Measurement Pixel”, but only for visitors from ChatGPT ads: everyone else loads nothing from OpenAI, even after consent – no third-party cookies (OpenAI's servers set __cf_bm and _cfuvid via Cloudflare), no request. Events do nothing for them. The ad reference is only picked up if consent is given on the landing page (nothing is stored before consent, by design). Use only one of the two OpenAI presets.",
+        "nl": "Zoals „OpenAI Measurement Pixel”, maar alleen voor bezoekers uit ChatGPT-advertenties: alle anderen laden ook na toestemming niets van OpenAI – geen cookies van derden (de servers van OpenAI plaatsen via Cloudflare __cf_bm en _cfuvid), geen verzoek. Gebeurtenissen doen bij hen niets. De advertentie-identificatie wordt alleen herkend als de toestemming op de landingspagina wordt gegeven (daarvoor wordt bewust niets opgeslagen). Gebruik slechts één van beide OpenAI-sjablonen.",
+        "it": "Come «OpenAI Measurement Pixel», ma solo per i visitatori provenienti da annunci in ChatGPT: tutti gli altri non caricano nulla da OpenAI, nemmeno dopo il consenso – nessun cookie di terze parti (i server di OpenAI impostano __cf_bm e _cfuvid tramite Cloudflare), nessuna richiesta. Per loro gli eventi non hanno effetto. L'identificativo dell'annuncio viene rilevato solo se il consenso è dato sulla landing page (prima volutamente non viene memorizzato nulla). Usare solo uno dei due modelli OpenAI."
+      },
+      "sources": [
+        "https://developers.openai.com/ads/measurement-pixel",
+        "https://developers.openai.com/ads/supported-events",
+        "https://openai.com/policies/eu-privacy-policy/"
+      ],
+      "verified": "2026-10-19",
+      "events": {
+        "lead": "oaiq(\"measure\", \"lead_created\", { type: \"customer_action\" });",
+        "registration": "oaiq(\"measure\", \"registration_completed\", { type: \"customer_action\" });",
+        "appointment": "oaiq(\"measure\", \"appointment_scheduled\", { type: \"customer_action\" });",
+        "page_view": "oaiq(\"measure\", \"page_viewed\", { type: \"contents\" });"
+      }
     }
   ]
 }
