@@ -100,7 +100,7 @@ const core = {
             credentials: 'same-origin',
             keepalive: true,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: this.state.id, action, accepted: Object.keys(accepted), gpc: this.gpc, lang: cfg.lang }),
+            body: JSON.stringify({ id: this.state.id, action, accepted: Object.keys(accepted), gpc: this.gpc, lang: cfg.lang, seq: Date.now() }),
         }).catch(() => null);
 
         const revoked = [...before].filter((key) => !accepted[key]);
@@ -139,7 +139,7 @@ const core = {
             credentials: 'same-origin',
             keepalive: true,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id, action: 'withdraw', accepted: [], gpc: this.gpc, lang: cfg.lang }),
+            body: JSON.stringify({ id, action: 'withdraw', accepted: [], gpc: this.gpc, lang: cfg.lang, seq: Date.now() }),
         }).catch(() => null);
         this.emit('change', 'withdraw');
         if (cfg.preview) return;

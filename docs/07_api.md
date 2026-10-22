@@ -68,7 +68,7 @@ if (!Repository::serviceKeyExists('matomo')) {
 | Extension Point | Subject | Parameter | Zweck |
 | --- | --- | --- | --- |
 | `CONSENT_KIT_CONFIG` | Konfiguration (`array`) | `domain`, `clang` | Konfiguration vor dem Cachen anpassen. Rückgabe ersetzt das Subject. |
-| `CONSENT_KIT_SAVED` | Einwilligungs-ID | `action`, `accepted`, `rejected`, `revision`, `gpc`, `host` | Läuft nach jedem Protokolleintrag. |
+| `CONSENT_KIT_SAVED` | Einwilligungs-ID | `action`, `accepted`, `rejected`, `revision`, `gpc`, `host`, `stale` | Läuft nach jedem Protokolleintrag. `stale` ist `true`, wenn schon eine neuere Entscheidung derselben ID gespeichert war (verspätete Anfrage, Cookie bleibt unverändert). |
 
 ```php
 rex_extension::register('CONSENT_KIT_CONFIG', static function (rex_extension_point $ep) {
