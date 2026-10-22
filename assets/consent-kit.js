@@ -202,16 +202,29 @@ function uuid() {
     return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
 }
 
+const nonce = () => document.querySelector('script[nonce]')?.nonce || '';
+
 function run(code, label) {
     if (!code) return;
+    // Als Inline-Script mit Nonce: laeuft auch unter CSP ohne 'unsafe-eval', gleicher Funktions-Scope wie new Function
+    const marker = '__ck_run_' + Math.random().toString(36).slice(2);
+    const script = document.createElement('script');
+    if (nonce()) script.nonce = nonce();
+    script.textContent = 'window[' + JSON.stringify(marker) + ']=1;try{(function(){\n' + code
+        + '\n})()}catch(e){console.error(' + JSON.stringify('[consent-kit] ' + label) + ',e)}';
+    document.head.append(script);
+    script.remove();
+    if (window[marker]) {
+        delete window[marker];
+        return;
+    }
+    // Inline-Script blockiert (CSP ohne passende Nonce): wie bisher
     try {
         new Function(code)();
     } catch (error) {
         console.error('[consent-kit] ' + label, error);
     }
 }
-
-const nonce = () => document.querySelector('script[nonce]')?.nonce || '';
 
 function cloneScript(source) {
     const script = document.createElement('script');

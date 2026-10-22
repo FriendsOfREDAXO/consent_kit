@@ -40,7 +40,7 @@ Der **Schlüssel** ist der Name, unter dem Templates und Module den Dienst anspr
 | JavaScript bei Widerruf | beim Abwählen | reines JavaScript, z. B. der Revoke-Aufruf des Anbieters |
 | JavaScript vor jeder Entscheidung | immer, als Erstes im `<head>` | z. B. „consent default denied“. Darf nichts laden und keine Cookies setzen. |
 
-Externe Scripts behalten ihre Reihenfolge, solange sie kein `async` tragen. Ein vorhandener CSP-Nonce wird übernommen.
+Externe Scripts behalten ihre Reihenfolge, solange sie kein `async` tragen. Mit einer nonce-basierten Content-Security-Policy (`rex_response::getNonce()`) bekommen Consent Kit selbst, die HTML-Felder und die JavaScript-Felder die Nonce der Seite; `'unsafe-eval'` ist nicht nötig. Scripts, die ein Anbieter-Snippet seinerseits nachlädt (z. B. `matomo.js`), tragen keine Nonce: Dafür braucht die Policy `'strict-dynamic'` oder die Hosts des Anbieters.
 
 Beim Widerruf werden außerdem alle unter „Cookies & Speicher“ eingetragenen Cookies und Storage-Einträge gelöscht, soweit der Browser das zulässt (eigene Domain und deren Überdomains; Cookies fremder Domains sind für die Website nicht erreichbar).
 
