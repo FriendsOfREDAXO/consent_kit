@@ -79,18 +79,31 @@ final class Save extends rex_api_function
             'r' => (object) $rejected,
         ];
 
-        rex_sql::factory()
-            ->setTable(rex::getTable('consent_kit_log'))
-            ->setValue('consent_id', $state['id'])
-            ->setValue('host', Consent::domain()['host'])
-            ->setValue('revision_id', $state['rev'])
-            ->setValue('action', $action)
-            ->setValue('accepted', implode(',', array_keys($accepted)))
-            ->setValue('rejected', implode(',', array_keys($rejected)))
-            ->setValue('gpc', !empty($payload['gpc']) ? 1 : 0)
-            ->setValue('clang', substr(I18n::normalize((string) ($payload['lang'] ?? '')), 0, 10))
-            ->setValue('createdate', date('Y-m-d H:i:s'))
-            ->insert();
+        // Zeitpunkt der Entscheidung im Browser (ms). Kommt eine aeltere Anfrage erst nach einer neueren an,
+        // wird sie nur protokolliert – ihr Cookie wuerde sonst die neuere Entscheidung ueberschreiben.
+        $seq = max(0, (int) ($payload['seq'] ?? 0));
+        $lock = 'consent_kit_' . $state['id'];
+        $sql = rex_sql::factory();
+        $sql->setQuery('SELECT GET_LOCK(?, 5)', [$lock]);
+        try {
+            $latest = (int) $sql->getArray('SELECT MAX(seq) AS seq FROM ' . rex::getTable('consent_kit_log') . ' WHERE consent_id = ?', [$state['id']])[0]['seq'];
+            rex_sql::factory()
+                ->setTable(rex::getTable('consent_kit_log'))
+                ->setValue('consent_id', $state['id'])
+                ->setValue('host', Consent::domain()['host'])
+                ->setValue('revision_id', $state['rev'])
+                ->setValue('action', $action)
+                ->setValue('accepted', implode(',', array_keys($accepted)))
+                ->setValue('rejected', implode(',', array_keys($rejected)))
+                ->setValue('gpc', !empty($payload['gpc']) ? 1 : 0)
+                ->setValue('clang', substr(I18n::normalize((string) ($payload['lang'] ?? '')), 0, 10))
+                ->setValue('createdate', date('Y-m-d H:i:s'))
+                ->setValue('seq', $seq)
+                ->insert();
+        } finally {
+            $sql->setQuery('SELECT RELEASE_LOCK(?)', [$lock]);
+        }
+        $stale = $seq > 0 && $seq < $latest;
 
         rex_extension::registerPoint(new rex_extension_point('CONSENT_KIT_SAVED', $state['id'], [
             'action' => $action,
@@ -99,7 +112,16 @@ final class Save extends rex_api_function
             'revision' => $state['rev'],
             'gpc' => !empty($payload['gpc']),
             'host' => Consent::domain()['host'],
+            'stale' => $stale,
         ]));
+
+        if ($stale) {
+            // Neuere Entscheidung schon gespeichert: deren Cookie nicht anfassen.
+            rex_response::setStatus(rex_response::HTTP_OK);
+            rex_response::setHeader('Cache-Control', 'no-store');
+            rex_response::sendJson(['ok' => true, 'stale' => true]);
+            exit;
+        }
 
         if ('withdraw' === $action) {
             // Widerruf: keine Entscheidung mehr gespeichert, naechster Aufruf fragt neu.

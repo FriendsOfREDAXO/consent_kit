@@ -92,6 +92,7 @@ rex_sql_table::get(rex::getTable('consent_kit_log'))
     ->ensureColumn(new rex_sql_column('gpc', 'tinyint(1)', false, '0'))
     ->ensureColumn(new rex_sql_column('clang', 'varchar(10)', false, ''))
     ->ensureColumn(new rex_sql_column('createdate', 'datetime'))
+    ->ensureColumn(new rex_sql_column('seq', 'bigint(20) unsigned', false, '0'))
     ->ensureIndex(new rex_sql_index('consent_id', ['consent_id']))
     ->ensureIndex(new rex_sql_index('createdate', ['createdate']))
     ->ensure();
