@@ -202,16 +202,31 @@ function uuid() {
     return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
 }
 
+const nonce = () => document.querySelector('script[nonce]')?.nonce || '';
+/** Nonce fuer das <style> im Shadow DOM, sonst sperrt style-src ohne 'unsafe-inline' das ganze CSS. */
+const styleNonce = () => (nonce() ? ` nonce="${esc(nonce())}"` : '');
+
 function run(code, label) {
     if (!code) return;
+    // Als Inline-Script mit Nonce: laeuft auch unter CSP ohne 'unsafe-eval', gleicher Funktions-Scope wie new Function
+    const marker = '__ck_run_' + Math.random().toString(36).slice(2);
+    const script = document.createElement('script');
+    if (nonce()) script.nonce = nonce();
+    script.textContent = 'window[' + JSON.stringify(marker) + ']=1;try{(function(){\n' + code
+        + '\n})()}catch(e){console.error(' + JSON.stringify('[consent-kit] ' + label) + ',e)}';
+    document.head.append(script);
+    script.remove();
+    if (window[marker]) {
+        delete window[marker];
+        return;
+    }
+    // Inline-Script blockiert (CSP ohne passende Nonce): wie bisher
     try {
         new Function(code)();
     } catch (error) {
         console.error('[consent-kit] ' + label, error);
     }
 }
-
-const nonce = () => document.querySelector('script[nonce]')?.nonce || '';
 
 function cloneScript(source) {
     const script = document.createElement('script');
@@ -441,6 +456,8 @@ p { margin: 0 0 calc(.75 * var(--_rem)); }
 .notice { padding: calc(.6 * var(--_rem)) calc(.75 * var(--_rem)); border: var(--_border-width) solid var(--_border); border-radius: var(--_group-radius); font-size: .9em; }
 .group { border: var(--_border-width) solid var(--_line); border-radius: var(--_group-radius); margin-bottom: var(--_gap); }
 .group-head, .service-head { display: flex; align-items: center; gap: calc(.75 * var(--_rem)); }
+.group-head h3 { flex: 1; }
+.group:not(.plain) .group-head h3 { display: flex; }
 .group-head { padding: calc(.35 * var(--_rem)) calc(.75 * var(--_rem)) calc(.35 * var(--_rem)) calc(.25 * var(--_rem)); }
 .group > .muted { margin: 0; padding: 0 calc(.75 * var(--_rem)) calc(.7 * var(--_rem)) calc(2.45 * var(--_rem)); }
 /* Gruppen im Hinweis: ohne Aufklapp-Schaltflaeche buendig zum Text einruecken. */
@@ -578,7 +595,7 @@ class ConsentKitElement extends HTMLElement {
         for (const [name, value] of Object.entries(cfg.cssVars || {})) {
             if (name.startsWith('--ck-')) this.style.setProperty(name, value);
         }
-        this.shadowRoot.innerHTML = `<style>${kitCss}</style>${customStyle()}<dialog part="dialog" aria-labelledby="ck-title"></dialog><button type="button" class="trigger ${esc(cfg.triggerPosition)}" part="trigger" hidden aria-label="${esc(cfg.texts.trigger)}" title="${esc(cfg.texts.trigger)}">${cookieIcon}</button>`;
+        this.shadowRoot.innerHTML = `<style${styleNonce()}>${kitCss}</style>${customStyle()}<dialog part="dialog" aria-labelledby="ck-title"></dialog><button type="button" class="trigger ${esc(cfg.triggerPosition)}" part="trigger" hidden aria-label="${esc(cfg.texts.trigger)}" title="${esc(cfg.texts.trigger)}">${cookieIcon}</button>`;
         this.dialog = this.shadowRoot.querySelector('dialog');
         this.trigger = this.shadowRoot.querySelector('.trigger');
 
@@ -795,8 +812,8 @@ class ConsentKitElement extends HTMLElement {
                 ? `<span class="always">${esc(t.always_active)}</span>`
                 : `<label class="switch"><input type="checkbox" data-group="${esc(group.key)}" aria-label="${esc(fill(t.group_toggle, { name: group.name }))}"><span class="track"></span></label>`;
             const name = details
-                ? `<h3 style="flex:1;display:flex"><button type="button" class="expand" aria-expanded="${open}" aria-controls="${id}" data-expand="${id}"><span class="chev"></span><span>${esc(group.name)}</span><span class="count">${esc(count)}</span></button></h3>`
-                : `<h3 style="flex:1"><span>${esc(group.name)}</span> <span class="count">${esc(count)}</span></h3>`;
+                ? `<h3><button type="button" class="expand" aria-expanded="${open}" aria-controls="${id}" data-expand="${id}"><span class="chev"></span><span>${esc(group.name)}</span><span class="count">${esc(count)}</span></button></h3>`
+                : `<h3><span>${esc(group.name)}</span> <span class="count">${esc(count)}</span></h3>`;
             const services = details
                 ? `<div class="services" id="${id}" ${open ? '' : 'hidden'}>${group.services.map((s, i) => this.serviceHtml(group, s, id + 's' + i)).join('')}</div>`
                 : '';
@@ -939,7 +956,7 @@ class ConsentEmbedElement extends HTMLElement {
             console.warn(`[consent-kit] <consent-embed service="${key}">: service missing or inactive on this domain`);
             body = `<p>${esc(t.embed_unavailable)}</p>${cfg.editorHint ? `<p class="notice">${esc(cfg.editorHint.replace('{0}', key))}</p>` : ''}`;
         }
-        this.shadowRoot.innerHTML = `<style>${embedCss}</style>${customStyle()}
+        this.shadowRoot.innerHTML = `<style${styleNonce()}>${embedCss}</style>${customStyle()}
             <div class="placeholder" part="placeholder" role="group" aria-labelledby="ck-embed-title">${heading}${body}</div><slot></slot>`;
         this.shadowRoot.addEventListener('click', (event) => {
             const action = event.target.closest('button')?.dataset.action;

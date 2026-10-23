@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.1 – 2026-10-23
+
+#### Fehlerbehebungen
+
+- **Content-Security-Policy mit Nonce:** Die Felder „JavaScript bei Einwilligung“, „bei Widerruf“ und die Ereignisse liefen über `new Function()` und wurden ohne `'unsafe-eval'` blockiert. Sie laufen jetzt als Inline-Script mit der Nonce der Seite (gleicher Funktions-Scope, `return` funktioniert weiter); nur wenn das nicht ausgeführt wird, wie bisher über `new Function()`.
+- **CSP mit `'strict-dynamic'`:** Das Script `consent-kit.js` wurde ohne Nonce eingebunden und war damit gesperrt, Banner und Platzhalter erschienen nicht. Es trägt jetzt die Nonce der Seite.
+- **CSP mit `style-src` ohne `'unsafe-inline'`:** Das CSS von Banner, Einstellungen und Platzhaltern stand als `<style>` ohne Nonce im Shadow DOM und wurde gesperrt – alles erschien ungestylt (Browser-Standardknöpfe, Dialog nicht fixiert). Das `<style>` trägt jetzt die Nonce der Seite; die zwei `style`-Attribute der Gruppenüberschriften sind ins CSS gewandert (Darstellung unverändert).
+
 ## 1.3.0 – 2026-10-19
 
 #### Neu: Vorlage „OpenAI Measurement Pixel – nur Anzeigen-Besucher (ChatGPT Ads)“

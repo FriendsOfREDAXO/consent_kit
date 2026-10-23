@@ -97,7 +97,7 @@ final class Frontend
         $version = $addon->getVersion() . '-' . (is_file($file) ? filemtime($file) : 0);
 
         return '<script type="application/json" ' . self::MARKER . '>' . self::json($public) . '</script>'
-            . '<script type="module" src="' . rex_url::addonAssets('consent_kit', 'consent-kit.js') . '?v=' . rawurlencode($version) . '"></script>';
+            . '<script type="module"' . self::nonce() . ' src="' . rex_url::addonAssets('consent_kit', 'consent-kit.js') . '?v=' . rawurlencode($version) . '"></script>';
     }
 
     /**
