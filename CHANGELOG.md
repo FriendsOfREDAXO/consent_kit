@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.3 – 2026-10-27
+
+#### Fehlerbehebungen
+
+- **Backend im automatischen Dunkelmodus:** Steht im Profil kein Theme, folgt das REDAXO-Backend der Systemeinstellung (`prefers-color-scheme: dark`). Dann trägt `<body>` keine Klasse `rex-theme-dark`, und die Dunkel-Regeln von Consent Kit griffen nicht: Checkliste, Gruppenzeilen und Tabellenkopf der Dienste blieben hell, mit heller Schrift darauf – kaum lesbar. Die Regeln gelten jetzt in beiden Fällen, wie in be_style selbst. Mit Theme „hell“ im Profil bleibt alles hell.
+- **Hinweise im Dunkelmodus:** Warn- und Erfolgshinweise (`.ck-note-warn`, `.ck-note-ok`) verloren im dunklen Theme ihren farbigen Rand, der Warnhinweis auch seinen Hintergrund – die allgemeine Regel für `.ck-note` stand dahinter und überstimmte sie.
+
 ## 1.3.1 – 2026-10-23
 
 #### Fehlerbehebungen
