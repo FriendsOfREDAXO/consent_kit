@@ -49,10 +49,6 @@
 @media (max-width: 991px) { .ck-event-grid { grid-template-columns: 1fr 1fr; } }
 .ck-variant-scope, .ck-variant-params { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
 .ck-variant-code summary { cursor: pointer; font-weight: 700; margin-bottom: 6px; }
-body.rex-theme-dark .ck-matrix > thead > tr > th, body.rex-theme-dark .ck-group-row > th, body.rex-theme-dark .ck-group-row > td { background: #1a2430; border-color: #33414f !important; }
-body.rex-theme-dark .ck-group-desc, body.rex-theme-dark .ck-toolbar-hint, body.rex-theme-dark .ck-matrix code { color: #a9b6c3; }
-body.rex-theme-dark .ck-matrix code { background: rgba(255, 255, 255, .08); }
-body.rex-theme-dark .ck-cell-button.is-on { color: #6fcf85; }
 .ck-switch-button { display: inline-flex; align-items: center; gap: 8px; padding: 4px 6px; background: none; border: 0; border-radius: 4px; }
 .ck-switch-button:focus-visible, .ck-choice-card:focus-within, .ck-color input:focus-visible { outline: 3px solid #2a6db0; outline-offset: 2px; }
 .ck-switch { position: relative; width: 36px; height: 20px; border-radius: 10px; background: #8a949c; flex: none; }
@@ -65,11 +61,8 @@ body.rex-theme-dark .ck-cell-button.is-on { color: #6fcf85; }
 .ck-domain-filter-label { font-weight: 700; color: #5b6770; }
 .ck-domain-filter .nav-pills > li > a { padding: 5px 12px; }
 .ck-chip-domain { color: #1d4f80; border-color: #b6d4ef; background: #f3f8fd; }
-body.rex-theme-dark .ck-chip-domain { color: #b9d7f2; border-color: #3b6ea3; background: #1c2e42; }
-body.rex-theme-dark .ck-domain-filter-label { color: #a9b6c3; }
 
 .ck-domain-list { margin-top: 10px; padding: 10px 14px; border: 1px solid #dfe3e9; border-radius: 4px; }
-body.rex-theme-dark .ck-domain-list { border-color: #33414f; }
 
 /* Hilfe */
 .ck-help { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 28px; align-items: start; }
@@ -86,7 +79,6 @@ body.rex-theme-dark .ck-domain-list { border-color: #33414f; }
 .ck-help-content td code, .ck-help-content th code { white-space: normal; overflow-wrap: anywhere; }
 .ck-help-content td:first-child { width: 38%; }
 .ck-help-content pre { padding: 12px 14px; }
-body.rex-theme-dark .ck-help-content h2, body.rex-theme-dark .ck-help-content th, body.rex-theme-dark .ck-help-content td { border-color: #33414f; }
 @media (max-width: 991px) { .ck-help { grid-template-columns: 1fr; } .ck-help-nav { position: static; } }
 
 /* Einstieg */
@@ -94,7 +86,6 @@ body.rex-theme-dark .ck-help-content h2, body.rex-theme-dark .ck-help-content th
 .ck-onboarding h2 { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
 .ck-onboarding ol { margin: 0; padding-left: 20px; }
 .ck-onboarding li { margin: 2px 0; }
-body.rex-theme-dark .ck-onboarding { background: #1c2e42; border-color: #3b6ea3; }
 .ck-details { margin: 8px 0 0; }
 .ck-details > summary { cursor: pointer; font-weight: 700; margin-bottom: 8px; }
 .ck-field.has-error .form-control { border-color: #b3261e; box-shadow: 0 0 0 1px #b3261e; }
@@ -102,7 +93,6 @@ body.rex-theme-dark .ck-onboarding { background: #1c2e42; border-color: #3b6ea3;
 /* Formulare */
 .ck-field [data-ck-key-locked] { background: #f5f6f7; color: #3c4650; }
 .ck-key-unlock { margin: 6px 0 0; }
-body.rex-theme-dark .ck-field [data-ck-key-locked] { background: #1a2430; color: #a9b6c3; }
 .ck-form fieldset { margin: 0 0 20px; }
 .ck-form legend { margin-bottom: 8px; font-size: 14px; font-weight: 700; border: 0; }
 .ck-i18n-row { margin-bottom: 6px; }
@@ -124,7 +114,6 @@ body.rex-theme-dark .ck-field [data-ck-key-locked] { background: #1a2430; color:
 .ck-preset-info ul { padding-left: 18px; word-break: break-all; }
 .ck-note { padding: 8px 12px; border-left: 4px solid #8a949c; background: #f5f6f7; }
 .ck-note-warn { border-color: #a65b00; background: #fdf6ec; }
-body.rex-theme-dark .ck-note-warn { background: #3a2a12; }
 .ck-note-ok { border-color: #2b7a3d; background: #f1f8f3; }
 
 /* Auswahlkarten */
@@ -213,15 +202,44 @@ body.rex-theme-dark .ck-note-warn { background: #3a2a12; }
     .ck-group-head { flex-direction: column; }
 }
 
-/* Dunkles Backend-Theme */
+/* Dunkles Backend-Theme
+   REDAXO schaltet auf zwei Wegen dunkel: im Profil gewaehlt (body.rex-theme-dark) oder, wenn dort
+   nichts gewaehlt ist, ueber die Systemeinstellung (prefers-color-scheme, body ohne .rex-theme-light) –
+   so macht es be_style selbst. Beide Bloecke enthalten dieselben Regeln. */
+body.rex-theme-dark .ck-matrix > thead > tr > th, body.rex-theme-dark .ck-group-row > th, body.rex-theme-dark .ck-group-row > td { background: #1a2430; border-color: #33414f !important; }
+body.rex-theme-dark .ck-matrix code { color: #a9b6c3; background: rgba(255, 255, 255, .08); }
+body.rex-theme-dark .ck-cell-button.is-on { color: #6fcf85; }
 body.rex-theme-dark .ck-checklist, body.rex-theme-dark .ck-preset, body.rex-theme-dark .ck-color input { background: #1f2b38; border-color: #33414f; }
 body.rex-theme-dark .ck-item, body.rex-theme-dark .ck-preset-info, body.rex-theme-dark .ck-preset-custom, body.rex-theme-dark .ck-note, body.rex-theme-dark .ck-bar-cell { background: #1a2430; border-color: #33414f; }
-body.rex-theme-dark .ck-params, body.rex-theme-dark .ck-choice-card:has(input:checked) { background: #1c2e42; border-color: #3b6ea3; }
+body.rex-theme-dark .ck-field [data-ck-key-locked] { background: #1a2430; color: #a9b6c3; }
+body.rex-theme-dark .ck-onboarding, body.rex-theme-dark .ck-params, body.rex-theme-dark .ck-choice-card:has(input:checked) { background: #1c2e42; border-color: #3b6ea3; }
 body.rex-theme-dark .ck-sticky-footer { background: rgba(26, 36, 48, .96); border-color: #33414f; }
-body.rex-theme-dark .ck-panel-intro, body.rex-theme-dark .ck-group-desc, body.rex-theme-dark .ck-service-desc, body.rex-theme-dark .ck-choice-text,
-body.rex-theme-dark .ck-preset p, body.rex-theme-dark .ck-stat dt, body.rex-theme-dark .ck-filter-field label, body.rex-theme-dark .ck-checklist h2 { color: #a9b6c3; }
+body.rex-theme-dark .ck-panel-intro, body.rex-theme-dark .ck-group-desc, body.rex-theme-dark .ck-service-desc, body.rex-theme-dark .ck-choice-text, body.rex-theme-dark .ck-toolbar-hint, body.rex-theme-dark .ck-domain-filter-label, body.rex-theme-dark .ck-preset p, body.rex-theme-dark .ck-stat dt, body.rex-theme-dark .ck-filter-field label, body.rex-theme-dark .ck-checklist h2 { color: #a9b6c3; }
 body.rex-theme-dark .ck-group-head code, body.rex-theme-dark .ck-services code { color: #a9b6c3; background: rgba(255, 255, 255, .08); }
-body.rex-theme-dark .ck-stat, body.rex-theme-dark .ck-choice-card, body.rex-theme-dark .ck-form-footer, body.rex-theme-dark .ck-filter-wrap, body.rex-theme-dark .ck-preview-frame { border-color: #33414f; }
+body.rex-theme-dark .ck-stat, body.rex-theme-dark .ck-choice-card, body.rex-theme-dark .ck-form-footer, body.rex-theme-dark .ck-filter-wrap, body.rex-theme-dark .ck-preview-frame, body.rex-theme-dark .ck-domain-list, body.rex-theme-dark .ck-help-content h2, body.rex-theme-dark .ck-help-content th, body.rex-theme-dark .ck-help-content td { border-color: #33414f; }
 body.rex-theme-dark .ck-contrast-ok, body.rex-theme-dark .ck-note-ok, body.rex-theme-dark .ck-chip-on { background: #17301f; color: #b9e2c3; }
-body.rex-theme-dark .ck-contrast-fail { background: #3a2a12; }
+body.rex-theme-dark .ck-contrast-fail, body.rex-theme-dark .ck-note-warn { background: #3a2a12; }
+body.rex-theme-dark .ck-note-ok { border-color: #2b7a3d; }
+body.rex-theme-dark .ck-note-warn { border-color: #a65b00; }
+body.rex-theme-dark .ck-chip-domain { color: #b9d7f2; border-color: #3b6ea3; background: #1c2e42; }
 body.rex-theme-dark .ck-chip-off { background: #1a2430; border-color: #33414f; color: #a9b6c3; }
+
+@media (prefers-color-scheme: dark) {
+    body:not(.rex-theme-light) .ck-matrix > thead > tr > th, body:not(.rex-theme-light) .ck-group-row > th, body:not(.rex-theme-light) .ck-group-row > td { background: #1a2430; border-color: #33414f !important; }
+    body:not(.rex-theme-light) .ck-matrix code { color: #a9b6c3; background: rgba(255, 255, 255, .08); }
+    body:not(.rex-theme-light) .ck-cell-button.is-on { color: #6fcf85; }
+    body:not(.rex-theme-light) .ck-checklist, body:not(.rex-theme-light) .ck-preset, body:not(.rex-theme-light) .ck-color input { background: #1f2b38; border-color: #33414f; }
+    body:not(.rex-theme-light) .ck-item, body:not(.rex-theme-light) .ck-preset-info, body:not(.rex-theme-light) .ck-preset-custom, body:not(.rex-theme-light) .ck-note, body:not(.rex-theme-light) .ck-bar-cell { background: #1a2430; border-color: #33414f; }
+    body:not(.rex-theme-light) .ck-field [data-ck-key-locked] { background: #1a2430; color: #a9b6c3; }
+    body:not(.rex-theme-light) .ck-onboarding, body:not(.rex-theme-light) .ck-params, body:not(.rex-theme-light) .ck-choice-card:has(input:checked) { background: #1c2e42; border-color: #3b6ea3; }
+    body:not(.rex-theme-light) .ck-sticky-footer { background: rgba(26, 36, 48, .96); border-color: #33414f; }
+    body:not(.rex-theme-light) .ck-panel-intro, body:not(.rex-theme-light) .ck-group-desc, body:not(.rex-theme-light) .ck-service-desc, body:not(.rex-theme-light) .ck-choice-text, body:not(.rex-theme-light) .ck-toolbar-hint, body:not(.rex-theme-light) .ck-domain-filter-label, body:not(.rex-theme-light) .ck-preset p, body:not(.rex-theme-light) .ck-stat dt, body:not(.rex-theme-light) .ck-filter-field label, body:not(.rex-theme-light) .ck-checklist h2 { color: #a9b6c3; }
+    body:not(.rex-theme-light) .ck-group-head code, body:not(.rex-theme-light) .ck-services code { color: #a9b6c3; background: rgba(255, 255, 255, .08); }
+    body:not(.rex-theme-light) .ck-stat, body:not(.rex-theme-light) .ck-choice-card, body:not(.rex-theme-light) .ck-form-footer, body:not(.rex-theme-light) .ck-filter-wrap, body:not(.rex-theme-light) .ck-preview-frame, body:not(.rex-theme-light) .ck-domain-list, body:not(.rex-theme-light) .ck-help-content h2, body:not(.rex-theme-light) .ck-help-content th, body:not(.rex-theme-light) .ck-help-content td { border-color: #33414f; }
+    body:not(.rex-theme-light) .ck-contrast-ok, body:not(.rex-theme-light) .ck-note-ok, body:not(.rex-theme-light) .ck-chip-on { background: #17301f; color: #b9e2c3; }
+    body:not(.rex-theme-light) .ck-contrast-fail, body:not(.rex-theme-light) .ck-note-warn { background: #3a2a12; }
+    body:not(.rex-theme-light) .ck-note-ok { border-color: #2b7a3d; }
+    body:not(.rex-theme-light) .ck-note-warn { border-color: #a65b00; }
+    body:not(.rex-theme-light) .ck-chip-domain { color: #b9d7f2; border-color: #3b6ea3; background: #1c2e42; }
+    body:not(.rex-theme-light) .ck-chip-off { background: #1a2430; border-color: #33414f; color: #a9b6c3; }
+}
