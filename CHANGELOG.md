@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.4 – 2026-11-11
+
+#### Neu: Vorlage „Leadfeeder (Dealfront) Website-Tracker“
+
+B2B-Besuchererkennung von Leadfeeder/Dealfront (`leadfeeder`, Gruppe *Marketing*). Einzugeben ist nur die Tracker-ID, also der Wert in den Klammern am Ende des Tracker-Scripts, z. B. `('AbCdEfGhIjKlMnOp')`. Geladen wird `https://sc.lfeeder.com/lftracker_v1_<ID>.js`, gemeldet wird an `tr.lfeeder.com`.
+
+- **Cookies und Speicher:** `_lfa` (Cookie und lokaler Speicher, 1 Jahr), `_lfa_expiry` (lokaler Speicher), `_lfa_consent` (nur mit Einwilligungsmodus im Leadfeeder-Konto) und das Testcookie `_lfa_test_cookie_stored`. Beim Widerruf werden alle entfernt.
+- **Einwilligungsmodus:** Ist im Leadfeeder-Konto der Einwilligungsmodus aktiv, meldet die Einwilligung `ldfdr.acceptCookie()` und der Widerruf `ldfdr.rejectCookie()`. Ohne Einwilligungsmodus bleibt beides wirkungslos; das Script lädt ohnehin erst nach der Einwilligung.
+- **Anbieter:** Dealfront Group GmbH, Karlsruhe.
+- **Quellen:** Hilfe-Center und Datenschutzhinweis von Leadfeeder.
+- **Im Browser geprüft:** welche Cookies und Speichereinträge entstehen und welche Anfragen das Script stellt.
+- **Script vergleichen:** Leadfeeder zeigt das Script nur im Kundenkonto. Den Code der Vorlage bitte mit dem Code aus dem eigenen Konto vergleichen; im Dienst steht ein entsprechender Hinweis.
+
+Außerdem nennt die README jetzt die richtige Zahl an Vorlagen.
+
 ## 1.3.3 – 2026-10-27
 
 #### Fehlerbehebungen
