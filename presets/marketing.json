@@ -1164,6 +1164,131 @@
         "appointment": "oaiq(\"measure\", \"appointment_scheduled\", { type: \"customer_action\" });",
         "page_view": "oaiq(\"measure\", \"page_viewed\", { type: \"contents\" });"
       }
+    },
+    {
+      "key": "leadfeeder",
+      "name": "Leadfeeder (Dealfront) Website-Tracker",
+      "group": "marketing",
+      "provider": "Dealfront Group GmbH, Durlacher Allee 73, 76131 Karlsruhe, Deutschland",
+      "privacy_url": "https://www.leadfeeder.com/privacy/privacy-notice/",
+      "description": {
+        "de": "B2B-Besuchererkennung von Leadfeeder (Dealfront): Erkennt anhand der IP-Adresse, welche Unternehmen die Website besuchen, und wertet die aufgerufenen Seiten für Vertrieb und Marketing aus. Dabei werden Cookies gesetzt und Daten an Dealfront übertragen.",
+        "en": "B2B visitor identification by Leadfeeder (Dealfront): identifies the companies visiting the website by their IP address and analyses the pages viewed for sales and marketing. Cookies are set and data is transferred to Dealfront.",
+        "nl": "B2B-bezoekersherkenning van Leadfeeder (Dealfront): herkent aan de hand van het IP-adres welke bedrijven de website bezoeken en analyseert de bekeken pagina's voor verkoop en marketing. Daarbij worden cookies geplaatst en gegevens naar Dealfront verzonden.",
+        "it": "Riconoscimento B2B dei visitatori di Leadfeeder (Dealfront): identifica tramite l'indirizzo IP le aziende che visitano il sito e analizza le pagine visualizzate per vendite e marketing. Vengono impostati cookie e trasmessi dati a Dealfront."
+      },
+      "params": [
+        {
+          "key": "tracker_id",
+          "label": {
+            "de": "Tracker-ID",
+            "en": "Tracker ID",
+            "nl": "Tracker-ID",
+            "it": "ID tracker"
+          },
+          "placeholder": "AbCdEfGhIjKlMnOp",
+          "pattern": "^[A-Za-z0-9]+$"
+        }
+      ],
+      "html_head": "<script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('{{tracker_id}}'); </script>",
+      "html_body": "",
+      "js_default": "",
+      "js_accept": "(function wait(n) {\n    if (window.ldfdr && typeof window.ldfdr.acceptCookie === 'function') { window.ldfdr.acceptCookie(); return; }\n    if (n < 50) { setTimeout(function () { wait(n + 1); }, 200); }\n})(0);",
+      "js_revoke": "if (window.ldfdr && typeof window.ldfdr.rejectCookie === 'function') { window.ldfdr.rejectCookie(); }",
+      "gcm_signals": [],
+      "embed_hosts": [],
+      "items": [
+        {
+          "type": "cookie",
+          "name": "_lfa",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Kennung des Besuchers, um wiederkehrende Besuche zu erkennen.",
+            "en": "Visitor client ID used to recognise returning visits.",
+            "nl": "Bezoekersidentificatie om terugkerende bezoeken te herkennen.",
+            "it": "Identificativo del visitatore per riconoscere le visite ripetute."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_lfa_consent",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Speichert den Einwilligungsstatus (nur bei aktiviertem Einwilligungsmodus im Leadfeeder-Konto).",
+            "en": "Stores the consent status (only when consent mode is enabled in the Leadfeeder account).",
+            "nl": "Slaat de toestemmingsstatus op (alleen als de toestemmingsmodus in het Leadfeeder-account is ingeschakeld).",
+            "it": "Memorizza lo stato del consenso (solo se nell'account Leadfeeder è attiva la modalità consenso)."
+          }
+        },
+        {
+          "type": "cookie",
+          "name": "_lfa_test_cookie_stored",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "minutes"
+          },
+          "purpose": {
+            "de": "Prüft kurz, ob der Browser Cookies speichert; läuft nach einer Sekunde ab.",
+            "en": "Briefly checks whether the browser stores cookies; expires after one second.",
+            "nl": "Controleert kort of de browser cookies opslaat; verloopt na één seconde.",
+            "it": "Verifica brevemente se il browser memorizza i cookie; scade dopo un secondo."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "_lfa",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Kopie der Besucherkennung im lokalen Speicher.",
+            "en": "Copy of the visitor ID in local storage.",
+            "nl": "Kopie van de bezoekersidentificatie in de lokale opslag.",
+            "it": "Copia dell'identificativo del visitatore nella memoria locale."
+          }
+        },
+        {
+          "type": "local_storage",
+          "name": "_lfa_expiry",
+          "host": "",
+          "duration": {
+            "value": 1,
+            "unit": "years"
+          },
+          "purpose": {
+            "de": "Speichert, wie lange die Besucherkennung im lokalen Speicher gültig ist.",
+            "en": "Stores how long the visitor ID remains valid in local storage.",
+            "nl": "Slaat op hoe lang de bezoekersidentificatie in de lokale opslag geldig blijft.",
+            "it": "Memorizza per quanto tempo l'identificativo del visitatore resta valido nella memoria locale."
+          }
+        }
+      ],
+      "note": {
+        "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt (Einstellungen → Company → Website Tracker → Tracker script). Bitte mit dem Code aus dem eigenen Konto vergleichen; die Tracker-ID ist der Wert in den Klammern am Ende, z. B. ('AbCdEfGhIjKlMnOp'). Das Testcookie _lfa_test_cookie_stored läuft laut Dealfront nach einer Sekunde ab, kleinste Einheit hier ist eine Minute. Empfehlung: im Leadfeeder-Konto unter „Cookie settings“ den Einwilligungsmodus und unter „Advanced tracking“ die IP-Anonymisierung aktivieren.",
+        "en": "The script is not taken from a public vendor page because the vendor only shows it in the customer account (Settings → Company → Website Tracker → Tracker script). Please compare it with the code from your own account; the tracker ID is the value in the parentheses at the end, e.g. ('AbCdEfGhIjKlMnOp'). According to Dealfront the test cookie _lfa_test_cookie_stored expires after one second; the smallest unit here is one minute. Recommended: enable consent mode under “Cookie settings” and IP anonymisation under “Advanced tracking” in the Leadfeeder account.",
+        "nl": "Het script komt niet van een openbare pagina van de leverancier, omdat deze het alleen in het klantaccount toont (Settings → Company → Website Tracker → Tracker script). Vergelijk het met de code uit uw eigen account; de tracker-ID is de waarde tussen de haakjes aan het einde, bijv. ('AbCdEfGhIjKlMnOp'). Volgens Dealfront verloopt de testcookie _lfa_test_cookie_stored na één seconde; de kleinste eenheid hier is één minuut. Aanbevolen: schakel in het Leadfeeder-account de toestemmingsmodus in onder „Cookie settings” en IP-anonimisering onder „Advanced tracking”.",
+        "it": "Lo script non proviene da una pagina pubblica del fornitore, perché questi lo mostra solo nell'account cliente (Settings → Company → Website Tracker → Tracker script). Confrontarlo con il codice del proprio account; l'ID tracker è il valore tra parentesi alla fine, ad es. ('AbCdEfGhIjKlMnOp'). Secondo Dealfront il cookie di prova _lfa_test_cookie_stored scade dopo un secondo; l'unità minima qui è un minuto. Consigliato: nell'account Leadfeeder attivare la modalità consenso in «Cookie settings» e l'anonimizzazione IP in «Advanced tracking»."
+      },
+      "sources": [
+        "https://help.leadfeeder.com/en/articles/13922296-what-is-the-leadfeeder-tracking-script",
+        "https://help.leadfeeder.com/en/articles/13922292-using-web-visitors-tracker-with-consent-to-comply-with-gdpr",
+        "https://help.leadfeeder.com/en/articles/17037873-how-to-opt-visitors-out-of-web-visitors-tracking-optout-optin",
+        "https://help.leadfeeder.com/en/articles/13921762-installing-the-leadfeeder-tracking-script",
+        "https://www.leadfeeder.com/cookies-and-tracking/",
+        "https://www.leadfeeder.com/privacy/privacy-notice/"
+      ],
+      "verified": "2026-11-11"
     }
   ]
 }
