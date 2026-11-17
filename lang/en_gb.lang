@@ -349,6 +349,7 @@ consent_kit_legacy_upload = Import file
 consent_kit_legacy_invalid = The file is not a consent_manager export.
 consent_kit_legacy_done = Imported: {0} groups, {1} services, {2} domains.
 consent_kit_legacy_notes = Please review:
+consent_kit_legacy_ungrouped = {0} service(s) had no group in consent_manager and are now listed under “Without group” in the <a href="{1}">overview</a>. Please edit each one and choose a group – until then they do not appear in the banner.
 consent_kit_text_title = Heading
 consent_kit_text_intro = Introduction
 consent_kit_text_accept_all = Button “Accept all”

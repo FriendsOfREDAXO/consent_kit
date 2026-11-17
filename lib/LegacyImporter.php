@@ -21,6 +21,7 @@ final class LegacyImporter
     private int $groups = 0;
     private int $services = 0;
     private int $domains = 0;
+    private int $ungrouped = 0;
 
     public static function tablesExist(): bool
     {
@@ -28,7 +29,7 @@ final class LegacyImporter
             && rex_sql_table::get(rex::getTable('consent_manager_cookiegroup'))->exists();
     }
 
-    /** @return array{groups: int, services: int, domains: int, notes: list<string>} */
+    /** @return array{groups: int, services: int, domains: int, ungrouped: int, notes: list<string>} */
     public function fromTables(): array
     {
         $sql = rex_sql::factory();
@@ -44,7 +45,7 @@ final class LegacyImporter
 
     /**
      * @param array<string, mixed> $data
-     * @return array{groups: int, services: int, domains: int, notes: list<string>}
+     * @return array{groups: int, services: int, domains: int, ungrouped: int, notes: list<string>}
      */
     public function fromArray(array $data): array
     {
@@ -160,8 +161,16 @@ final class LegacyImporter
             }
             $groupId = $groupIds[$serviceGroup[$uid] ?? ''] ?? 0;
             if (0 === $groupId) {
-                $this->notes[] = $uid . ': war keiner Gruppe zugeordnet, übersprungen.';
-                continue;
+                // In consent_manager ohne Gruppe: passt der Schluessel zu einer Vorlage, deren Gruppe nehmen,
+                // sonst ohne Gruppe uebernehmen – die Uebersicht zeigt ihn unter „Ohne Gruppe“ zum Zuordnen.
+                $preset = PresetRepository::get($uid) ?? PresetRepository::get(str_replace('-', '_', $uid));
+                if (null !== $preset && '' !== (string) ($preset['group'] ?? '')) {
+                    $groupId = Installer::ensureGroup((string) $preset['group']);
+                    $this->notes[] = $uid . ': war keiner Gruppe zugeordnet – in die Gruppe der passenden Vorlage („' . $preset['group'] . '“) übernommen, bitte prüfen.';
+                } else {
+                    ++$this->ungrouped;
+                    $this->notes[] = $uid . ': war keiner Gruppe zugeordnet – unter „Ohne Gruppe“ übernommen, bitte bearbeiten und eine Gruppe wählen.';
+                }
             }
             foreach ($service['items'] as $item) {
                 if (!$item['parsed']) {
@@ -189,7 +198,7 @@ final class LegacyImporter
             $this->notes[] = 'In den Daten wurden keine Dienste erkannt (' . count((array) $data['cookies']) . ' Einträge unter „cookies“). Bitte die Datei bzw. Version von Consent-Manager prüfen.';
         }
 
-        return ['groups' => $this->groups, 'services' => $this->services, 'domains' => $this->domains, 'notes' => array_values(array_unique($this->notes))];
+        return ['groups' => $this->groups, 'services' => $this->services, 'domains' => $this->domains, 'ungrouped' => $this->ungrouped, 'notes' => array_values(array_unique($this->notes))];
     }
 
     /**
