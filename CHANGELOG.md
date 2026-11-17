@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.6 – 2026-11-17
+
+#### Verbessert: „Vorlagen importieren“ ist nicht mehr mit „Dienste anlegen“ zu verwechseln
+
+Der Import unter *Werkzeuge → Eigene Vorlagen* legt Vorlagen ab, keine Dienste. Die Erfolgsmeldung „1 als „datei.json“ gespeichert: youtube“ wurde aber als „Dienst importiert“ gelesen – und der Dienst dann in der Liste vermisst.
+
+- **Überschrift** „Vorlagen importieren“ statt „Importieren“.
+- **Einleitung** beginnt mit „Fügt **Vorlagen** hinzu, keine Dienste“ und sagt, wo eine Vorlage zum Dienst wird.
+- **Meldung nach dem Import:** „1 Vorlage(n) in „datei.json“ gespeichert: youtube. Noch ist kein Dienst angelegt.“ – darunter der Link **„Jetzt als Dienst anlegen: Dienste → Dienst hinzufügen“**.
+
+Deutsch und Englisch.
+
 ## 1.3.5 – 2026-11-17
 
 #### Fehlerbehebungen

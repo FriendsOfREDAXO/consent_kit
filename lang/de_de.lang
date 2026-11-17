@@ -493,12 +493,13 @@ consent_kit_presets_export_all = Nichts ausgewählt = alle Dienste. Mehrfachausw
 consent_kit_presets_export_select = Dienste
 consent_kit_presets_export_start = Als Vorlage herunterladen
 consent_kit_presets_export_empty = Es sind noch keine Dienste angelegt.
-consent_kit_presets_import_title = Importieren
-consent_kit_presets_import_intro = Legt die Datei nach Prüfung im Vorlagen-Ordner ab. Anschließend stehen die Dienste unter „Dienste → Dienst hinzufügen“ zur Wahl. Bestehende Dienste ändert der Import nicht.
+consent_kit_presets_import_title = Vorlagen importieren
+consent_kit_presets_import_intro = Fügt <strong>Vorlagen</strong> hinzu, keine Dienste: Die Datei wird geprüft und im Vorlagen-Ordner abgelegt. Als Dienst anlegen Sie eine Vorlage danach unter „Dienste → Dienst hinzufügen“. Bestehende Dienste bleiben unverändert.
 consent_kit_presets_import_file = Vorlagen-Datei (JSON)
 consent_kit_presets_import_overwrite = Gleichnamige Datei überschreiben
 consent_kit_presets_import_start = Vorlagen importieren
-consent_kit_presets_import_done = {0} als „{1}“ gespeichert: {2}
+consent_kit_presets_import_done = {0} Vorlage(n) in „{1}“ gespeichert: {2}. Noch ist kein Dienst angelegt.
+consent_kit_presets_import_next = Jetzt als Dienst anlegen: Dienste → Dienst hinzufügen
 consent_kit_presets_import_failed = Die Datei wurde nicht übernommen.
 consent_kit_presets_import_partial = Nicht übernommen wurden:
 consent_kit_presets_import_none = Keine Datei ausgewählt.
