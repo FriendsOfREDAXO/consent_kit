@@ -5,6 +5,7 @@ namespace FriendsOfRedaxo\ConsentKit\Backend;
 use FriendsOfRedaxo\ConsentKit\Cache;
 use FriendsOfRedaxo\ConsentKit\Events;
 use FriendsOfRedaxo\ConsentKit\I18n;
+use FriendsOfRedaxo\ConsentKit\Installer;
 use FriendsOfRedaxo\ConsentKit\PresetIo;
 use FriendsOfRedaxo\ConsentKit\PresetRepository;
 use FriendsOfRedaxo\ConsentKit\Repository;
@@ -131,8 +132,9 @@ final class ServiceController
         if (Repository::serviceKeyExists($key)) {
             return rex_view::error(rex_i18n::msg('consent_kit_key_exists', $key));
         }
+        // Gruppe der Vorlage sicherstellen – fehlt sie (oder gibt es gar keine Gruppen), wird sie angelegt
         if (0 === $data['group_id']) {
-            $data['group_id'] = Repository::groups()[0]['id'] ?? 0;
+            $data['group_id'] = Installer::ensureGroup((string) (PresetRepository::get($key)['group'] ?? ''));
         }
         $id = Repository::saveService(0, $data, $items);
         // Braucht die Vorlage Angaben (z. B. eine Mess-ID), direkt ins Formular.
@@ -234,6 +236,9 @@ final class ServiceController
 
     private function overview(): string
     {
+        // Ohne jede Gruppe (Installation unvollstaendig, alle Gruppen geloescht) die Standardgruppen anlegen
+        Installer::ensureDefaultGroups();
+        $repaired = Repository::repairOrphans();
         $groups = Repository::groups();
         $services = Repository::services();
         $byGroup = [];
@@ -298,7 +303,8 @@ final class ServiceController
                 . '<li>' . rex_i18n::rawMsg('consent_kit_onboarding_3', rex_url::backendPage('consent_kit/design')) . '</li></ol></section>';
         }
 
-        return $onboarding . $this->checklist($services)
+        return ($repaired > 0 ? rex_view::info(rex_i18n::msg('consent_kit_groups_repaired', (string) $repaired)) : '')
+            . $onboarding . $this->checklist($services)
             . '<div class="ck-toolbar">'
             . '<a class="btn btn-save" href="' . rex_url::backendPage('consent_kit/services', ['func' => 'add']) . '"><i class="rex-icon fa-plus" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_service_add') . '</a> '
             . '<a class="btn btn-default" href="' . rex_url::backendPage('consent_kit/services', ['func' => 'group']) . '"><i class="rex-icon fa-folder-o" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_group_add') . '</a>'
@@ -510,6 +516,8 @@ final class ServiceController
 
     private function serviceForm(int $id): string
     {
+        // Ohne Gruppe laesst sich kein Dienst speichern – dann die Standardgruppen anlegen
+        Installer::ensureDefaultGroups();
         $service = $id > 0 ? Repository::service($id) : null;
         if ($id > 0 && null === $service) {
             return rex_view::error(rex_i18n::msg('consent_kit_not_found'));

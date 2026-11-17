@@ -56,6 +56,7 @@ consent_kit_group_add = Add group
 consent_kit_group_edit = Edit group
 consent_kit_group_empty = No services in this group yet.
 consent_kit_group_none = Without group
+consent_kit_groups_repaired = {0} service(s) without a group were assigned to their group automatically.
 consent_kit_group_none_hint = These services do not belong to an existing group and therefore do not show up in the banner – please edit them and choose a group.
 consent_kit_group_not_empty = The group still contains services and cannot be deleted.
 consent_kit_flash_status_saved = Status changed.

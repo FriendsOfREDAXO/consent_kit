@@ -84,7 +84,13 @@ final class Installer
             }
         }
 
-        // Der eigene Consent-Cookie gehoert in jede Installation.
+        // Der eigene Consent-Cookie gehoert in jede Installation. Gibt es ihn schon (alle Gruppen waren
+        // geloescht), nur der neuen Gruppe "necessary" zuordnen – der Schluessel ist eindeutig.
+        $existing = rex_sql::factory()->getArray('SELECT id FROM ' . rex::getTable('consent_kit_service') . " WHERE `key` = 'consent_kit'");
+        if ([] !== $existing) {
+            rex_sql::factory()->setQuery('UPDATE ' . rex::getTable('consent_kit_service') . ' SET group_id = ? WHERE id = ?', [$necessaryId, (int) $existing[0]['id']]);
+            return;
+        }
         $service = rex_sql::factory()
             ->setTable(rex::getTable('consent_kit_service'))
             ->setValue('key', 'consent_kit')
@@ -116,6 +122,37 @@ final class Installer
             ]))
             ->insert();
         self::seedDismissItem((int) $service->getLastId());
+    }
+
+    /**
+     * Gruppe mit diesem Schluessel sicherstellen und ihre ID liefern. Fehlt sie, wird sie angelegt:
+     * Standardgruppen mit Name und Beschreibung wie bei der Installation, andere mit dem Schluessel als Name.
+     */
+    public static function ensureGroup(string $key): int
+    {
+        $key = trim($key);
+        if ('' === $key) {
+            $key = 'functional';
+        }
+        foreach (Repository::groups() as $group) {
+            if ($group['key'] === $key) {
+                return $group['id'];
+            }
+        }
+        $definition = self::GROUPS[$key] ?? ['required' => 0, 'name' => ['de' => $key, 'en' => $key], 'description' => []];
+
+        return Repository::saveGroup(0, ['key' => $key] + $definition);
+    }
+
+    /** Gibt es gar keine Gruppe, die Standardgruppen anlegen (ohne Dienste). */
+    public static function ensureDefaultGroups(): void
+    {
+        if ([] !== Repository::groups()) {
+            return;
+        }
+        foreach (array_keys(self::GROUPS) as $key) {
+            self::ensureGroup($key);
+        }
     }
 
     /** Merkt sich fuer die Browser-Sitzung, dass der Hinweis ohne Entscheidung geschlossen wurde. */

@@ -67,6 +67,37 @@ final class Repository
         return $id;
     }
 
+    /**
+     * Dienste ohne (gueltige) Gruppe ihrer Gruppe zuordnen: der Consent-Kit-Dienst nach "necessary",
+     * Dienste aus Vorlagen in die Gruppe der Vorlage (fehlt sie, wird sie angelegt). Andere bleiben,
+     * wie sie sind, und erscheinen in der Uebersicht unter "Ohne Gruppe".
+     *
+     * @return int Anzahl zugeordneter Dienste
+     */
+    public static function repairOrphans(): int
+    {
+        $groupIds = array_column(self::groups(), 'id');
+        $count = 0;
+        foreach (rex_sql::factory()->getArray('SELECT id, `key`, group_id, preset FROM ' . rex::getTable('consent_kit_service')) as $row) {
+            if (in_array((int) $row['group_id'], $groupIds, true)) {
+                continue;
+            }
+            $key = 'consent_kit' === $row['key'] ? 'necessary' : (string) (PresetRepository::get((string) $row['preset'])['group'] ?? '');
+            if ('' === $key) {
+                continue;
+            }
+            $groupId = Installer::ensureGroup($key);
+            $groupIds[] = $groupId;
+            rex_sql::factory()->setQuery('UPDATE ' . rex::getTable('consent_kit_service') . ' SET group_id = ? WHERE id = ?', [$groupId, (int) $row['id']]);
+            ++$count;
+        }
+        if ($count > 0) {
+            Cache::clear();
+        }
+
+        return $count;
+    }
+
     public static function deleteGroup(int $id): bool
     {
         $count = rex_sql::factory()->getArray(
