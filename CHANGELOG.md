@@ -1,5 +1,15 @@
 # Changelog
 
+## Unveröffentlicht
+
+#### Neu: Französisch und Spanisch
+
+Frontend-Texte und Dienst-Vorlagen sprechen jetzt sechs Sprachen. Das Backend bleibt bei Deutsch und Englisch.
+
+- `resources/texts.php`: Blöcke `fr` und `es` mit allen 52 Schlüsseln. Wie bei `nl` und `it` ist keine Änderung am Code nötig – `Texts::defaultsFor()` findet die Sprachen über den zweistelligen Code.
+- `presets/*.json`: Alle 204 mehrsprachigen Felder der Vorlagen um `fr` und `es` ergänzt – Dienstbeschreibungen, Hinweise, Parameter-Beschriftungen und die Zwecke der Cookie- und Storage-Einträge. Übernommen wird das beim Anlegen eines Dienstes aus einer Vorlage; bereits angelegte Dienste bleiben unverändert.
+- Französisch mit geschütztem Leerzeichen (U+00A0) vor `:` `;` `!` `?` und innerhalb von « », Spanisch mit « ». Beide in der Höflichkeitsform (vous/usted).
+
 ## 1.4.0 – 2026-11-17
 
 #### Fehlerbehebungen: Dienste landen immer in einer Gruppe

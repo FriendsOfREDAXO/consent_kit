@@ -10,7 +10,9 @@
         "de": "Tag-Management-System von Google, über das weitere Skripte (Tags) geladen werden. Laut Google erfasst der Tag Manager selbst keine Informationen über Besucher; die darüber ausgelösten Tags benötigen jeweils eine eigene Einwilligungssteuerung.",
         "en": "Tag management system by Google used to load further scripts (tags). According to Google, Tag Manager itself does not collect information about visitors; tags fired through it each need their own consent handling.",
         "nl": "Tagmanagementsysteem van Google waarmee andere scripts (tags) worden geladen. Volgens Google verzamelt de Tag Manager zelf geen informatie over bezoekers; de daarmee geactiveerde tags hebben elk een eigen toestemmingsregeling nodig.",
-        "it": "Sistema di gestione dei tag di Google tramite cui vengono caricati altri script (tag). Secondo Google il Tag Manager non raccoglie di per sé informazioni sui visitatori; i tag attivati tramite esso necessitano ciascuno di una propria gestione del consenso."
+        "it": "Sistema di gestione dei tag di Google tramite cui vengono caricati altri script (tag). Secondo Google il Tag Manager non raccoglie di per sé informazioni sui visitatori; i tag attivati tramite esso necessitano ciascuno di una propria gestione del consenso.",
+        "fr": "Système de gestion de balises de Google, via lequel d’autres scripts (balises) sont chargés. Selon Google, le Tag Manager lui-même ne collecte aucune information sur les visiteurs ; les balises déclenchées par son intermédiaire nécessitent chacune leur propre gestion du consentement.",
+        "es": "Sistema de gestión de etiquetas de Google a través del cual se cargan otros scripts (etiquetas). Según Google, Tag Manager no recopila por sí mismo información sobre los visitantes; cada una de las etiquetas que se activan a través de él requiere su propio control del consentimiento."
       },
       "params": [
         {
@@ -19,7 +21,9 @@
             "de": "Container-ID",
             "en": "Container ID",
             "nl": "Container-ID",
-            "it": "ID container"
+            "it": "ID container",
+            "fr": "ID de conteneur",
+            "es": "ID de contenedor"
           },
           "placeholder": "GTM-XXXXXXX",
           "pattern": "^GTM-[A-Z0-9]+$"
@@ -51,7 +55,9 @@
         "de": "Werbedienst von Google zur Messung von Conversions nach Anzeigenklicks und zur Bildung von Remarketing-Zielgruppen. Dabei werden Cookies gesetzt und Daten an Google übertragen.",
         "en": "Advertising service by Google for measuring conversions after ad clicks and for building remarketing audiences. Cookies are set and data is transferred to Google.",
         "nl": "Advertentiedienst van Google voor het meten van conversies na advertentieklikken en het samenstellen van remarketingdoelgroepen. Daarbij worden cookies geplaatst en gegevens naar Google verzonden.",
-        "it": "Servizio pubblicitario di Google per misurare le conversioni dopo i clic sugli annunci e creare segmenti di pubblico per il remarketing. Vengono impostati cookie e trasmessi dati a Google."
+        "it": "Servizio pubblicitario di Google per misurare le conversioni dopo i clic sugli annunci e creare segmenti di pubblico per il remarketing. Vengono impostati cookie e trasmessi dati a Google.",
+        "fr": "Service publicitaire de Google permettant de mesurer les conversions après des clics sur des annonces et de constituer des audiences de remarketing. Des cookies sont alors déposés et des données sont transmises à Google.",
+        "es": "Servicio publicitario de Google para medir conversiones tras clics en anuncios y para crear audiencias de remarketing. Se instalan cookies y se transmiten datos a Google."
       },
       "params": [
         {
@@ -60,7 +66,9 @@
             "de": "Conversion-ID",
             "en": "Conversion ID",
             "nl": "Conversie-ID",
-            "it": "ID conversione"
+            "it": "ID conversione",
+            "fr": "ID de conversion",
+            "es": "ID de conversión"
           },
           "placeholder": "AW-XXXXXXXXXX",
           "pattern": "^AW-[0-9]+$"
@@ -90,7 +98,9 @@
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
             "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
             "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
-            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto).",
+            "fr": "Aide les annonceurs à déterminer combien de fois des utilisateurs effectuent une action sur le site web après avoir cliqué sur une annonce (p. ex. un achat).",
+            "es": "Ayuda a los anunciantes a determinar con qué frecuencia los usuarios realizan una acción en el sitio web (p. ej., una compra) tras hacer clic en un anuncio."
           }
         },
         {
@@ -105,7 +115,9 @@
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
             "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
             "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
-            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto).",
+            "fr": "Aide les annonceurs à déterminer combien de fois des utilisateurs effectuent une action sur le site web après avoir cliqué sur une annonce (p. ex. un achat).",
+            "es": "Ayuda a los anunciantes a determinar con qué frecuencia los usuarios realizan una acción en el sitio web (p. ej., una compra) tras hacer clic en un anuncio."
           }
         },
         {
@@ -120,7 +132,9 @@
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
             "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
             "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
-            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto).",
+            "fr": "Aide les annonceurs à déterminer combien de fois des utilisateurs effectuent une action sur le site web après avoir cliqué sur une annonce (p. ex. un achat).",
+            "es": "Ayuda a los anunciantes a determinar con qué frecuencia los usuarios realizan una acción en el sitio web (p. ej., una compra) tras hacer clic en un anuncio."
           }
         },
         {
@@ -135,7 +149,9 @@
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
             "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
             "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
-            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto).",
+            "fr": "Aide les annonceurs à déterminer combien de fois des utilisateurs effectuent une action sur le site web après avoir cliqué sur une annonce (p. ex. un achat).",
+            "es": "Ayuda a los anunciantes a determinar con qué frecuencia los usuarios realizan una acción en el sitio web (p. ej., una compra) tras hacer clic en un anuncio."
           }
         },
         {
@@ -150,7 +166,9 @@
             "de": "Hilft Werbetreibenden zu ermitteln, wie oft Nutzer nach einem Klick auf eine Anzeige eine Aktion auf der Website ausführen (z. B. einen Kauf).",
             "en": "Helps advertisers determine how many times users who click on their ads end up taking an action on their site, such as making a purchase.",
             "nl": "Helpt adverteerders te bepalen hoe vaak gebruikers na een klik op een advertentie een actie op de website uitvoeren (bijvoorbeeld een aankoop).",
-            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto)."
+            "it": "Aiuta gli inserzionisti a determinare quante volte gli utenti compiono un'azione sul sito dopo aver fatto clic su un annuncio (ad esempio un acquisto).",
+            "fr": "Aide les annonceurs à déterminer combien de fois des utilisateurs effectuent une action sur le site web après avoir cliqué sur une annonce (p. ex. un achat).",
+            "es": "Ayuda a los anunciantes a determinar con qué frecuencia los usuarios realizan una acción en el sitio web (p. ej., una compra) tras hacer clic en un anuncio."
           }
         },
         {
@@ -165,7 +183,9 @@
             "de": "Von Google den Kategorien Analyse, Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
             "en": "Cookie for Google Ads assigned by Google to the categories analytics, advertising and security.",
             "nl": "Door Google aan de categorieën analyse, advertenties en beveiliging toegewezen cookie voor Google Ads.",
-            "it": "Cookie per Google Ads assegnato da Google alle categorie analisi, pubblicità e sicurezza."
+            "it": "Cookie per Google Ads assegnato da Google alle categorie analisi, pubblicità e sicurezza.",
+            "fr": "Cookie pour Google Ads, classé par Google dans les catégories analyse, publicité et sécurité.",
+            "es": "Cookie de Google Ads que Google asigna a las categorías de análisis, publicidad y seguridad."
           }
         },
         {
@@ -180,7 +200,9 @@
             "de": "Von Google den Kategorien Werbung und Sicherheit zugeordnetes Cookie für Google Ads.",
             "en": "Cookie for Google Ads assigned by Google to the categories advertising and security.",
             "nl": "Door Google aan de categorieën advertenties en beveiliging toegewezen cookie voor Google Ads.",
-            "it": "Cookie per Google Ads assegnato da Google alle categorie pubblicità e sicurezza."
+            "it": "Cookie per Google Ads assegnato da Google alle categorie pubblicità e sicurezza.",
+            "fr": "Cookie pour Google Ads, classé par Google dans les catégories publicité et sécurité.",
+            "es": "Cookie de Google Ads que Google asigna a las categorías de publicidad y seguridad."
           }
         },
         {
@@ -195,7 +217,9 @@
             "de": "Dient der Anzeige von Google-Werbung auf Websites außerhalb von Google; bei aktivierter Personalisierung auch zur Personalisierung von Anzeigen.",
             "en": "Used to show Google ads on non-Google sites; if personalized ads are enabled, also used to personalize ads.",
             "nl": "Dient voor het tonen van Google-advertenties op websites buiten Google; bij ingeschakelde personalisatie ook voor het personaliseren van advertenties.",
-            "it": "Serve a mostrare annunci Google su siti esterni a Google; con la personalizzazione attiva anche per personalizzare gli annunci."
+            "it": "Serve a mostrare annunci Google su siti esterni a Google; con la personalizzazione attiva anche per personalizzare gli annunci.",
+            "fr": "Sert à afficher des annonces Google sur des sites web extérieurs à Google ; si la personnalisation est activée, sert également à personnaliser les annonces.",
+            "es": "Sirve para mostrar publicidad de Google en sitios web ajenos a Google; si la personalización está activada, también para personalizar los anuncios."
           }
         }
       ],
@@ -223,7 +247,9 @@
         "de": "Tracking-Pixel von Meta (Facebook, Instagram) zur Messung von Werbekampagnen und zur Bildung von Zielgruppen. Dabei werden Cookies gesetzt und Nutzungsdaten an Meta übertragen.",
         "en": "Tracking pixel by Meta (Facebook, Instagram) for measuring advertising campaigns and building audiences. Cookies are set and usage data is transferred to Meta.",
         "nl": "Trackingpixel van Meta (Facebook, Instagram) voor het meten van advertentiecampagnes en het samenstellen van doelgroepen. Daarbij worden cookies geplaatst en gebruiksgegevens naar Meta verzonden.",
-        "it": "Pixel di tracciamento di Meta (Facebook, Instagram) per misurare le campagne pubblicitarie e creare segmenti di pubblico. Vengono impostati cookie e trasmessi dati di utilizzo a Meta."
+        "it": "Pixel di tracciamento di Meta (Facebook, Instagram) per misurare le campagne pubblicitarie e creare segmenti di pubblico. Vengono impostati cookie e trasmessi dati di utilizzo a Meta.",
+        "fr": "Pixel de suivi de Meta (Facebook, Instagram) permettant de mesurer les campagnes publicitaires et de constituer des audiences. Des cookies sont alors déposés et des données d’utilisation sont transmises à Meta.",
+        "es": "Píxel de seguimiento de Meta (Facebook, Instagram) para medir campañas publicitarias y crear audiencias. Se instalan cookies y se transmiten datos de uso a Meta."
       },
       "params": [
         {
@@ -232,7 +258,9 @@
             "de": "Pixel-ID",
             "en": "Pixel ID",
             "nl": "Pixel-ID",
-            "it": "ID pixel"
+            "it": "ID pixel",
+            "fr": "ID de pixel",
+            "es": "ID del píxel"
           },
           "placeholder": "123456789012345",
           "pattern": "^[0-9]+$"
@@ -258,7 +286,9 @@
             "de": "Identifiziert Browser, um Analysedienste für Werbung und Websites bereitzustellen.",
             "en": "Identifies browsers for the purposes of providing advertising and site analytics services.",
             "nl": "Identificeert browsers om analysediensten voor advertenties en websites te leveren.",
-            "it": "Identifica i browser per fornire servizi di analisi per pubblicità e siti web."
+            "it": "Identifica i browser per fornire servizi di analisi per pubblicità e siti web.",
+            "fr": "Identifie les navigateurs afin de fournir des services d’analyse pour la publicité et les sites web.",
+            "es": "Identifica navegadores para prestar servicios de análisis para publicidad y sitios web."
           }
         },
         {
@@ -273,7 +303,9 @@
             "de": "Speichert die Klick-ID (fbclid), wenn die Website über eine Meta-Anzeige aufgerufen wurde.",
             "en": "Stores the click ID (fbclid) when the website was reached via a Meta ad.",
             "nl": "Slaat de klik-ID (fbclid) op wanneer de website via een Meta-advertentie is bezocht.",
-            "it": "Memorizza l'ID clic (fbclid) quando il sito è stato raggiunto tramite un annuncio Meta."
+            "it": "Memorizza l'ID clic (fbclid) quando il sito è stato raggiunto tramite un annuncio Meta.",
+            "fr": "Enregistre l’ID de clic (fbclid) lorsque le site web a été consulté via une annonce Meta.",
+            "es": "Almacena el ID de clic (fbclid) cuando se ha accedido al sitio web a través de un anuncio de Meta."
           }
         },
         {
@@ -288,7 +320,9 @@
             "de": "Dient der Auslieferung von Werbeanzeigen sowie der Messung und Verbesserung ihrer Relevanz.",
             "en": "Used to deliver ads and to measure and improve their relevance.",
             "nl": "Dient voor het uitleveren van advertenties en voor het meten en verbeteren van hun relevantie.",
-            "it": "Serve alla distribuzione degli annunci e alla misurazione e al miglioramento della loro pertinenza."
+            "it": "Serve alla distribuzione degli annunci e alla misurazione e al miglioramento della loro pertinenza.",
+            "fr": "Sert à diffuser des annonces publicitaires ainsi qu’à mesurer et améliorer leur pertinence.",
+            "es": "Sirve para entregar anuncios publicitarios y para medir y mejorar su relevancia."
           }
         }
       ],
@@ -317,7 +351,9 @@
         "de": "Tracking-Tag von LinkedIn für Conversion-Messung, Retargeting und Website-Analysen zu LinkedIn-Kampagnen. Dabei werden Cookies gesetzt und Daten an LinkedIn übertragen.",
         "en": "Tracking tag by LinkedIn for conversion tracking, retargeting and website analytics for LinkedIn campaigns. Cookies are set and data is transferred to LinkedIn.",
         "nl": "Trackingtag van LinkedIn voor conversiemeting, retargeting en website-analyses van LinkedIn-campagnes. Daarbij worden cookies geplaatst en gegevens naar LinkedIn verzonden.",
-        "it": "Tag di tracciamento di LinkedIn per la misurazione delle conversioni, il retargeting e le analisi del sito relative alle campagne LinkedIn. Vengono impostati cookie e trasmessi dati a LinkedIn."
+        "it": "Tag di tracciamento di LinkedIn per la misurazione delle conversioni, il retargeting e le analisi del sito relative alle campagne LinkedIn. Vengono impostati cookie e trasmessi dati a LinkedIn.",
+        "fr": "Balise de suivi de LinkedIn pour la mesure des conversions, le retargeting et les analyses de site web relatives aux campagnes LinkedIn. Des cookies sont alors déposés et des données sont transmises à LinkedIn.",
+        "es": "Etiqueta de seguimiento de LinkedIn para la medición de conversiones, el retargeting y el análisis del sitio web en relación con campañas de LinkedIn. Se instalan cookies y se transmiten datos a LinkedIn."
       },
       "params": [
         {
@@ -326,7 +362,9 @@
             "de": "Partner-ID",
             "en": "Partner ID",
             "nl": "Partner-ID",
-            "it": "ID partner"
+            "it": "ID partner",
+            "fr": "ID de partenaire",
+            "es": "ID de partner"
           },
           "placeholder": "1234567",
           "pattern": "^[0-9]+$"
@@ -352,7 +390,9 @@
             "de": "Indirekte Mitgliederkennung für Conversion-Tracking, Retargeting und Analysen.",
             "en": "Member indirect identifier for conversion tracking, retargeting and analytics.",
             "nl": "Indirecte ledenidentificatie voor conversietracking, retargeting en analyses.",
-            "it": "Identificativo indiretto dei membri per il tracciamento delle conversioni, il retargeting e le analisi."
+            "it": "Identificativo indiretto dei membri per il tracciamento delle conversioni, il retargeting e le analisi.",
+            "fr": "Identifiant indirect de membre pour le suivi des conversions, le retargeting et les analyses.",
+            "es": "Identificador indirecto de miembro para el seguimiento de conversiones, el retargeting y los análisis."
           }
         },
         {
@@ -367,7 +407,9 @@
             "de": "Indirekte Kennung für Gruppen von LinkedIn-Mitgliedern für das Conversion-Tracking.",
             "en": "Indirect identifier for groups of LinkedIn members used for conversion tracking.",
             "nl": "Indirecte identificatie voor groepen LinkedIn-leden ten behoeve van conversietracking.",
-            "it": "Identificativo indiretto per gruppi di membri LinkedIn ai fini del tracciamento delle conversioni."
+            "it": "Identificativo indiretto per gruppi di membri LinkedIn ai fini del tracciamento delle conversioni.",
+            "fr": "Identifiant indirect de groupes de membres LinkedIn pour le suivi des conversions.",
+            "es": "Identificador indirecto de grupos de miembros de LinkedIn para el seguimiento de conversiones."
           }
         },
         {
@@ -382,7 +424,9 @@
             "de": "Ermittelt, ob Oribi-Analysen auf dieser Domain durchgeführt werden können.",
             "en": "Used to determine if Oribi analytics can be carried out on a specific domain.",
             "nl": "Bepaalt of Oribi-analyses op dit domein kunnen worden uitgevoerd.",
-            "it": "Determina se è possibile eseguire analisi Oribi su questo dominio."
+            "it": "Determina se è possibile eseguire analisi Oribi su questo dominio.",
+            "fr": "Détermine si des analyses Oribi peuvent être effectuées sur ce domaine.",
+            "es": "Determina si pueden realizarse análisis de Oribi en este dominio."
           }
         },
         {
@@ -397,7 +441,9 @@
             "de": "Browser-Kennung zur eindeutigen Identifizierung von Geräten, zur Missbrauchserkennung und zu Diagnosezwecken.",
             "en": "Browser identifier cookie to uniquely identify devices accessing LinkedIn, to detect abuse and for diagnostic purposes.",
             "nl": "Browseridentificatie voor het uniek identificeren van apparaten, misbruikdetectie en diagnosedoeleinden.",
-            "it": "Identificativo del browser per l'identificazione univoca dei dispositivi, il rilevamento degli abusi e scopi diagnostici."
+            "it": "Identificativo del browser per l'identificazione univoca dei dispositivi, il rilevamento degli abusi e scopi diagnostici.",
+            "fr": "Identifiant de navigateur permettant d’identifier les appareils de manière unique, de détecter les abus et servant à des fins de diagnostic.",
+            "es": "Identificador del navegador para identificar de forma unívoca los dispositivos, detectar abusos y con fines de diagnóstico."
           }
         },
         {
@@ -412,7 +458,9 @@
             "de": "Erleichtert die Auswahl des Rechenzentrums.",
             "en": "To facilitate data center selection.",
             "nl": "Vergemakkelijkt de keuze van het datacenter.",
-            "it": "Facilita la selezione del data center."
+            "it": "Facilita la selezione del data center.",
+            "fr": "Facilite la sélection du centre de données.",
+            "es": "Facilita la selección del centro de datos."
           }
         },
         {
@@ -427,7 +475,9 @@
             "de": "Speichert die Einwilligung von Gästen zur Verwendung nicht notwendiger Cookies.",
             "en": "Used to store consent of guests regarding the use of cookies for non-essential purposes.",
             "nl": "Slaat de toestemming van gasten voor het gebruik van niet-noodzakelijke cookies op.",
-            "it": "Memorizza il consenso degli ospiti all'uso di cookie non necessari."
+            "it": "Memorizza il consenso degli ospiti all'uso di cookie non necessari.",
+            "fr": "Enregistre le consentement des invités à l’utilisation de cookies non nécessaires.",
+            "es": "Almacena el consentimiento de los invitados para el uso de cookies no necesarias."
           }
         },
         {
@@ -442,7 +492,9 @@
             "de": "Synchronisierung der LinkedIn-Ads-ID.",
             "en": "LinkedIn Ads ID syncing.",
             "nl": "Synchronisatie van de LinkedIn-advertentie-ID.",
-            "it": "Sincronizzazione dell'ID annunci LinkedIn."
+            "it": "Sincronizzazione dell'ID annunci LinkedIn.",
+            "fr": "Synchronisation de l’ID LinkedIn Ads.",
+            "es": "Sincronización del ID de LinkedIn Ads."
           }
         },
         {
@@ -457,7 +509,9 @@
             "de": "Speichert den Zeitpunkt der letzten Synchronisierung mit dem Cookie lms_analytics.",
             "en": "Used to store information about the time a sync took place with the lms_analytics cookie.",
             "nl": "Slaat het tijdstip van de laatste synchronisatie met het cookie lms_analytics op.",
-            "it": "Memorizza il momento dell'ultima sincronizzazione con il cookie lms_analytics."
+            "it": "Memorizza il momento dell'ultima sincronizzazione con il cookie lms_analytics.",
+            "fr": "Enregistre le moment de la dernière synchronisation avec le cookie lms_analytics.",
+            "es": "Almacena el momento de la última sincronización con la cookie lms_analytics."
           }
         },
         {
@@ -472,7 +526,9 @@
             "de": "Identifiziert LinkedIn-Mitglieder außerhalb von LinkedIn für Werbezwecke.",
             "en": "Used to identify LinkedIn members off LinkedIn for advertising.",
             "nl": "Identificeert LinkedIn-leden buiten LinkedIn voor advertentiedoeleinden.",
-            "it": "Identifica i membri LinkedIn al di fuori di LinkedIn per finalità pubblicitarie."
+            "it": "Identifica i membri LinkedIn al di fuori di LinkedIn per finalità pubblicitarie.",
+            "fr": "Identifie les membres LinkedIn en dehors de LinkedIn à des fins publicitaires.",
+            "es": "Identifica a miembros de LinkedIn fuera de LinkedIn con fines publicitarios."
           }
         },
         {
@@ -487,7 +543,9 @@
             "de": "Identifiziert LinkedIn-Mitglieder außerhalb von LinkedIn für Analysezwecke.",
             "en": "Used to identify LinkedIn members off LinkedIn for analytics.",
             "nl": "Identificeert LinkedIn-leden buiten LinkedIn voor analysedoeleinden.",
-            "it": "Identifica i membri LinkedIn al di fuori di LinkedIn per finalità di analisi."
+            "it": "Identifica i membri LinkedIn al di fuori di LinkedIn per finalità di analisi.",
+            "fr": "Identifie les membres LinkedIn en dehors de LinkedIn à des fins d’analyse.",
+            "es": "Identifica a miembros de LinkedIn fuera de LinkedIn con fines de análisis."
           }
         },
         {
@@ -502,7 +560,9 @@
             "de": "Dient der wahrscheinlichkeitsbasierten Zuordnung der Identität eines Nutzers.",
             "en": "Used to make a probabilistic match of a user's identity.",
             "nl": "Dient voor de op waarschijnlijkheid gebaseerde toewijzing van de identiteit van een gebruiker.",
-            "it": "Serve all'attribuzione probabilistica dell'identità di un utente."
+            "it": "Serve all'attribuzione probabilistica dell'identità di un utente.",
+            "fr": "Sert à l’association probabiliste de l’identité d’un utilisateur.",
+            "es": "Sirve para la asociación probabilística de la identidad de un usuario."
           }
         }
       ],
@@ -524,7 +584,9 @@
         "de": "Tracking-Pixel von TikTok zur Messung und Optimierung von Werbekampagnen. Dabei werden Cookies gesetzt und Nutzungsdaten an TikTok übertragen.",
         "en": "Tracking pixel by TikTok for measuring and optimizing advertising campaigns. Cookies are set and usage data is transferred to TikTok.",
         "nl": "Trackingpixel van TikTok voor het meten en optimaliseren van advertentiecampagnes. Daarbij worden cookies geplaatst en gebruiksgegevens naar TikTok verzonden.",
-        "it": "Pixel di tracciamento di TikTok per misurare e ottimizzare le campagne pubblicitarie. Vengono impostati cookie e trasmessi dati di utilizzo a TikTok."
+        "it": "Pixel di tracciamento di TikTok per misurare e ottimizzare le campagne pubblicitarie. Vengono impostati cookie e trasmessi dati di utilizzo a TikTok.",
+        "fr": "Pixel de suivi de TikTok permettant de mesurer et d’optimiser les campagnes publicitaires. Des cookies sont alors déposés et des données d’utilisation sont transmises à TikTok.",
+        "es": "Píxel de seguimiento de TikTok para medir y optimizar campañas publicitarias. Se instalan cookies y se transmiten datos de uso a TikTok."
       },
       "params": [
         {
@@ -533,7 +595,9 @@
             "de": "Pixel-ID",
             "en": "Pixel ID",
             "nl": "Pixel-ID",
-            "it": "ID pixel"
+            "it": "ID pixel",
+            "fr": "ID de pixel",
+            "es": "ID del píxel"
           },
           "placeholder": "CXXXXXXXXXXXXXXXXXXX",
           "pattern": "^[A-Z0-9]+$"
@@ -559,7 +623,9 @@
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
             "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
             "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
-            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok.",
+            "fr": "Mesure et améliore les performances des campagnes publicitaires et personnalise l’expérience utilisateur (y compris la publicité) sur TikTok.",
+            "es": "Mide y mejora el rendimiento de las campañas publicitarias y personaliza la experiencia del usuario (incluida la publicidad) en TikTok."
           }
         },
         {
@@ -574,7 +640,9 @@
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
             "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
             "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
-            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok.",
+            "fr": "Mesure et améliore les performances des campagnes publicitaires et personnalise l’expérience utilisateur (y compris la publicité) sur TikTok.",
+            "es": "Mide y mejora el rendimiento de las campañas publicitarias y personaliza la experiencia del usuario (incluida la publicidad) en TikTok."
           }
         },
         {
@@ -589,7 +657,9 @@
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
             "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
             "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
-            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok.",
+            "fr": "Mesure et améliore les performances des campagnes publicitaires et personnalise l’expérience utilisateur (y compris la publicité) sur TikTok.",
+            "es": "Mide y mejora el rendimiento de las campañas publicitarias y personaliza la experiencia del usuario (incluida la publicidad) en TikTok."
           }
         },
         {
@@ -604,7 +674,9 @@
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert das Nutzererlebnis (einschließlich Werbung) auf TikTok.",
             "en": "Measures and improves the performance of advertising campaigns and personalizes the user experience (including ads) on TikTok.",
             "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert de gebruikerservaring (inclusief advertenties) op TikTok.",
-            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok."
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza l'esperienza utente (inclusa la pubblicità) su TikTok.",
+            "fr": "Mesure et améliore les performances des campagnes publicitaires et personnalise l’expérience utilisateur (y compris la publicité) sur TikTok.",
+            "es": "Mide y mejora el rendimiento de las campañas publicitarias y personaliza la experiencia del usuario (incluida la publicidad) en TikTok."
           }
         },
         {
@@ -619,7 +691,9 @@
             "de": "Misst und verbessert die Leistung von Werbekampagnen und personalisiert Anzeigen im Werbenetzwerk TikTok Pangle.",
             "en": "Measures and improves the performance of advertising campaigns and personalizes ad experiences delivered by the TikTok Pangle ad network.",
             "nl": "Meet en verbetert de prestaties van advertentiecampagnes en personaliseert advertenties in het advertentienetwerk TikTok Pangle.",
-            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza gli annunci nella rete pubblicitaria TikTok Pangle."
+            "it": "Misura e migliora le prestazioni delle campagne pubblicitarie e personalizza gli annunci nella rete pubblicitaria TikTok Pangle.",
+            "fr": "Mesure et améliore les performances des campagnes publicitaires et personnalise les annonces dans le réseau publicitaire TikTok Pangle.",
+            "es": "Mide y mejora el rendimiento de las campañas publicitarias y personaliza los anuncios en la red publicitaria TikTok Pangle."
           }
         }
       ],
@@ -633,7 +707,9 @@
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen.",
         "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account.",
         "nl": "Het script komt niet van een openbaar toegankelijke pagina van de leverancier, omdat de aanbieder het alleen in het klantaccount beschikbaar stelt. Vergelijk het met de code uit uw eigen account.",
-        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account."
+        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account.",
+        "fr": "Le script ne provient pas d’une page publiquement accessible de l’éditeur, car le fournisseur ne le délivre que dans le compte client. Veuillez le comparer avec le code de votre propre compte.",
+        "es": "El script no procede de una página del fabricante de acceso público, porque el proveedor solo lo facilita en la cuenta de cliente. Compárelo con el código de su propia cuenta."
       }
     },
     {
@@ -646,7 +722,9 @@
         "de": "Tracking-Tag von Pinterest zur Messung von Conversions und zur Bildung von Zielgruppen für Pinterest-Anzeigen. Dabei werden Cookies gesetzt und Daten an Pinterest übertragen.",
         "en": "Tracking tag by Pinterest for measuring conversions and building audiences for Pinterest ads. Cookies are set and data is transferred to Pinterest.",
         "nl": "Trackingtag van Pinterest voor het meten van conversies en het samenstellen van doelgroepen voor Pinterest-advertenties. Daarbij worden cookies geplaatst en gegevens naar Pinterest verzonden.",
-        "it": "Tag di tracciamento di Pinterest per misurare le conversioni e creare segmenti di pubblico per gli annunci Pinterest. Vengono impostati cookie e trasmessi dati a Pinterest."
+        "it": "Tag di tracciamento di Pinterest per misurare le conversioni e creare segmenti di pubblico per gli annunci Pinterest. Vengono impostati cookie e trasmessi dati a Pinterest.",
+        "fr": "Balise de suivi de Pinterest permettant de mesurer les conversions et de constituer des audiences pour les annonces Pinterest. Des cookies sont alors déposés et des données sont transmises à Pinterest.",
+        "es": "Etiqueta de seguimiento de Pinterest para medir conversiones y crear audiencias para anuncios de Pinterest. Se instalan cookies y se transmiten datos a Pinterest."
       },
       "params": [
         {
@@ -655,7 +733,9 @@
             "de": "Tag-ID",
             "en": "Tag ID",
             "nl": "Tag-ID",
-            "it": "ID tag"
+            "it": "ID tag",
+            "fr": "ID de balise",
+            "es": "ID de la etiqueta"
           },
           "placeholder": "2612345678901",
           "pattern": "^[0-9]+$"
@@ -681,7 +761,9 @@
             "de": "Wird beim Aufruf einer Seite über eine Pinterest-Anzeige gesetzt, um den Nutzer zuzuordnen.",
             "en": "Placed by the JavaScript tag based on information sent from Pinterest with promoted traffic to help identify the user.",
             "nl": "Wordt geplaatst bij het bezoeken van een pagina via een Pinterest-advertentie om de gebruiker toe te wijzen.",
-            "it": "Viene impostato quando si accede a una pagina tramite un annuncio Pinterest per attribuire l'utente."
+            "it": "Viene impostato quando si accede a una pagina tramite un annuncio Pinterest per attribuire l'utente.",
+            "fr": "Déposé lors de la consultation d’une page via une annonce Pinterest, afin d’identifier l’utilisateur.",
+            "es": "Se instala al acceder a una página a través de un anuncio de Pinterest para asociar al usuario."
           }
         },
         {
@@ -696,7 +778,9 @@
             "de": "Wird vom Pinterest Tag gesetzt, wenn ohne vorhandene Cookies eine Zuordnung gelingt (z. B. Enhanced Match).",
             "en": "Placed by the Pinterest tag when a match is identified when no cookies are present, such as enhanced match.",
             "nl": "Wordt door de Pinterest-tag geplaatst wanneer zonder bestaande cookies een toewijzing lukt (bijvoorbeeld Enhanced Match).",
-            "it": "Viene impostato dal tag Pinterest quando l'attribuzione riesce senza cookie esistenti (ad esempio Enhanced Match)."
+            "it": "Viene impostato dal tag Pinterest quando l'attribuzione riesce senza cookie esistenti (ad esempio Enhanced Match).",
+            "fr": "Déposé par le Pinterest Tag lorsqu’une correspondance est établie sans cookies existants (p. ex. Enhanced Match).",
+            "es": "Se instala mediante el Pinterest Tag cuando se consigue una asociación sin que existan cookies (p. ej., Enhanced Match)."
           }
         }
       ],
@@ -718,7 +802,9 @@
         "de": "Universal Event Tracking von Microsoft Advertising zur Conversion-Messung und für Remarketing. Dabei werden Cookies gesetzt und Daten an Microsoft übertragen.",
         "en": "Universal Event Tracking by Microsoft Advertising for conversion measurement and remarketing. Cookies are set and data is transferred to Microsoft.",
         "nl": "Universal Event Tracking van Microsoft Advertising voor conversiemeting en remarketing. Daarbij worden cookies geplaatst en gegevens naar Microsoft verzonden.",
-        "it": "Universal Event Tracking di Microsoft Advertising per la misurazione delle conversioni e il remarketing. Vengono impostati cookie e trasmessi dati a Microsoft."
+        "it": "Universal Event Tracking di Microsoft Advertising per la misurazione delle conversioni e il remarketing. Vengono impostati cookie e trasmessi dati a Microsoft.",
+        "fr": "Universal Event Tracking de Microsoft Advertising pour la mesure des conversions et le remarketing. Des cookies sont alors déposés et des données sont transmises à Microsoft.",
+        "es": "Universal Event Tracking de Microsoft Advertising para la medición de conversiones y el remarketing. Se instalan cookies y se transmiten datos a Microsoft."
       },
       "params": [
         {
@@ -727,7 +813,9 @@
             "de": "UET-Tag-ID",
             "en": "UET tag ID",
             "nl": "UET-tag-ID",
-            "it": "ID tag UET"
+            "it": "ID tag UET",
+            "fr": "ID de balise UET",
+            "es": "ID de etiqueta UET"
           },
           "placeholder": "12345678",
           "pattern": "^[0-9]+$"
@@ -753,7 +841,9 @@
             "de": "Enthält die Sitzungs-ID einer eindeutigen Sitzung auf der Website.",
             "en": "Contains the session ID for a unique session on the site.",
             "nl": "Bevat de sessie-ID van een unieke sessie op de website.",
-            "it": "Contiene l'ID di sessione di una sessione univoca sul sito."
+            "it": "Contiene l'ID di sessione di una sessione univoca sul sito.",
+            "fr": "Contient l’ID de session d’une session unique sur le site web.",
+            "es": "Contiene el ID de sesión de una sesión única en el sitio web."
           }
         },
         {
@@ -768,7 +858,9 @@
             "de": "Eindeutige, pseudonymisierte Besucher-ID, die UET einem Besucher zuweist.",
             "en": "Unique, pseudonymized visitor ID that UET assigns to a visitor.",
             "nl": "Unieke, gepseudonimiseerde bezoekers-ID die UET aan een bezoeker toewijst.",
-            "it": "ID visitatore univoco e pseudonimizzato che UET assegna a un visitatore."
+            "it": "ID visitatore univoco e pseudonimizzato che UET assegna a un visitatore.",
+            "fr": "ID de visiteur unique et pseudonymisé, que UET attribue à un visiteur.",
+            "es": "ID de visitante único y seudonimizado que UET asigna a un visitante."
           }
         },
         {
@@ -783,7 +875,9 @@
             "de": "Microsoft-Klick-ID zur Verbesserung der Genauigkeit des Conversion-Trackings.",
             "en": "Microsoft Click ID, used to improve the accuracy of conversion tracking.",
             "nl": "Microsoft-klik-ID voor het verbeteren van de nauwkeurigheid van conversietracking.",
-            "it": "ID clic Microsoft per migliorare la precisione del tracciamento delle conversioni."
+            "it": "ID clic Microsoft per migliorare la precisione del tracciamento delle conversioni.",
+            "fr": "ID de clic Microsoft servant à améliorer la précision du suivi des conversions.",
+            "es": "ID de clic de Microsoft para mejorar la precisión del seguimiento de conversiones."
           }
         },
         {
@@ -798,7 +892,9 @@
             "de": "Microsoft-Cookie mit einer dem Browser zugewiesenen GUID; wird bei der Interaktion mit Microsoft-Diensten gesetzt, auch durch UET-Aufrufe.",
             "en": "Microsoft cookie containing a GUID assigned to the browser; set when interacting with a Microsoft property, including a UET beacon call.",
             "nl": "Microsoft-cookie met een aan de browser toegewezen GUID; wordt geplaatst bij interactie met Microsoft-diensten, ook door UET-aanroepen.",
-            "it": "Cookie Microsoft con un GUID assegnato al browser; viene impostato durante l'interazione con i servizi Microsoft, anche tramite chiamate UET."
+            "it": "Cookie Microsoft con un GUID assegnato al browser; viene impostato durante l'interazione con i servizi Microsoft, anche tramite chiamate UET.",
+            "fr": "Cookie Microsoft contenant un GUID attribué au navigateur ; déposé lors de l’interaction avec des services Microsoft, y compris par des appels UET.",
+            "es": "Cookie de Microsoft con un GUID asignado al navegador; se instala al interactuar con servicios de Microsoft, también mediante llamadas de UET."
           }
         },
         {
@@ -813,7 +909,9 @@
             "de": "Eindeutige, pseudonymisierte Besucher-ID als partitioniertes Cookie.",
             "en": "Unique, pseudonymized visitor ID stored as a partitioned cookie.",
             "nl": "Unieke, gepseudonimiseerde bezoekers-ID als gepartitioneerd cookie.",
-            "it": "ID visitatore univoco e pseudonimizzato come cookie partizionato."
+            "it": "ID visitatore univoco e pseudonimizzato come cookie partizionato.",
+            "fr": "ID de visiteur unique et pseudonymisé, sous forme de cookie partitionné.",
+            "es": "ID de visitante único y seudonimizado como cookie particionada."
           }
         }
       ],
@@ -829,7 +927,9 @@
         "de": "Microsoft veröffentlicht keine Laufzeiten; sie stammen aus dem Quellcode von bat.js bzw. aus der Open Cookie Database.",
         "en": "Microsoft does not publish durations; they come from the bat.js source code and the Open Cookie Database.",
         "nl": "Microsoft publiceert geen looptijden; deze komen uit de broncode van bat.js of uit de Open Cookie Database.",
-        "it": "Microsoft non pubblica le durate; provengono dal codice sorgente di bat.js o dall'Open Cookie Database."
+        "it": "Microsoft non pubblica le durate; provengono dal codice sorgente di bat.js o dall'Open Cookie Database.",
+        "fr": "Microsoft ne publie pas de durées ; elles proviennent du code source de bat.js ou de l’Open Cookie Database.",
+        "es": "Microsoft no publica las duraciones; proceden del código fuente de bat.js o de la Open Cookie Database."
       }
     },
     {
@@ -842,7 +942,9 @@
         "de": "Tracking-Code der Marketing- und CRM-Plattform HubSpot, der Besuche auswertet und Besucher mit Kontakten (z. B. nach Formularübermittlung) verknüpft. Dabei werden Cookies gesetzt und Daten an HubSpot übertragen.",
         "en": "Tracking code of the HubSpot marketing and CRM platform that analyses visits and links visitors to contacts (e.g. after a form submission). Cookies are set and data is transferred to HubSpot.",
         "nl": "Trackingcode van het marketing- en CRM-platform HubSpot die bezoeken analyseert en bezoekers aan contacten koppelt (bijvoorbeeld na het verzenden van een formulier). Daarbij worden cookies geplaatst en gegevens naar HubSpot verzonden.",
-        "it": "Codice di tracciamento della piattaforma di marketing e CRM HubSpot che analizza le visite e collega i visitatori ai contatti (ad esempio dopo l'invio di un modulo). Vengono impostati cookie e trasmessi dati a HubSpot."
+        "it": "Codice di tracciamento della piattaforma di marketing e CRM HubSpot che analizza le visite e collega i visitatori ai contatti (ad esempio dopo l'invio di un modulo). Vengono impostati cookie e trasmessi dati a HubSpot.",
+        "fr": "Code de suivi de la plateforme marketing et CRM HubSpot, qui analyse les visites et associe les visiteurs à des contacts (p. ex. après l’envoi d’un formulaire). Des cookies sont alors déposés et des données sont transmises à HubSpot.",
+        "es": "Código de seguimiento de la plataforma de marketing y CRM HubSpot, que analiza las visitas y vincula a los visitantes con contactos (p. ej., tras el envío de un formulario). Se instalan cookies y se transmiten datos a HubSpot."
       },
       "params": [
         {
@@ -851,7 +953,9 @@
             "de": "Hub-ID",
             "en": "Hub ID",
             "nl": "Hub-ID",
-            "it": "ID hub"
+            "it": "ID hub",
+            "fr": "ID de hub",
+            "es": "ID de Hub"
           },
           "placeholder": "1234567",
           "pattern": "^[0-9]+$"
@@ -877,7 +981,9 @@
             "de": "Haupt-Cookie zur Besucherverfolgung; enthält Domain, hubspotutk, Zeitstempel und Sitzungsnummer.",
             "en": "The main cookie for tracking visitors; contains the domain, hubspotutk, timestamps and session number.",
             "nl": "Hoofdcookie voor bezoekersregistratie; bevat domein, hubspotutk, tijdstempel en sessienummer.",
-            "it": "Cookie principale per il monitoraggio dei visitatori; contiene dominio, hubspotutk, marca temporale e numero di sessione."
+            "it": "Cookie principale per il monitoraggio dei visitatori; contiene dominio, hubspotutk, marca temporale e numero di sessione.",
+            "fr": "Cookie principal de suivi des visiteurs ; contient le domaine, hubspotutk, des horodatages et le numéro de session.",
+            "es": "Cookie principal para el seguimiento de visitantes; contiene el dominio, hubspotutk, marcas de tiempo y el número de sesión."
           }
         },
         {
@@ -892,7 +998,9 @@
             "de": "Speichert die Identität des Besuchers; wird bei Formularübermittlung an HubSpot übergeben und zur Deduplizierung von Kontakten genutzt.",
             "en": "Keeps track of a visitor's identity; passed to HubSpot on form submission and used when deduplicating contacts.",
             "nl": "Slaat de identiteit van de bezoeker op; wordt bij het verzenden van een formulier aan HubSpot doorgegeven en gebruikt voor het ontdubbelen van contacten.",
-            "it": "Memorizza l'identità del visitatore; viene trasmesso a HubSpot all'invio del modulo e utilizzato per la deduplicazione dei contatti."
+            "it": "Memorizza l'identità del visitatore; viene trasmesso a HubSpot all'invio del modulo e utilizzato per la deduplicazione dei contatti.",
+            "fr": "Enregistre l’identité du visiteur ; transmis à HubSpot lors de l’envoi d’un formulaire et utilisé pour la déduplication des contacts.",
+            "es": "Almacena la identidad del visitante; se transmite a HubSpot al enviar un formulario y se utiliza para eliminar contactos duplicados."
           }
         },
         {
@@ -907,7 +1015,9 @@
             "de": "Verfolgt Sitzungen und bestimmt, ob Sitzungsnummer und Zeitstempel im Cookie __hstc erhöht werden.",
             "en": "Keeps track of sessions and determines whether the session number and timestamps in __hstc are incremented.",
             "nl": "Volgt sessies en bepaalt of sessienummer en tijdstempel in het cookie __hstc worden verhoogd.",
-            "it": "Traccia le sessioni e determina se il numero di sessione e la marca temporale nel cookie __hstc vengono incrementati."
+            "it": "Traccia le sessioni e determina se il numero di sessione e la marca temporale nel cookie __hstc vengono incrementati.",
+            "fr": "Suit les sessions et détermine si le numéro de session et les horodatages du cookie __hstc sont incrémentés.",
+            "es": "Hace un seguimiento de las sesiones y determina si se incrementan el número de sesión y las marcas de tiempo de la cookie __hstc."
           }
         },
         {
@@ -922,7 +1032,9 @@
             "de": "Ermittelt, ob der Besucher den Browser neu gestartet hat.",
             "en": "Determines if the visitor has restarted their browser.",
             "nl": "Bepaalt of de bezoeker de browser opnieuw heeft gestart.",
-            "it": "Determina se il visitatore ha riavviato il browser."
+            "it": "Determina se il visitatore ha riavviato il browser.",
+            "fr": "Détermine si le visiteur a redémarré son navigateur.",
+            "es": "Determina si el visitante ha reiniciado el navegador."
           }
         },
         {
@@ -937,7 +1049,9 @@
             "de": "Notwendiges Cookie des CDN-Anbieters von HubSpot zum Schutz vor Bots.",
             "en": "Necessary cookie set by HubSpot's CDN provider for bot protection.",
             "nl": "Noodzakelijk cookie van de CDN-aanbieder van HubSpot ter bescherming tegen bots.",
-            "it": "Cookie necessario del fornitore CDN di HubSpot per la protezione dai bot."
+            "it": "Cookie necessario del fornitore CDN di HubSpot per la protezione dai bot.",
+            "fr": "Cookie nécessaire du fournisseur CDN de HubSpot, servant à la protection contre les bots.",
+            "es": "Cookie necesaria del proveedor de CDN de HubSpot para la protección frente a bots."
           }
         },
         {
@@ -952,7 +1066,9 @@
             "de": "Cookie des CDN-Anbieters von HubSpot zur Durchsetzung von Rate-Limiting-Regeln.",
             "en": "Set by HubSpot's CDN provider because of their rate limiting policies.",
             "nl": "Cookie van de CDN-aanbieder van HubSpot voor het afdwingen van rate-limitingregels.",
-            "it": "Cookie del fornitore CDN di HubSpot per applicare regole di limitazione della frequenza."
+            "it": "Cookie del fornitore CDN di HubSpot per applicare regole di limitazione della frequenza.",
+            "fr": "Cookie du fournisseur CDN de HubSpot servant à appliquer des règles de limitation de débit.",
+            "es": "Cookie del proveedor de CDN de HubSpot para aplicar reglas de limitación de solicitudes."
           }
         },
         {
@@ -967,7 +1083,9 @@
             "de": "Cookie des CDN-Anbieters von HubSpot zur Durchsetzung von Rate-Limiting-Regeln.",
             "en": "Set by HubSpot's CDN provider because of their rate limiting policies.",
             "nl": "Cookie van de CDN-aanbieder van HubSpot voor het afdwingen van rate-limitingregels.",
-            "it": "Cookie del fornitore CDN di HubSpot per applicare regole di limitazione della frequenza."
+            "it": "Cookie del fornitore CDN di HubSpot per applicare regole di limitazione della frequenza.",
+            "fr": "Cookie du fournisseur CDN de HubSpot servant à appliquer des règles de limitation de débit.",
+            "es": "Cookie del proveedor de CDN de HubSpot para aplicar reglas de limitación de solicitudes."
           }
         }
       ],
@@ -981,7 +1099,9 @@
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen. EU-Konten nutzen ggf. einen anderen Script-Host (js-eu1).",
         "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account. EU accounts may use a different script host (js-eu1).",
         "nl": "Het script komt niet van een openbaar toegankelijke pagina van de leverancier, omdat de aanbieder het alleen in het klantaccount beschikbaar stelt. Vergelijk het met de code uit uw eigen account. EU-accounts gebruiken mogelijk een andere scripthost (js-eu1).",
-        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account. Gli account UE possono utilizzare un host di script diverso (js-eu1)."
+        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account. Gli account UE possono utilizzare un host di script diverso (js-eu1).",
+        "fr": "Le script ne provient pas d’une page publiquement accessible de l’éditeur, car le fournisseur ne le délivre que dans le compte client. Veuillez le comparer avec le code de votre propre compte. Les comptes UE utilisent le cas échéant un autre hôte de script (js-eu1).",
+        "es": "El script no procede de una página del fabricante de acceso público, porque el proveedor solo lo facilita en la cuenta de cliente. Compárelo con el código de su propia cuenta. Las cuentas de la UE pueden utilizar otro host de script (js-eu1)."
       }
     },
     {
@@ -994,7 +1114,9 @@
         "de": "Messpixel von OpenAI zur Erfolgsmessung von Anzeigen in ChatGPT. Ordnet Aktionen auf der Website (z. B. Anfragen oder Käufe) Anzeigenklicks zu; dazu werden Cookies gesetzt und Ereignisdaten an OpenAI übertragen.",
         "en": "Measurement pixel by OpenAI for attributing conversions to ads in ChatGPT. Assigns actions on the website (e.g. enquiries or purchases) to ad clicks; cookies are set and event data is transferred to OpenAI.",
         "nl": "Meetpixel van OpenAI voor het meten van het resultaat van advertenties in ChatGPT. Wijst acties op de website (bijvoorbeeld aanvragen of aankopen) toe aan advertentieklikken; daarvoor worden cookies geplaatst en gebeurtenisgegevens naar OpenAI verzonden.",
-        "it": "Pixel di misurazione di OpenAI per valutare il rendimento degli annunci in ChatGPT. Attribuisce ai clic sugli annunci le azioni compiute sul sito (ad esempio richieste o acquisti); a tal fine vengono impostati cookie e trasmessi dati sugli eventi a OpenAI."
+        "it": "Pixel di misurazione di OpenAI per valutare il rendimento degli annunci in ChatGPT. Attribuisce ai clic sugli annunci le azioni compiute sul sito (ad esempio richieste o acquisti); a tal fine vengono impostati cookie e trasmessi dati sugli eventi a OpenAI.",
+        "fr": "Pixel de mesure d’OpenAI permettant de mesurer l’efficacité des annonces dans ChatGPT. Il attribue des actions effectuées sur le site web (p. ex. des demandes ou des achats) à des clics sur des annonces ; à cet effet, des cookies sont déposés et des données d’événements sont transmises à OpenAI.",
+        "es": "Píxel de medición de OpenAI para medir los resultados de los anuncios en ChatGPT. Asigna acciones en el sitio web (p. ej., consultas o compras) a clics en anuncios; para ello se instalan cookies y se transmiten datos de eventos a OpenAI."
       },
       "params": [
         {
@@ -1003,7 +1125,9 @@
             "de": "Pixel-ID",
             "en": "Pixel ID",
             "nl": "Pixel-ID",
-            "it": "ID pixel"
+            "it": "ID pixel",
+            "fr": "ID de pixel",
+            "es": "ID del píxel"
           },
           "placeholder": "AQhQ…",
           "pattern": "^[A-Za-z0-9_-]{6,}$"
@@ -1029,7 +1153,9 @@
             "de": "Speichert die Anzeigen-Kennung (oppref) aus der Landingpage-URL, damit spätere Aktionen dem Anzeigenklick zugeordnet werden können.",
             "en": "Stores the ad click reference (oppref) from the landing page URL so that later actions can be attributed to the ad click.",
             "nl": "Slaat de advertentie-identificatie (oppref) uit de landingspagina-URL op, zodat latere acties aan de advertentieklik kunnen worden toegewezen.",
-            "it": "Memorizza l'identificativo dell'annuncio (oppref) dall'URL della landing page, affinché le azioni successive possano essere attribuite al clic sull'annuncio."
+            "it": "Memorizza l'identificativo dell'annuncio (oppref) dall'URL della landing page, affinché le azioni successive possano essere attribuite al clic sull'annuncio.",
+            "fr": "Enregistre l’identifiant d’annonce (oppref) issu de l’URL de la page d’atterrissage, afin que les actions ultérieures puissent être attribuées au clic sur l’annonce.",
+            "es": "Almacena el identificador del anuncio (oppref) de la URL de la página de destino para que las acciones posteriores puedan asignarse al clic en el anuncio."
           }
         },
         {
@@ -1044,7 +1170,9 @@
             "de": "Zufällig erzeugte Browser-Kennung für diese Website zur Wiedererkennung bei der Erfolgsmessung.",
             "en": "Randomly generated browser reference for this website used to recognise the browser for measurement.",
             "nl": "Willekeurig gegenereerde browseridentificatie voor deze website ten behoeve van herkenning bij de resultaatmeting.",
-            "it": "Identificativo del browser generato casualmente per questo sito, utilizzato per il riconoscimento nella misurazione dei risultati."
+            "it": "Identificativo del browser generato casualmente per questo sito, utilizzato per il riconoscimento nella misurazione dei risultati.",
+            "fr": "Identifiant de navigateur généré aléatoirement pour ce site web, servant à la reconnaissance lors de la mesure de l’efficacité.",
+            "es": "Identificador del navegador generado aleatoriamente para este sitio web, para reconocerlo en la medición de resultados."
           }
         }
       ],
@@ -1052,7 +1180,9 @@
         "de": "Das Pixel misst keine Seitenaufrufe von allein: Was gemeldet werden soll (Anfrage, Terminbuchung, wichtige Seite), wird im Reiter „Ereignisse“ festgelegt. Wird die Einwilligung widerrufen, speichert das Pixel die Ablehnung und sendet nichts mehr.",
         "en": "The pixel does not measure page views by itself: what to report (enquiry, appointment, important page) is set in the “Events” tab. On withdrawal the pixel stores the denial and sends nothing further.",
         "nl": "De pixel meet niet uit zichzelf paginaweergaven: wat moet worden gemeld (aanvraag, afspraak, belangrijke pagina) wordt vastgelegd op het tabblad „Gebeurtenissen”. Wordt de toestemming ingetrokken, dan slaat de pixel de weigering op en verzendt niets meer.",
-        "it": "Il pixel non misura automaticamente le visualizzazioni di pagina: ciò che deve essere segnalato (richiesta, prenotazione, pagina importante) si definisce nella scheda «Eventi». Se il consenso viene revocato, il pixel memorizza il rifiuto e non invia più nulla."
+        "it": "Il pixel non misura automaticamente le visualizzazioni di pagina: ciò che deve essere segnalato (richiesta, prenotazione, pagina importante) si definisce nella scheda «Eventi». Se il consenso viene revocato, il pixel memorizza il rifiuto e non invia più nulla.",
+        "fr": "Le pixel ne mesure pas de lui-même les pages vues : ce qui doit être signalé (demande, prise de rendez-vous, page importante) est défini dans l’onglet « Événements ». Si le consentement est retiré, le pixel enregistre le refus et n’envoie plus rien.",
+        "es": "El píxel no mide por sí solo las páginas vistas: lo que debe notificarse (consulta, reserva de cita, página importante) se define en la pestaña «Eventos». Si se retira el consentimiento, el píxel almacena el rechazo y ya no envía nada."
       },
       "sources": [
         "https://developers.openai.com/ads/measurement-pixel",
@@ -1077,7 +1207,9 @@
         "de": "Messpixel von OpenAI zur Erfolgsmessung von Anzeigen in ChatGPT – geladen nur für Besucher, die über eine Anzeige in ChatGPT kommen (Klick-Kennung oppref in der Adresse) oder in den letzten 30 Tagen gekommen sind. Ordnet Aktionen auf der Website (z. B. Anfragen) Anzeigenklicks zu; dazu werden Cookies gesetzt und Ereignisdaten an OpenAI übertragen.",
         "en": "Measurement pixel by OpenAI for attributing conversions to ads in ChatGPT – loaded only for visitors arriving via an ad in ChatGPT (click reference oppref in the URL) or who did so within the last 30 days. Assigns actions on the website (e.g. enquiries) to ad clicks; cookies are set and event data is transferred to OpenAI.",
         "nl": "Meetpixel van OpenAI voor het meten van het resultaat van advertenties in ChatGPT – alleen geladen voor bezoekers die via een advertentie in ChatGPT komen (klikidentificatie oppref in de URL) of dat in de afgelopen 30 dagen deden. Wijst acties op de website (bijvoorbeeld aanvragen) toe aan advertentieklikken; daarvoor worden cookies geplaatst en gebeurtenisgegevens naar OpenAI verzonden.",
-        "it": "Pixel di misurazione di OpenAI per valutare il rendimento degli annunci in ChatGPT – caricato solo per i visitatori che arrivano tramite un annuncio in ChatGPT (identificativo del clic oppref nell'URL) o che lo hanno fatto negli ultimi 30 giorni. Attribuisce ai clic sugli annunci le azioni compiute sul sito (ad esempio richieste); a tal fine vengono impostati cookie e trasmessi dati sugli eventi a OpenAI."
+        "it": "Pixel di misurazione di OpenAI per valutare il rendimento degli annunci in ChatGPT – caricato solo per i visitatori che arrivano tramite un annuncio in ChatGPT (identificativo del clic oppref nell'URL) o che lo hanno fatto negli ultimi 30 giorni. Attribuisce ai clic sugli annunci le azioni compiute sul sito (ad esempio richieste); a tal fine vengono impostati cookie e trasmessi dati sugli eventi a OpenAI.",
+        "fr": "Pixel de mesure d’OpenAI permettant de mesurer l’efficacité des annonces dans ChatGPT – chargé uniquement pour les visiteurs qui arrivent via une annonce dans ChatGPT (identifiant de clic oppref dans l’adresse) ou qui sont arrivés ainsi au cours des 30 derniers jours. Il attribue des actions effectuées sur le site web (p. ex. des demandes) à des clics sur des annonces ; à cet effet, des cookies sont déposés et des données d’événements sont transmises à OpenAI.",
+        "es": "Píxel de medición de OpenAI para medir los resultados de los anuncios en ChatGPT – solo se carga para los visitantes que llegan a través de un anuncio en ChatGPT (identificador de clic oppref en la dirección) o que han llegado así en los últimos 30 días. Asigna acciones en el sitio web (p. ej., consultas) a clics en anuncios; para ello se instalan cookies y se transmiten datos de eventos a OpenAI."
       },
       "params": [
         {
@@ -1086,7 +1218,9 @@
             "de": "Pixel-ID",
             "en": "Pixel ID",
             "nl": "Pixel-ID",
-            "it": "ID pixel"
+            "it": "ID pixel",
+            "fr": "ID de pixel",
+            "es": "ID del píxel"
           },
           "placeholder": "AQhQ…",
           "pattern": "^[A-Za-z0-9_-]{6,}$"
@@ -1112,7 +1246,9 @@
             "de": "Speichert die Anzeigen-Kennung (oppref) aus der Landingpage-URL, damit spätere Aktionen dem Anzeigenklick zugeordnet werden können.",
             "en": "Stores the ad click reference (oppref) from the landing page URL so that later actions can be attributed to the ad click.",
             "nl": "Slaat de advertentie-identificatie (oppref) uit de landingspagina-URL op, zodat latere acties aan de advertentieklik kunnen worden toegewezen.",
-            "it": "Memorizza l'identificativo dell'annuncio (oppref) dall'URL della landing page, affinché le azioni successive possano essere attribuite al clic sull'annuncio."
+            "it": "Memorizza l'identificativo dell'annuncio (oppref) dall'URL della landing page, affinché le azioni successive possano essere attribuite al clic sull'annuncio.",
+            "fr": "Enregistre l’identifiant d’annonce (oppref) issu de l’URL de la page d’atterrissage, afin que les actions ultérieures puissent être attribuées au clic sur l’annonce.",
+            "es": "Almacena el identificador del anuncio (oppref) de la URL de la página de destino para que las acciones posteriores puedan asignarse al clic en el anuncio."
           }
         },
         {
@@ -1127,7 +1263,9 @@
             "de": "Zufällig erzeugte Browser-Kennung für diese Website zur Wiedererkennung bei der Erfolgsmessung.",
             "en": "Randomly generated browser reference for this website used to recognise the browser for measurement.",
             "nl": "Willekeurig gegenereerde browseridentificatie voor deze website ten behoeve van herkenning bij de resultaatmeting.",
-            "it": "Identificativo del browser generato casualmente per questo sito, utilizzato per il riconoscimento nella misurazione dei risultati."
+            "it": "Identificativo del browser generato casualmente per questo sito, utilizzato per il riconoscimento nella misurazione dei risultati.",
+            "fr": "Identifiant de navigateur généré aléatoirement pour ce site web, servant à la reconnaissance lors de la mesure de l’efficacité.",
+            "es": "Identificador del navegador generado aleatoriamente para este sitio web, para reconocerlo en la medición de resultados."
           }
         },
         {
@@ -1142,7 +1280,9 @@
             "de": "Merkt sich (nur nach Einwilligung), dass der Besuch über eine Anzeige in ChatGPT kam – nur dann wird das Pixel geladen.",
             "en": "Remembers (only after consent) that the visit came via an ad in ChatGPT – only then is the pixel loaded.",
             "nl": "Onthoudt (alleen na toestemming) dat het bezoek via een advertentie in ChatGPT kwam – alleen dan wordt de pixel geladen.",
-            "it": "Memorizza (solo dopo il consenso) che la visita è arrivata tramite un annuncio in ChatGPT – solo in quel caso viene caricato il pixel."
+            "it": "Memorizza (solo dopo il consenso) che la visita è arrivata tramite un annuncio in ChatGPT – solo in quel caso viene caricato il pixel.",
+            "fr": "Mémorise (uniquement après consentement) que la visite provient d’une annonce dans ChatGPT – ce n’est qu’alors que le pixel est chargé.",
+            "es": "Recuerda (solo tras el consentimiento) que la visita procedía de un anuncio en ChatGPT – solo en ese caso se carga el píxel."
           }
         }
       ],
@@ -1150,7 +1290,9 @@
         "de": "Wie „OpenAI Measurement Pixel“, aber nur für Besucher aus ChatGPT-Anzeigen: Alle anderen laden auch nach Einwilligung nichts von OpenAI – keine Drittanbieter-Cookies (die Server von OpenAI setzen über Cloudflare __cf_bm und _cfuvid), keine Abfrage. Ereignisse laufen bei ihnen ins Leere. Die Anzeigen-Kennung wird nur erkannt, wenn die Einwilligung auf der Landingpage erteilt wird (vorher wird bewusst nichts gespeichert). Nur eine der beiden OpenAI-Vorlagen verwenden.",
         "en": "Like “OpenAI Measurement Pixel”, but only for visitors from ChatGPT ads: everyone else loads nothing from OpenAI, even after consent – no third-party cookies (OpenAI's servers set __cf_bm and _cfuvid via Cloudflare), no request. Events do nothing for them. The ad reference is only picked up if consent is given on the landing page (nothing is stored before consent, by design). Use only one of the two OpenAI presets.",
         "nl": "Zoals „OpenAI Measurement Pixel”, maar alleen voor bezoekers uit ChatGPT-advertenties: alle anderen laden ook na toestemming niets van OpenAI – geen cookies van derden (de servers van OpenAI plaatsen via Cloudflare __cf_bm en _cfuvid), geen verzoek. Gebeurtenissen doen bij hen niets. De advertentie-identificatie wordt alleen herkend als de toestemming op de landingspagina wordt gegeven (daarvoor wordt bewust niets opgeslagen). Gebruik slechts één van beide OpenAI-sjablonen.",
-        "it": "Come «OpenAI Measurement Pixel», ma solo per i visitatori provenienti da annunci in ChatGPT: tutti gli altri non caricano nulla da OpenAI, nemmeno dopo il consenso – nessun cookie di terze parti (i server di OpenAI impostano __cf_bm e _cfuvid tramite Cloudflare), nessuna richiesta. Per loro gli eventi non hanno effetto. L'identificativo dell'annuncio viene rilevato solo se il consenso è dato sulla landing page (prima volutamente non viene memorizzato nulla). Usare solo uno dei due modelli OpenAI."
+        "it": "Come «OpenAI Measurement Pixel», ma solo per i visitatori provenienti da annunci in ChatGPT: tutti gli altri non caricano nulla da OpenAI, nemmeno dopo il consenso – nessun cookie di terze parti (i server di OpenAI impostano __cf_bm e _cfuvid tramite Cloudflare), nessuna richiesta. Per loro gli eventi non hanno effetto. L'identificativo dell'annuncio viene rilevato solo se il consenso è dato sulla landing page (prima volutamente non viene memorizzato nulla). Usare solo uno dei due modelli OpenAI.",
+        "fr": "Comme « OpenAI Measurement Pixel », mais uniquement pour les visiteurs provenant d’annonces ChatGPT : tous les autres ne chargent rien d’OpenAI, même après consentement – pas de cookies tiers (les serveurs d’OpenAI déposent __cf_bm et _cfuvid via Cloudflare), pas de requête. Pour eux, les événements restent sans effet. L’identifiant d’annonce n’est détecté que si le consentement est donné sur la page d’atterrissage (avant cela, rien n’est délibérément enregistré). N’utilisez qu’un seul des deux modèles OpenAI.",
+        "es": "Como «OpenAI Measurement Pixel», pero solo para visitantes procedentes de anuncios de ChatGPT: todos los demás no cargan nada de OpenAI, ni siquiera tras el consentimiento – ni cookies de terceros (los servidores de OpenAI instalan __cf_bm y _cfuvid a través de Cloudflare) ni solicitudes. Para ellos, los eventos no tienen efecto. El identificador del anuncio solo se detecta si el consentimiento se otorga en la página de destino (antes, deliberadamente, no se almacena nada). Utilice solo una de las dos plantillas de OpenAI."
       },
       "sources": [
         "https://developers.openai.com/ads/measurement-pixel",
@@ -1175,7 +1317,9 @@
         "de": "B2B-Besuchererkennung von Leadfeeder (Dealfront): Erkennt anhand der IP-Adresse, welche Unternehmen die Website besuchen, und wertet die aufgerufenen Seiten für Vertrieb und Marketing aus. Dabei werden Cookies gesetzt und Daten an Dealfront übertragen.",
         "en": "B2B visitor identification by Leadfeeder (Dealfront): identifies the companies visiting the website by their IP address and analyses the pages viewed for sales and marketing. Cookies are set and data is transferred to Dealfront.",
         "nl": "B2B-bezoekersherkenning van Leadfeeder (Dealfront): herkent aan de hand van het IP-adres welke bedrijven de website bezoeken en analyseert de bekeken pagina's voor verkoop en marketing. Daarbij worden cookies geplaatst en gegevens naar Dealfront verzonden.",
-        "it": "Riconoscimento B2B dei visitatori di Leadfeeder (Dealfront): identifica tramite l'indirizzo IP le aziende che visitano il sito e analizza le pagine visualizzate per vendite e marketing. Vengono impostati cookie e trasmessi dati a Dealfront."
+        "it": "Riconoscimento B2B dei visitatori di Leadfeeder (Dealfront): identifica tramite l'indirizzo IP le aziende che visitano il sito e analizza le pagine visualizzate per vendite e marketing. Vengono impostati cookie e trasmessi dati a Dealfront.",
+        "fr": "Identification B2B des visiteurs par Leadfeeder (Dealfront) : détermine, à partir de l’adresse IP, quelles entreprises visitent le site web, et analyse les pages consultées à des fins de vente et de marketing. Des cookies sont alors déposés et des données sont transmises à Dealfront.",
+        "es": "Identificación de visitantes B2B de Leadfeeder (Dealfront): identifica, a partir de la dirección IP, qué empresas visitan el sitio web y analiza las páginas consultadas con fines de ventas y marketing. Se instalan cookies y se transmiten datos a Dealfront."
       },
       "params": [
         {
@@ -1184,7 +1328,9 @@
             "de": "Tracker-ID",
             "en": "Tracker ID",
             "nl": "Tracker-ID",
-            "it": "ID tracker"
+            "it": "ID tracker",
+            "fr": "ID de tracker",
+            "es": "ID del tracker"
           },
           "placeholder": "AbCdEfGhIjKlMnOp",
           "pattern": "^[A-Za-z0-9]+$"
@@ -1210,7 +1356,9 @@
             "de": "Kennung des Besuchers, um wiederkehrende Besuche zu erkennen.",
             "en": "Visitor client ID used to recognise returning visits.",
             "nl": "Bezoekersidentificatie om terugkerende bezoeken te herkennen.",
-            "it": "Identificativo del visitatore per riconoscere le visite ripetute."
+            "it": "Identificativo del visitatore per riconoscere le visite ripetute.",
+            "fr": "Identifiant du visiteur permettant de reconnaître les visites récurrentes.",
+            "es": "Identificador del visitante para reconocer visitas recurrentes."
           }
         },
         {
@@ -1225,7 +1373,9 @@
             "de": "Speichert den Einwilligungsstatus (nur bei aktiviertem Einwilligungsmodus im Leadfeeder-Konto).",
             "en": "Stores the consent status (only when consent mode is enabled in the Leadfeeder account).",
             "nl": "Slaat de toestemmingsstatus op (alleen als de toestemmingsmodus in het Leadfeeder-account is ingeschakeld).",
-            "it": "Memorizza lo stato del consenso (solo se nell'account Leadfeeder è attiva la modalità consenso)."
+            "it": "Memorizza lo stato del consenso (solo se nell'account Leadfeeder è attiva la modalità consenso).",
+            "fr": "Enregistre le statut du consentement (uniquement si le mode de consentement est activé dans le compte Leadfeeder).",
+            "es": "Almacena el estado del consentimiento (solo si el modo de consentimiento está activado en la cuenta de Leadfeeder)."
           }
         },
         {
@@ -1240,7 +1390,9 @@
             "de": "Prüft kurz, ob der Browser Cookies speichert; läuft nach einer Sekunde ab.",
             "en": "Briefly checks whether the browser stores cookies; expires after one second.",
             "nl": "Controleert kort of de browser cookies opslaat; verloopt na één seconde.",
-            "it": "Verifica brevemente se il browser memorizza i cookie; scade dopo un secondo."
+            "it": "Verifica brevemente se il browser memorizza i cookie; scade dopo un secondo.",
+            "fr": "Vérifie brièvement si le navigateur enregistre les cookies ; expire au bout d’une seconde.",
+            "es": "Comprueba brevemente si el navegador almacena cookies; caduca al cabo de un segundo."
           }
         },
         {
@@ -1255,7 +1407,9 @@
             "de": "Kopie der Besucherkennung im lokalen Speicher.",
             "en": "Copy of the visitor ID in local storage.",
             "nl": "Kopie van de bezoekersidentificatie in de lokale opslag.",
-            "it": "Copia dell'identificativo del visitatore nella memoria locale."
+            "it": "Copia dell'identificativo del visitatore nella memoria locale.",
+            "fr": "Copie de l’identifiant du visiteur dans le stockage local.",
+            "es": "Copia del identificador del visitante en el almacenamiento local."
           }
         },
         {
@@ -1270,7 +1424,9 @@
             "de": "Speichert, wie lange die Besucherkennung im lokalen Speicher gültig ist.",
             "en": "Stores how long the visitor ID remains valid in local storage.",
             "nl": "Slaat op hoe lang de bezoekersidentificatie in de lokale opslag geldig blijft.",
-            "it": "Memorizza per quanto tempo l'identificativo del visitatore resta valido nella memoria locale."
+            "it": "Memorizza per quanto tempo l'identificativo del visitatore resta valido nella memoria locale.",
+            "fr": "Enregistre la durée de validité de l’identifiant du visiteur dans le stockage local.",
+            "es": "Almacena durante cuánto tiempo es válido el identificador del visitante en el almacenamiento local."
           }
         }
       ],
@@ -1278,7 +1434,9 @@
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt (Einstellungen → Company → Website Tracker → Tracker script). Bitte mit dem Code aus dem eigenen Konto vergleichen; die Tracker-ID ist der Wert in den Klammern am Ende, z. B. ('AbCdEfGhIjKlMnOp'). Das Testcookie _lfa_test_cookie_stored läuft laut Dealfront nach einer Sekunde ab, kleinste Einheit hier ist eine Minute. Empfehlung: im Leadfeeder-Konto unter „Cookie settings“ den Einwilligungsmodus und unter „Advanced tracking“ die IP-Anonymisierung aktivieren.",
         "en": "The script is not taken from a public vendor page because the vendor only shows it in the customer account (Settings → Company → Website Tracker → Tracker script). Please compare it with the code from your own account; the tracker ID is the value in the parentheses at the end, e.g. ('AbCdEfGhIjKlMnOp'). According to Dealfront the test cookie _lfa_test_cookie_stored expires after one second; the smallest unit here is one minute. Recommended: enable consent mode under “Cookie settings” and IP anonymisation under “Advanced tracking” in the Leadfeeder account.",
         "nl": "Het script komt niet van een openbare pagina van de leverancier, omdat deze het alleen in het klantaccount toont (Settings → Company → Website Tracker → Tracker script). Vergelijk het met de code uit uw eigen account; de tracker-ID is de waarde tussen de haakjes aan het einde, bijv. ('AbCdEfGhIjKlMnOp'). Volgens Dealfront verloopt de testcookie _lfa_test_cookie_stored na één seconde; de kleinste eenheid hier is één minuut. Aanbevolen: schakel in het Leadfeeder-account de toestemmingsmodus in onder „Cookie settings” en IP-anonimisering onder „Advanced tracking”.",
-        "it": "Lo script non proviene da una pagina pubblica del fornitore, perché questi lo mostra solo nell'account cliente (Settings → Company → Website Tracker → Tracker script). Confrontarlo con il codice del proprio account; l'ID tracker è il valore tra parentesi alla fine, ad es. ('AbCdEfGhIjKlMnOp'). Secondo Dealfront il cookie di prova _lfa_test_cookie_stored scade dopo un secondo; l'unità minima qui è un minuto. Consigliato: nell'account Leadfeeder attivare la modalità consenso in «Cookie settings» e l'anonimizzazione IP in «Advanced tracking»."
+        "it": "Lo script non proviene da una pagina pubblica del fornitore, perché questi lo mostra solo nell'account cliente (Settings → Company → Website Tracker → Tracker script). Confrontarlo con il codice del proprio account; l'ID tracker è il valore tra parentesi alla fine, ad es. ('AbCdEfGhIjKlMnOp'). Secondo Dealfront il cookie di prova _lfa_test_cookie_stored scade dopo un secondo; l'unità minima qui è un minuto. Consigliato: nell'account Leadfeeder attivare la modalità consenso in «Cookie settings» e l'anonimizzazione IP in «Advanced tracking».",
+        "fr": "Le script ne provient pas d’une page publiquement accessible de l’éditeur, car le fournisseur ne le délivre que dans le compte client (Settings → Company → Website Tracker → Tracker script). Veuillez le comparer avec le code de votre propre compte ; l’ID de tracker est la valeur entre parenthèses à la fin, p. ex. ('AbCdEfGhIjKlMnOp'). Selon Dealfront, le cookie de test _lfa_test_cookie_stored expire au bout d’une seconde ; l’unité la plus petite ici est la minute. Recommandation : dans le compte Leadfeeder, activer le mode de consentement sous « Cookie settings » et l’anonymisation IP sous « Advanced tracking ».",
+        "es": "El script no procede de una página del fabricante de acceso público, porque el proveedor solo lo facilita en la cuenta de cliente (Settings → Company → Website Tracker → Tracker script). Compárelo con el código de su propia cuenta; el ID del tracker es el valor entre paréntesis al final, p. ej., ('AbCdEfGhIjKlMnOp'). Según Dealfront, la cookie de prueba _lfa_test_cookie_stored caduca al cabo de un segundo; la unidad mínima aquí es un minuto. Recomendación: en la cuenta de Leadfeeder, active el modo de consentimiento en «Cookie settings» y la anonimización de IP en «Advanced tracking»."
       },
       "sources": [
         "https://help.leadfeeder.com/en/articles/13922296-what-is-the-leadfeeder-tracking-script",
