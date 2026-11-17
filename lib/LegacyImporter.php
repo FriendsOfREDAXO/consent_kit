@@ -48,6 +48,7 @@ final class LegacyImporter
      */
     public function fromArray(array $data): array
     {
+        $data = self::unprefix($data);
         $clangCodes = [];
         foreach (rex_clang::getAll() as $clang) {
             $clangCodes[$clang->getId()] = I18n::normalize($clang->getCode());
@@ -183,7 +184,42 @@ final class LegacyImporter
             ++$this->domains;
         }
 
+        // Datei mit Einträgen, aber kein einziger Dienst erkannt: nicht stillschweigend „0 Dienste“ melden
+        if (0 === $this->services && [] !== (array) ($data['cookies'] ?? []) && [] === $this->notes) {
+            $this->notes[] = 'In den Daten wurden keine Dienste erkannt (' . count((array) $data['cookies']) . ' Einträge unter „cookies“). Bitte die Datei bzw. Version von Consent-Manager prüfen.';
+        }
+
         return ['groups' => $this->groups, 'services' => $this->services, 'domains' => $this->domains, 'notes' => array_values(array_unique($this->notes))];
+    }
+
+    /**
+     * Der JSON-Export von Consent-Manager (5.x, „Setup exportieren“) schreibt die Spalten mit Tabellennamen,
+     * z. B. „rex_consent_manager_cookie.uid“. Für den Import zählen nur die Spaltennamen.
+     *
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    private static function unprefix(array $data): array
+    {
+        foreach (['cookiegroups', 'cookies', 'domains', 'texts'] as $list) {
+            if (!isset($data[$list]) || !is_array($data[$list])) {
+                continue;
+            }
+            foreach ($data[$list] as $i => $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+                $clean = [];
+                foreach ($row as $column => $value) {
+                    $column = (string) $column;
+                    $dot = strrpos($column, '.');
+                    $clean[false === $dot ? $column : substr($column, $dot + 1)] = $value;
+                }
+                $data[$list][$i] = $clean;
+            }
+        }
+
+        return $data;
     }
 
     private function key(string $uid): string

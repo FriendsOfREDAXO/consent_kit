@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.5 – 2026-11-17
+
+#### Fehlerbehebungen
+
+- **Übernahme aus einer Consent-Manager-Exportdatei (JSON) übernahm nichts.** Der Export von Consent-Manager 5.x („Setup exportieren“) schreibt die Spalten mit Tabellennamen, etwa `rex_consent_manager_cookie.uid`. Der Import erwartete `uid` und fand deshalb keinen einzigen Dienst – gemeldet wurde trotzdem „0 Gruppen, 0 Dienste“ ohne Warnung. Beide Schreibweisen werden jetzt verstanden; mit dem Standard-Setup von Consent-Manager 5.9.2 kommen alle 23 Dienste an, wie bei der Übernahme direkt aus den Tabellen.
+- **Kein stilles „0 Dienste“ mehr:** Enthalten die Daten Einträge, aus denen kein Dienst entsteht, erscheint ein Hinweis mit der Zahl der Einträge.
+- **Dienste ohne Gruppe waren unsichtbar.** Die Übersicht zeigte Dienste nur innerhalb ihrer Gruppe; ein Dienst, dessen Gruppe fehlt (gelöscht, aus einer älteren Installation, `group_id` 0), tauchte nirgends auf – auch nicht im Banner. Solche Dienste stehen jetzt im Abschnitt „Ohne Gruppe“ mit dem Hinweis, eine Gruppe zu wählen.
+
 ## 1.3.4 – 2026-11-11
 
 #### Neu: Vorlage „Leadfeeder (Dealfront) Website-Tracker“
