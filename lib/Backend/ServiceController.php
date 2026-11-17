@@ -279,6 +279,17 @@ final class ServiceController
             }
         }
 
+        // Dienste ohne (gültige) Gruppe – z. B. Gruppe gelöscht oder group_id 0 – waren sonst unsichtbar
+        $groupIds = array_column($groups, 'id');
+        $orphans = array_values(array_filter($services, static fn (array $service): bool => !in_array($service['group_id'], $groupIds, true)));
+        if ([] !== $orphans) {
+            $body .= '<tr class="ck-group-row"><th colspan="' . $columns . '" scope="colgroup"><span class="ck-group-name">' . rex_i18n::msg('consent_kit_group_none') . '</span>'
+                . ' <span class="ck-group-desc">' . rex_i18n::msg('consent_kit_group_none_hint') . '</span></th></tr>';
+            foreach ($orphans as $index => $service) {
+                $body .= $this->serviceRow($service, $index, count($orphans), $domains);
+            }
+        }
+
         $onboarding = '';
         if (count($services) <= 1) {
             $onboarding = '<section class="ck-onboarding" aria-labelledby="ck-onboarding-title"><h2 id="ck-onboarding-title">' . rex_i18n::msg('consent_kit_onboarding_title') . '</h2><ol>'
