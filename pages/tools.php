@@ -17,6 +17,9 @@ $report = static function (array $result): string {
     if ([] !== $result['notes']) {
         $out .= rex_view::warning('<strong>' . rex_i18n::msg('consent_kit_legacy_notes') . '</strong><ul><li>' . implode('</li><li>', array_map('rex_escape', $result['notes'])) . '</li></ul>');
     }
+    if (($result['ungrouped'] ?? 0) > 0) {
+        $out .= rex_view::info(rex_i18n::rawMsg('consent_kit_legacy_ungrouped', (string) $result['ungrouped'], rex_url::backendPage('consent_kit/services')));
+    }
     return $out;
 };
 
