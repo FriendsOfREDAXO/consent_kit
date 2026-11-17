@@ -49,7 +49,8 @@ if ('post' === rex_request::requestMethod()) {
                 rex_request::post('preset_overwrite', 'bool', false),
             );
             $message = $result['ok']
-                ? rex_view::success(rex_i18n::msg('consent_kit_presets_import_done', (string) count($result['added']), rex_escape($result['file']), rex_escape(implode(', ', $result['added']))))
+                ? rex_view::success(rex_i18n::msg('consent_kit_presets_import_done', (string) count($result['added']), rex_escape($result['file']), rex_escape(implode(', ', $result['added'])))
+                    . '<br><a href="' . rex_url::backendPage('consent_kit/services', ['func' => 'add']) . '">' . rex_i18n::msg('consent_kit_presets_import_next') . '</a>')
                 : rex_view::error(rex_i18n::msg('consent_kit_presets_import_failed'));
             if ([] !== $result['errors']) {
                 $message .= rex_view::warning('<strong>' . rex_i18n::msg('consent_kit_presets_import_partial') . '</strong><ul><li>' . implode('</li><li>', array_map('rex_escape', $result['errors'])) . '</li></ul>');
@@ -137,7 +138,7 @@ $export .= [] === $services
         . '<p class="help-block">' . rex_i18n::msg('consent_kit_presets_export_all') . '</p></div>'
         . '<button type="submit" class="btn btn-default" name="preset_export" value="1"><i class="rex-icon fa-download" aria-hidden="true"></i> ' . rex_i18n::msg('consent_kit_presets_export_start') . '</button></form>';
 
-$import = '<p class="ck-panel-intro">' . rex_i18n::msg('consent_kit_presets_import_intro') . '</p>'
+$import = '<p class="ck-panel-intro">' . rex_i18n::rawMsg('consent_kit_presets_import_intro') . '</p>'
     . '<form method="post" enctype="multipart/form-data" action="' . rex_url::currentBackendPage() . '">' . $csrf->getHiddenField()
     . '<div class="form-group"><label for="ck-preset-json">' . rex_i18n::msg('consent_kit_presets_import_file') . '</label>'
     . '<input type="file" id="ck-preset-json" name="preset_json" accept="application/json,.json" required></div>'

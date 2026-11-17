@@ -493,12 +493,13 @@ consent_kit_presets_export_all = Nothing selected = all services. Multiple selec
 consent_kit_presets_export_select = Services
 consent_kit_presets_export_start = Download as template
 consent_kit_presets_export_empty = No services configured yet.
-consent_kit_presets_import_title = Import
-consent_kit_presets_import_intro = Validates the file and stores it in the templates folder. The services are then offered under “Services → Add service”. Existing services are left untouched.
+consent_kit_presets_import_title = Import templates
+consent_kit_presets_import_intro = Adds <strong>templates</strong>, not services: the file is validated and stored in the templates folder. To create a service from a template, use “Services → Add service” afterwards. Existing services are left untouched.
 consent_kit_presets_import_file = Template file (JSON)
 consent_kit_presets_import_overwrite = Overwrite a file of the same name
 consent_kit_presets_import_start = Import templates
-consent_kit_presets_import_done = {0} stored as “{1}”: {2}
+consent_kit_presets_import_done = {0} template(s) stored in “{1}”: {2}. No service has been created yet.
+consent_kit_presets_import_next = Create a service now: Services → Add service
 consent_kit_presets_import_failed = The file was not imported.
 consent_kit_presets_import_partial = Not imported:
 consent_kit_presets_import_none = No file selected.
