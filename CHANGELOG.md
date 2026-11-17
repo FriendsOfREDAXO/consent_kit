@@ -1,12 +1,14 @@
 # Changelog
 
-## 1.3.7 – 2026-11-17
+## 1.4.0 – 2026-11-17
 
 #### Fehlerbehebungen: Dienste landen immer in einer Gruppe
 
+Enthält auch die Korrekturen aus 1.3.5 und 1.3.6 (Import aus dem Consent Manager, Wording „Vorlagen importieren“).
+
 Gab es keine (passende) Gruppe – etwa weil alle Gruppen gelöscht waren oder die Installation sie nicht angelegt hatte –, wurden Dienste ohne Gruppe gespeichert: unsichtbar in der Übersicht und im Banner, ohne Fehlermeldung.
 
-- **Dienst aus Vorlage:** Fehlt die Gruppe der Vorlage, wird sie angelegt – Standardgruppen mit Name und Beschreibung wie bei der Installation (z. B. YouTube → „Externe Medien“). Bisher landete der Dienst in der ersten vorhandenen Gruppe oder, ganz ohne Gruppen, nirgends.
+- **Dienst aus Vorlage:** Fehlt die Gruppe der Vorlage, wird sie angelegt – Standardgruppen mit Name und Beschreibung wie bei der Installation (z. B. YouTube → „Externe Medien“), und zwar an ihrer Stelle in der Standardreihenfolge. Gibt es noch gar keine Gruppe, werden zuerst alle fünf Standardgruppen angelegt. Bisher landete der Dienst in der ersten vorhandenen Gruppe oder, ganz ohne Gruppen, nirgends.
 - **Übersicht „Dienste“:** Gibt es gar keine Gruppe, werden die fünf Standardgruppen angelegt. Dienste ohne gültige Gruppe werden ihrer Gruppe zugeordnet (der Consent-Kit-Dienst nach „Notwendig“, Dienste aus Vorlagen in die Gruppe der Vorlage) – mit Hinweis. Eigene Dienste ohne Vorlage bleiben unter „Ohne Gruppe“.
 - **Eigener Dienst:** Ohne Gruppen werden vor dem Formular die Standardgruppen angelegt – bisher war die Gruppenauswahl leer und das Speichern scheiterte.
 - **Update/Neuinstallation brach ab**, wenn alle Gruppen gelöscht waren, der Consent-Kit-Dienst aber noch existierte (doppelter Schlüssel beim erneuten Anlegen). Der vorhandene Dienst wird jetzt nur der neuen Gruppe „Notwendig“ zugeordnet.

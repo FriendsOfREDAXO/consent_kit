@@ -140,8 +140,40 @@ final class Installer
             }
         }
         $definition = self::GROUPS[$key] ?? ['required' => 0, 'name' => ['de' => $key, 'en' => $key], 'description' => []];
+        $id = Repository::saveGroup(0, ['key' => $key] + $definition);
+        if (isset(self::GROUPS[$key])) {
+            self::placeStandardGroup($id, $key);
+        }
 
-        return Repository::saveGroup(0, ['key' => $key] + $definition);
+        return $id;
+    }
+
+    /**
+     * Neu angelegte Standardgruppe an ihre Stelle der Standardreihenfolge setzen (vor die erste vorhandene
+     * Standardgruppe, die laut GROUPS nach ihr kommt) – sonst landet z. B. "Notwendig" hinter "Externe Medien".
+     */
+    private static function placeStandardGroup(int $id, string $key): void
+    {
+        $order = array_flip(array_keys(self::GROUPS));
+        $ids = [];
+        $position = null;
+        foreach (Repository::groups() as $group) {
+            if ($group['id'] === $id) {
+                continue;
+            }
+            if (null === $position && isset($order[$group['key']]) && $order[$group['key']] > $order[$key]) {
+                $position = count($ids);
+            }
+            $ids[] = $group['id'];
+        }
+        if (null === $position) {
+            return;
+        }
+        array_splice($ids, $position, 0, [$id]);
+        foreach ($ids as $prio => $groupId) {
+            rex_sql::factory()->setQuery('UPDATE ' . rex::getTable('consent_kit_group') . ' SET prio = ? WHERE id = ?', [$prio + 1, $groupId]);
+        }
+        Cache::clear();
     }
 
     /** Gibt es gar keine Gruppe, die Standardgruppen anlegen (ohne Dienste). */

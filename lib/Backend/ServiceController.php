@@ -134,6 +134,7 @@ final class ServiceController
         }
         // Gruppe der Vorlage sicherstellen – fehlt sie (oder gibt es gar keine Gruppen), wird sie angelegt
         if (0 === $data['group_id']) {
+            Installer::ensureDefaultGroups();
             $data['group_id'] = Installer::ensureGroup((string) (PresetRepository::get($key)['group'] ?? ''));
         }
         $id = Repository::saveService(0, $data, $items);
