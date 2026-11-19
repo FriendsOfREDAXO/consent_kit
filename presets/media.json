@@ -10,7 +10,9 @@
         "de": "Einbettung von Videos der Plattform YouTube. Beim Laden des Videos wird die IP-Adresse an Google übertragen, und es können Cookies gesetzt werden; der erweiterte Datenschutzmodus (youtube-nocookie.com) verhindert laut Google lediglich die Personalisierung anhand der Wiedergabe.",
         "en": "Embeds videos from the YouTube platform. Loading a video transfers the IP address to Google and cookies may be set; according to Google, privacy-enhanced mode (youtube-nocookie.com) only prevents personalisation based on the view.",
         "nl": "Insluiten van video's van het platform YouTube. Bij het laden van de video wordt het IP-adres naar Google verzonden en kunnen cookies worden geplaatst; de uitgebreide privacymodus (youtube-nocookie.com) voorkomt volgens Google uitsluitend personalisatie op basis van het afspelen.",
-        "it": "Integrazione di video della piattaforma YouTube. Al caricamento del video l'indirizzo IP viene trasmesso a Google e possono essere impostati cookie; secondo Google la modalità privacy avanzata (youtube-nocookie.com) impedisce soltanto la personalizzazione basata sulla riproduzione."
+        "it": "Integrazione di video della piattaforma YouTube. Al caricamento del video l'indirizzo IP viene trasmesso a Google e possono essere impostati cookie; secondo Google la modalità privacy avanzata (youtube-nocookie.com) impedisce soltanto la personalizzazione basata sulla riproduzione.",
+        "fr": "Intégration de vidéos de la plateforme YouTube. Lors du chargement de la vidéo, l’adresse IP est transmise à Google et des cookies peuvent être déposés ; selon Google, le mode Confidentialité avancée (youtube-nocookie.com) empêche uniquement la personnalisation basée sur le visionnage.",
+        "es": "Integración de vídeos de la plataforma YouTube. Al cargar el vídeo, la dirección IP se transmite a Google y pueden instalarse cookies; según Google, el modo de privacidad mejorada (youtube-nocookie.com) solo impide la personalización basada en la reproducción."
       },
       "params": [],
       "html_head": "",
@@ -37,7 +39,9 @@
             "de": "Stellt sicher, dass Anfragen innerhalb einer Sitzung vom Nutzer und nicht von anderen Websites stammen.",
             "en": "Ensures that requests within a browsing session are made by the user and not by other sites.",
             "nl": "Zorgt ervoor dat verzoeken binnen een sessie van de gebruiker komen en niet van andere websites.",
-            "it": "Garantisce che le richieste all'interno di una sessione provengano dall'utente e non da altri siti."
+            "it": "Garantisce che le richieste all'interno di una sessione provengano dall'utente e non da altri siti.",
+            "fr": "Garantit que les requêtes effectuées au cours d’une session proviennent de l’utilisateur et non d’autres sites web.",
+            "es": "Garantiza que las solicitudes dentro de una sesión procedan del usuario y no de otros sitios web."
           }
         },
         {
@@ -52,7 +56,9 @@
             "de": "Ermöglicht personalisierte Empfehlungen und wird für Analysen und Werbung verwendet.",
             "en": "Enables personalised recommendations and is used for analytics and advertising.",
             "nl": "Maakt gepersonaliseerde aanbevelingen mogelijk en wordt gebruikt voor analyse en advertenties.",
-            "it": "Consente consigli personalizzati e viene utilizzato per analisi e pubblicità."
+            "it": "Consente consigli personalizzati e viene utilizzato per analisi e pubblicità.",
+            "fr": "Permet des recommandations personnalisées et est utilisé à des fins d’analyse et de publicité.",
+            "es": "Permite recomendaciones personalizadas y se utiliza para análisis y publicidad."
           }
         },
         {
@@ -67,7 +73,9 @@
             "de": "Nachfolger von VISITOR_INFO1_LIVE; speichert Einstellungen, dient der Fehlererkennung sowie Analysen und Werbung.",
             "en": "Successor of VISITOR_INFO1_LIVE; stores preferences and is used to detect problems, for analytics and advertising.",
             "nl": "Opvolger van VISITOR_INFO1_LIVE; slaat instellingen op en dient voor foutdetectie, analyse en advertenties.",
-            "it": "Successore di VISITOR_INFO1_LIVE; memorizza impostazioni e serve per il rilevamento degli errori, le analisi e la pubblicità."
+            "it": "Successore di VISITOR_INFO1_LIVE; memorizza impostazioni e serve per il rilevamento degli errori, le analisi e la pubblicità.",
+            "fr": "Successeur de VISITOR_INFO1_LIVE ; enregistre des préférences et sert à la détection d’erreurs ainsi qu’à des fins d’analyse et de publicité.",
+            "es": "Sucesor de VISITOR_INFO1_LIVE; almacena preferencias y sirve para detectar errores, así como para análisis y publicidad."
           }
         },
         {
@@ -82,7 +90,9 @@
             "de": "Erkennt Spam, Betrug und Missbrauch.",
             "en": "Detects spam, fraud and abuse.",
             "nl": "Detecteert spam, fraude en misbruik.",
-            "it": "Rileva spam, frodi e abusi."
+            "it": "Rileva spam, frodi e abusi.",
+            "fr": "Détecte le spam, la fraude et les abus.",
+            "es": "Detecta spam, fraude y abusos."
           }
         },
         {
@@ -97,7 +107,9 @@
             "de": "Nachfolger von __Secure-YEC; erkennt Spam, Betrug und Missbrauch und wird für Analysen verwendet.",
             "en": "Successor of __Secure-YEC; detects spam, fraud and abuse and is used for analytics.",
             "nl": "Opvolger van __Secure-YEC; detecteert spam, fraude en misbruik en wordt gebruikt voor analyse.",
-            "it": "Successore di __Secure-YEC; rileva spam, frodi e abusi e viene utilizzato per le analisi."
+            "it": "Successore di __Secure-YEC; rileva spam, frodi e abusi e viene utilizzato per le analisi.",
+            "fr": "Successeur de __Secure-YEC ; détecte le spam, la fraude et les abus et est utilisé à des fins d’analyse.",
+            "es": "Sucesor de __Secure-YEC; detecta spam, fraude y abusos y se utiliza para análisis."
           }
         },
         {
@@ -112,7 +124,9 @@
             "de": "Speichert Seitenkonfiguration und Wiedergabeeinstellungen wie Autoplay und Playergröße.",
             "en": "Stores page configuration and playback preferences such as autoplay and player size.",
             "nl": "Slaat paginaconfiguratie en afspeelinstellingen op, zoals autoplay en spelerformaat.",
-            "it": "Memorizza la configurazione della pagina e le impostazioni di riproduzione come autoplay e dimensioni del player."
+            "it": "Memorizza la configurazione della pagina e le impostazioni di riproduzione come autoplay e dimensioni del player.",
+            "fr": "Enregistre la configuration de la page et les préférences de lecture, telles que la lecture automatique et la taille du lecteur.",
+            "es": "Almacena la configuración de la página y las preferencias de reproducción, como la reproducción automática y el tamaño del reproductor."
           }
         },
         {
@@ -127,7 +141,9 @@
             "de": "Dient der Einführung neuer Funktionen und der Messung ihrer Auswirkungen.",
             "en": "Used to launch new features and measure their impact.",
             "nl": "Dient voor het uitrollen van nieuwe functies en het meten van hun effect.",
-            "it": "Serve all'introduzione di nuove funzionalità e alla misurazione del loro impatto."
+            "it": "Serve all'introduzione di nuove funzionalità e alla misurazione del loro impatto.",
+            "fr": "Sert à déployer de nouvelles fonctionnalités et à mesurer leur impact.",
+            "es": "Sirve para introducir nuevas funciones y medir su impacto."
           }
         }
       ],
@@ -147,7 +163,9 @@
         "de": "Einbettung von Videos der Plattform Vimeo. Beim Laden des Players wird die IP-Adresse an Vimeo übertragen, und es werden Cookies gesetzt.",
         "en": "Embeds videos from the Vimeo platform. Loading the player transfers the IP address to Vimeo and cookies are set.",
         "nl": "Insluiten van video's van het platform Vimeo. Bij het laden van de speler wordt het IP-adres naar Vimeo verzonden en worden cookies geplaatst.",
-        "it": "Integrazione di video della piattaforma Vimeo. Al caricamento del player l'indirizzo IP viene trasmesso a Vimeo e vengono impostati cookie."
+        "it": "Integrazione di video della piattaforma Vimeo. Al caricamento del player l'indirizzo IP viene trasmesso a Vimeo e vengono impostati cookie.",
+        "fr": "Intégration de vidéos de la plateforme Vimeo. Lors du chargement du lecteur, l’adresse IP est transmise à Vimeo et des cookies sont déposés.",
+        "es": "Integración de vídeos de la plataforma Vimeo. Al cargar el reproductor, la dirección IP se transmite a Vimeo y se instalan cookies."
       },
       "params": [],
       "html_head": "",
@@ -173,7 +191,9 @@
             "de": "Von Vimeo erzeugte ID zur Erstellung von Statistiken für den Videoinhaber.",
             "en": "Vimeo-generated ID used for generating analytics information for the video owner.",
             "nl": "Door Vimeo gegenereerde ID voor het maken van statistieken voor de eigenaar van de video.",
-            "it": "ID generato da Vimeo per creare statistiche destinate al proprietario del video."
+            "it": "ID generato da Vimeo per creare statistiche destinate al proprietario del video.",
+            "fr": "ID générée par Vimeo servant à établir des statistiques pour le propriétaire de la vidéo.",
+            "es": "ID generado por Vimeo para elaborar estadísticas para el propietario del vídeo."
           }
         },
         {
@@ -188,7 +208,9 @@
             "de": "Speichert Einstellungen der Playersteuerung (Lautstärke, Qualität, Untertitel).",
             "en": "Stores preferences for player controls (volume, stream quality, captions).",
             "nl": "Slaat instellingen van de spelerbediening op (volume, kwaliteit, ondertiteling).",
-            "it": "Memorizza le impostazioni dei comandi del player (volume, qualità, sottotitoli)."
+            "it": "Memorizza le impostazioni dei comandi del player (volume, qualità, sottotitoli).",
+            "fr": "Enregistre les préférences des commandes du lecteur (volume, qualité, sous-titres).",
+            "es": "Almacena la configuración de los controles del reproductor (volumen, calidad, subtítulos)."
           }
         },
         {
@@ -203,7 +225,9 @@
             "de": "Legt vom Videoinhaber aktivierte Feature-Flags fest.",
             "en": "Specifies feature flags enabled by the video owner.",
             "nl": "Legt door de eigenaar van de video geactiveerde feature flags vast.",
-            "it": "Definisce i feature flag attivati dal proprietario del video."
+            "it": "Definisce i feature flag attivati dal proprietario del video.",
+            "fr": "Définit les feature flags activés par le propriétaire de la vidéo.",
+            "es": "Establece los indicadores de funciones (feature flags) activados por el propietario del vídeo."
           }
         },
         {
@@ -218,7 +242,9 @@
             "de": "Dient der Abwehr von Bots.",
             "en": "Used for bot prevention.",
             "nl": "Dient ter afweer van bots.",
-            "it": "Serve a contrastare i bot."
+            "it": "Serve a contrastare i bot.",
+            "fr": "Sert à la protection contre les bots.",
+            "es": "Sirve para la protección frente a bots."
           }
         },
         {
@@ -233,7 +259,9 @@
             "de": "Cloudflare-Bot-Management: erkennt automatisierten Datenverkehr.",
             "en": "Cloudflare bot management: identifies automated traffic.",
             "nl": "Cloudflare-botbeheer: detecteert geautomatiseerd verkeer.",
-            "it": "Gestione bot di Cloudflare: rileva il traffico automatizzato."
+            "it": "Gestione bot di Cloudflare: rileva il traffico automatizzato.",
+            "fr": "Cloudflare Bot Management : détecte le trafic automatisé.",
+            "es": "Gestión de bots de Cloudflare: detecta el tráfico automatizado."
           }
         },
         {
@@ -248,7 +276,9 @@
             "de": "Cloudflare-Cookie zur Durchsetzung von Rate-Limiting-Regeln.",
             "en": "Cloudflare cookie used to enforce rate-limiting rules.",
             "nl": "Cloudflare-cookie voor het afdwingen van rate-limitingregels.",
-            "it": "Cookie di Cloudflare per applicare regole di limitazione della frequenza."
+            "it": "Cookie di Cloudflare per applicare regole di limitazione della frequenza.",
+            "fr": "Cookie Cloudflare servant à appliquer des règles de limitation de débit.",
+            "es": "Cookie de Cloudflare para aplicar reglas de limitación de solicitudes."
           }
         },
         {
@@ -263,7 +293,9 @@
             "de": "Cloudflare-Cookie zur Abwehr von Bots.",
             "en": "Cloudflare cookie used for bot prevention.",
             "nl": "Cloudflare-cookie ter afweer van bots.",
-            "it": "Cookie di Cloudflare per contrastare i bot."
+            "it": "Cookie di Cloudflare per contrastare i bot.",
+            "fr": "Cookie Cloudflare servant à la protection contre les bots.",
+            "es": "Cookie de Cloudflare para la protección frente a bots."
           }
         }
       ],
@@ -284,7 +316,9 @@
         "de": "Einbettung interaktiver Karten von Google Maps. Beim Laden der Karte wird die IP-Adresse an Google übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds interactive maps from Google Maps. Loading the map transfers the IP address to Google and cookies may be set.",
         "nl": "Insluiten van interactieve kaarten van Google Maps. Bij het laden van de kaart wordt het IP-adres naar Google verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione di mappe interattive di Google Maps. Al caricamento della mappa l'indirizzo IP viene trasmesso a Google e possono essere impostati cookie."
+        "it": "Integrazione di mappe interattive di Google Maps. Al caricamento della mappa l'indirizzo IP viene trasmesso a Google e possono essere impostati cookie.",
+        "fr": "Intégration de cartes interactives de Google Maps. Lors du chargement de la carte, l’adresse IP est transmise à Google et des cookies peuvent être déposés.",
+        "es": "Integración de mapas interactivos de Google Maps. Al cargar el mapa, la dirección IP se transmite a Google y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -310,7 +344,9 @@
             "de": "Speichert Einstellungen wie die Sprache und kann für Werbung bei nicht angemeldeten Nutzern verwendet werden.",
             "en": "Stores preferences such as language and can be used to show ads to signed-out users.",
             "nl": "Slaat instellingen zoals de taal op en kan worden gebruikt voor advertenties bij niet-aangemelde gebruikers.",
-            "it": "Memorizza impostazioni come la lingua e può essere utilizzato per la pubblicità verso utenti non connessi."
+            "it": "Memorizza impostazioni come la lingua e può essere utilizzato per la pubblicità verso utenti non connessi.",
+            "fr": "Enregistre des préférences telles que la langue et peut être utilisé pour la publicité auprès des utilisateurs non connectés.",
+            "es": "Almacena preferencias como el idioma y puede utilizarse para publicidad dirigida a usuarios que no han iniciado sesión."
           }
         }
       ],
@@ -330,7 +366,9 @@
         "de": "Einbettung von Karten des Projekts OpenStreetMap. Beim Laden der Karte wird die IP-Adresse an die Server der OpenStreetMap Foundation übertragen.",
         "en": "Embeds maps from the OpenStreetMap project. Loading the map transfers the IP address to the servers of the OpenStreetMap Foundation.",
         "nl": "Insluiten van kaarten van het project OpenStreetMap. Bij het laden van de kaart wordt het IP-adres naar de servers van de OpenStreetMap Foundation verzonden.",
-        "it": "Integrazione di mappe del progetto OpenStreetMap. Al caricamento della mappa l'indirizzo IP viene trasmesso ai server della OpenStreetMap Foundation."
+        "it": "Integrazione di mappe del progetto OpenStreetMap. Al caricamento della mappa l'indirizzo IP viene trasmesso ai server della OpenStreetMap Foundation.",
+        "fr": "Intégration de cartes du projet OpenStreetMap. Lors du chargement de la carte, l’adresse IP est transmise aux serveurs de l’OpenStreetMap Foundation.",
+        "es": "Integración de mapas del proyecto OpenStreetMap. Al cargar el mapa, la dirección IP se transmite a los servidores de la OpenStreetMap Foundation."
       },
       "params": [],
       "html_head": "",
@@ -359,7 +397,9 @@
         "de": "Einbettung des Spotify-Players für Musik und Podcasts. Beim Laden des Players wird die IP-Adresse an Spotify übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds the Spotify player for music and podcasts. Loading the player transfers the IP address to Spotify and cookies may be set.",
         "nl": "Insluiten van de Spotify-speler voor muziek en podcasts. Bij het laden van de speler wordt het IP-adres naar Spotify verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione del player Spotify per musica e podcast. Al caricamento del player l'indirizzo IP viene trasmesso a Spotify e possono essere impostati cookie."
+        "it": "Integrazione del player Spotify per musica e podcast. Al caricamento del player l'indirizzo IP viene trasmesso a Spotify e possono essere impostati cookie.",
+        "fr": "Intégration du lecteur Spotify pour la musique et les podcasts. Lors du chargement du lecteur, l’adresse IP est transmise à Spotify et des cookies peuvent être déposés.",
+        "es": "Integración del reproductor de Spotify para música y pódcast. Al cargar el reproductor, la dirección IP se transmite a Spotify y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -388,7 +428,9 @@
         "de": "Einbettung des SoundCloud-Players für Audioinhalte. Beim Laden des Players wird die IP-Adresse an SoundCloud übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds the SoundCloud player for audio content. Loading the player transfers the IP address to SoundCloud and cookies may be set.",
         "nl": "Insluiten van de SoundCloud-speler voor audio-inhoud. Bij het laden van de speler wordt het IP-adres naar SoundCloud verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione del player SoundCloud per contenuti audio. Al caricamento del player l'indirizzo IP viene trasmesso a SoundCloud e possono essere impostati cookie."
+        "it": "Integrazione del player SoundCloud per contenuti audio. Al caricamento del player l'indirizzo IP viene trasmesso a SoundCloud e possono essere impostati cookie.",
+        "fr": "Intégration du lecteur SoundCloud pour les contenus audio. Lors du chargement du lecteur, l’adresse IP est transmise à SoundCloud et des cookies peuvent être déposés.",
+        "es": "Integración del reproductor de SoundCloud para contenidos de audio. Al cargar el reproductor, la dirección IP se transmite a SoundCloud y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -418,7 +460,9 @@
         "de": "Einbettung von Beiträgen der Plattform Instagram. Beim Laden der Inhalte wird die IP-Adresse an Meta übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds posts from the Instagram platform. Loading the content transfers the IP address to Meta and cookies may be set.",
         "nl": "Insluiten van berichten van het platform Instagram. Bij het laden van de inhoud wordt het IP-adres naar Meta verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione di post della piattaforma Instagram. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a Meta e possono essere impostati cookie."
+        "it": "Integrazione di post della piattaforma Instagram. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a Meta e possono essere impostati cookie.",
+        "fr": "Intégration de publications de la plateforme Instagram. Lors du chargement des contenus, l’adresse IP est transmise à Meta et des cookies peuvent être déposés.",
+        "es": "Integración de publicaciones de la plataforma Instagram. Al cargar el contenido, la dirección IP se transmite a Meta y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -443,7 +487,9 @@
             "de": "Eindeutige Browserkennung zum Schutz vor Betrug und zur Erkennung missbräuchlich genutzter Browser.",
             "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors.",
             "nl": "Unieke browseridentificatie ter bescherming tegen fraude en voor het herkennen van misbruikte browsers.",
-            "it": "Identificativo univoco del browser per la protezione dalle frodi e il rilevamento di browser utilizzati in modo abusivo."
+            "it": "Identificativo univoco del browser per la protezione dalle frodi e il rilevamento di browser utilizzati in modo abusivo.",
+            "fr": "Identifiant unique du navigateur servant à protéger contre la fraude et à détecter les navigateurs utilisés de manière abusive.",
+            "es": "Identificador único del navegador para proteger frente al fraude y detectar navegadores utilizados de forma abusiva."
           }
         }
       ],
@@ -456,7 +502,9 @@
         "de": "Meta nennt für das Cookie datr 400 Tage für seine Produkte allgemein; für Einbettungen ist es nicht gesondert dokumentiert.",
         "en": "Meta states 400 days for the datr cookie across its products in general; it is not documented separately for embeds.",
         "nl": "Meta noemt voor het cookie datr 400 dagen voor zijn producten in het algemeen; voor insluitingen is dit niet apart gedocumenteerd.",
-        "it": "Meta indica per il cookie datr 400 giorni per i suoi prodotti in generale; per le integrazioni non è documentato separatamente."
+        "it": "Meta indica per il cookie datr 400 giorni per i suoi prodotti in generale; per le integrazioni non è documentato separatamente.",
+        "fr": "Meta indique 400 jours pour le cookie datr pour ses produits en général ; il n’est pas documenté séparément pour les intégrations.",
+        "es": "Meta indica para la cookie datr 400 días para sus productos en general; para las integraciones no está documentada por separado."
       }
     },
     {
@@ -469,7 +517,9 @@
         "de": "Einbettung von Beiträgen, Videos und sozialen Plugins der Plattform Facebook. Beim Laden der Inhalte wird die IP-Adresse an Meta übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds posts, videos and social plugins from the Facebook platform. Loading the content transfers the IP address to Meta and cookies may be set.",
         "nl": "Insluiten van berichten, video's en sociale plug-ins van het platform Facebook. Bij het laden van de inhoud wordt het IP-adres naar Meta verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione di post, video e plugin sociali della piattaforma Facebook. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a Meta e possono essere impostati cookie."
+        "it": "Integrazione di post, video e plugin sociali della piattaforma Facebook. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a Meta e possono essere impostati cookie.",
+        "fr": "Intégration de publications, de vidéos et de plugins sociaux de la plateforme Facebook. Lors du chargement des contenus, l’adresse IP est transmise à Meta et des cookies peuvent être déposés.",
+        "es": "Integración de publicaciones, vídeos y plugins sociales de la plataforma Facebook. Al cargar el contenido, la dirección IP se transmite a Meta y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -494,7 +544,9 @@
             "de": "Eindeutige Browserkennung zum Schutz vor Betrug und zur Erkennung missbräuchlich genutzter Browser.",
             "en": "Unique browser identifier used to protect against fraud and to identify browsers used by malicious actors.",
             "nl": "Unieke browseridentificatie ter bescherming tegen fraude en voor het herkennen van misbruikte browsers.",
-            "it": "Identificativo univoco del browser per la protezione dalle frodi e il rilevamento di browser utilizzati in modo abusivo."
+            "it": "Identificativo univoco del browser per la protezione dalle frodi e il rilevamento di browser utilizzati in modo abusivo.",
+            "fr": "Identifiant unique du navigateur servant à protéger contre la fraude et à détecter les navigateurs utilisés de manière abusive.",
+            "es": "Identificador único del navegador para proteger frente al fraude y detectar navegadores utilizados de forma abusiva."
           }
         },
         {
@@ -509,7 +561,9 @@
             "de": "Dient der sicheren Identifizierung des Browsers.",
             "en": "Helps to identify the browser securely.",
             "nl": "Dient voor de veilige identificatie van de browser.",
-            "it": "Serve all'identificazione sicura del browser."
+            "it": "Serve all'identificazione sicura del browser.",
+            "fr": "Sert à identifier le navigateur de manière sécurisée.",
+            "es": "Sirve para identificar el navegador de forma segura."
           }
         },
         {
@@ -524,7 +578,9 @@
             "de": "Dient der Auslieferung von Werbeanzeigen sowie der Messung und Verbesserung ihrer Relevanz.",
             "en": "Used to deliver ads and to measure and improve their relevance.",
             "nl": "Dient voor het uitleveren van advertenties en voor het meten en verbeteren van hun relevantie.",
-            "it": "Serve alla distribuzione degli annunci e alla misurazione e al miglioramento della loro pertinenza."
+            "it": "Serve alla distribuzione degli annunci e alla misurazione e al miglioramento della loro pertinenza.",
+            "fr": "Sert à diffuser des annonces publicitaires ainsi qu’à mesurer et améliorer leur pertinence.",
+            "es": "Sirve para entregar anuncios publicitarios y para medir y mejorar su relevancia."
           }
         },
         {
@@ -539,7 +595,9 @@
             "de": "Speichert die Entscheidung gegen Werbung auf Basis von Aktivitäten auf Websites Dritter.",
             "en": "Stores the opt-out from ads based on activity on third-party websites.",
             "nl": "Slaat de keuze tegen advertenties op basis van activiteiten op websites van derden op.",
-            "it": "Memorizza la scelta di rifiutare la pubblicità basata su attività su siti di terzi."
+            "it": "Memorizza la scelta di rifiutare la pubblicità basata su attività su siti di terzi.",
+            "fr": "Enregistre le refus de la publicité basée sur les activités sur des sites web tiers.",
+            "es": "Almacena la decisión de no recibir publicidad basada en la actividad en sitios web de terceros."
           }
         },
         {
@@ -554,7 +612,9 @@
             "de": "Authentifiziert angemeldete Nutzer.",
             "en": "Authenticates logged-in users.",
             "nl": "Authenticeert aangemelde gebruikers.",
-            "it": "Autentica gli utenti connessi."
+            "it": "Autentica gli utenti connessi.",
+            "fr": "Authentifie les utilisateurs connectés.",
+            "es": "Autentica a los usuarios que han iniciado sesión."
           }
         },
         {
@@ -569,7 +629,9 @@
             "de": "Authentifiziert angemeldete Nutzer.",
             "en": "Authenticates logged-in users.",
             "nl": "Authenticeert aangemelde gebruikers.",
-            "it": "Autentica gli utenti connessi."
+            "it": "Autentica gli utenti connessi.",
+            "fr": "Authentifie les utilisateurs connectés.",
+            "es": "Autentica a los usuarios que han iniciado sesión."
           }
         },
         {
@@ -584,7 +646,9 @@
             "de": "Dient der optimalen Darstellung für den Bildschirm des Geräts.",
             "en": "Helps to provide an optimal experience for the device screen.",
             "nl": "Dient voor de optimale weergave op het scherm van het apparaat.",
-            "it": "Serve alla visualizzazione ottimale per lo schermo del dispositivo."
+            "it": "Serve alla visualizzazione ottimale per lo schermo del dispositivo.",
+            "fr": "Sert à un affichage optimal adapté à l’écran de l’appareil.",
+            "es": "Sirve para una visualización óptima en la pantalla del dispositivo."
           }
         },
         {
@@ -599,7 +663,9 @@
             "de": "Dient der optimalen Darstellung für den Bildschirm des Geräts.",
             "en": "Helps to provide an optimal experience for the device screen.",
             "nl": "Dient voor de optimale weergave op het scherm van het apparaat.",
-            "it": "Serve alla visualizzazione ottimale per lo schermo del dispositivo."
+            "it": "Serve alla visualizzazione ottimale per lo schermo del dispositivo.",
+            "fr": "Sert à un affichage optimal adapté à l’écran de l’appareil.",
+            "es": "Sirve para una visualización óptima en la pantalla del dispositivo."
           }
         },
         {
@@ -614,7 +680,9 @@
             "de": "Schützt vor Cross-Site-Request-Forgery-Angriffen.",
             "en": "Protects against cross-site request forgery attacks.",
             "nl": "Beschermt tegen cross-site request forgery-aanvallen.",
-            "it": "Protegge dagli attacchi di cross-site request forgery."
+            "it": "Protegge dagli attacchi di cross-site request forgery.",
+            "fr": "Protège contre les attaques de type Cross-Site Request Forgery.",
+            "es": "Protege frente a ataques de falsificación de solicitudes entre sitios (cross-site request forgery)."
           }
         }
       ],
@@ -634,7 +702,9 @@
         "de": "Einbettung von Beiträgen und Timelines der Plattform X (ehemals Twitter). Beim Laden der Inhalte werden die IP-Adresse, die besuchte Seite, Browserdaten und Cookie-Informationen an X übertragen.",
         "en": "Embeds posts and timelines from the X platform (formerly Twitter). Loading the content transfers the IP address, the visited page, browser data and cookie information to X.",
         "nl": "Insluiten van berichten en tijdlijnen van het platform X (voorheen Twitter). Bij het laden van de inhoud worden het IP-adres, de bezochte pagina, browsergegevens en cookie-informatie naar X verzonden.",
-        "it": "Integrazione di post e timeline della piattaforma X (già Twitter). Al caricamento dei contenuti vengono trasmessi a X l'indirizzo IP, la pagina visitata, i dati del browser e le informazioni sui cookie."
+        "it": "Integrazione di post e timeline della piattaforma X (già Twitter). Al caricamento dei contenuti vengono trasmessi a X l'indirizzo IP, la pagina visitata, i dati del browser e le informazioni sui cookie.",
+        "fr": "Intégration de publications et de timelines de la plateforme X (anciennement Twitter). Lors du chargement des contenus, l’adresse IP, la page visitée, des données du navigateur et des informations relatives aux cookies sont transmises à X.",
+        "es": "Integración de publicaciones y cronologías de la plataforma X (antes Twitter). Al cargar el contenido, se transmiten a X la dirección IP, la página visitada, datos del navegador e información de cookies."
       },
       "params": [],
       "html_head": "",
@@ -667,7 +737,9 @@
         "de": "Einbettung von Videos der Plattform TikTok. Beim Laden der Inhalte wird die IP-Adresse an TikTok übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds videos from the TikTok platform. Loading the content transfers the IP address to TikTok and cookies may be set.",
         "nl": "Insluiten van video's van het platform TikTok. Bij het laden van de inhoud wordt het IP-adres naar TikTok verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione di video della piattaforma TikTok. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a TikTok e possono essere impostati cookie."
+        "it": "Integrazione di video della piattaforma TikTok. Al caricamento dei contenuti l'indirizzo IP viene trasmesso a TikTok e possono essere impostati cookie.",
+        "fr": "Intégration de vidéos de la plateforme TikTok. Lors du chargement des contenus, l’adresse IP est transmise à TikTok et des cookies peuvent être déposés.",
+        "es": "Integración de vídeos de la plataforma TikTok. Al cargar el contenido, la dirección IP se transmite a TikTok y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -692,7 +764,9 @@
             "de": "Dient der Sicherheit sowie der Analyse und Optimierung der Website (laut TikTok 1 Jahr bzw. höchstens 13 Monate).",
             "en": "Used for security as well as analytics and web optimisation (according to TikTok 1 year or a maximum of 13 months).",
             "nl": "Dient voor de beveiliging en voor de analyse en optimalisatie van de website (volgens TikTok 1 jaar respectievelijk maximaal 13 maanden).",
-            "it": "Serve alla sicurezza e all'analisi e ottimizzazione del sito (secondo TikTok 1 anno ovvero al massimo 13 mesi)."
+            "it": "Serve alla sicurezza e all'analisi e ottimizzazione del sito (secondo TikTok 1 anno ovvero al massimo 13 mesi).",
+            "fr": "Sert à la sécurité ainsi qu’à l’analyse et à l’optimisation du site web (selon TikTok, 1 an ou 13 mois au maximum).",
+            "es": "Sirve para la seguridad, así como para el análisis y la optimización del sitio web (según TikTok, 1 año o como máximo 13 meses)."
           }
         }
       ],
@@ -712,7 +786,9 @@
         "de": "Einbettung des Podcast-Players von Podigee. Beim Laden des Players wird die IP-Adresse an Podigee übertragen.",
         "en": "Embeds the Podigee podcast player. Loading the player transfers the IP address to Podigee.",
         "nl": "Insluiten van de podcastspeler van Podigee. Bij het laden van de speler wordt het IP-adres naar Podigee verzonden.",
-        "it": "Integrazione del player per podcast di Podigee. Al caricamento del player l'indirizzo IP viene trasmesso a Podigee."
+        "it": "Integrazione del player per podcast di Podigee. Al caricamento del player l'indirizzo IP viene trasmesso a Podigee.",
+        "fr": "Intégration du lecteur de podcasts de Podigee. Lors du chargement du lecteur, l’adresse IP est transmise à Podigee.",
+        "es": "Integración del reproductor de pódcast de Podigee. Al cargar el reproductor, la dirección IP se transmite a Podigee."
       },
       "params": [],
       "html_head": "",
@@ -743,7 +819,9 @@
         "de": "Einbettung von Formularen und Umfragen aus Microsoft Forms. Beim Laden des Formulars wird die IP-Adresse an Microsoft übertragen; Microsoft kann dabei Cookies setzen.",
         "en": "Embeds forms and surveys from Microsoft Forms. Loading the form transfers the IP address to Microsoft; Microsoft may set cookies.",
         "nl": "Insluiten van formulieren en enquêtes uit Microsoft Forms. Bij het laden van het formulier wordt het IP-adres naar Microsoft verzonden; Microsoft kan daarbij cookies plaatsen.",
-        "it": "Integrazione di moduli e sondaggi da Microsoft Forms. Al caricamento del modulo l'indirizzo IP viene trasmesso a Microsoft; Microsoft può impostare cookie."
+        "it": "Integrazione di moduli e sondaggi da Microsoft Forms. Al caricamento del modulo l'indirizzo IP viene trasmesso a Microsoft; Microsoft può impostare cookie.",
+        "fr": "Intégration de formulaires et de sondages de Microsoft Forms. Lors du chargement du formulaire, l’adresse IP est transmise à Microsoft ; Microsoft peut alors déposer des cookies.",
+        "es": "Integración de formularios y encuestas de Microsoft Forms. Al cargar el formulario, la dirección IP se transmite a Microsoft; Microsoft puede instalar cookies en este proceso."
       },
       "params": [],
       "html_head": "",

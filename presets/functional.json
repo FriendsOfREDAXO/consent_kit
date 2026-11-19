@@ -10,7 +10,9 @@
         "de": "Schutz von Formularen vor automatisierten Zugriffen durch eine Risikoanalyse. Beim Laden wird die IP-Adresse an Google übertragen, und es wird ein Cookie gesetzt.",
         "en": "Protects forms against automated access by means of a risk analysis. Loading the service transfers the IP address to Google and a cookie is set.",
         "nl": "Bescherming van formulieren tegen geautomatiseerde toegang door middel van een risicoanalyse. Bij het laden wordt het IP-adres naar Google verzonden en wordt een cookie geplaatst.",
-        "it": "Protezione dei moduli dagli accessi automatizzati tramite un'analisi del rischio. Al caricamento l'indirizzo IP viene trasmesso a Google e viene impostato un cookie."
+        "it": "Protezione dei moduli dagli accessi automatizzati tramite un'analisi del rischio. Al caricamento l'indirizzo IP viene trasmesso a Google e viene impostato un cookie.",
+        "fr": "Protection des formulaires contre les accès automatisés au moyen d’une analyse des risques. Lors du chargement, l’adresse IP est transmise à Google et un cookie est déposé.",
+        "es": "Protección de formularios frente a accesos automatizados mediante un análisis de riesgos. Al cargarse, la dirección IP se transmite a Google y se instala una cookie."
       },
       "params": [],
       "html_head": "",
@@ -33,7 +35,9 @@
             "de": "Wird bei der Ausführung von reCAPTCHA für die Risikoanalyse gesetzt.",
             "en": "Set when reCAPTCHA is executed for the purpose of providing its risk analysis.",
             "nl": "Wordt bij het uitvoeren van reCAPTCHA geplaatst voor de risicoanalyse.",
-            "it": "Viene impostato durante l'esecuzione di reCAPTCHA per l'analisi del rischio."
+            "it": "Viene impostato durante l'esecuzione di reCAPTCHA per l'analisi del rischio.",
+            "fr": "Déposé lors de l’exécution de reCAPTCHA pour l’analyse des risques.",
+            "es": "Se instala al ejecutar reCAPTCHA para el análisis de riesgos."
           }
         }
       ],
@@ -47,7 +51,9 @@
         "de": "Google dokumentiert das Cookie _GRECAPTCHA, aber keine Laufzeit. Die 179 Tage stammen aus der Open Cookie Database.",
         "en": "Google documents the _GRECAPTCHA cookie but no duration. The 179 days come from the Open Cookie Database.",
         "nl": "Google documenteert het cookie _GRECAPTCHA, maar geen looptijd. De 179 dagen komen uit de Open Cookie Database.",
-        "it": "Google documenta il cookie _GRECAPTCHA ma non la durata. I 179 giorni provengono dall'Open Cookie Database."
+        "it": "Google documenta il cookie _GRECAPTCHA ma non la durata. I 179 giorni provengono dall'Open Cookie Database.",
+        "fr": "Google documente le cookie _GRECAPTCHA, mais pas sa durée. Les 179 jours proviennent de l’Open Cookie Database.",
+        "es": "Google documenta la cookie _GRECAPTCHA, pero no su duración. Los 179 días proceden de la Open Cookie Database."
       }
     },
     {
@@ -60,7 +66,9 @@
         "de": "Schutz von Formularen vor automatisierten Zugriffen. Beim Laden wird die IP-Adresse an den Anbieter übertragen, und es werden Cookies gesetzt.",
         "en": "Protects forms against automated access. Loading the service transfers the IP address to the provider and cookies are set.",
         "nl": "Bescherming van formulieren tegen geautomatiseerde toegang. Bij het laden wordt het IP-adres naar de aanbieder verzonden en worden cookies geplaatst.",
-        "it": "Protezione dei moduli dagli accessi automatizzati. Al caricamento l'indirizzo IP viene trasmesso al fornitore e vengono impostati cookie."
+        "it": "Protezione dei moduli dagli accessi automatizzati. Al caricamento l'indirizzo IP viene trasmesso al fornitore e vengono impostati cookie.",
+        "fr": "Protection des formulaires contre les accès automatisés. Lors du chargement, l’adresse IP est transmise au fournisseur et des cookies sont déposés.",
+        "es": "Protección de formularios frente a accesos automatizados. Al cargarse, la dirección IP se transmite al proveedor y se instalan cookies."
       },
       "params": [],
       "html_head": "",
@@ -83,7 +91,9 @@
             "de": "Dient anonymen, dienstbezogenen Statistiken und technischen Zwecken wie der Unterstützung der Barrierefreiheit.",
             "en": "Used for anonymous service-related statistics and technical purposes such as accessibility support.",
             "nl": "Dient voor anonieme, dienstgerelateerde statistieken en technische doeleinden zoals ondersteuning van de toegankelijkheid.",
-            "it": "Serve per statistiche anonime relative al servizio e per finalità tecniche come il supporto dell'accessibilità."
+            "it": "Serve per statistiche anonime relative al servizio e per finalità tecniche come il supporto dell'accessibilità.",
+            "fr": "Sert à des statistiques anonymes liées au service et à des fins techniques telles que la prise en charge de l’accessibilité.",
+            "es": "Sirve para estadísticas anónimas relacionadas con el servicio y para fines técnicos como el soporte de accesibilidad."
           }
         },
         {
@@ -98,7 +108,9 @@
             "de": "Ermöglicht die Nutzung des Barrierefreiheitszugangs (Dauer variiert, höchstens 30 Tage).",
             "en": "Enables accessibility user access (duration varies, up to 30 days).",
             "nl": "Maakt gebruik van de toegankelijkheidstoegang mogelijk (duur varieert, maximaal 30 dagen).",
-            "it": "Consente l'uso dell'accesso per l'accessibilità (durata variabile, al massimo 30 giorni)."
+            "it": "Consente l'uso dell'accesso per l'accessibilità (durata variabile, al massimo 30 giorni).",
+            "fr": "Permet l’utilisation de l’accès d’accessibilité (durée variable, 30 jours au maximum).",
+            "es": "Permite el uso del acceso de accesibilidad (la duración varía, como máximo 30 días)."
           }
         },
         {
@@ -113,7 +125,9 @@
             "de": "Dient Sicherheitsfunktionen (Dauer variiert, höchstens 1 Tag).",
             "en": "Used for security features (duration varies, up to 1 day).",
             "nl": "Dient voor beveiligingsfuncties (duur varieert, maximaal 1 dag).",
-            "it": "Serve per funzioni di sicurezza (durata variabile, al massimo 1 giorno)."
+            "it": "Serve per funzioni di sicurezza (durata variabile, al massimo 1 giorno).",
+            "fr": "Sert à des fonctions de sécurité (durée variable, 1 jour au maximum).",
+            "es": "Sirve para funciones de seguridad (la duración varía, como máximo 1 día)."
           }
         }
       ],
@@ -132,7 +146,9 @@
         "de": "Schutz von Formularen vor automatisierten Zugriffen. Beim Laden werden die IP-Adresse und weitere Browsersignale an Cloudflare übertragen; nur bei aktivierter Pre-Clearance wird zusätzlich das Cookie cf_clearance mit einer vom Betreiber konfigurierten Dauer gesetzt.",
         "en": "Protects forms against automated access. Loading the service transfers the IP address and further browser signals to Cloudflare; only with pre-clearance enabled the cookie cf_clearance is additionally set with a duration configured by the site operator.",
         "nl": "Bescherming van formulieren tegen geautomatiseerde toegang. Bij het laden worden het IP-adres en andere browsersignalen naar Cloudflare verzonden; alleen bij ingeschakelde pre-clearance wordt daarnaast het cookie cf_clearance geplaatst met een door de beheerder ingestelde duur.",
-        "it": "Protezione dei moduli dagli accessi automatizzati. Al caricamento l'indirizzo IP e altri segnali del browser vengono trasmessi a Cloudflare; solo con la pre-clearance attiva viene inoltre impostato il cookie cf_clearance con una durata configurata dal gestore."
+        "it": "Protezione dei moduli dagli accessi automatizzati. Al caricamento l'indirizzo IP e altri segnali del browser vengono trasmessi a Cloudflare; solo con la pre-clearance attiva viene inoltre impostato il cookie cf_clearance con una durata configurata dal gestore.",
+        "fr": "Protection des formulaires contre les accès automatisés. Lors du chargement, l’adresse IP et d’autres signaux du navigateur sont transmis à Cloudflare ; ce n’est que si Pre-Clearance est activé que le cookie cf_clearance est en outre déposé, avec une durée configurée par l’exploitant du site.",
+        "es": "Protección de formularios frente a accesos automatizados. Al cargarse, la dirección IP y otras señales del navegador se transmiten a Cloudflare; solo si está activada la Pre-Clearance se instala además la cookie cf_clearance con una duración configurada por el operador del sitio web."
       },
       "params": [],
       "html_head": "",
@@ -160,7 +176,9 @@
         "de": "Schutz von Formularen vor automatisierten Zugriffen durch eine im Browser gelöste Rechenaufgabe. Beim Laden wird die IP-Adresse an den Anbieter übertragen und dort laut Anbieter nur gehasht verarbeitet; es werden keine Cookies gesetzt.",
         "en": "Protects forms against automated access by means of a puzzle solved in the browser. Loading the service transfers the IP address to the provider, which according to the provider is only processed in hashed form; no cookies are set.",
         "nl": "Bescherming van formulieren tegen geautomatiseerde toegang door een rekenopgave die in de browser wordt opgelost. Bij het laden wordt het IP-adres naar de aanbieder verzonden en daar volgens de aanbieder alleen gehasht verwerkt; er worden geen cookies geplaatst.",
-        "it": "Protezione dei moduli dagli accessi automatizzati tramite un calcolo risolto nel browser. Al caricamento l'indirizzo IP viene trasmesso al fornitore e, secondo quest'ultimo, elaborato solo in forma hash; non vengono impostati cookie."
+        "it": "Protezione dei moduli dagli accessi automatizzati tramite un calcolo risolto nel browser. Al caricamento l'indirizzo IP viene trasmesso al fornitore e, secondo quest'ultimo, elaborato solo in forma hash; non vengono impostati cookie.",
+        "fr": "Protection des formulaires contre les accès automatisés au moyen d’un calcul résolu dans le navigateur. Lors du chargement, l’adresse IP est transmise au fournisseur, qui, selon ses indications, ne la traite que sous forme hachée ; aucun cookie n’est déposé.",
+        "es": "Protección de formularios frente a accesos automatizados mediante un desafío de cálculo que se resuelve en el navegador. Al cargarse, la dirección IP se transmite al proveedor, donde, según este, solo se procesa en forma de hash; no se instalan cookies."
       },
       "params": [],
       "html_head": "",
@@ -186,7 +204,9 @@
         "de": "Laden von Schriftarten von Servern von Google. Dabei werden die IP-Adresse, die angeforderte URL und Browserangaben an Google übertragen; Cookies werden laut Google nicht gesetzt.",
         "en": "Loads fonts from Google servers. This transfers the IP address, the requested URL and browser details to Google; according to Google no cookies are set.",
         "nl": "Laden van lettertypen van servers van Google. Daarbij worden het IP-adres, de opgevraagde URL en browsergegevens naar Google verzonden; volgens Google worden geen cookies geplaatst.",
-        "it": "Caricamento di caratteri dai server di Google. Vengono trasmessi a Google l'indirizzo IP, l'URL richiesto e informazioni sul browser; secondo Google non vengono impostati cookie."
+        "it": "Caricamento di caratteri dai server di Google. Vengono trasmessi a Google l'indirizzo IP, l'URL richiesto e informazioni sul browser; secondo Google non vengono impostati cookie.",
+        "fr": "Chargement de polices de caractères depuis des serveurs de Google. L’adresse IP, l’URL demandée et des informations sur le navigateur sont alors transmises à Google ; selon Google, aucun cookie n’est déposé.",
+        "es": "Carga de fuentes tipográficas desde servidores de Google. Al hacerlo, se transmiten a Google la dirección IP, la URL solicitada y datos del navegador; según Google, no se instalan cookies."
       },
       "params": [],
       "html_head": "",
@@ -212,7 +232,9 @@
         "de": "Laden von Schriftarten von Servern von Adobe. Dabei wird die IP-Adresse an Adobe übertragen; Cookies werden laut Adobe zur Bereitstellung der Schriften nicht gesetzt.",
         "en": "Loads fonts from Adobe servers. This transfers the IP address to Adobe; according to Adobe no cookies are set in order to serve the fonts.",
         "nl": "Laden van lettertypen van servers van Adobe. Daarbij wordt het IP-adres naar Adobe verzonden; volgens Adobe worden voor het leveren van de lettertypen geen cookies geplaatst.",
-        "it": "Caricamento di caratteri dai server di Adobe. L'indirizzo IP viene trasmesso ad Adobe; secondo Adobe non vengono impostati cookie per la fornitura dei caratteri."
+        "it": "Caricamento di caratteri dai server di Adobe. L'indirizzo IP viene trasmesso ad Adobe; secondo Adobe non vengono impostati cookie per la fornitura dei caratteri.",
+        "fr": "Chargement de polices de caractères depuis des serveurs d’Adobe. L’adresse IP est alors transmise à Adobe ; selon Adobe, aucun cookie n’est déposé pour la fourniture des polices.",
+        "es": "Carga de fuentes tipográficas desde servidores de Adobe. Al hacerlo, se transmite la dirección IP a Adobe; según Adobe, no se instalan cookies para el suministro de las fuentes."
       },
       "params": [],
       "html_head": "",
@@ -239,7 +261,9 @@
         "de": "Einbettung der Terminbuchung von Calendly. Beim Laden wird die IP-Adresse an Calendly übertragen, und es können Cookies gesetzt werden.",
         "en": "Embeds Calendly appointment scheduling. Loading the content transfers the IP address to Calendly and cookies may be set.",
         "nl": "Insluiten van de afspraakplanner van Calendly. Bij het laden wordt het IP-adres naar Calendly verzonden en kunnen cookies worden geplaatst.",
-        "it": "Integrazione della prenotazione appuntamenti di Calendly. Al caricamento l'indirizzo IP viene trasmesso a Calendly e possono essere impostati cookie."
+        "it": "Integrazione della prenotazione appuntamenti di Calendly. Al caricamento l'indirizzo IP viene trasmesso a Calendly e possono essere impostati cookie.",
+        "fr": "Intégration de la prise de rendez-vous de Calendly. Lors du chargement, l’adresse IP est transmise à Calendly et des cookies peuvent être déposés.",
+        "es": "Integración de la reserva de citas de Calendly. Al cargarse, la dirección IP se transmite a Calendly y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",
@@ -268,7 +292,9 @@
         "de": "Live-Chat auf der Website. Beim Laden des Chats wird die IP-Adresse an den Anbieter übertragen, und es werden ein Cookie sowie Einträge im lokalen Speicher angelegt.",
         "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and a cookie as well as local storage entries are created.",
         "nl": "Livechat op de website. Bij het laden van de chat wordt het IP-adres naar de aanbieder verzonden en worden een cookie en vermeldingen in de lokale opslag aangemaakt.",
-        "it": "Chat dal vivo sul sito. Al caricamento della chat l'indirizzo IP viene trasmesso al fornitore e vengono creati un cookie e voci nell'archivio locale."
+        "it": "Chat dal vivo sul sito. Al caricamento della chat l'indirizzo IP viene trasmesso al fornitore e vengono creati un cookie e voci nell'archivio locale.",
+        "fr": "Chat en direct sur le site web. Lors du chargement du chat, l’adresse IP est transmise au fournisseur, et un cookie ainsi que des entrées dans le stockage local sont créés.",
+        "es": "Chat en directo en el sitio web. Al cargar el chat, la dirección IP se transmite al proveedor y se crean una cookie y entradas en el almacenamiento local."
       },
       "params": [],
       "html_head": "",
@@ -291,7 +317,9 @@
             "de": "Speichert den Status des Messengers und Kennungen zur Wiedererkennung von Kontakten (Standarddauer, vom Betreiber anpassbar).",
             "en": "Stores the messenger state and identifiers to recognise returning contacts (default duration, adjustable by the operator).",
             "nl": "Slaat de status van de messenger en identificatoren voor het herkennen van contacten op (standaardduur, aanpasbaar door de beheerder).",
-            "it": "Memorizza lo stato del messenger e gli identificativi per riconoscere i contatti (durata predefinita, modificabile dal gestore)."
+            "it": "Memorizza lo stato del messenger e gli identificativi per riconoscere i contatti (durata predefinita, modificabile dal gestore).",
+            "fr": "Enregistre l’état de la messagerie et des identifiants permettant de reconnaître les contacts (durée par défaut, modifiable par l’exploitant du site).",
+            "es": "Almacena el estado del messenger e identificadores para reconocer a los contactos (duración predeterminada, ajustable por el operador)."
           }
         },
         {
@@ -306,7 +334,9 @@
             "de": "Speichert den Status des Messengers sowie die Anzahl der Seitenaufrufe und Besuche.",
             "en": "Stores the messenger state and the number of page impressions and visits.",
             "nl": "Slaat de status van de messenger en het aantal paginaweergaven en bezoeken op.",
-            "it": "Memorizza lo stato del messenger e il numero di visualizzazioni di pagina e visite."
+            "it": "Memorizza lo stato del messenger e il numero di visualizzazioni di pagina e visite.",
+            "fr": "Enregistre l’état de la messagerie ainsi que le nombre de pages vues et de visites.",
+            "es": "Almacena el estado del messenger y el número de páginas vistas y visitas."
           }
         },
         {
@@ -321,7 +351,9 @@
             "de": "Speichert das Log-Level der Anwendung.",
             "en": "Stores the log level of the application.",
             "nl": "Slaat het logniveau van de applicatie op.",
-            "it": "Memorizza il livello di log dell'applicazione."
+            "it": "Memorizza il livello di log dell'applicazione.",
+            "fr": "Enregistre le niveau de journalisation de l’application.",
+            "es": "Almacena el nivel de registro (log level) de la aplicación."
           }
         },
         {
@@ -336,7 +368,9 @@
             "de": "Speichert das gewählte Farbschema (hell oder dunkel).",
             "en": "Stores the selected colour scheme (light or dark).",
             "nl": "Slaat het gekozen kleurenschema op (licht of donker).",
-            "it": "Memorizza lo schema di colori scelto (chiaro o scuro)."
+            "it": "Memorizza lo schema di colori scelto (chiaro o scuro).",
+            "fr": "Enregistre le thème de couleurs choisi (clair ou sombre).",
+            "es": "Almacena el esquema de colores seleccionado (claro u oscuro)."
           }
         }
       ],
@@ -357,7 +391,9 @@
         "de": "Live-Chat auf der Website. Beim Laden des Chats wird die IP-Adresse an den Anbieter übertragen, und es werden Cookies sowie Einträge im lokalen Speicher angelegt.",
         "en": "Live chat on the website. Loading the chat transfers the IP address to the provider, and cookies as well as local storage entries are created.",
         "nl": "Livechat op de website. Bij het laden van de chat wordt het IP-adres naar de aanbieder verzonden en worden cookies en vermeldingen in de lokale opslag aangemaakt.",
-        "it": "Chat dal vivo sul sito. Al caricamento della chat l'indirizzo IP viene trasmesso al fornitore e vengono creati cookie e voci nell'archivio locale."
+        "it": "Chat dal vivo sul sito. Al caricamento della chat l'indirizzo IP viene trasmesso al fornitore e vengono creati cookie e voci nell'archivio locale.",
+        "fr": "Chat en direct sur le site web. Lors du chargement du chat, l’adresse IP est transmise au fournisseur, et des cookies ainsi que des entrées dans le stockage local sont créés.",
+        "es": "Chat en directo en el sitio web. Al cargar el chat, la dirección IP se transmite al proveedor y se crean cookies y entradas en el almacenamiento local."
       },
       "params": [],
       "html_head": "",
@@ -380,7 +416,9 @@
             "de": "Erkennt wiederkehrende Besucher anhand einer zufälligen Kennung.",
             "en": "Recognises returning visitors by means of a random identifier.",
             "nl": "Herkent terugkerende bezoekers aan de hand van een willekeurige identificatie.",
-            "it": "Riconosce i visitatori di ritorno tramite un identificativo casuale."
+            "it": "Riconosce i visitatori di ritorno tramite un identificativo casuale.",
+            "fr": "Reconnaît les visiteurs récurrents au moyen d’un identifiant aléatoire.",
+            "es": "Reconoce a los visitantes recurrentes mediante un identificador aleatorio."
           }
         },
         {
@@ -395,7 +433,9 @@
             "de": "Verwaltet die Verbindung des Besuchers und verhindert mehrfache Verbindungsanfragen.",
             "en": "Manages the visitor connection and prevents multiple connection requests.",
             "nl": "Beheert de verbinding van de bezoeker en voorkomt meervoudige verbindingsverzoeken.",
-            "it": "Gestisce la connessione del visitatore e impedisce richieste di connessione multiple."
+            "it": "Gestisce la connessione del visitatore e impedisce richieste di connessione multiple.",
+            "fr": "Gère la connexion du visiteur et empêche les demandes de connexion multiples.",
+            "es": "Gestiona la conexión del visitante y evita solicitudes de conexión múltiples."
           }
         },
         {
@@ -410,7 +450,9 @@
             "de": "Synchronisiert das Widget über mehrere Browser-Tabs.",
             "en": "Keeps the widget synchronised across several browser tabs.",
             "nl": "Synchroniseert de widget over meerdere browsertabbladen.",
-            "it": "Sincronizza il widget tra più schede del browser."
+            "it": "Sincronizza il widget tra più schede del browser.",
+            "fr": "Synchronise le widget entre plusieurs onglets du navigateur.",
+            "es": "Sincroniza el widget entre varias pestañas del navegador."
           }
         },
         {
@@ -425,7 +467,9 @@
             "de": "Speichert ein Sitzungstoken, damit der Chat beim Seitenwechsel erhalten bleibt.",
             "en": "Stores a session token so that the chat persists across page changes.",
             "nl": "Slaat een sessietoken op zodat de chat bij paginawissel behouden blijft.",
-            "it": "Memorizza un token di sessione affinché la chat venga mantenuta al cambio di pagina."
+            "it": "Memorizza un token di sessione affinché la chat venga mantenuta al cambio di pagina.",
+            "fr": "Enregistre un jeton de session afin que le chat soit conservé lors des changements de page.",
+            "es": "Almacena un token de sesión para que el chat se mantenga al cambiar de página."
           }
         }
       ],
@@ -445,7 +489,9 @@
         "de": "Bezahlfunktion über das JavaScript-SDK von PayPal. Beim Laden wird die IP-Adresse an PayPal übertragen, und es können Cookies gesetzt werden.",
         "en": "Payment function via the PayPal JavaScript SDK. Loading the SDK transfers the IP address to PayPal and cookies may be set.",
         "nl": "Betaalfunctie via de JavaScript-SDK van PayPal. Bij het laden wordt het IP-adres naar PayPal verzonden en kunnen cookies worden geplaatst.",
-        "it": "Funzione di pagamento tramite l'SDK JavaScript di PayPal. Al caricamento l'indirizzo IP viene trasmesso a PayPal e possono essere impostati cookie."
+        "it": "Funzione di pagamento tramite l'SDK JavaScript di PayPal. Al caricamento l'indirizzo IP viene trasmesso a PayPal e possono essere impostati cookie.",
+        "fr": "Fonction de paiement via le SDK JavaScript de PayPal. Lors du chargement, l’adresse IP est transmise à PayPal et des cookies peuvent être déposés.",
+        "es": "Función de pago mediante el SDK de JavaScript de PayPal. Al cargarse, la dirección IP se transmite a PayPal y pueden instalarse cookies."
       },
       "params": [],
       "html_head": "",

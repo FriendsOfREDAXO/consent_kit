@@ -10,7 +10,9 @@
         "de": "Webanalysedienst von Google, der die Nutzung der Website misst und statistisch auswertet. Dabei werden Cookies gesetzt und Nutzungsdaten an Google übertragen.",
         "en": "Web analytics service by Google that measures and statistically evaluates the use of the website. Cookies are set and usage data is transferred to Google.",
         "nl": "Webanalysedienst van Google die het gebruik van de website meet en statistisch analyseert. Daarbij worden cookies geplaatst en gebruiksgegevens naar Google verzonden.",
-        "it": "Servizio di analisi web di Google che misura e valuta statisticamente l'utilizzo del sito. Vengono impostati cookie e trasmessi dati di utilizzo a Google."
+        "it": "Servizio di analisi web di Google che misura e valuta statisticamente l'utilizzo del sito. Vengono impostati cookie e trasmessi dati di utilizzo a Google.",
+        "fr": "Service d’analyse d’audience web de Google qui mesure l’utilisation du site web et l’évalue à des fins statistiques. Des cookies sont alors déposés et des données d’utilisation sont transmises à Google.",
+        "es": "Servicio de analítica web de Google que mide el uso del sitio web y lo evalúa estadísticamente. Se instalan cookies y se transmiten datos de uso a Google."
       },
       "params": [
         {
@@ -19,7 +21,9 @@
             "de": "Mess-ID",
             "en": "Measurement ID",
             "nl": "Meet-ID",
-            "it": "ID misurazione"
+            "it": "ID misurazione",
+            "fr": "ID de mesure",
+            "es": "ID de medición"
           },
           "placeholder": "G-XXXXXXXXXX",
           "pattern": "^G-[A-Z0-9]+$"
@@ -47,7 +51,9 @@
             "de": "Dient der Unterscheidung von Nutzern.",
             "en": "Used to distinguish users.",
             "nl": "Dient om gebruikers van elkaar te onderscheiden.",
-            "it": "Serve a distinguere gli utenti."
+            "it": "Serve a distinguere gli utenti.",
+            "fr": "Sert à distinguer les utilisateurs.",
+            "es": "Sirve para distinguir a los usuarios."
           }
         },
         {
@@ -62,7 +68,9 @@
             "de": "Dient der Beibehaltung des Sitzungsstatus.",
             "en": "Used to persist session state.",
             "nl": "Dient om de sessiestatus te behouden.",
-            "it": "Serve a mantenere lo stato della sessione."
+            "it": "Serve a mantenere lo stato della sessione.",
+            "fr": "Sert à conserver l’état de la session.",
+            "es": "Sirve para mantener el estado de la sesión."
           }
         }
       ],
@@ -90,7 +98,9 @@
         "de": "Webanalyse-Software, die vom Betreiber der Website selbst gehostet wird. Die Nutzungsdaten werden auf dem eigenen Server verarbeitet und nicht an den Hersteller übertragen.",
         "en": "Web analytics software hosted by the website operator. Usage data is processed on the operator's own server and is not transferred to the vendor.",
         "nl": "Webanalysesoftware die door de beheerder van de website zelf wordt gehost. De gebruiksgegevens worden op de eigen server verwerkt en niet naar de leverancier verzonden.",
-        "it": "Software di analisi web ospitato dal gestore del sito stesso. I dati di utilizzo vengono elaborati sul proprio server e non trasmessi al produttore."
+        "it": "Software di analisi web ospitato dal gestore del sito stesso. I dati di utilizzo vengono elaborati sul proprio server e non trasmessi al produttore.",
+        "fr": "Logiciel d’analyse d’audience web hébergé par l’exploitant du site web lui-même. Les données d’utilisation sont traitées sur son propre serveur et ne sont pas transmises à l’éditeur du logiciel.",
+        "es": "Software de analítica web alojado por el propio operador del sitio web. Los datos de uso se procesan en su propio servidor y no se transmiten al fabricante."
       },
       "params": [
         {
@@ -99,7 +109,9 @@
             "de": "Matomo-URL (mit abschließendem /)",
             "en": "Matomo URL (with trailing slash)",
             "nl": "Matomo-URL (met afsluitende /)",
-            "it": "URL Matomo (con / finale)"
+            "it": "URL Matomo (con / finale)",
+            "fr": "URL de Matomo (avec / final)",
+            "es": "URL de Matomo (con / final)"
           },
           "placeholder": "https://matomo.example.com/",
           "pattern": "^https?://.+/$"
@@ -110,7 +122,9 @@
             "de": "Website-ID",
             "en": "Site ID",
             "nl": "Website-ID",
-            "it": "ID sito web"
+            "it": "ID sito web",
+            "fr": "ID du site web",
+            "es": "ID del sitio web"
           },
           "placeholder": "1",
           "pattern": "^[0-9]+$"
@@ -136,7 +150,9 @@
             "de": "Speichert eine eindeutige Besucher-ID.",
             "en": "Stores a unique visitor ID.",
             "nl": "Slaat een unieke bezoekers-ID op.",
-            "it": "Memorizza un ID visitatore univoco."
+            "it": "Memorizza un ID visitatore univoco.",
+            "fr": "Enregistre un ID de visiteur unique.",
+            "es": "Almacena un ID de visitante único."
           }
         },
         {
@@ -151,7 +167,9 @@
             "de": "Speichert vorübergehend Daten zum aktuellen Besuch.",
             "en": "Temporarily stores data for the visit.",
             "nl": "Slaat tijdelijk gegevens over het huidige bezoek op.",
-            "it": "Memorizza temporaneamente i dati della visita corrente."
+            "it": "Memorizza temporaneamente i dati della visita corrente.",
+            "fr": "Enregistre temporairement des données relatives à la visite en cours.",
+            "es": "Almacena temporalmente datos de la visita actual."
           }
         },
         {
@@ -166,7 +184,9 @@
             "de": "Speichert die Herkunft (Referrer), über die der Besucher auf die Website gelangt ist.",
             "en": "Stores attribution information (the referrer that brought the visitor to the website).",
             "nl": "Slaat de herkomst (referrer) op waarlangs de bezoeker op de website is gekomen.",
-            "it": "Memorizza la provenienza (referrer) attraverso cui il visitatore è arrivato al sito."
+            "it": "Memorizza la provenienza (referrer) attraverso cui il visitatore è arrivato al sito.",
+            "fr": "Enregistre la provenance (referrer) par laquelle le visiteur est arrivé sur le site web.",
+            "es": "Almacena la procedencia (referrer) a través de la cual el visitante ha llegado al sitio web."
           }
         },
         {
@@ -181,7 +201,9 @@
             "de": "Speichert vorübergehend benutzerdefinierte Variablen zum Besuch.",
             "en": "Temporarily stores custom variables for the visit.",
             "nl": "Slaat tijdelijk aangepaste variabelen over het bezoek op.",
-            "it": "Memorizza temporaneamente variabili personalizzate relative alla visita."
+            "it": "Memorizza temporaneamente variabili personalizzate relative alla visita.",
+            "fr": "Enregistre temporairement des variables personnalisées relatives à la visite.",
+            "es": "Almacena temporalmente variables personalizadas de la visita."
           }
         },
         {
@@ -196,7 +218,9 @@
             "de": "Speichert vorübergehend Sitzungsdaten für Heatmaps und Sitzungsaufzeichnungen (nur bei aktivem Plugin).",
             "en": "Temporarily stores heatmap and session recording data (only if the plugin is active).",
             "nl": "Slaat tijdelijk sessiegegevens op voor heatmaps en sessieopnames (alleen bij actieve plug-in).",
-            "it": "Memorizza temporaneamente i dati di sessione per mappe di calore e registrazioni (solo con plugin attivo)."
+            "it": "Memorizza temporaneamente i dati di sessione per mappe di calore e registrazioni (solo con plugin attivo).",
+            "fr": "Enregistre temporairement des données de session pour les cartes de chaleur et les enregistrements de session (uniquement si le plugin est actif).",
+            "es": "Almacena temporalmente datos de sesión para mapas de calor y grabaciones de sesiones (solo si el plugin está activo)."
           }
         }
       ],
@@ -222,7 +246,9 @@
         "de": "Analysedienst von Microsoft, der das Nutzungsverhalten mit Heatmaps und Sitzungsaufzeichnungen auswertet. Dabei werden Cookies gesetzt und Interaktionsdaten an Microsoft übertragen.",
         "en": "Analytics service by Microsoft that evaluates user behaviour using heatmaps and session recordings. Cookies are set and interaction data is transferred to Microsoft.",
         "nl": "Analysedienst van Microsoft die het gebruiksgedrag analyseert met heatmaps en sessieopnames. Daarbij worden cookies geplaatst en interactiegegevens naar Microsoft verzonden.",
-        "it": "Servizio di analisi di Microsoft che valuta il comportamento d'uso con mappe di calore e registrazioni delle sessioni. Vengono impostati cookie e trasmessi dati di interazione a Microsoft."
+        "it": "Servizio di analisi di Microsoft che valuta il comportamento d'uso con mappe di calore e registrazioni delle sessioni. Vengono impostati cookie e trasmessi dati di interazione a Microsoft.",
+        "fr": "Service d’analyse de Microsoft qui évalue le comportement d’utilisation au moyen de cartes de chaleur et d’enregistrements de session. Des cookies sont alors déposés et des données d’interaction sont transmises à Microsoft.",
+        "es": "Servicio de análisis de Microsoft que evalúa el comportamiento de uso mediante mapas de calor y grabaciones de sesiones. Se instalan cookies y se transmiten datos de interacción a Microsoft."
       },
       "params": [
         {
@@ -231,7 +257,9 @@
             "de": "Projekt-ID",
             "en": "Project ID",
             "nl": "Project-ID",
-            "it": "ID progetto"
+            "it": "ID progetto",
+            "fr": "ID de projet",
+            "es": "ID del proyecto"
           },
           "placeholder": "abcdefghij",
           "pattern": "^[a-z0-9]+$"
@@ -257,7 +285,9 @@
             "de": "Speichert die Clarity-Nutzer-ID und Einstellungen für diese Website.",
             "en": "Persists the Clarity user ID and preferences, unique to that site.",
             "nl": "Slaat de Clarity-gebruikers-ID en instellingen voor deze website op.",
-            "it": "Memorizza l'ID utente Clarity e le impostazioni per questo sito."
+            "it": "Memorizza l'ID utente Clarity e le impostazioni per questo sito.",
+            "fr": "Enregistre l’ID utilisateur Clarity et les préférences pour ce site web.",
+            "es": "Almacena el ID de usuario de Clarity y la configuración para este sitio web."
           }
         },
         {
@@ -272,7 +302,9 @@
             "de": "Verbindet mehrere Seitenaufrufe eines Nutzers zu einer Sitzungsaufzeichnung.",
             "en": "Connects multiple page views by a user into a single Clarity session recording.",
             "nl": "Koppelt meerdere paginaweergaven van een gebruiker tot één sessieopname.",
-            "it": "Collega più visualizzazioni di pagina di un utente in un'unica registrazione di sessione."
+            "it": "Collega più visualizzazioni di pagina di un utente in un'unica registrazione di sessione.",
+            "fr": "Regroupe plusieurs pages vues d’un utilisateur en un enregistrement de session.",
+            "es": "Combina varias páginas vistas de un usuario en una única grabación de sesión."
           }
         },
         {
@@ -287,7 +319,9 @@
             "de": "Kennung des Browser-Tabs innerhalb einer Clarity-Sitzung.",
             "en": "Identifier of the browser tab within a Clarity session.",
             "nl": "Identificatie van het browsertabblad binnen een Clarity-sessie.",
-            "it": "Identificativo della scheda del browser all'interno di una sessione Clarity."
+            "it": "Identificativo della scheda del browser all'interno di una sessione Clarity.",
+            "fr": "Identifiant de l’onglet du navigateur au sein d’une session Clarity.",
+            "es": "Identificador de la pestaña del navegador dentro de una sesión de Clarity."
           }
         },
         {
@@ -302,7 +336,9 @@
             "de": "Kennzeichnet, wann Clarity diesen Nutzer erstmals auf einer Website mit Clarity gesehen hat.",
             "en": "Identifies the first time Clarity saw this user on any site using Clarity.",
             "nl": "Geeft aan wanneer Clarity deze gebruiker voor het eerst op een website met Clarity heeft gezien.",
-            "it": "Indica quando Clarity ha visto per la prima volta questo utente su un sito con Clarity."
+            "it": "Indica quando Clarity ha visto per la prima volta questo utente su un sito con Clarity.",
+            "fr": "Indique quand Clarity a vu cet utilisateur pour la première fois sur un site web utilisant Clarity.",
+            "es": "Indica cuándo Clarity vio por primera vez a este usuario en un sitio web que utiliza Clarity."
           }
         },
         {
@@ -317,7 +353,9 @@
             "de": "Identifiziert eindeutige Browser, die Microsoft-Websites besuchen; wird für Werbung, Website-Analyse und betriebliche Zwecke verwendet.",
             "en": "Identifies unique web browsers visiting Microsoft sites; used for advertising, site analytics and other operational purposes.",
             "nl": "Identificeert unieke browsers die Microsoft-websites bezoeken; wordt gebruikt voor advertenties, websiteanalyse en operationele doeleinden.",
-            "it": "Identifica browser univoci che visitano siti Microsoft; viene utilizzato per pubblicità, analisi del sito e finalità operative."
+            "it": "Identifica browser univoci che visitano siti Microsoft; viene utilizzato per pubblicità, analisi del sito e finalità operative.",
+            "fr": "Identifie les navigateurs uniques qui visitent des sites web de Microsoft ; utilisé pour la publicité, l’analyse de sites web et à des fins opérationnelles.",
+            "es": "Identifica navegadores únicos que visitan sitios web de Microsoft; se utiliza para publicidad, análisis del sitio web y fines operativos."
           }
         },
         {
@@ -332,7 +370,9 @@
             "de": "Zeigt an, ob die MUID an die Werbe-ID ANID übertragen wird; Clarity nutzt ANID nicht, der Wert ist daher immer 0.",
             "en": "Indicates whether MUID is transferred to ANID, a cookie used for advertising; Clarity does not use ANID, so this is always 0.",
             "nl": "Geeft aan of de MUID wordt doorgegeven aan de advertentie-ID ANID; Clarity gebruikt ANID niet, de waarde is daarom altijd 0.",
-            "it": "Indica se il MUID viene trasmesso all'ID pubblicitario ANID; Clarity non utilizza ANID, quindi il valore è sempre 0."
+            "it": "Indica se il MUID viene trasmesso all'ID pubblicitario ANID; Clarity non utilizza ANID, quindi il valore è sempre 0.",
+            "fr": "Indique si le MUID est transféré vers l’ID publicitaire ANID ; Clarity n’utilise pas ANID, la valeur est donc toujours 0.",
+            "es": "Indica si la MUID se transfiere al ID publicitario ANID; Clarity no utiliza ANID, por lo que el valor es siempre 0."
           }
         },
         {
@@ -347,7 +387,9 @@
             "de": "Dient der Synchronisierung der MUID zwischen Microsoft-Domains.",
             "en": "Used in synchronizing the MUID across Microsoft domains.",
             "nl": "Dient voor het synchroniseren van de MUID tussen Microsoft-domeinen.",
-            "it": "Serve a sincronizzare il MUID tra i domini Microsoft."
+            "it": "Serve a sincronizzare il MUID tra i domini Microsoft.",
+            "fr": "Sert à synchroniser le MUID entre les domaines Microsoft.",
+            "es": "Sirve para sincronizar la MUID entre dominios de Microsoft."
           }
         }
       ],
@@ -366,7 +408,9 @@
         "de": "Microsoft veröffentlicht keine Laufzeiten; sie stammen aus dem Quellcode von clarity-js bzw. aus der Open Cookie Database. Das Script bitte mit dem Code aus dem eigenen Clarity-Projekt vergleichen.",
         "en": "Microsoft does not publish durations; they come from the clarity-js source code and the Open Cookie Database. Please compare the script with the code from your own Clarity project.",
         "nl": "Microsoft publiceert geen looptijden; deze komen uit de broncode van clarity-js of uit de Open Cookie Database. Vergelijk het script met de code uit uw eigen Clarity-project.",
-        "it": "Microsoft non pubblica le durate; provengono dal codice sorgente di clarity-js o dall'Open Cookie Database. Confrontare lo script con il codice del proprio progetto Clarity."
+        "it": "Microsoft non pubblica le durate; provengono dal codice sorgente di clarity-js o dall'Open Cookie Database. Confrontare lo script con il codice del proprio progetto Clarity.",
+        "fr": "Microsoft ne publie pas de durées ; elles proviennent du code source de clarity-js ou de l’Open Cookie Database. Veuillez comparer le script avec le code de votre propre projet Clarity.",
+        "es": "Microsoft no publica las duraciones; proceden del código fuente de clarity-js o de la Open Cookie Database. Compare el script con el código de su propio proyecto de Clarity."
       }
     },
     {
@@ -379,7 +423,9 @@
         "de": "Analysedienst (Contentsquare-Gruppe), der das Nutzungsverhalten mit Heatmaps, Sitzungsaufzeichnungen und Umfragen auswertet. Dabei werden Cookies sowie Einträge im Local und Session Storage gesetzt.",
         "en": "Analytics service (Contentsquare group) that evaluates user behaviour using heatmaps, session recordings and surveys. Cookies as well as local and session storage entries are set.",
         "nl": "Analysedienst (Contentsquare-groep) die het gebruiksgedrag analyseert met heatmaps, sessieopnames en enquêtes. Daarbij worden cookies en vermeldingen in Local en Session Storage geplaatst.",
-        "it": "Servizio di analisi (gruppo Contentsquare) che valuta il comportamento d'uso con mappe di calore, registrazioni delle sessioni e sondaggi. Vengono impostati cookie e voci in Local e Session Storage."
+        "it": "Servizio di analisi (gruppo Contentsquare) che valuta il comportamento d'uso con mappe di calore, registrazioni delle sessioni e sondaggi. Vengono impostati cookie e voci in Local e Session Storage.",
+        "fr": "Service d’analyse (groupe Contentsquare) qui évalue le comportement d’utilisation au moyen de cartes de chaleur, d’enregistrements de session et de sondages. Des cookies ainsi que des entrées dans le Local Storage et le Session Storage sont alors créés.",
+        "es": "Servicio de análisis (grupo Contentsquare) que evalúa el comportamiento de uso mediante mapas de calor, grabaciones de sesiones y encuestas. Se instalan cookies, así como entradas en el Local Storage y el Session Storage."
       },
       "params": [
         {
@@ -388,7 +434,9 @@
             "de": "Hotjar-Site-ID",
             "en": "Hotjar site ID",
             "nl": "Hotjar site-ID",
-            "it": "ID sito Hotjar"
+            "it": "ID sito Hotjar",
+            "fr": "ID de site Hotjar",
+            "es": "ID de sitio de Hotjar"
           },
           "placeholder": "1234567",
           "pattern": "^[0-9]+$"
@@ -414,7 +462,9 @@
             "de": "Speichert die Hotjar-Nutzer-ID, die nur für diese Website gilt, damit spätere Besuche demselben Nutzer zugeordnet werden.",
             "en": "Persists the Hotjar user ID, unique to this site, so that subsequent visits are attributed to the same user.",
             "nl": "Slaat de Hotjar-gebruikers-ID op die alleen voor deze website geldt, zodat latere bezoeken aan dezelfde gebruiker worden toegewezen.",
-            "it": "Memorizza l'ID utente Hotjar valido solo per questo sito, affinché le visite successive siano attribuite allo stesso utente."
+            "it": "Memorizza l'ID utente Hotjar valido solo per questo sito, affinché le visite successive siano attribuite allo stesso utente.",
+            "fr": "Enregistre l’ID utilisateur Hotjar, propre à ce site web, afin que les visites ultérieures soient attribuées au même utilisateur.",
+            "es": "Almacena el ID de usuario de Hotjar, válido solo para este sitio web, para que las visitas posteriores se asignen al mismo usuario."
           }
         },
         {
@@ -429,7 +479,9 @@
             "de": "Enthält die Daten der aktuellen Sitzung; wird bei Aktivität verlängert.",
             "en": "Holds current session data; extended on user activity.",
             "nl": "Bevat de gegevens van de huidige sessie; wordt bij activiteit verlengd.",
-            "it": "Contiene i dati della sessione corrente; viene prolungato in caso di attività."
+            "it": "Contiene i dati della sessione corrente; viene prolungato in caso di attività.",
+            "fr": "Contient les données de la session en cours ; prolongé en cas d’activité.",
+            "es": "Contiene los datos de la sesión actual; se prolonga con la actividad."
           }
         },
         {
@@ -444,7 +496,9 @@
             "de": "Zeigt an, ob die im Local Storage abgelegten Nutzerattribute aktuell sind.",
             "en": "Indicates whether the data in the _hjUserAttributes local storage item is up to date.",
             "nl": "Geeft aan of de in Local Storage opgeslagen gebruikerskenmerken actueel zijn.",
-            "it": "Indica se gli attributi utente salvati in Local Storage sono aggiornati."
+            "it": "Indica se gli attributi utente salvati in Local Storage sono aggiornati.",
+            "fr": "Indique si les attributs utilisateur enregistrés dans le Local Storage sont à jour.",
+            "es": "Indica si los atributos de usuario almacenados en el Local Storage están actualizados."
           }
         },
         {
@@ -459,7 +513,9 @@
             "de": "Erkennt, ob sich ein Nutzerattribut geändert hat und aktualisiert werden muss; wird alle 30 Sekunden verlängert.",
             "en": "Detects when a user attribute has changed and needs to be updated; extended every 30 seconds.",
             "nl": "Detecteert of een gebruikerskenmerk is gewijzigd en moet worden bijgewerkt; wordt elke 30 seconden verlengd.",
-            "it": "Rileva se un attributo utente è cambiato e deve essere aggiornato; viene prolungato ogni 30 secondi."
+            "it": "Rileva se un attributo utente è cambiato e deve essere aggiornato; viene prolungato ogni 30 secondi.",
+            "fr": "Détecte si un attribut utilisateur a changé et doit être mis à jour ; prolongé toutes les 30 secondes.",
+            "es": "Detecta si un atributo de usuario ha cambiado y debe actualizarse; se prolonga cada 30 segundos."
           }
         },
         {
@@ -474,7 +530,9 @@
             "de": "Speichert Nutzerattribute, die über die Hotjar Identify API gesendet wurden.",
             "en": "Stores user attributes sent through the Hotjar Identify API.",
             "nl": "Slaat gebruikerskenmerken op die via de Hotjar Identify API zijn verzonden.",
-            "it": "Memorizza gli attributi utente inviati tramite l'API Hotjar Identify."
+            "it": "Memorizza gli attributi utente inviati tramite l'API Hotjar Identify.",
+            "fr": "Enregistre les attributs utilisateur envoyés via la Hotjar Identify API.",
+            "es": "Almacena atributos de usuario enviados a través de la Hotjar Identify API."
           }
         },
         {
@@ -489,7 +547,9 @@
             "de": "Speichert Angaben zum Viewport wie Größe und Abmessungen.",
             "en": "Stores user viewport details such as size and dimensions.",
             "nl": "Slaat gegevens over de viewport op, zoals grootte en afmetingen.",
-            "it": "Memorizza informazioni sul viewport come dimensioni e misure."
+            "it": "Memorizza informazioni sul viewport come dimensioni e misure.",
+            "fr": "Enregistre des informations sur le viewport, telles que la taille et les dimensions.",
+            "es": "Almacena datos del viewport, como el tamaño y las dimensiones."
           }
         },
         {
@@ -504,7 +564,9 @@
             "de": "Speichert die IDs aktiver Viewports; wird beim Schließen der Seite entfernt.",
             "en": "Stores active viewport IDs; removed when the browser page is closed.",
             "nl": "Slaat de ID's van actieve viewports op; wordt bij het sluiten van de pagina verwijderd.",
-            "it": "Memorizza gli ID dei viewport attivi; viene rimosso alla chiusura della pagina."
+            "it": "Memorizza gli ID dei viewport attivi; viene rimosso alla chiusura della pagina.",
+            "fr": "Enregistre les ID des viewports actifs ; supprimé à la fermeture de la page.",
+            "es": "Almacena los ID de los viewports activos; se elimina al cerrar la página."
           }
         },
         {
@@ -519,7 +581,9 @@
             "de": "Prüft, ob Cookies verwendet werden können; wird sofort wieder gelöscht.",
             "en": "Checks whether cookies can be used; deleted almost immediately.",
             "nl": "Controleert of cookies kunnen worden gebruikt; wordt direct weer verwijderd.",
-            "it": "Verifica se è possibile utilizzare i cookie; viene eliminato subito dopo."
+            "it": "Verifica se è possibile utilizzare i cookie; viene eliminato subito dopo.",
+            "fr": "Vérifie si des cookies peuvent être utilisés ; supprimé immédiatement après.",
+            "es": "Comprueba si se pueden utilizar cookies; se elimina de nuevo inmediatamente."
           }
         },
         {
@@ -534,7 +598,9 @@
             "de": "Ermittelt den allgemeinsten Cookie-Pfad (Domain); wird nach der Prüfung entfernt.",
             "en": "Determines the most generic cookie path (domain); removed after the check.",
             "nl": "Bepaalt het meest algemene cookiepad (domein); wordt na de controle verwijderd.",
-            "it": "Determina il percorso cookie più generale (dominio); viene rimosso dopo la verifica."
+            "it": "Determina il percorso cookie più generale (dominio); viene rimosso dopo la verifica.",
+            "fr": "Détermine le chemin de cookie le plus générique (domaine) ; supprimé après la vérification.",
+            "es": "Determina la ruta de cookie más genérica (dominio); se elimina tras la comprobación."
           }
         },
         {
@@ -549,7 +615,9 @@
             "de": "Verhindert, dass eine bereits angezeigte Umfrage-Einladung erneut erscheint.",
             "en": "Ensures the same survey invite does not reappear once it has been shown.",
             "nl": "Voorkomt dat een al getoonde enquête-uitnodiging opnieuw verschijnt.",
-            "it": "Impedisce che un invito a un sondaggio già mostrato riappaia."
+            "it": "Impedisce che un invito a un sondaggio già mostrato riappaia.",
+            "fr": "Empêche qu’une invitation à un sondage déjà affichée n’apparaisse à nouveau.",
+            "es": "Impide que una invitación a una encuesta ya mostrada vuelva a aparecer."
           }
         },
         {
@@ -564,7 +632,9 @@
             "de": "Verhindert, dass eine bereits ausgefüllte Umfrage erneut erscheint.",
             "en": "Ensures a completed survey does not reappear.",
             "nl": "Voorkomt dat een al ingevulde enquête opnieuw verschijnt.",
-            "it": "Impedisce che un sondaggio già compilato riappaia."
+            "it": "Impedisce che un sondaggio già compilato riappaia.",
+            "fr": "Empêche qu’un sondage déjà rempli n’apparaisse à nouveau.",
+            "es": "Impide que una encuesta ya completada vuelva a aparecer."
           }
         },
         {
@@ -579,7 +649,9 @@
             "de": "Sorgt dafür, dass eine minimierte Umfrage beim Seitenwechsel minimiert bleibt.",
             "en": "Ensures a minimized survey stays minimized while navigating the site.",
             "nl": "Zorgt ervoor dat een geminimaliseerde enquête bij paginawissel geminimaliseerd blijft.",
-            "it": "Fa sì che un sondaggio ridotto a icona resti tale al cambio di pagina."
+            "it": "Fa sì che un sondaggio ridotto a icona resti tale al cambio di pagina.",
+            "fr": "Fait en sorte qu’un sondage réduit reste réduit lors des changements de page.",
+            "es": "Hace que una encuesta minimizada siga minimizada al cambiar de página."
           }
         }
       ],
@@ -594,7 +666,9 @@
         "de": "Das Script stammt nicht von einer öffentlich einsehbaren Herstellerseite, weil der Anbieter es nur im Kundenkonto ausgibt. Bitte mit dem Code aus dem eigenen Konto vergleichen.",
         "en": "The script does not come from a publicly accessible vendor page because the vendor only issues it inside the customer account. Please compare it with the code from your own account.",
         "nl": "Het script komt niet van een openbaar toegankelijke pagina van de leverancier, omdat de aanbieder het alleen in het klantaccount beschikbaar stelt. Vergelijk het met de code uit uw eigen account.",
-        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account."
+        "it": "Lo script non proviene da una pagina pubblica del produttore, poiché il fornitore lo rende disponibile solo nell'account cliente. Confrontarlo con il codice del proprio account.",
+        "fr": "Le script ne provient pas d’une page publiquement accessible de l’éditeur, car le fournisseur ne le délivre que dans le compte client. Veuillez le comparer avec le code de votre propre compte.",
+        "es": "El script no procede de una página del fabricante de acceso público, porque el proveedor solo lo facilita en la cuenta de cliente. Compárelo con el código de su propia cuenta."
       }
     },
     {
@@ -607,7 +681,9 @@
         "de": "Webanalysedienst mit Datenverarbeitung in Deutschland. Der Tracking-Code wird mit blockierten Cookies eingebunden; erst nach Einwilligung werden die etracker-Cookies zur Wiedererkennung aktiviert.",
         "en": "Web analytics service with data processing in Germany. The tracking code is embedded with cookies blocked; etracker cookies for visitor recognition are only activated after consent.",
         "nl": "Webanalysedienst met gegevensverwerking in Duitsland. De trackingcode wordt met geblokkeerde cookies geladen; pas na toestemming worden de etracker-cookies voor herkenning geactiveerd.",
-        "it": "Servizio di analisi web con trattamento dei dati in Germania. Il codice di tracciamento viene incluso con i cookie bloccati; i cookie di etracker per il riconoscimento vengono attivati solo dopo il consenso."
+        "it": "Servizio di analisi web con trattamento dei dati in Germania. Il codice di tracciamento viene incluso con i cookie bloccati; i cookie di etracker per il riconoscimento vengono attivati solo dopo il consenso.",
+        "fr": "Service d’analyse d’audience web avec traitement des données en Allemagne. Le code de suivi est intégré avec les cookies bloqués ; ce n’est qu’après consentement que les cookies etracker servant à la reconnaissance sont activés.",
+        "es": "Servicio de analítica web con tratamiento de datos en Alemania. El código de seguimiento se integra con las cookies bloqueadas; las cookies de etracker para el reconocimiento solo se activan tras el consentimiento."
       },
       "params": [
         {
@@ -616,7 +692,9 @@
             "de": "Account-Schlüssel (Secure Code)",
             "en": "Account key (secure code)",
             "nl": "Accountsleutel (Secure Code)",
-            "it": "Chiave account (Secure Code)"
+            "it": "Chiave account (Secure Code)",
+            "fr": "Clé de compte (Secure Code)",
+            "es": "Clave de cuenta (Secure Code)"
           },
           "placeholder": "XXXXXX",
           "pattern": "^[A-Za-z0-9]+$"
@@ -642,7 +720,9 @@
             "de": "Wiedererkennung des Nutzers (nur nach Einwilligung; Laufzeit konfigurierbar).",
             "en": "User recognition (only after consent; lifetime configurable).",
             "nl": "Herkenning van de gebruiker (alleen na toestemming; looptijd instelbaar).",
-            "it": "Riconoscimento dell'utente (solo dopo il consenso; durata configurabile)."
+            "it": "Riconoscimento dell'utente (solo dopo il consenso; durata configurabile).",
+            "fr": "Reconnaissance de l’utilisateur (uniquement après consentement ; durée configurable).",
+            "es": "Reconocimiento del usuario (solo tras el consentimiento; duración configurable)."
           }
         },
         {
@@ -657,7 +737,9 @@
             "de": "Zeigt an, ob etracker Cookies setzen darf (gesetzt durch _etracker.enableCookies()).",
             "en": "Indicates whether etracker is allowed to set cookies (set by _etracker.enableCookies()).",
             "nl": "Geeft aan of etracker cookies mag plaatsen (ingesteld door _etracker.enableCookies()).",
-            "it": "Indica se etracker può impostare cookie (impostato da _etracker.enableCookies())."
+            "it": "Indica se etracker può impostare cookie (impostato da _etracker.enableCookies()).",
+            "fr": "Indique si etracker est autorisé à déposer des cookies (défini par _etracker.enableCookies()).",
+            "es": "Indica si etracker puede instalar cookies (establecido mediante _etracker.enableCookies())."
           }
         },
         {
@@ -672,7 +754,9 @@
             "de": "Speichert Widerspruch (Opt-out) bzw. Einwilligung (Opt-in); bei Widerspruch beträgt die Laufzeit 50 Jahre.",
             "en": "Stores objection (opt-out) or consent (opt-in); in case of opt-out the lifetime is 50 years.",
             "nl": "Slaat bezwaar (opt-out) of toestemming (opt-in) op; bij bezwaar bedraagt de looptijd 50 jaar.",
-            "it": "Memorizza l'opposizione (opt-out) o il consenso (opt-in); in caso di opposizione la durata è di 50 anni."
+            "it": "Memorizza l'opposizione (opt-out) o il consenso (opt-in); in caso di opposizione la durata è di 50 anni.",
+            "fr": "Enregistre l’opposition (opt-out) ou le consentement (opt-in) ; en cas d’opposition, la durée est de 50 ans.",
+            "es": "Almacena la oposición (opt-out) o el consentimiento (opt-in); en caso de oposición, la duración es de 50 años."
           }
         },
         {
@@ -687,7 +771,9 @@
             "de": "Erkennt, ob die Scrolltiefe des Besuchers gemessen wird.",
             "en": "Detects whether the visitor's scroll depth is measured.",
             "nl": "Detecteert of de scrolldiepte van de bezoeker wordt gemeten.",
-            "it": "Rileva se viene misurata la profondità di scorrimento del visitatore."
+            "it": "Rileva se viene misurata la profondità di scorrimento del visitatore.",
+            "fr": "Détecte si la profondeur de défilement du visiteur est mesurée.",
+            "es": "Detecta si se mide la profundidad de desplazamiento del visitante."
           }
         },
         {
@@ -702,7 +788,9 @@
             "de": "Zwischenspeicher für die Messung der Scrolltiefe.",
             "en": "Cache for scroll depth measurement.",
             "nl": "Tijdelijke opslag voor het meten van de scrolldiepte.",
-            "it": "Memoria temporanea per la misurazione della profondità di scorrimento."
+            "it": "Memoria temporanea per la misurazione della profondità di scorrimento.",
+            "fr": "Mémoire tampon pour la mesure de la profondeur de défilement.",
+            "es": "Memoria intermedia para la medición de la profundidad de desplazamiento."
           }
         },
         {
@@ -717,7 +805,9 @@
             "de": "Zwischenspeicher für konfigurierte CSS-Selektor-Ereignisse.",
             "en": "Cache for the configured CSS selector events.",
             "nl": "Tijdelijke opslag voor geconfigureerde CSS-selectorgebeurtenissen.",
-            "it": "Memoria temporanea per gli eventi dei selettori CSS configurati."
+            "it": "Memoria temporanea per gli eventi dei selettori CSS configurati.",
+            "fr": "Mémoire tampon pour les événements de sélecteurs CSS configurés.",
+            "es": "Memoria intermedia para los eventos de selectores CSS configurados."
           }
         },
         {
@@ -732,7 +822,9 @@
             "de": "Zwischenspeicher für konfigurierte Tag-Manager-Einträge.",
             "en": "Cache for the configured Tag Manager entries.",
             "nl": "Tijdelijke opslag voor geconfigureerde Tag Manager-vermeldingen.",
-            "it": "Memoria temporanea per le voci configurate del Tag Manager."
+            "it": "Memoria temporanea per le voci configurate del Tag Manager.",
+            "fr": "Mémoire tampon pour les entrées Tag Manager configurées.",
+            "es": "Memoria intermedia para las entradas configuradas del Tag Manager."
           }
         },
         {
@@ -747,7 +839,9 @@
             "de": "Zwischenspeicher für konfigurierte Tag-Manager-Variablen.",
             "en": "Cache for the configured Tag Manager variables.",
             "nl": "Tijdelijke opslag voor geconfigureerde Tag Manager-variabelen.",
-            "it": "Memoria temporanea per le variabili configurate del Tag Manager."
+            "it": "Memoria temporanea per le variabili configurate del Tag Manager.",
+            "fr": "Mémoire tampon pour les variables Tag Manager configurées.",
+            "es": "Memoria intermedia para las variables configuradas del Tag Manager."
           }
         }
       ],
@@ -770,7 +864,9 @@
         "de": "Webanalysedienst mit Sitz in der EU, der Seitenaufrufe statistisch auswertet. Nach Angaben des Anbieters werden keine Cookies, kein Browser-Cache und kein Local Storage verwendet und keine dauerhaften Kennungen erzeugt.",
         "en": "EU-based web analytics service that statistically evaluates page views. According to the provider it uses no cookies, browser cache or local storage and generates no persistent identifiers.",
         "nl": "Webanalysedienst gevestigd in de EU die paginaweergaven statistisch analyseert. Volgens de aanbieder worden geen cookies, geen browsercache en geen Local Storage gebruikt en worden geen permanente identificatoren aangemaakt.",
-        "it": "Servizio di analisi web con sede nell'UE che valuta statisticamente le visualizzazioni di pagina. Secondo il fornitore non vengono utilizzati cookie, cache del browser o Local Storage e non vengono creati identificatori permanenti."
+        "it": "Servizio di analisi web con sede nell'UE che valuta statisticamente le visualizzazioni di pagina. Secondo il fornitore non vengono utilizzati cookie, cache del browser o Local Storage e non vengono creati identificatori permanenti.",
+        "fr": "Service d’analyse d’audience web établi dans l’UE, qui évalue les pages vues à des fins statistiques. Selon le fournisseur, aucun cookie, aucun cache de navigateur ni aucun Local Storage n’est utilisé et aucun identifiant persistant n’est généré.",
+        "es": "Servicio de analítica web con sede en la UE que evalúa estadísticamente las páginas vistas. Según el proveedor, no se utilizan cookies, ni caché del navegador, ni Local Storage, y no se generan identificadores permanentes."
       },
       "params": [
         {
@@ -779,7 +875,9 @@
             "de": "Skript-ID aus dem Plausible-Snippet (pa-…)",
             "en": "Script ID from the Plausible snippet (pa-…)",
             "nl": "Script-ID uit het Plausible-fragment (pa-…)",
-            "it": "ID script dallo snippet Plausible (pa-…)"
+            "it": "ID script dallo snippet Plausible (pa-…)",
+            "fr": "ID de script issu de l’extrait Plausible (pa-…)",
+            "es": "ID de script del snippet de Plausible (pa-…)"
           },
           "placeholder": "pa-XXXXX",
           "pattern": "^pa-[A-Za-z0-9_-]+$"
