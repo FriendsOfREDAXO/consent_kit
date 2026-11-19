@@ -1,6 +1,26 @@
 # Changelog
 
-## Unveröffentlicht
+## 1.5.0 – 2026-11-19
+
+#### Fehlerbehebung: Eigene Hover-Farben erscheinen exakt (#26)
+
+Unter **Design** gesetzte Hover-Farben der Schaltflächen wurden im Frontend zusätzlich um 15 % aufgehellt (`filter: brightness(1.15)`), die Felder „Schaltfläche (Hover)“ waren damit nicht präzise steuerbar.
+
+- Die Aufhellung ist jetzt nur noch der Standard **ohne** eigene Hover-Farben. Sind welche gesetzt – im Backend oder im eigenen Stylesheet –, entfällt sie, und zwar je Thema: Hover-Farben nur für hell lassen den dunklen Hover bei der Aufhellung.
+- Neu unter **Design → Schaltflächen**: **Hover-Effekt** – `auto` (Standard), `none` (immer ohne Aufhellung, auch ohne eigene Farben) oder ein eigener Filter wie `brightness(1.1)`. Entspricht `--ck-button-hover-filter`; ein dort schon gesetzter Wert gilt weiter.
+- Abgeleitete Felder (Hover-Farben, Keks-Schaltfläche) zeigen den Wert, der tatsächlich gilt, und folgen ihrem Ausgangsfeld, bis sie geändert werden. Bisher stand dort der feste Standard – mit eigener Schaltflächenfarbe zeigte das Hover-Feld z. B. `#1f2937`, und genau diesen Wert konnte man nicht gezielt speichern. Gespeichert wird ein abgeleitetes Feld jetzt, wenn es von seinem Ausgangsfeld abweicht.
+
+#### Neu: Keks-Schaltfläche gestalten (#26)
+
+Die schwebende Schaltfläche zum erneuten Öffnen übernahm bisher fest die Farben des Dialogs. Neuer Abschnitt **Design → Keks-Schaltfläche** mit Live-Vorschau:
+
+- **Stil:** „Keks im Kreis“ (Standard, wie bisher) oder „Nur Keks“ ohne Kreis, Rahmen und Schatten – mit leichtem Schatten am Symbol, damit es auf jedem Untergrund sichtbar bleibt.
+- **Keks färben:** Füllung (hell/dunkel) sowie Umriss und Krümel (hell/dunkel, auch im Hover); Größe des Symbols. Die Füllung im Hover gibt es per CSS (`--ck-trigger-hover-icon-fill`).
+- **Kreis:** Hintergrund, Rahmen (auch im Hover), Größe, Eckenradius, Schatten (`--ck-trigger-shadow` gab es schon, jetzt auch im Backend).
+- **Eigenes Symbol:** SVG aus dem Medienpool statt des Kekses. Eingebunden als Bild, nicht als Markup – eine SVG-Datei kann so keinen Code ins Shadow DOM bringen. Der Medienpool meldet die Datei beim Löschen als „in Verwendung“.
+- Ohne eigene Werte sieht alles aus wie bisher. Variablen: `--ck-trigger-*`, `--ck-dark-trigger-*`, Attribut `trigger-style`; Übersicht unter *Hilfe → Gestaltung*.
+
+#### Neu: Französisch und Spanisch
 
 #### Neu: Französisch und Spanisch
 

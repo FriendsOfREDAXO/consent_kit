@@ -142,7 +142,11 @@
 .ck-design { display: grid; grid-template-columns: minmax(300px, 380px) 1fr; gap: 24px; align-items: start; }
 .ck-design-preview { position: sticky; top: 70px; }
 .ck-vars { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
-.ck-vars legend { grid-column: 1 / -1; }
+.ck-vars legend, .ck-vars .ck-vars-wide { grid-column: 1 / -1; }
+.ck-vars h4.ck-vars-wide { margin: 8px 0 0; font-size: 13px; font-weight: 700; }
+.ck-vars p.ck-vars-wide { margin: 0; }
+.ck-vars-group { display: contents; }
+.ck-vars-group[hidden] { display: none; }
 .ck-var label { display: block; margin-bottom: 2px; font-weight: 400; }
 .ck-color { display: flex; align-items: center; gap: 8px; }
 .ck-color input { width: 44px; height: 32px; padding: 2px; border: 1px solid #c5ccd3; border-radius: 4px; background: #fff; cursor: pointer; }

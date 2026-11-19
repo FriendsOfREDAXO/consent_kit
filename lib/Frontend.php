@@ -7,6 +7,7 @@ use rex_article;
 use rex_backend_login;
 use rex_clang;
 use rex_i18n;
+use rex_media;
 use rex_path;
 use rex_response;
 use rex_url;
@@ -89,6 +90,7 @@ final class Frontend
         $public['endpoint'] = rex_url::base('index.php') . '?rex-api-call=consent_kit';
         $public['cssVars'] = (object) array_filter((array) $addon->getConfig('css_vars', []), 'is_string');
         $public['cssUrl'] = self::styleUrl();
+        $public['triggerIcon'] = self::triggerIconUrl();
         // Nur fuer angemeldete Redakteure: Platzhalter nennen Dienste, die fehlen oder inaktiv sind.
         $user = rex_backend_login::createUser();
         $public['editorHint'] = null !== $user && $user->hasPerm('consent_kit[]') ? rex_i18n::rawMsg('consent_kit_embed_missing_hint') : '';
@@ -113,16 +115,8 @@ final class Frontend
         if (1 === preg_match('~^https?://~i', $value)) {
             return false !== filter_var($value, FILTER_VALIDATE_URL) ? $value : '';
         }
-        /*
-         * Projektinterner Pfad: absolut ausgeben, denn rex_url::base() liefert einen relativen
-         * Pfad ("../assets/…"), der auf Unterseiten ins Leere zeigen wuerde. Das Basisverzeichnis
-         * stammt aus rex_url::frontendController(), damit auch Installationen in einem
-         * Unterverzeichnis den richtigen Praefix bekommen.
-         */
-        $controller = rex_url::frontendController();
-        $prefix = rtrim(str_replace('\\', '/', dirname('/' . ltrim(preg_replace('~^(\.\./)+~', '', $controller) ?? '', '/'))), '/');
         $path = ltrim($value, '/');
-        $url = $prefix . '/' . $path;
+        $url = self::absolute($path);
 
         /*
          * Cache-Buster wie beim eigenen Script: Ohne ihn saehen Besucher nach einer Aenderung
@@ -136,6 +130,39 @@ final class Frontend
         }
 
         return $url;
+    }
+
+    /**
+     * Eigenes Symbol der schwebenden Schaltflaeche: SVG aus dem Medienpool. Eingebunden als
+     * Bild, nicht als Markup - so kann die Datei keinen Code ins Shadow DOM bringen.
+     */
+    public static function triggerIconUrl(): string
+    {
+        $file = (string) rex_addon::get('consent_kit')->getConfig('trigger_icon', '');
+        if ('' === $file || !rex_addon::get('mediapool')->isAvailable()) {
+            return '';
+        }
+        $media = rex_media::get($file);
+        if (null === $media || 'svg' !== strtolower($media->getExtension()) || !is_file(rex_path::media($file))) {
+            return '';
+        }
+        $relative = (string) preg_replace('~^(\.{1,2}/)+~', '', rex_url::media($file));
+
+        return self::absolute($relative) . '?v=' . filemtime(rex_path::media($file));
+    }
+
+    /**
+     * Projektinterner Pfad absolut, denn rex_url::base() liefert einen relativen Pfad
+     * ("../assets/…"), der auf Unterseiten ins Leere zeigen wuerde. Das Basisverzeichnis stammt
+     * aus rex_url::frontendController(), damit auch Installationen in einem Unterverzeichnis
+     * den richtigen Praefix bekommen.
+     */
+    private static function absolute(string $path): string
+    {
+        $controller = rex_url::frontendController();
+        $prefix = rtrim(str_replace('\\', '/', dirname('/' . ltrim(preg_replace('~^(\.\./)+~', '', $controller) ?? '', '/'))), '/');
+
+        return $prefix . '/' . ltrim($path, '/');
     }
 
     public static function head(): string

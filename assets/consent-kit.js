@@ -305,11 +305,21 @@ const baseCss = `
     --_btn-border-width: var(--ck-button-border-width, 2px);
     --_btn-transform: var(--ck-button-transform, none);
     --_btn-letter-spacing: var(--ck-button-letter-spacing, normal);
-    /* Ohne eigene Hover-Werte bleibt es bei der Helligkeitsaenderung, siehe .btn:hover. */
+    /* Ohne eigene Hover-Werte bleibt es bei der Helligkeitsaenderung, siehe .btn:hover und syncHoverFilter(). */
     --_btn-hover-bg: var(--ck-button-hover-bg, var(--_btn-bg));
     --_btn-hover-text: var(--ck-button-hover-text, var(--_btn-text));
     --_btn-hover-border: var(--ck-button-hover-border, var(--_btn-border));
-    --_btn-hover-filter: var(--ck-button-hover-filter, brightness(1.15));
+    --_btn-hover-filter: var(--ck-button-hover-filter, var(--_ck-auto-hover-filter, brightness(1.15)));
+    /* Schwebende Schaltflaeche: ohne eigene Werte wie der Dialog. */
+    --_trigger-bg: var(--ck-trigger-bg, var(--_bg));
+    --_trigger-text: var(--ck-trigger-text, var(--_text));
+    --_trigger-border: var(--ck-trigger-border, var(--_border));
+    --_trigger-hover-bg: var(--ck-trigger-hover-bg, var(--_trigger-bg));
+    --_trigger-hover-text: var(--ck-trigger-hover-text, var(--_trigger-text));
+    --_trigger-hover-border: var(--ck-trigger-hover-border, var(--_trigger-border));
+    /* Keks-Fuellung: ohne eigenen Wert wie der Hintergrund, also unsichtbar wie bisher. */
+    --_trigger-icon-fill: var(--ck-trigger-icon-fill, var(--_trigger-bg));
+    --_trigger-hover-icon-fill: var(--ck-trigger-hover-icon-fill, var(--ck-trigger-icon-fill, var(--_trigger-hover-bg)));
     --_switch-width: var(--ck-switch-width, calc(2.75 * var(--_rem)));
     --_switch-height: var(--ck-switch-height, calc(1.5 * var(--_rem)));
     --_group-radius: var(--ck-group-radius, 10px);
@@ -337,7 +347,8 @@ a { color: var(--_accent); text-underline-offset: .15em; }
 }
 /*
  * Standard ist eine Helligkeitsaenderung, damit jede Farbkombination ohne Zutun einen Hover hat.
- * Eigene Hover-Farben ersetzen sie; --ck-button-hover-filter: none schaltet sie ab.
+ * Eigene Hover-Farben ersetzen sie (je Thema, siehe syncHoverFilter()); --ck-button-hover-filter
+ * setzt den Effekt ausdruecklich, none schaltet ihn ab.
  */
 .btn:hover { filter: var(--_btn-hover-filter); background: var(--_btn-hover-bg); color: var(--_btn-hover-text); border-color: var(--_btn-hover-border); }
 .btn:active { filter: brightness(.92); }
@@ -367,7 +378,31 @@ function darkVars() {
     --_btn-hover-bg: var(--ck-dark-button-hover-bg, var(--_btn-bg));
     --_btn-hover-text: var(--ck-dark-button-hover-text, var(--_btn-text));
     --_btn-hover-border: var(--ck-dark-button-hover-border, var(--_btn-border));
+    --_btn-hover-filter: var(--ck-dark-button-hover-filter, var(--ck-button-hover-filter, var(--_ck-auto-dark-hover-filter, brightness(1.15))));
+    --_trigger-bg: var(--ck-dark-trigger-bg, var(--_bg));
+    --_trigger-text: var(--ck-dark-trigger-text, var(--_text));
+    --_trigger-border: var(--ck-dark-trigger-border, var(--_border));
+    --_trigger-hover-bg: var(--ck-dark-trigger-hover-bg, var(--_trigger-bg));
+    --_trigger-hover-text: var(--ck-dark-trigger-hover-text, var(--_trigger-text));
+    --_trigger-hover-border: var(--ck-dark-trigger-hover-border, var(--_trigger-border));
+    --_trigger-icon-fill: var(--ck-dark-trigger-icon-fill, var(--_trigger-bg));
+    --_trigger-hover-icon-fill: var(--ck-dark-trigger-hover-icon-fill, var(--ck-dark-trigger-icon-fill, var(--_trigger-hover-bg)));
     color-scheme: dark;`;
+}
+
+/*
+ * Eigene Hover-Farben ersetzen die Aufhellung (#26). Ob welche gesetzt sind, laesst sich in CSS nicht
+ * abfragen; gelesen wird deshalb der berechnete Wert am Element - so zaehlen Werte aus dem Backend
+ * ebenso wie solche aus dem Stylesheet der Seite. Je Thema getrennt: Hover-Farben nur fuer hell
+ * lassen den dunklen Hover bei der Aufhellung.
+ */
+function syncHoverFilter(el) {
+    el.style.removeProperty('--_ck-auto-hover-filter');
+    el.style.removeProperty('--_ck-auto-dark-hover-filter');
+    const style = getComputedStyle(el);
+    const custom = (prefix) => ['bg', 'text', 'border'].some((part) => style.getPropertyValue(prefix + 'button-hover-' + part).trim() !== '');
+    if (custom('--ck-')) el.style.setProperty('--_ck-auto-hover-filter', 'none');
+    if (custom('--ck-dark-')) el.style.setProperty('--_ck-auto-dark-hover-filter', 'none');
 }
 
 const kitCss = baseCss + `
@@ -499,12 +534,24 @@ input:indeterminate + .track::after { left: calc(50% - calc(.5 * var(--_rem))); 
 input:focus-visible + .track { outline: 3px solid var(--_accent); outline-offset: 2px; }
 .trigger {
     position: fixed; z-index: var(--ck-z, 2147483000); display: inline-flex; align-items: center; justify-content: center;
-    width: var(--_tap); height: var(--_tap); padding: 0; color: var(--_text); background: var(--_bg);
-    border: var(--_border-width) solid var(--_border); border-radius: 50%; box-shadow: var(--ck-trigger-shadow, 0 2px 10px rgba(0, 0, 0, .18));
+    width: var(--ck-trigger-size, var(--_tap)); height: var(--ck-trigger-size, var(--_tap)); padding: 0;
+    color: var(--_trigger-text); background: var(--_trigger-bg);
+    border: var(--_border-width) solid var(--_trigger-border); border-radius: var(--ck-trigger-radius, 50%);
+    box-shadow: var(--ck-trigger-shadow, 0 2px 10px rgba(0, 0, 0, .18));
 }
+.trigger:hover { color: var(--_trigger-hover-text); background: var(--_trigger-hover-bg); border-color: var(--_trigger-hover-border); }
 .trigger.bottom-left { left: var(--_rem); bottom: var(--_rem); }
 .trigger.bottom-right { right: var(--_rem); bottom: var(--_rem); }
-.trigger svg { width: calc(1.4 * var(--_rem)); height: calc(1.4 * var(--_rem)); }
+.trigger svg, .trigger img { width: var(--ck-trigger-icon-size, min(calc(1.4 * var(--_rem)), calc(.6 * var(--ck-trigger-size, var(--_tap))))); height: auto; aspect-ratio: 1; }
+.trigger svg path:first-child { fill: var(--_trigger-icon-fill); }
+.trigger:hover svg path:first-child { fill: var(--_trigger-hover-icon-fill); }
+/* Nur der Keks: kein Kreis, die Trefferflaeche bleibt. Der Schatten am Symbol haelt es auf jedem Untergrund sichtbar. */
+:host([trigger-style="cookie"]) .trigger, :host([trigger-style="cookie"]) .trigger:hover { background: none; border-color: transparent; box-shadow: none; }
+.trigger img { object-fit: contain; pointer-events: none; }
+:host([trigger-style="cookie"]) .trigger svg, :host([trigger-style="cookie"]) .trigger img {
+    width: var(--ck-trigger-icon-size, calc(.85 * var(--ck-trigger-size, var(--_tap))));
+    filter: drop-shadow(var(--ck-trigger-icon-shadow, 0 1px 2px rgba(0, 0, 0, .35)));
+}
 @media (prefers-reduced-motion: no-preference) {
     dialog[open] { animation: ck-in .2s ease-out; }
     dialog.offcanvas.bottom-left[open], dialog.offcanvas.top-left[open] { animation: ck-in-left .25s ease-out; }
@@ -568,6 +615,11 @@ function customStyle() {
     return cfg.cssUrl ? `<link rel="stylesheet" href="${esc(cfg.cssUrl)}">` : '';
 }
 
+/* Eigenes Symbol als Bild: Eine SVG-Datei laeuft so nie als Markup im Shadow DOM. */
+function triggerIcon(url) {
+    return url ? `<img src="${esc(safeUrl(url))}" alt="" draggable="false">` : cookieIcon;
+}
+
 const cookieIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.3A9 9 0 1 1 11.7 3a4 4 0 0 0 4.6 4.7A4 4 0 0 0 21 12.3Z"/><path d="M8.5 9.5h.01M8 14.5h.01M12.5 12.5h.01M13 17h.01M16.5 14h.01"/></svg>';
 
 /**
@@ -584,6 +636,12 @@ function loadsOnConsent(service) {
 /* ---------------------------------------------------------- <consent-kit> --- */
 
 class ConsentKitElement extends HTMLElement {
+    /** Nach geaenderten Variablen am Element (Design-Vorschau) erneut aufrufen. */
+    syncDesign() { syncHoverFilter(this); }
+
+    /** Symbol der schwebenden Schaltflaeche tauschen (Design-Vorschau); leer = eingebauter Keks. */
+    setTriggerIcon(url) { if (this.trigger) this.trigger.innerHTML = triggerIcon(url); }
+
     connectedCallback() {
         if (this.shadowRoot || !cfg) return;
         this.attachShadow({ mode: 'open' });
@@ -591,11 +649,13 @@ class ConsentKitElement extends HTMLElement {
         this.expanded = new Set();
         this.selection = new Set();
         if (!this.hasAttribute('theme')) this.setAttribute('theme', cfg.theme);
+        if (!this.hasAttribute('trigger-style')) this.setAttribute('trigger-style', cfg.triggerStyle || 'circle');
         if (cfg.lang) this.setAttribute('lang', cfg.lang.replace('_', '-'));
         for (const [name, value] of Object.entries(cfg.cssVars || {})) {
             if (name.startsWith('--ck-')) this.style.setProperty(name, value);
         }
-        this.shadowRoot.innerHTML = `<style${styleNonce()}>${kitCss}</style>${customStyle()}<dialog part="dialog" aria-labelledby="ck-title"></dialog><button type="button" class="trigger ${esc(cfg.triggerPosition)}" part="trigger" hidden aria-label="${esc(cfg.texts.trigger)}" title="${esc(cfg.texts.trigger)}">${cookieIcon}</button>`;
+        syncHoverFilter(this);
+        this.shadowRoot.innerHTML = `<style${styleNonce()}>${kitCss}</style>${customStyle()}<dialog part="dialog" aria-labelledby="ck-title"></dialog><button type="button" class="trigger ${esc(cfg.triggerPosition)}" part="trigger" hidden aria-label="${esc(cfg.texts.trigger)}" title="${esc(cfg.texts.trigger)}">${triggerIcon(cfg.triggerIcon)}</button>`;
         this.dialog = this.shadowRoot.querySelector('dialog');
         this.trigger = this.shadowRoot.querySelector('.trigger');
 
@@ -926,6 +986,9 @@ class ConsentKitElement extends HTMLElement {
 /* -------------------------------------------------------- <consent-embed> --- */
 
 class ConsentEmbedElement extends HTMLElement {
+    /** Nach geaenderten Variablen am Element (Design-Vorschau) erneut aufrufen. */
+    syncDesign() { syncHoverFilter(this); }
+
     connectedCallback() {
         if (this.shadowRoot || !cfg) return;
         this.attachShadow({ mode: 'open' });
@@ -937,6 +1000,7 @@ class ConsentEmbedElement extends HTMLElement {
         for (const [prop, value] of Object.entries(cfg.cssVars || {})) {
             if (prop.startsWith('--ck-')) this.style.setProperty(prop, value);
         }
+        syncHoverFilter(this);
         const label = this.getAttribute('label');
         const heading = `<h3 id="ck-embed-title">${esc(fill(t.embed_title, { name }))}${label ? ': ' + esc(label) : ''}</h3>`;
         let body;

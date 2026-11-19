@@ -147,8 +147,7 @@
     document.addEventListener('input', (event) => {
         if (event.target.id === 'ck-preset-search') filterPresets();
         if (event.target.matches('[data-ck-var]')) {
-            const output = event.target.parentElement.querySelector('output');
-            if (output) output.textContent = event.target.value;
+            followParent(event.target);
             sendPreview();
         }
     });
@@ -224,12 +223,38 @@
 
     /* ------------------------------------------------------------ Design */
 
+    /* Abgeleitete Felder (data-parent) gelten nur, wenn sie von ihrem Ausgangsfeld abweichen. */
+    const designInput = (name) => document.querySelector('[data-ck-var="' + name + '"]');
+
     function designValues() {
         const vars = {};
         for (const input of document.querySelectorAll('[data-ck-var]')) {
-            if (input.value && input.value.toLowerCase() !== input.dataset.default.toLowerCase()) vars[input.dataset.ckVar] = input.value;
+            const parent = input.dataset.parent ? designInput(input.dataset.parent) : null;
+            const reference = parent ? parent.value : input.dataset.default;
+            if (input.value && input.value.toLowerCase() !== reference.toLowerCase()) vars[input.dataset.ckVar] = input.value;
         }
         return vars;
+    }
+
+    /* Folgt ein abgeleitetes Feld noch seinem Ausgangsfeld, wandert es mit. */
+    function followParent(input) {
+        const previous = input.dataset.ckLast ?? input.value;
+        input.dataset.ckLast = input.value;
+        const output = input.parentElement.querySelector('output');
+        if (output) output.textContent = input.value;
+        for (const child of document.querySelectorAll('[data-parent="' + input.dataset.ckVar + '"]')) {
+            if (child.value.toLowerCase() === previous.toLowerCase()) {
+                child.value = input.value;
+                followParent(child);
+            }
+        }
+    }
+
+    /* Ausgewaehltes SVG fuer die Vorschau; vor dem Speichern noch ohne Cache-Buster. */
+    function triggerIconPreview() {
+        const box = document.querySelector('[data-ck-trigger-icon]');
+        const file = box?.querySelector('input[name="trigger_icon"]')?.value.trim() || '';
+        return box && /\.svg$/i.test(file) ? box.dataset.mediaBase + encodeURIComponent(file) : '';
     }
 
     function sendPreview() {
@@ -239,6 +264,8 @@
         const vars = designValues();
         frame.contentWindow?.postMessage({
             source: 'consent-kit-design', vars, view: pick('view'), theme: pick('theme'),
+            triggerStyle: document.querySelector('[data-ck-trigger-style]')?.value,
+            triggerIcon: triggerIconPreview(),
             // Der Umschalter probiert Formen nur in der Vorschau; ohne ihn gilt die gespeicherte Form.
             layout: pick('layout') || frame.dataset.layout, position: frame.dataset.position,
         }, location.origin);
@@ -263,7 +290,7 @@
         const label = (name) => document.querySelector('label[for="ck-var-' + name.slice(5) + '"]')?.textContent || name;
         const failures = [];
         for (const prefix of ['--ck-', '--ck-dark-']) {
-            for (const [fg, bg, min] of [['text', 'bg', 4.5], ['muted', 'bg', 4.5], ['accent', 'bg', 4.5], ['button-text', 'button-bg', 4.5], ['button-hover-text', 'button-hover-bg', 4.5], ['border', 'bg', 3]]) {
+            for (const [fg, bg, min] of [['text', 'bg', 4.5], ['muted', 'bg', 4.5], ['accent', 'bg', 4.5], ['button-text', 'button-bg', 4.5], ['button-hover-text', 'button-hover-bg', 4.5], ['border', 'bg', 3], ['trigger-text', 'trigger-bg', 3], ['trigger-hover-text', 'trigger-hover-bg', 3]]) {
                 const a = value(prefix + fg);
                 const b = value(prefix + bg);
                 if (!/^#[0-9a-f]{6}$/i.test(a) || !/^#[0-9a-f]{6}$/i.test(b)) continue;
@@ -392,11 +419,17 @@
         }
     }
     document.addEventListener('change', syncConditional);
+    document.addEventListener('change', (event) => {
+        if (event.target.matches('[data-ck-trigger-style], [data-ck-trigger-icon] input')) sendPreview();
+    });
 
     const ready = () => {
         syncConditional();
         document.querySelector('.ck-form [autofocus]')?.focus();
-        if (document.querySelector('[data-ck-design]')) sendPreview();
+        if (document.querySelector('[data-ck-design]')) {
+            for (const input of document.querySelectorAll('[data-ck-var]')) input.dataset.ckLast = input.value;
+            sendPreview();
+        }
     };
     if (window.jQuery) window.jQuery(document).on('rex:ready', ready);
     else document.addEventListener('DOMContentLoaded', ready);
