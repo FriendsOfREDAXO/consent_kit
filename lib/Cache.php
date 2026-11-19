@@ -134,6 +134,7 @@ final class Cache
             'theme' => (string) $addon->getConfig('theme', 'light'),
             'trigger' => (bool) $addon->getConfig('trigger', true),
             'triggerPosition' => (string) $addon->getConfig('trigger_position', 'bottom-left'),
+            'triggerStyle' => 'cookie' === $addon->getConfig('trigger_style', 'circle') ? 'cookie' : 'circle',
             'gpc' => (string) $addon->getConfig('gpc', 'reject'),
             'reload' => (bool) $addon->getConfig('reload_on_revoke', true),
             'dismiss' => (bool) $addon->getConfig('dismissible', true),

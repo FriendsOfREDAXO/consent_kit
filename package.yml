@@ -1,5 +1,5 @@
 package: consent_kit
-version: '1.4.0'
+version: '1.5.0'
 author: 'Friends Of REDAXO'
 supportpage: https://github.com/FriendsOfREDAXO/consent_kit/issues
 
@@ -47,6 +47,7 @@ default_config:
     theme: light
     trigger: true
     trigger_position: bottom-left
+    trigger_style: circle
     consent_days: 365
     log_days: 1095
     gpc: reject

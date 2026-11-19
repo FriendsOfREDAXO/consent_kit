@@ -4,7 +4,9 @@ Die Komponente ist bewusst neutral: Sie übernimmt die Schrift der Seite, bringt
 
 ## Design-Editor
 
-**Design** zeigt links die Variablen – Farben hell und dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen –, rechts eine Live-Vorschau mit den echten Diensten: Hinweis, Einstellungen und Platzhalter, alle vier Formen (Box, Leiste, Dialog, Off-Canvas), hell und dunkel, Desktop und Mobil. Der Formen-Umschalter wirkt nur in der Vorschau; gespeichert wird die Form unter **Einstellungen**. Eine Kontrastprüfung meldet Kombinationen unter WCAG AA (4,5 : 1 für Text, 3 : 1 für Rahmen). Gespeichert werden nur Abweichungen vom Standard.
+**Design** zeigt links die Variablen – Farben hell und dunkel, Schrift, Abstände und Breiten, Form, Schaltflächen –, rechts eine Live-Vorschau mit den echten Diensten: Hinweis, Einstellungen und Platzhalter, alle vier Formen (Box, Leiste, Dialog, Off-Canvas), hell und dunkel, Desktop und Mobil. Der Formen-Umschalter wirkt nur in der Vorschau; gespeichert wird die Form unter **Einstellungen**. Eine Kontrastprüfung meldet Kombinationen unter WCAG AA (4,5 : 1 für Text, 3 : 1 für Rahmen und das Keks-Symbol). Gespeichert werden nur Abweichungen vom Standard.
+
+Abgeleitete Felder – Hover-Farben und die Farben der Keks-Schaltfläche – zeigen den Wert, der tatsächlich gilt, und folgen ihrem Ausgangsfeld, bis Sie sie selbst ändern. Gespeichert werden sie nur, wenn sie davon abweichen.
 
 Wer die Werte lieber im eigenen Stylesheet pflegt, kopiert den Block unter „Als CSS für das eigene Stylesheet“.
 
@@ -34,14 +36,39 @@ consent-embed {
 | `--ck-shadow` | weicher Schatten | kräftiger | Schatten des Dialogs |
 | `--ck-backdrop` | `rgba(0,0,0,.55)` | `rgba(0,0,0,.7)` | Abdunklung hinter dem Dialog |
 
-Die Hover-Farben der Schaltflächen gibt es ebenfalls hell und dunkel. Ohne eigene Werte bleibt es bei der Helligkeitsänderung des Standards:
+Die Hover-Farben der Schaltflächen gibt es ebenfalls hell und dunkel. Ohne eigene Hover-Farben hellt der Standard die Schaltfläche auf. Sind eigene gesetzt – im Backend oder im eigenen Stylesheet –, entfällt die Aufhellung für dieses Thema, die Farben erscheinen exakt wie eingestellt:
 
 | Variable | Standard | Wirkung |
 | --- | --- | --- |
 | `--ck-button-hover-bg` | wie `--ck-button-bg` | Schaltfläche im Hover |
 | `--ck-button-hover-text` | wie `--ck-button-text` | Text im Hover |
 | `--ck-button-hover-border` | wie `--ck-button-border` | Rahmen im Hover |
-| `--ck-button-hover-filter` | `brightness(1.15)` | Aufhellung; `none` schaltet sie ab |
+| `--ck-button-hover-filter` | automatisch | Ausdrücklicher Hover-Effekt, gilt dann immer: `none` schaltet ihn ab, z. B. `brightness(1.1)` setzt einen eigenen. Ohne Wert: `brightness(1.15)`, solange keine eigenen Hover-Farben gesetzt sind. Im Backend: „Hover-Effekt“ (`auto`) |
+| `--ck-dark-button-hover-filter` | wie oben | Nur für das dunkle Thema |
+
+### Keks-Schaltfläche
+
+Die schwebende Schaltfläche öffnet die Einstellungen erneut. Unter **Design → Keks-Schaltfläche** wählen Sie den Stil – **Keks im Kreis** (Standard) oder **Nur Keks** ohne Kreis, Rahmen und Schatten – und optional ein **eigenes Symbol** als SVG aus dem Medienpool. Das eigene Symbol wird als Bild eingebunden und behält seine Farben; Füllung und Umriss gelten nur für den eingebauten Keks. Ist die Datei als Symbol gesetzt, meldet der Medienpool sie beim Löschen als „in Verwendung“.
+
+Ohne eigene Werte übernimmt die Schaltfläche die Farben des Dialogs, wie bisher. Alle Farben gibt es auch dunkel (`--ck-dark-…`):
+
+| Variable | Standard | Wirkung |
+| --- | --- | --- |
+| `--ck-trigger-bg` | wie `--ck-bg` | Kreis |
+| `--ck-trigger-border` | wie `--ck-border` | Rahmen des Kreises |
+| `--ck-trigger-text` | wie `--ck-text` | Keks: Umriss und Krümel |
+| `--ck-trigger-icon-fill` | wie `--ck-trigger-bg` | Keks: Füllung |
+| `--ck-trigger-hover-bg` | wie `--ck-trigger-bg` | Kreis im Hover |
+| `--ck-trigger-hover-border` | wie `--ck-trigger-border` | Rahmen im Hover |
+| `--ck-trigger-hover-text` | wie `--ck-trigger-text` | Umriss und Krümel im Hover |
+| `--ck-trigger-hover-icon-fill` | wie `--ck-trigger-icon-fill` | Füllung im Hover (nur per CSS) |
+| `--ck-trigger-size` | `2.75rem` | Größe der Schaltfläche (Trefferfläche, für Touch nicht kleiner) |
+| `--ck-trigger-icon-size` | `1.4rem`, bei „Nur Keks“ 85 % der Schaltfläche | Größe des Symbols |
+| `--ck-trigger-radius` | `50%` | Ecken des Kreises |
+| `--ck-trigger-shadow` | weicher Schatten | Schatten des Kreises |
+| `--ck-trigger-icon-shadow` | `0 1px 2px rgba(0,0,0,.35)` | Schatten des Symbols beim Stil „Nur Keks“ (nur per CSS) |
+
+Im eigenen Stylesheet wählt das Attribut den Stil: `<consent-kit trigger-style="cookie">`.
 
 Ohne dunkle Entsprechung:
 
@@ -73,7 +100,6 @@ Ohne dunkle Entsprechung:
 | `--ck-offcanvas-width` | `26rem` | Breite des Off-Canvas-Panels (schmale Schirme: volle Breite) |
 | `--ck-offcanvas-settings-width` | wie `--ck-offcanvas-width` | Breite der Einstellungen als Off-Canvas-Panel |
 | `--ck-backdrop-filter` | `none` | z. B. `blur(4px)` hinter dem Dialog |
-| `--ck-trigger-shadow` | weicher Schatten | Schatten der schwebenden Schaltfläche |
 | `--ck-z` | `2147483000` | Stapelreihenfolge |
 | `--ck-embed-ratio` | `16 / 9` | Seitenverhältnis des Platzhalters |
 | `--ck-embed-min-height` | `14rem` | Mindesthöhe des Platzhalters |

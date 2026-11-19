@@ -8,8 +8,9 @@ $addon = rex_addon::get('consent_kit');
 $csrf = rex_csrf_token::factory('consent_kit');
 
 /*
- * Gestaltbare Variablen: [Typ, Standard hell, Standard dunkel|null].
- * Dunkle Werte heissen --ck-dark-*, siehe assets/consent-kit.js.
+ * Gestaltbare Variablen: [Typ, Standard hell, Standard dunkel|null, Ausgangsvariable|null].
+ * Dunkle Werte heissen --ck-dark-*, siehe assets/consent-kit.js. Mit Ausgangsvariable folgt
+ * der Wert ihr, bis er davon abweicht - nur dann wird er gespeichert.
  */
 $variables = [
     'bg' => ['color', '#ffffff', '#18181b'],
@@ -21,9 +22,21 @@ $variables = [
     'button-bg' => ['color', '#1f2937', '#f4f4f5'],
     'button-text' => ['color', '#ffffff', '#18181b'],
     'button-border' => ['color', '#1f2937', '#f4f4f5'],
-    'button-hover-bg' => ['color', '#1f2937', '#f4f4f5'],
-    'button-hover-text' => ['color', '#ffffff', '#18181b'],
-    'button-hover-border' => ['color', '#1f2937', '#f4f4f5'],
+    'button-hover-bg' => ['color', '#1f2937', '#f4f4f5', 'button-bg'],
+    'button-hover-text' => ['color', '#ffffff', '#18181b', 'button-text'],
+    'button-hover-border' => ['color', '#1f2937', '#f4f4f5', 'button-border'],
+    'trigger-bg' => ['color', '#ffffff', '#18181b', 'bg'],
+    'trigger-border' => ['color', '#8c8c8c', '#8e8e96', 'border'],
+    'trigger-text' => ['color', '#1a1a1a', '#f4f4f5', 'text'],
+    'trigger-icon-fill' => ['color', '#ffffff', '#18181b', 'trigger-bg'],
+    'trigger-hover-bg' => ['color', '#ffffff', '#18181b', 'trigger-bg'],
+    'trigger-hover-text' => ['color', '#1a1a1a', '#f4f4f5', 'trigger-text'],
+    'trigger-hover-border' => ['color', '#8c8c8c', '#8e8e96', 'trigger-border'],
+    'button-hover-filter' => ['filter', 'auto', null],
+    'trigger-size' => ['length', '2.75rem', null],
+    'trigger-icon-size' => ['length', '1.4rem', null],
+    'trigger-radius' => ['length', '50%', null],
+    'trigger-shadow' => ['shadow', '0 2px 10px rgba(0, 0, 0, .18)', null],
     'radius' => ['length', '12px', null],
     'button-radius' => ['length', '8px', null],
     'group-radius' => ['length', '10px', null],
@@ -47,6 +60,25 @@ $variables = [
     'button-transform' => ['text', 'none', null],
 ];
 
+$prefixOf = static fn (string $name): string => str_starts_with($name, '--ck-dark-') ? '--ck-dark-' : '--ck-';
+$defaultOf = static function (string $name) use ($variables, $prefixOf): ?string {
+    $prefix = $prefixOf($name);
+    $definition = $variables[substr($name, strlen($prefix))] ?? null;
+    if (null === $definition) {
+        return null;
+    }
+    return '--ck-dark-' === $prefix ? $definition[2] : $definition[1];
+};
+/** Wirksamer Wert: eigener Wert, sonst der der Ausgangsvariable, sonst der Standard. */
+$resolve = static function (string $name, array $values) use (&$resolve, $variables, $prefixOf, $defaultOf): ?string {
+    if (isset($values[$name])) {
+        return (string) $values[$name];
+    }
+    $prefix = $prefixOf($name);
+    $parent = $variables[substr($name, strlen($prefix))][3] ?? null;
+    return null !== $parent ? $resolve($prefix . $parent, $values) : $defaultOf($name);
+};
+
 // Vorschau-Dokument fuer das iframe: echte Komponente, echte Dienste, aber ohne Cookie und Protokoll.
 if (rex_request::get('preview', 'bool', false)) {
     rex_response::cleanOutputBuffers();
@@ -64,6 +96,7 @@ if (rex_request::get('preview', 'bool', false)) {
     // Variablen kommen live per postMessage; das eigene Stylesheet wird wie im Frontend geladen.
     $config['cssVars'] = (object) [];
     $config['cssUrl'] = Frontend::styleUrl();
+    $config['triggerIcon'] = Frontend::triggerIconUrl();
     foreach ($config['groups'] as &$group) {
         foreach ($group['services'] as &$service) {
             $service['head'] = $service['body'] = $service['jsAccept'] = $service['jsRevoke'] = '';
@@ -86,7 +119,7 @@ if (rex_request::get('preview', 'bool', false)) {
         . '<div id="embed-demo" hidden style="margin-top:1.5rem">' . ('' !== $embedService ? '<consent-embed service="' . rex_escape($embedService) . '"><template><p>Embed</p></template></consent-embed>' : '') . '</div>'
         . '<div class="ph"></div><div class="ph w80"></div><div class="ph"></div><div class="ph w60"></div>'
         . '<script>window.addEventListener("message",function(e){if(e.origin!==location.origin||!e.data||e.data.source!=="consent-kit-design")return;var d=e.data,k=document.querySelector("consent-kit"),all=document.querySelectorAll("consent-kit,consent-embed");'
-        . 'all.forEach(function(el){el.setAttribute("theme",d.theme);[].slice.call(el.style).forEach(function(p){el.style.removeProperty(p)});Object.keys(d.vars).forEach(function(n){el.style.setProperty(n,d.vars[n])})});'
+        . 'all.forEach(function(el){el.setAttribute("theme",d.theme);if(d.triggerStyle)el.setAttribute("trigger-style",d.triggerStyle);if(typeof d.triggerIcon==="string"&&el.setTriggerIcon)el.setTriggerIcon(d.triggerIcon);[].slice.call(el.style).forEach(function(p){el.style.removeProperty(p)});Object.keys(d.vars).forEach(function(n){el.style.setProperty(n,d.vars[n])});if(el.syncDesign)el.syncDesign()});'
         . 'document.body.classList.toggle("dark",d.theme==="dark");document.getElementById("embed-demo").hidden=d.view!=="embed";'
         . 'if(!k)return;k.setAttribute("layout",d.layout);k.setAttribute("position",d.position);if(d.view==="embed"){k.close()}else{k.open(d.view)}});'
         . 'document.addEventListener("consentkit:ready",function(){parent.postMessage({source:"consent-kit-preview"},location.origin)});</script>'
@@ -101,6 +134,8 @@ if ('post' === rex_request::requestMethod()) {
     } elseif (rex_request::post('reset', 'bool', false)) {
         $addon->setConfig('css_vars', []);
         $addon->setConfig('css_url', '');
+        $addon->setConfig('trigger_style', 'circle');
+        $addon->setConfig('trigger_icon', '');
         Cache::clear();
         $message = rex_view::success(rex_i18n::msg('consent_kit_design_reset_done'));
     } else {
@@ -121,28 +156,46 @@ if ('post' === rex_request::requestMethod()) {
             $addon->setConfig('css_url', '');
         }
 
-        $saved = [];
+        $posted = [];
         foreach (rex_request::post('vars', 'array', []) as $name => $value) {
             $value = trim((string) $value);
             $base = preg_replace('~^--ck-(dark-)?~', '', (string) $name);
             if (!isset($variables[$base]) || '' === $value) {
                 continue;
             }
-            [$type, $light, $dark] = $variables[$base];
-            $default = str_starts_with((string) $name, '--ck-dark-') ? $dark : $light;
-            $valid = match ($type) {
+            $valid = match ($variables[$base][0]) {
                 'color' => 1 === preg_match('~^#[0-9a-f]{6}$~i', $value),
                 'length' => 1 === preg_match('~^\d*\.?\d+(px|rem|em|%)$~', $value),
                 'number' => 1 === preg_match('~^\d*\.?\d+$~', $value),
+                'filter' => 1 === preg_match('~^(auto|none|((brightness|contrast|saturate|opacity)\(\d*\.?\d+%?\)\s*)+)$~', $value),
+                'shadow' => 1 === preg_match('~^(none|[\d\s.,%#a-z()-]{1,200})$~i', $value) && !str_contains(strtolower($value), 'url('),
                 // Schriftart, Innenabstand, Versalien: mehrteilige Werte, aber keine Funktionen oder Semikola.
                 default => 1 === preg_match('~^[\w\s,"\'.%-]{1,200}$~u', $value),
             };
-            // Nur Abweichungen vom Standard speichern.
-            if ($valid && null !== $default && strtolower($value) !== strtolower($default)) {
-                $saved[(string) $name] = $value;
+            if ($valid) {
+                $posted[(string) $name] = $value;
+            }
+        }
+        // Nur Abweichungen speichern: vom Standard oder, bei abgeleiteten Werten, von der Ausgangsvariable.
+        $saved = [];
+        foreach ($posted as $name => $value) {
+            $prefix = $prefixOf($name);
+            $parent = $variables[substr($name, strlen($prefix))][3] ?? null;
+            $reference = null !== $parent ? $resolve($prefix . $parent, $posted) : $defaultOf($name);
+            if (null !== $reference && strtolower($value) !== strtolower($reference)) {
+                $saved[$name] = $value;
             }
         }
         $addon->setConfig('css_vars', $saved);
+        $addon->setConfig('trigger_style', 'cookie' === rex_request::post('trigger_style', 'string', 'circle') ? 'cookie' : 'circle');
+        $icon = trim(rex_request::post('trigger_icon', 'string', ''));
+        if ('' === $icon) {
+            $addon->setConfig('trigger_icon', '');
+        } elseif (null !== ($media = rex_media::get($icon)) && 'svg' === strtolower($media->getExtension())) {
+            $addon->setConfig('trigger_icon', $icon);
+        } else {
+            $cssError = trim($cssError . ' ' . rex_i18n::msg('consent_kit_trigger_icon_invalid'));
+        }
         Cache::clear();
         $message = '' === $cssError
             ? rex_view::success(rex_i18n::msg('consent_kit_design_saved'))
@@ -151,14 +204,19 @@ if ('post' === rex_request::requestMethod()) {
 }
 
 $saved = (array) $addon->getConfig('css_vars', []);
-$field = static function (string $name, string $type, string $default) use ($saved): string {
-    $value = (string) ($saved[$name] ?? $default);
-    $label = rex_i18n::msg('consent_kit_var_' . str_replace('-', '_', (string) preg_replace('~^--ck-(dark-)?~', '', $name)));
+$field = static function (string $name, string $type, string $default) use ($saved, $variables, $prefixOf, $resolve): string {
+    $prefix = $prefixOf($name);
+    $base = substr($name, strlen($prefix));
+    $parent = $variables[$base][3] ?? null;
+    // Abgeleitete Werte zeigen, was tatsaechlich gilt - nicht den festen Standard.
+    $value = (string) ($resolve($name, $saved) ?? $default);
+    $label = rex_i18n::msg('consent_kit_var_' . str_replace('-', '_', $base));
     $id = 'ck-var-' . substr($name, 5);
+    $data = 'data-ck-var="' . $name . '" data-default="' . rex_escape($default) . '"' . (null !== $parent ? ' data-parent="' . $prefix . $parent . '"' : '');
     if ('color' === $type) {
-        return '<div class="ck-var"><label for="' . $id . '">' . $label . '</label><span class="ck-color"><input type="color" id="' . $id . '" name="vars[' . $name . ']" value="' . rex_escape($value) . '" data-ck-var="' . $name . '" data-default="' . $default . '"><output for="' . $id . '">' . rex_escape($value) . '</output></span></div>';
+        return '<div class="ck-var"><label for="' . $id . '">' . $label . '</label><span class="ck-color"><input type="color" id="' . $id . '" name="vars[' . $name . ']" value="' . rex_escape($value) . '" ' . $data . '><output for="' . $id . '">' . rex_escape($value) . '</output></span></div>';
     }
-    return '<div class="ck-var"><label for="' . $id . '">' . $label . '</label><input type="text" class="form-control" id="' . $id . '" name="vars[' . $name . ']" value="' . rex_escape($value) . '" data-ck-var="' . $name . '" data-default="' . rex_escape($default) . '" spellcheck="false"></div>';
+    return '<div class="ck-var"><label for="' . $id . '">' . $label . '</label><input type="text" class="form-control" id="' . $id . '" name="vars[' . $name . ']" value="' . rex_escape($value) . '" ' . $data . ' spellcheck="false"></div>';
 };
 
 /* Nicht-Farbwerte nach Thema gruppiert, sonst wird die Liste unuebersichtlich. */
@@ -166,20 +224,51 @@ $sections = [
     'typo' => ['font', 'rem', 'font-size', 'line-height', 'heading-size', 'heading-weight', 'small-size'],
     'spacing' => ['space', 'gap', 'width', 'settings-width'],
     'shape' => ['radius', 'button-radius', 'group-radius', 'border-width', 'switch-width', 'switch-height'],
-    'buttons' => ['button-padding', 'button-weight', 'button-border-width', 'button-transform'],
+    'buttons' => ['button-padding', 'button-weight', 'button-border-width', 'button-transform', 'button-hover-filter'],
+    'trigger' => ['trigger-size', 'trigger-icon-size', 'trigger-radius', 'trigger-shadow'],
 ];
 
-$light = $dark = '';
+/* Felder, die nur den Kreis um den Keks gestalten - bei "Nur Keks" ausgeblendet. */
+$circleOnly = static function (string $base, string $html): string {
+    if (!in_array($base, ['trigger-bg', 'trigger-border', 'trigger-hover-bg', 'trigger-hover-border', 'trigger-radius', 'trigger-shadow'], true)) {
+        return $html;
+    }
+    return '<div class="ck-vars-group" data-ck-show-if="trigger_style" data-ck-show-values="circle">' . $html . '</div>';
+};
+$triggerStyle = 'cookie' === $addon->getConfig('trigger_style', 'circle') ? 'cookie' : 'circle';
+$triggerStyleField = '<div class="ck-var ck-vars-wide"><label for="ck-trigger-style">' . rex_i18n::msg('consent_kit_trigger_style') . '</label>'
+    . '<select class="form-control" id="ck-trigger-style" name="trigger_style" data-ck-trigger-style>'
+    . '<option value="circle"' . ('circle' === $triggerStyle ? ' selected' : '') . '>' . rex_i18n::msg('consent_kit_trigger_style_circle') . '</option>'
+    . '<option value="cookie"' . ('cookie' === $triggerStyle ? ' selected' : '') . '>' . rex_i18n::msg('consent_kit_trigger_style_cookie') . '</option>'
+    . '</select></div>';
+
+$triggerIconField = '';
+if (rex_addon::get('mediapool')->isAvailable()) {
+    // Medien-URL ohne Dateiname, damit die Vorschau eine neue Auswahl sofort zeigen kann.
+    $mediaBase = substr(rex_url::media('x'), 0, -1);
+    $triggerIconField = '<div class="ck-var ck-vars-wide" data-ck-trigger-icon data-media-base="' . rex_escape($mediaBase) . '"><label for="REX_MEDIA_9100">' . rex_i18n::msg('consent_kit_trigger_icon') . '</label>'
+        . rex_var_media::getWidget(9100, 'trigger_icon', (string) $addon->getConfig('trigger_icon', ''), ['types' => 'svg'])
+        . '<p class="help-block">' . rex_i18n::msg('consent_kit_trigger_icon_help') . '</p></div>';
+}
+
+$light = $dark = $triggerLight = $triggerDark = '';
 $groups = array_fill_keys(array_keys($sections), '');
 foreach ($variables as $base => [$type, $lightDefault, $darkDefault]) {
     if ('color' === $type) {
-        $light .= $field('--ck-' . $base, $type, $lightDefault);
-        $dark .= $field('--ck-dark-' . $base, $type, (string) $darkDefault);
+        $lightField = $field('--ck-' . $base, $type, $lightDefault);
+        $darkField = $field('--ck-dark-' . $base, $type, (string) $darkDefault);
+        if (str_starts_with($base, 'trigger-')) {
+            $triggerLight .= $circleOnly($base, $lightField);
+            $triggerDark .= $circleOnly($base, $darkField);
+        } else {
+            $light .= $lightField;
+            $dark .= $darkField;
+        }
         continue;
     }
     foreach ($sections as $section => $keys) {
         if (in_array($base, $keys, true)) {
-            $groups[$section] .= $field('--ck-' . $base, $type, $lightDefault);
+            $groups[$section] .= $circleOnly($base, $field('--ck-' . $base, $type, $lightDefault));
             break;
         }
     }
@@ -201,7 +290,14 @@ $controls = '<form method="post" action="' . rex_url::currentBackendPage() . '" 
     . '<fieldset class="ck-vars"><legend>' . rex_i18n::msg('consent_kit_design_spacing') . '</legend>' . $groups['spacing'] . '</fieldset>'
     . '<fieldset class="ck-vars"><legend>' . rex_i18n::msg('consent_kit_design_shape') . '</legend>' . $groups['shape'] . '</fieldset>'
     . '<fieldset class="ck-vars"><legend>' . rex_i18n::msg('consent_kit_design_buttons') . '</legend>' . $groups['buttons'] . '</fieldset>'
-    . '<p class="help-block">' . rex_i18n::msg('consent_kit_design_equal_buttons') . '</p>'
+    . '<p class="help-block">' . rex_i18n::msg('consent_kit_design_equal_buttons') . ' ' . rex_i18n::rawMsg('consent_kit_design_hover_filter_help') . '</p>'
+    . '<fieldset class="ck-vars"><legend>' . rex_i18n::msg('consent_kit_design_trigger') . '</legend>'
+    . '<p class="help-block ck-vars-wide">' . rex_i18n::msg('consent_kit_design_trigger_help') . '</p>'
+    . $triggerStyleField
+    . $triggerIconField
+    . '<h4 class="ck-vars-wide">' . rex_i18n::msg('consent_kit_design_light') . '</h4>' . $triggerLight
+    . '<h4 class="ck-vars-wide">' . rex_i18n::msg('consent_kit_design_dark') . '</h4>' . $triggerDark
+    . $groups['trigger'] . '</fieldset>'
     . '<fieldset class="ck-stylesheet"><legend>' . rex_i18n::msg('consent_kit_design_css_url') . '</legend>'
     . '<div class="ck-var ck-var-wide"><label for="ck-css-url">' . rex_i18n::msg('consent_kit_design_css_url_label') . '</label>'
     . '<input type="text" class="form-control" id="ck-css-url" name="css_url" value="' . rex_escape((string) $addon->getConfig('css_url', '')) . '" placeholder="/assets/consent-kit.css" spellcheck="false"></div>'

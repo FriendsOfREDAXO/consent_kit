@@ -25,6 +25,16 @@ if (rex::isFrontend()) {
 }
 
 if (rex::isBackend() && rex::getUser()) {
+    // Das eigene Symbol der schwebenden Schaltflaeche darf nicht still aus dem Medienpool verschwinden.
+    rex_extension::register('MEDIA_IS_IN_USE', static function (rex_extension_point $ep) {
+        if ($ep->getParam('filename') !== rex_addon::get('consent_kit')->getConfig('trigger_icon')) {
+            return $ep->getSubject();
+        }
+        $warning = (array) $ep->getSubject();
+        $warning[] = '<a href="' . rex_url::backendPage('consent_kit/design') . '">' . rex_i18n::msg('consent_kit_trigger_icon_in_use') . '</a>';
+        return $warning;
+    });
+
     // Links im Hinweis haengen an Artikeln und Sprachen.
     rex_extension::register(['CLANG_ADDED', 'CLANG_UPDATED', 'CLANG_DELETED'], Cache::clear(...));
 
