@@ -791,6 +791,9 @@ class ConsentKitElement extends HTMLElement {
     /**
      * Soll der Hinweis beim Seitenaufruf unterdrückt werden?
      *
+     * embedOnly – „Hinweis nur, wenn nötig“: Es sind nur Dienste aktiv, die ausschließlich über
+     *             Einbettungen mit Platzhalter laden; vor der Einwilligung lädt nichts.
+     *
      * never     – immer unterdrücken; der Einstieg läuft über Platzhalter, schwebende
      *             Schaltfläche oder einen eigenen Link.
      * on_demand – nur zeigen, wenn auf dieser Seite ein gesperrter Inhalt steht, also ein
@@ -799,9 +802,14 @@ class ConsentKitElement extends HTMLElement {
      *             erzwingen weiterhin die Abfrage, sonst würde ohne Einwilligung geladen.
      */
     suppressed() {
+        if (cfg.preview) return false;
+        // „Hinweis nur, wenn nötig“ (Cache.php: embedOnly): Alle optionalen Dienste laden nur über
+        // Platzhalter – die Einwilligung holt der Platzhalter am Inhalt ein, die Einstellungen bleiben
+        // über Schaltfläche oder Link erreichbar.
+        if (cfg.embedOnly) return true;
         // Unbekannte Werte verhalten sich wie "always" – dieselbe sichere Seite wie in Cache.php.
         const mode = cfg.openMode;
-        if (cfg.preview || (mode !== 'on_demand' && mode !== 'never')) return false;
+        if (mode !== 'on_demand' && mode !== 'never') return false;
         if (mode === 'never') return true;
         if (core.optional.some((service) => loadsOnConsent(service))) return false;
         return !this.blockedEmbed();

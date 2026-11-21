@@ -1,5 +1,5 @@
 package: consent_kit
-version: '1.5.0'
+version: '1.6.0'
 author: 'Friends Of REDAXO'
 supportpage: https://github.com/FriendsOfREDAXO/consent_kit/issues
 
@@ -57,6 +57,7 @@ default_config:
     gcm_wait_for_update: 500
     reload_on_revoke: true
     dismissible: true
+    only_needed: true
     block_embeds: false
     oembed: true
     revision_bump: 0

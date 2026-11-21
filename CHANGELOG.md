@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.6.0 – 2026-11-21
+
+#### Verhaltensänderung: Hinweis nur, wenn nötig (Standard: an)
+
+**Nach dem Update erscheint auf Websites, die ausschließlich Einbettungen mit Platzhalter nutzen (etwa nur YouTube, Vimeo, Google Maps), beim Seitenaufruf kein Hinweis mehr.** Die Einwilligung holt der 2-Klick-Platzhalter am Inhalt ein; die schwebende Schaltfläche bzw. der Link „Datenschutz-Einstellungen“ bleibt zum Ansehen und Widerrufen. Wer den Hinweis weiterhin immer zeigen will: *Einstellungen → Darstellung → „Hinweis nur, wenn nötig“* ausschalten.
+
+Sobald ein Dienst aktiv ist, der nicht nur über Platzhalter lädt (Statistik, Marketing, Tag Manager, eigenes Script von einem anderen Host, Consent Mode, Ereignisse, JavaScript vor der Entscheidung), erscheint der Hinweis wie bisher.
+
+- **Neue Einstellung** `only_needed` (Standard `true`) unter *Einstellungen → Darstellung*, unterhalb von „Hinweis beim Seitenaufruf“. Sie gilt zusätzlich zu `open_mode`.
+- **Neues Merkmal je Dienst** „Nur Einbettung mit Platzhalter“ (Spalte `embed_only`, Reiter *Erweitert*). Vorlagen der Gruppe „Externe Medien“ bringen es mit (abgeleitet: Gruppe `media`, Domains eingebetteter Inhalte, kein Consent Mode, keine Ereignisse, kein `js_default`; ausdrücklich per Schlüssel `embed_only` in der Vorlage). Eigene Dienste setzen es im Formular.
+- **Geprüft wird am fertigen Dienst** (`EmbedOnly::issues()`): Merkmal gesetzt, nicht Statistik/Marketing, Domains eingebetteter Inhalte vorhanden, keine Consent-Mode-Signale, keine Ereignisse, kein `js_default`, Code in `html_head`/`html_body`/`js_accept` höchstens vom Anbieter der Einbettung (z. B. `embed.js` von `instagram.com`). Ist das Merkmal gesetzt, passt aber etwas nicht, nennt das Formular den Grund.
+- **Update:** Bestehende Dienste aus Vorlagen übernehmen das Merkmal der Vorlage (einmalig, wenn die Spalte neu angelegt wird); eigene Dienste bleiben ohne.
+- **Status in der Übersicht „Dienste“:** ob der Hinweis beim Seitenaufruf erscheint und wegen welcher Dienste; Hinweis, wenn er nicht nötig wäre, die Einstellung aber aus ist. Dienste, die nur über Platzhalter laden, tragen das Merkmal „Nur Platzhalter“.
+- **Frontend:** Die Konfiguration trägt `embedOnly` (bool); `assets/consent-kit.js` unterdrückt damit den Hinweis beim Seitenaufruf (nicht in der Design-Vorschau). `embedOnlyBlockers` bleibt serverseitig und lässt sich wie die übrige Konfiguration über `CONSENT_KIT_CONFIG` anpassen.
+- Geprüft: Vor einer Entscheidung lädt die Seite in dieser Konstellation nichts von fremden Servern (auch der Platzhalter lädt kein Vorschaubild), setzt keinen Cookie und schreibt nichts in Local/Session Storage. „Inhalt einmal laden“ speichert nichts, „… immer erlauben“ wird wie jede Einwilligung gespeichert und protokolliert.
+- Doku: *Einrichtung → Hinweis nur, wenn nötig* (mit technischer Einordnung zu § 25 TDDDG, keine Rechtsberatung), *Dienste → Nur Einbettung mit Platzhalter*, `presets/FORMAT.md`, API (`CONSENT_KIT_CONFIG`). Deutsch und Englisch in den Sprachdateien.
+
 ## 1.5.0 – 2026-11-19
 
 #### Fehlerbehebung: Eigene Hover-Farben erscheinen exakt (#26)

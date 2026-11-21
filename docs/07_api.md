@@ -80,6 +80,8 @@ rex_extension::register('CONSENT_KIT_CONFIG', static function (rex_extension_poi
 });
 ```
 
+Der Schlüssel `embedOnly` (bool) entscheidet über [„Hinweis nur, wenn nötig“](01_einrichtung.md#hinweis-nur-wenn-nötig): `true` unterdrückt den Hinweis beim Seitenaufruf. `embedOnlyBlockers` nennt die Dienste, die ihn verhindern (Schlüssel => Name); er gelangt nicht ins Frontend.
+
 `CONSENT_KIT_CONFIG` läuft nur beim Aufbau des Caches, nicht bei jedem Seitenaufruf. Wer dort Dienste entfernt oder hinzufügt, verändert nicht den protokollierten Stand – dafür sind Dienste und Domain-Matrix der richtige Ort.
 
 ### Konsole und Cronjob

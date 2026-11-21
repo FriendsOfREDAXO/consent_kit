@@ -122,6 +122,7 @@ final class PresetRepository
             'params' => [],
             'gcm_signals' => (array) ($preset['gcm_signals'] ?? []),
             'embed_hosts' => (array) ($preset['embed_hosts'] ?? []),
+            'embed_only' => EmbedOnly::fromPreset($preset),
             'preset' => $key,
         ];
         foreach (['html_head', 'html_body', 'js_default', 'js_accept', 'js_revoke'] as $field) {

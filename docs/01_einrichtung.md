@@ -24,6 +24,7 @@ Unter **Einstellungen → Rechtstexte und Domains** werden Datenschutzerklärung
 | Gruppen im Hinweis zeigen | Nur bei **Dialog** und **Off-Canvas**: Der Hinweis listet die Gruppen mit Schaltern, die mittlere Schaltfläche wird „Auswahl speichern“. Es ist nichts vorausgewählt – eine Vorbelegung wäre keine wirksame Einwilligung. Die einzelnen Dienste bleiben in den Einstellungen. Standard: aus. |
 | Farbschema | Hell, Dunkel oder Automatisch (folgt dem System des Besuchers – nur sinnvoll, wenn die Website selbst einen Dark Mode hat). |
 | Hinweis beim Seitenaufruf | **Immer zeigen** (Standard), **Nur bei Bedarf** oder **Nie von selbst** – siehe unten. |
+| Hinweis nur, wenn nötig | Kein Hinweis beim Seitenaufruf, solange ausschließlich Dienste aktiv sind, die nur über Einbettungen mit Platzhalter laden – [siehe unten](#hinweis-nur-wenn-nötig). Standard: an. |
 | Schließen-Schaltfläche (×) | Schließt den Hinweis **ohne Entscheidung**: Es wird nichts geladen, und der Hinweis bleibt bis zum Ende der Browser-Sitzung ausgeblendet (Escape wirkt genauso). Ohne × muss im Dialog entschieden werden. Standard: an. |
 | Schwebende Schaltfläche | Öffnet die Einstellungen erneut. Ohne sie muss ein [eigener Link](03_einbindung.md#einstellungen-erneut-oeffnen) vorhanden sein: Der Widerruf muss so einfach sein wie die Einwilligung. |
 
@@ -40,6 +41,22 @@ Nicht jede Website braucht den Hinweis sofort. Wer ausschließlich externe Inhal
 **Die Einschränkung:** Sobald ein optionaler Dienst eigenen Code mitbringt, der nach der Einwilligung läuft (`html_head`, `html_body`, `js_accept` oder ein Ereignis), wird bei **Nur bei Bedarf** trotzdem gefragt – sonst käme dieser Dienst nie zum Zug. Nur **Nie von selbst** unterdrückt den Hinweis ausnahmslos; diese Stufe gehört auf Websites, die ohne Einwilligung nachweislich nichts laden. Die Einstellungsseite warnt, wenn ein solcher Dienst aktiv ist, und nennt ihn beim Namen.
 
 Bei **Nur bei Bedarf** und **Nie von selbst** braucht es einen dauerhaft erreichbaren Weg zu den Einstellungen: entweder die schwebende Schaltfläche oder einen [eigenen Link](03_einbindung.md#einstellungen-erneut-oeffnen). Der Widerruf muss so einfach sein wie die Einwilligung.
+
+### Hinweis nur, wenn nötig
+
+Eine Website, die außer YouTube-Videos oder Karten nichts Einwilligungspflichtiges einbindet, lädt vor der Einwilligung nichts: Der fremde Inhalt steht inert im Platzhalter (`<template>`), bis der Besucher dort zustimmt. Einen Hinweis beim Seitenaufruf braucht es dafür technisch nicht – die Frage stellt der Platzhalter am Inhalt.
+
+Mit **Hinweis nur, wenn nötig** (Standard: an) entfällt der Hinweis beim Seitenaufruf, solange **alle** aktiven optionalen Dienste als **Nur Einbettung mit Platzhalter** gelten. Dann gilt:
+
+- Vor einer Entscheidung lädt die Seite nichts von fremden Servern, setzt keinen Cookie und schreibt nichts in Local/Session Storage. Auch der Platzhalter selbst lädt nichts nach (kein Vorschaubild vom Anbieter).
+- Am Platzhalter stehen „Inhalt einmal laden“ (ohne Cookie, nur dieser Inhalt auf dieser Seite), „… immer erlauben“ (wird wie jede Einwilligung gespeichert und protokolliert) und „Datenschutz-Einstellungen öffnen“.
+- Die schwebende Schaltfläche bzw. ein [eigener Link](03_einbindung.md#einstellungen-erneut-oeffnen) bleiben: Dort lässt sich die Auswahl jederzeit ansehen und widerrufen.
+
+Sobald ein Dienst aktiv ist, der nicht nur über Platzhalter lädt – Statistik, Marketing, Tag Manager, ein Dienst mit eigenem Script von einem anderen Host, Consent Mode, Ereignisse oder JavaScript vor der Entscheidung –, erscheint der Hinweis wieder wie unter **Hinweis beim Seitenaufruf** eingestellt. Die Übersicht **Dienste** zeigt im Status, ob der Hinweis erscheint und wegen welcher Dienste; Dienste, die nur über Platzhalter laden, tragen dort das Merkmal „Nur Platzhalter“.
+
+Welche Dienste als **Nur Einbettung mit Platzhalter** gelten, steht unter [Dienste → Erweitert](02_dienste.md#nur-einbettung-mit-platzhalter). Wer den Hinweis trotzdem immer zeigen will, schaltet die Einstellung aus.
+
+Zum Hintergrund: § 25 Abs. 1 TDDDG verlangt eine Einwilligung für das Speichern von Informationen auf dem Endgerät und den Zugriff darauf, soweit sie nicht unbedingt erforderlich sind. Technisch fällt bei dieser Konstellation vor der Einwilligung am Platzhalter keines von beiden an. Ob das für die eigene Website genügt – etwa mit Blick auf Datenschutzerklärung und Informationspflichten –, ist eine rechtliche Bewertung im Einzelfall; diese Dokumentation ist keine Rechtsberatung.
 
 ## Einwilligung und Protokoll
 
