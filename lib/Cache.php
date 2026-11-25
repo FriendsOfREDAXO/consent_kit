@@ -56,6 +56,7 @@ final class Cache
         $services = [];
         $jsDefault = [];
         $gcmUsed = false;
+        $groupKeys = array_column(Repository::groups(), 'key', 'id');
         foreach (Repository::services(true) as $service) {
             if ([] !== $service['domain_ids'] && !in_array($domain['id'], $service['domain_ids'], true)) {
                 continue;
@@ -101,16 +102,27 @@ final class Cache
                 'gcm' => $service['gcm_signals'],
                 'hosts' => $service['embed_hosts'],
                 'items' => $items,
+                // nur serverseitig: Gruende gegen „nur Einbettung mit Platzhalter“ (wird unten entfernt)
+                '_eo' => EmbedOnly::issues($service, (string) ($groupKeys[$service['group_id']] ?? ''), $code),
             ];
         }
 
         $groups = [];
+        $optional = 0;
+        $blockers = [];
         foreach (Repository::groups() as $group) {
             if (!isset($services[$group['id']])) {
                 continue;
             }
             foreach ($services[$group['id']] as &$entry) {
                 $entry['h'] = self::serviceHash($group, $entry);
+                if (!$group['required']) {
+                    ++$optional;
+                    if ([] !== $entry['_eo']) {
+                        $blockers[$entry['key']] = $entry['name'];
+                    }
+                }
+                unset($entry['_eo']);
             }
             unset($entry);
             $groups[] = [
@@ -151,6 +163,13 @@ final class Cache
                 'urlPassthrough' => (bool) $addon->getConfig('gcm_url_passthrough', false),
                 'waitForUpdate' => max(0, (int) $addon->getConfig('gcm_wait_for_update', 500)),
             ],
+            /*
+             * „Hinweis nur, wenn nötig“: Sind nur Dienste aktiv, die ausschliesslich ueber Platzhalter laden,
+             * erscheint der Hinweis nicht von selbst – die Einwilligung holt der Platzhalter am Inhalt ein.
+             * embedOnlyBlockers nennt die Dienste, die den Hinweis trotzdem brauchen (nur serverseitig).
+             */
+            'embedOnly' => (bool) $addon->getConfig('only_needed', true) && $optional > 0 && [] === $blockers,
+            'embedOnlyBlockers' => $blockers,
             'jsDefault' => $jsDefault,
             'texts' => Texts::all($clangCode),
             'groups' => $groups,

@@ -135,6 +135,7 @@ final class PresetIo
         }
         $preset['gcm_signals'] = array_values((array) $service['gcm_signals']);
         $preset['embed_hosts'] = array_values((array) $service['embed_hosts']);
+        $preset['embed_only'] = !empty($service['embed_only']);
         $preset['items'] = [];
         foreach ((array) $service['items'] as $item) {
             $preset['items'][] = [

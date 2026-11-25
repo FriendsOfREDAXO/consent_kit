@@ -3,6 +3,7 @@
 namespace FriendsOfRedaxo\ConsentKit\Backend;
 
 use FriendsOfRedaxo\ConsentKit\Cache;
+use FriendsOfRedaxo\ConsentKit\EmbedOnly;
 use FriendsOfRedaxo\ConsentKit\Events;
 use FriendsOfRedaxo\ConsentKit\I18n;
 use FriendsOfRedaxo\ConsentKit\Installer;
@@ -320,6 +321,8 @@ final class ServiceController
      */
     private function serviceRow(array $service, int $index, int $total, array $domains): string
     {
+        static $groupKeys = null;
+        $groupKeys ??= array_column(Repository::groups(), 'key', 'id');
         $name = $service['name'];
         $status = $this->postButton(
             'status',
@@ -339,6 +342,9 @@ final class ServiceController
         }
         foreach ($service['gcm_signals'] as $signal) {
             $badges .= ' <code class="ck-signal">' . rex_escape($signal) . '</code>';
+        }
+        if ($service['embed_only'] && [] === EmbedOnly::issues($service, $groupKeys[$service['group_id']] ?? '')) {
+            $badges .= ' <span class="label label-default" title="' . rex_i18n::msg('consent_kit_embed_only_badge_hint') . '">' . rex_i18n::msg('consent_kit_embed_only_badge') . '</span>';
         }
 
         $cells = '';
@@ -410,6 +416,8 @@ final class ServiceController
 
         $optional = 0;
         $incomplete = [];
+        $blockers = [];
+        $groupKeys = array_column(Repository::groups(), 'key', 'id');
         $requiredGroups = array_column(array_filter(Repository::groups(), static fn (array $g) => $g['required']), 'id');
         foreach ($services as $service) {
             if (!$service['status']) {
@@ -419,11 +427,25 @@ final class ServiceController
                 $incomplete[] = $service['name'];
             } elseif (!in_array($service['group_id'], $requiredGroups, true)) {
                 ++$optional;
+                if ([] !== EmbedOnly::issues($service, $groupKeys[$service['group_id']] ?? '')) {
+                    $blockers[] = $service['name'];
+                }
             }
         }
         $checks[] = $optional > 0
             ? ['ok', rex_i18n::msg('consent_kit_check_services', (string) $optional)]
             : ['info', rex_i18n::msg('consent_kit_check_no_services')];
+        // „Hinweis nur, wenn nötig“: erscheint der Hinweis beim Seitenaufruf – und wenn ja, wegen welcher Dienste?
+        if ($optional > 0) {
+            $onlyNeeded = (bool) $addon->getConfig('only_needed', true);
+            if ([] === $blockers) {
+                $checks[] = $onlyNeeded
+                    ? ['ok', rex_i18n::msg('consent_kit_check_embed_only_on')]
+                    : ['info', rex_i18n::rawMsg('consent_kit_check_embed_only_off', $settingsUrl)];
+            } elseif ($onlyNeeded) {
+                $checks[] = ['info', rex_i18n::msg('consent_kit_check_embed_only_blockers', implode(', ', $blockers))];
+            }
+        }
         if ([] !== $incomplete) {
             $checks[] = ['warn', rex_i18n::msg('consent_kit_check_incomplete', implode(', ', $incomplete))];
         }
@@ -527,7 +549,7 @@ final class ServiceController
         $service ??= [
             'id' => 0, 'key' => '', 'group_id' => 0, 'status' => true, 'name' => '', 'provider' => '', 'privacy_url' => '',
             'description' => [], 'params' => [], 'html_head' => '', 'html_body' => '', 'js_default' => '', 'js_accept' => '', 'js_revoke' => '',
-            'gcm_signals' => [], 'embed_hosts' => [], 'domain_ids' => [], 'preset' => '', 'items' => [], 'variants' => [], 'events' => [],
+            'gcm_signals' => [], 'embed_hosts' => [], 'embed_only' => false, 'domain_ids' => [], 'preset' => '', 'items' => [], 'variants' => [], 'events' => [],
         ];
         // Nach einem Validierungsfehler die Eingaben behalten.
         if ([] !== $posted) {
@@ -541,6 +563,7 @@ final class ServiceController
             $service['gcm_signals'] = array_map('strval', (array) ($posted['gcm_signals'] ?? []));
             $service['domain_ids'] = 'selected' === ($posted['domain_mode'] ?? 'all') ? array_map('intval', (array) ($posted['domain_ids'] ?? [])) ?: [-1] : [];
             $service['embed_hosts'] = preg_split('~[\s,]+~', (string) ($posted['embed_hosts'] ?? ''), -1, PREG_SPLIT_NO_EMPTY) ?: [];
+            $service['embed_only'] = !empty($posted['embed_only']);
             $service['events'] = Events::normalize(rex_request::post('events', 'array', []));
             $service['variants'] = [];
             foreach (rex_request::post('variants', 'array', []) as $variant) {
@@ -677,6 +700,19 @@ final class ServiceController
         }
         $advanced .= '</div><p class="help-block">' . rex_i18n::msg('consent_kit_gcm_signals_help') . '</p></fieldset>'
             . Form::textarea('service[embed_hosts]', rex_i18n::msg('consent_kit_embed_hosts'), implode("\n", $service['embed_hosts']), rex_i18n::rawMsg('consent_kit_embed_hosts_help'), ['rows' => 3, 'class' => 'ck-code', 'spellcheck' => 'false', 'placeholder' => "youtube.com\nyoutube-nocookie.com"]);
+
+        // „Nur Einbettung mit Platzhalter“: Merkmal plus Gruende, warum der Dienst trotzdem den Hinweis braucht.
+        $groupKey = '';
+        foreach (Repository::groups() as $group) {
+            if ($group['id'] === $service['group_id']) {
+                $groupKey = $group['key'];
+            }
+        }
+        $advanced .= Form::checkbox('service[embed_only]', rex_i18n::msg('consent_kit_embed_only'), $service['embed_only'], rex_i18n::rawMsg('consent_kit_embed_only_help'));
+        $issues = array_diff_key(EmbedOnly::issues($service, $groupKey), ['flag' => true]);
+        if ($service['embed_only'] && [] !== $issues) {
+            $advanced .= '<p class="ck-note ck-note-warn">' . rex_escape(rex_i18n::msg('consent_kit_embed_only_issues', implode('; ', $issues))) . '</p>';
+        }
 
         $tabs = [
             'general' => [rex_i18n::msg('consent_kit_tab_general'), $general],

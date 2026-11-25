@@ -7,7 +7,7 @@ use FriendsOfRedaxo\ConsentKit\Repository;
 $addon = rex_addon::get('consent_kit');
 $csrf = rex_csrf_token::factory('consent_kit');
 $message = '';
-$checkboxes = ['auto_inject', 'trigger', 'dismissible', 'banner_groups', 'reload_on_revoke', 'oembed', 'block_embeds', 'gcm_ads_data_redaction', 'gcm_url_passthrough'];
+$checkboxes = ['auto_inject', 'only_needed', 'trigger', 'dismissible', 'banner_groups', 'reload_on_revoke', 'oembed', 'block_embeds', 'gcm_ads_data_redaction', 'gcm_url_passthrough'];
 Repository::syncYrewriteDomains();
 
 if ('post' === rex_request::requestMethod()) {
@@ -108,6 +108,7 @@ $display = Form::checkbox('settings[auto_inject]', rex_i18n::msg('consent_kit_au
         'on_demand' => [rex_i18n::msg('consent_kit_open_mode_on_demand'), rex_i18n::msg('consent_kit_open_mode_on_demand_text')],
         'never' => [rex_i18n::msg('consent_kit_open_mode_never'), rex_i18n::msg('consent_kit_open_mode_never_text')],
     ])
+    . Form::checkbox('settings[only_needed]', rex_i18n::msg('consent_kit_only_needed'), (bool) $get('only_needed', true), rex_i18n::rawMsg('consent_kit_only_needed_help'))
     . Form::checkbox('settings[dismissible]', rex_i18n::msg('consent_kit_dismissible'), (bool) $get('dismissible', true), rex_i18n::msg('consent_kit_dismissible_help'))
     . Form::checkbox('settings[trigger]', rex_i18n::msg('consent_kit_trigger'), (bool) $get('trigger', true), rex_i18n::rawMsg('consent_kit_trigger_help'))
     . '<div data-ck-show-if="settings[trigger]" data-ck-show-values="1">'

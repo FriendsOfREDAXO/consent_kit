@@ -83,7 +83,7 @@ final class Frontend
         }
 
         $public = $config;
-        unset($public['jsDefault'], $public['gcmOptions']);
+        unset($public['jsDefault'], $public['gcmOptions'], $public['embedOnlyBlockers']);
         $public['links'] = $links;
         // Datenschutz und Impressum muessen ohne Entscheidung lesbar bleiben.
         $public['quiet'] = $quiet;

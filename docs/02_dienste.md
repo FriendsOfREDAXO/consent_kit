@@ -26,7 +26,7 @@ Für alles ohne Vorlage. Die Reiter:
 | Scripts | Code, der erst nach Einwilligung läuft (siehe unten) |
 | Ereignisse | Conversions ohne Programmierung: „Wenn Klick auf … / Seite … / Formular … dann melde Anfrage“ (siehe unten) |
 | Varianten | Abweichungen je Domain oder Sprache |
-| Erweitert | Consent-Mode-Signale; Domains, von denen der Dienst Inhalte einbettet (siehe unten) |
+| Erweitert | Consent-Mode-Signale; Domains, von denen der Dienst Inhalte einbettet; Merkmal „Nur Einbettung mit Platzhalter“ (siehe unten) |
 
 Der **Schlüssel** ist der Name, unter dem Templates und Module den Dienst ansprechen (`Consent::has('…')`, `data-consent="…"`). Nach dem Anlegen ist das Feld gesperrt; „Schlüssel ändern“ gibt es nach einer Rückfrage frei – Templates müssen dann angepasst werden, und Besucher werden zu diesem Dienst erneut gefragt.
 
@@ -49,6 +49,19 @@ Beim Widerruf werden außerdem alle unter „Cookies & Speicher“ eingetragenen
 Manche Dienste laufen nicht als Script, sondern als eingebetteter Inhalt: ein YouTube-Video, eine Google-Karte, ein Facebook-Post. Damit Consent Kit solche iframes und Editor-Einbettungen erkennt und diesem Dienst zuordnet, stehen unter **Erweitert** die Domains, von denen der Dienst einbettet – bei YouTube etwa `youtube.com` und `youtube-nocookie.com`, bei Facebook `facebook.com`. Subdomains zählen automatisch mit.
 
 Genutzt wird die Liste an drei Stellen: von der automatischen Umwandlung der `<oembed>`-Tags aus den Editoren, von „iframes bekannter Dienste automatisch sperren“ und bei `Consent::embed()` nur zur Anzeige des Namens. Die Vorlagen bringen die passenden Domains mit. Dienste, die nichts einbetten (Statistik, Pixel), lassen das Feld leer.
+
+### Nur Einbettung mit Platzhalter
+
+Das Merkmal unter **Erweitert** sagt: Dieser Dienst lädt ausschließlich über 2-Klick-Platzhalter (`Consent::embed()`, gesperrte iframes, Editor-Einbettungen) und holt die Einwilligung dort ein. Sind nur solche Dienste aktiv, entfällt mit [„Hinweis nur, wenn nötig“](01_einrichtung.md#hinweis-nur-wenn-nötig) der Hinweis beim Seitenaufruf.
+
+Das Merkmal allein reicht nicht – der Dienst muss außerdem:
+
+- Domains eingebetteter Inhalte haben (sonst gibt es keinen Platzhalter),
+- nicht in der Gruppe Statistik oder Marketing stehen,
+- ohne Consent-Mode-Signale, Ereignisse und JavaScript vor der Entscheidung auskommen,
+- Code (HTML im `<head>`/`<body>`, JavaScript bei Einwilligung) höchstens vom Anbieter der Einbettung laden – etwa `embed.js` von `instagram.com` bei Instagram. Ein Script von einem anderen Host zählt nicht.
+
+Passt etwas nicht, nennt das Formular den Grund, und der Hinweis erscheint weiterhin. Vorlagen der Gruppe „Externe Medien“ (YouTube, Vimeo, Google Maps, OpenStreetMap, Spotify, Instagram …) bringen das Merkmal mit; beim Update auf 1.6.0 übernehmen bestehende Dienste aus solchen Vorlagen es automatisch. Eigene Dienste starten ohne Merkmal.
 
 ## Ereignisse (Conversions)
 

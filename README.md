@@ -10,6 +10,7 @@ Einwilligungsverwaltung für REDAXO: eine neutrale, barrierefreie Web Component 
 - **Google Consent Mode v2**, **Global Privacy Control**, Anbieter-Aufrufe für Microsoft UET/Clarity, Meta und weitere.
 - **Conversions ohne Code:** „Wenn Klick auf … dann melde Anfrage“ – der Aufruf je Anbieter kommt aus der Vorlage.
 - **2-Klick-Platzhalter** für Videos, Karten und Social-Media-Einbettungen; `<oembed>`-Tags aus CKEditor 5 und TinyMCE werden automatisch gesperrt.
+- **Hinweis nur, wenn nötig:** Sind nur Einbettungen mit Platzhalter aktiv (YouTube, Vimeo, Karten …), erscheint kein Hinweis beim Seitenaufruf – die Einwilligung holt der Platzhalter ein, vorher lädt nichts.
 - **Protokoll** ohne IP-Adresse und User-Agent, mit Schnappschuss dessen, was zur Auswahl stand.
 - **Design-Editor** mit Live-Vorschau, Dark Mode und Kontrastprüfung; Gestaltung über CSS Custom Properties.
 - **Barrierefrei:** natives `<dialog>`, Fokusführung, Tastaturbedienung, `prefers-reduced-motion`, `forced-colors`.
@@ -20,7 +21,7 @@ Einwilligungsverwaltung für REDAXO: eine neutrale, barrierefreie Web Component 
 2. **Einstellungen → Rechtstexte und Domains:** Datenschutzerklärung und Impressum wählen. Domains aus YRewrite erscheinen von selbst.
 3. **Dienste → Dienst hinzufügen:** Vorlage wählen, ID eintragen, speichern.
 
-Solange kein einwilligungspflichtiger Dienst aktiv ist, sehen Besucher keinen Hinweis.
+Solange kein einwilligungspflichtiger Dienst aktiv ist, sehen Besucher keinen Hinweis. Sind nur Einbettungen mit Platzhalter aktiv, fragt der Platzhalter statt eines Hinweises beim Seitenaufruf ([Hinweis nur, wenn nötig](docs/01_einrichtung.md#hinweis-nur-wenn-nötig)).
 
 ## Kapitel
 
